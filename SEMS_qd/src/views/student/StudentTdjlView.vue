@@ -118,8 +118,11 @@
 
             <el-table-column label="状态" width="120" fixed="left">
               <template #default="{row}">
-                <el-tag :type="row.QRDM === 1 ? 'success' : 'warning'">
+                <el-tag v-show="row.HYDM===0" :type="row.QRDM === 1 ? 'success' : 'warning'">
                   {{ row.QRDM === 1 ? '已确认' : '待确认' }}
+                </el-tag>
+                <el-tag v-show="row.HYDM===1" type="success">
+                    单位已回应
                 </el-tag>
               </template>
             </el-table-column>
