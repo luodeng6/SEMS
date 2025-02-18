@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.JsbjdykDao">
+
+    <resultMap type=".entity.Jsbjdyk" id="JsbjdykMap">
+        <result property="bjid" column="BJID" jdbcType="INTEGER"/>
+        <result property="jsid" column="JSID" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="JsbjdykMap">
+        select BJIDJSID
+        from JSBJDYK
+        where = #{}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="JsbjdykMap">
+        select
+        BJIDJSID
+        from JSBJDYK
+        <where>
+            <if test="bjid != null">
+                and BJID = #{bjid}
+            </if>
+            <if test="jsid != null">
+                and JSID = #{jsid}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from JSBJDYK
+        <where>
+            <if test="bjid != null">
+                and BJID = #{bjid}
+            </if>
+            <if test="jsid != null">
+                and JSID = #{jsid}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="" useGeneratedKeys="true">
+        insert into JSBJDYK(BJIDJSID)
+        values (#{bjid}#{jsid})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="" useGeneratedKeys="true">
+        insert into JSBJDYK(BJIDJSID)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.bjid}#{entity.jsid})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="" useGeneratedKeys="true">
+        insert into JSBJDYK(BJIDJSID)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.bjid}#{entity.jsid})
+        </foreach>
+        on duplicate key update
+        BJID = values(BJID)JSID = values(JSID)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update JSBJDYK
+        <set>
+            <if test="bjid != null">
+                BJID = #{bjid},
+            </if>
+            <if test="jsid != null">
+                JSID = #{jsid},
+            </if>
+        </set>
+        where = #{}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from JSBJDYK
+        where = #{}
+    </delete>
+
+</mapper>
+

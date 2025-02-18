@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DataGwdmkMapper">
+    <insert id="addGangWei">
+        /* 新增时要插入的字段：
+         GWMC	岗位名称
+         GWMS	岗位描述
+         GWYQ	岗位要求
+         FBSJ	岗位发布时间
+         TDSM	投递说明
+         ZGXZ	最高薪资
+         ZDXZ	最低薪资
+         ZDXLYQ	最低学历要求
+         GZDD	工作地点
+         GZSF	工作省份，对应SFDMK 省份代码库
+         SXBZ	实习标志,1为实习岗位，2为正式岗位
+         ZYXZ	专业限制
+         DWMC	单位名称
+         DWDM	单位代码,对应DWDMK
+         TDCS	投递次数   默认0
+       --   TDXZBZ	投递限制标志，默认0      不插入！
+         TDXZCS	投递限制次数，若TDXZBZ为0则设置为空
+         QYDM	启用代码
+         ZPRS	招聘人数
+         JYHJ	就业环境(图)
+         JYHJMS	就业环境吗描述
+         GZZZ	工作职责
+        GWFL 岗位分类*/
+        insert into DATA_GWDMK(GWMC, GWMS, GWYQ, FBSJ, TDSM, ZGXZ, ZDXZ, ZDXLYQ, GZDD, GZSF, SXBZ, ZYXZ, DWMC, DWDM,
+                               TDXZBZ, TDXZCS, QYDM, ZPRS, JYHJ, JYHJMS, GZZZ, GWFL,FBZ,FBZYHSFDM)
+        values (#{gwmc}, #{gwms}, #{gwyq}, #{fbsj}, #{tdsm}, #{zgxz}, #{zdxz}, #{zdxlyq}, #{gzdd}, #{gzsf}, #{sxbz},
+                #{zyxz}, #{dwmc}, #{dwdm},
+                #{tdxzbz}, #{tdxzcs}, #{qydm}, #{zprs}, #{jyhj}, #{jyhjms}, #{gzzz}, #{gwfl},#{fbz},#{fbzyhsfdm})
+    </insert>
+    <!--通过主键修改数据-->
+    <update id="updateGangWei">
+        /*可以更新的字段 ：
+          ID	岗位id
+            GWMC	岗位名称
+            GWMS	岗位描述
+            GWYQ	岗位要求
+            FBSJ	岗位发布时间
+            TDSM	投递说明
+            ZGXZ	最高薪资
+            ZDXZ	最低薪资
+            ZDXLYQ	最低学历要求
+            GZDD	工作地点
+            GZSF	工作省份，对应SFDMK 省份代码库
+            SXBZ	实习标志,1为实习岗位，2为正式岗位
+            ZYXZ	专业限制
+            DWMC	单位名称
+            DWDM	单位代码,对应DWDMK
+            TDCS	投递次数
+            TDXZBZ	投递限制标志，默认0
+            TDXZCS	投递限制次数，若TDXZBZ为0则设置为空
+            QYDM	启用代码
+            ZPRS	招聘人数
+            JYHJ	就业环境(图)
+            JYHJMS	就业环境吗描述
+            GZZZ	工作职责
+            GWFL	岗位分类
+          */
+        UPDATE DATA_GWDMK SET
+              GWMC=#{gwmc},
+              GWMS=#{gwms},
+              GWYQ=#{gwyq},
+              FBSJ=#{fbsj},
+              TDSM=#{tdsm},
+              ZGXZ=#{zgxz},
+              ZDXZ=#{zdxz},
+              ZDXLYQ=#{zdxlyq},
+              GZDD=#{gzdd},
+              GZSF=#{gzsf},
+              SXBZ=#{sxbz},
+              ZYXZ=#{zyxz},
+              DWMC=#{dwmc},
+              DWDM=#{dwdm},
+              TDCS=#{tdcs},
+              TDXZBZ=#{tdxzbz},
+              TDXZCS=#{tdxzcs},
+              QYDM=#{qydm},
+              ZPRS=#{zprs},
+              JYHJMS=#{jyhjms},
+              JYHJ=#{jyhj},
+              GZZZ=#{gzzz},
+              GWFL=#{gwfl}
+        WHERE ID = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from DATA_GWDMK where ID = #{id}
+    </delete>
+
+</mapper>
+

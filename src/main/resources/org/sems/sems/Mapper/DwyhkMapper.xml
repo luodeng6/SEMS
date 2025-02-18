@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DwyhkMapper">
+
+    <insert id="addDwyhk">
+        INSERT INTO DWYHK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dydw != null">dydw,</if>
+            <if test="yhm != null">yhm,</if>
+            <if test="mm != null">mm,</if>
+            <if test="tybz != null">tybz,</if>
+            <if test="yhxm != null">yhxm,</if>
+            <if test="sex != null">sex,</if>
+            <if test="zw != null">zw,</if>
+            <if test="ssdw != null">ssdw,</if>
+            <if test="rzbz != null">rzbz,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="dydw != null">#{dydw},</if>
+            <if test="yhm != null">#{yhm},</if>
+            <if test="mm != null">#{mm},</if>
+            <if test="tybz != null">#{tybz},</if>
+            <if test="yhxm != null">#{yhxm},</if>
+            <if test="sex != null">#{sex},</if>
+            <if test="zw != null">#{zw},</if>
+            <if test="ssdw != null">#{ssdw},</if>
+            <if test="rzbz != null">#{rzbz},</if>
+        </trim>
+    </insert>
+
+
+    <!-- 更新单位用户数据 -->
+    <update id="AdminUpdateDwyhkData">
+        UPDATE DWYHK
+        <set>
+            <if test="dydw != null">dydw = #{dydw},</if>
+            <if test="yhm != null">yhm = #{yhm},</if>
+            <if test="mm != null">mm = #{mm},</if>
+            <if test="tybz != null">tybz = #{tybz},</if>
+            <if test="yhxm != null">yhxm = #{yhxm},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="zw != null">zw = #{zw},</if>
+            <if test="ssdw != null">ssdw = #{ssdw},</if>
+            <if test="rzbz != null">rzbz = #{rzbz},</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+</mapper>
+

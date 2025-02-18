@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DataDwdmkMapper">
+    <!--   /*
+      DWDM	单位代码  ，单位代码库   不插入
+      DWMC	单位名称
+      DWXZ	单位性质
+      DWXZDM	单位性质代码，对应DWXZK 单位性质库
+      DWGMDM	单位规模代码，对应DWGMK 单位规模库
+      DWGM	单位规模，文本，存储
+      DWHYDM	单位行业代码,对应DWHYDMK 单位行业代码库
+      DWHY	单位行业
+      GSMC	公司名称
+      GSJJ	公司简介
+      SZDQ	所在地区
+      */
+  -->
+
+    <insert id="AddDataDwdmk">
+        insert into data_dwdmk ( dwmc, dwxz, dwxzdm, dwgmdm, dwgm, dwhydm, dwhy, gsmc, gsjj, szdq)
+        values ( #{dwmc}, #{dwxz}, #{dwxzdm}, #{dwgmdm}, #{dwgm}, #{dwhydm}, #{dwhy}, #{gsmc}, #{gsjj}, #{szdq})
+    </insert>
+
+
+
+    <update id="updateDataDwdmk">
+        update data_dwdmk
+        set dwmc = #{dwmc}, /*单位名称*/
+            dwxz = #{dwxz}, /*单位性质*/
+            dwxzdm = #{dwxzdm},  /*单位性质代码*/
+            dwgmdm = #{dwgmdm}, /*单位规模代码*/
+            dwgm = #{dwgm},   /*单位规模*/
+            dwhydm = #{dwhydm},  /*单位行业代码*/
+            dwhy = #{dwhy},  /*单位行业*/
+            gsmc = #{gsmc},   /*公司名称*/
+            gsjj = #{gsjj},   /*公司简介*/
+            szdq = #{szdq}   /*所在地区*/
+        where dwdm = #{dwdm} /*单位代码*/
+    </update>
+</mapper>
+
