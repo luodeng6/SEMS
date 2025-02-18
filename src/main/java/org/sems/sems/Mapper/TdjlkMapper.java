@@ -38,6 +38,11 @@ public interface TdjlkMapper {
     int deleteTdjlkById(int id);
 
     // 单位用户回应
-    @Update("update tdjlk set HYSJ=now(),DWYH=#{dwyh},HYJG=#{hyjg},HYNR=#{hynr} where id = #{id}")
-    int HyTdjlkById(int id, String hynr, String dwyh, int hyjg);
+    @Update("update tdjlk set HYSJ=GETDATE(),HYDM=1,DWYH=#{dwyh},TDJG=#{hyjg},TDJGNR=(select TDJG from TDJGK where ID=#{hyjg}),HYNR=#{hynr} where id = #{id}")
+    int HyTdjlkById(@Param("id") int id,@Param("hynr") String hynr, @Param("dwyh") String dwyh, @Param("hyjg") int hyjg);
+
+
+    // 用户是否已经回应
+    @Select("select * from tdjlk where id = #{id} and hydm = 1")
+   List<Tdjlk>  isHyTdjlkById(int id);
 }

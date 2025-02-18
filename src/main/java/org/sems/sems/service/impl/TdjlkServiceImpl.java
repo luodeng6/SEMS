@@ -265,15 +265,36 @@ public class TdjlkServiceImpl implements TdjlkService {
     public Map<String, Object> huiying(int id, String hynr, String dwyh, int hyjg) {
         Map<String, Object> result = new HashMap<>();
         try {
-            // 处理单位确认回应投递记录逻辑
-            if (tdjlkMapper.HyTdjlkById(id, hynr, dwyh, hyjg) > 0) {
+            Map<String, Object> checkResult = isAreadyHy(id);
+            System.out.println(checkResult);
+            // 先检查是否已经回应过该简历
+            if (checkResult.get("result").equals(true)) {
+                System.out.println("1");
+                // 已经回应过该简历
                 result.put("code", 200);
-                result.put("msg", "success");
-                result.put("result", true);
-            } else {
-                result.put("code", 504);
-                result.put("msg", "database error");
+                result.put("msg",checkResult.get("msg"));
                 result.put("result", false);
+            }else{
+                // 判断是否发生错误
+                if (checkResult.get("isError").equals(true)) {
+                    System.out.println("2");
+                    result.put("code", 500);
+                    result.put("msg", "server error");
+                    result.put("data", checkResult.get("msg"));
+                    result.put("result", false);
+
+                }else{
+                    System.out.println("3");                    // 处理单位确认回应投递记录逻辑
+                    if (tdjlkMapper.HyTdjlkById(id, hynr, dwyh, hyjg) > 0) {
+                        result.put("code", 200);
+                        result.put("msg", "success");
+                        result.put("result", true);
+                    } else {
+                        result.put("code", 504);
+                        result.put("msg", "database error");
+                        result.put("result", false);
+                    }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -282,6 +303,38 @@ public class TdjlkServiceImpl implements TdjlkService {
             result.put("data", e.getMessage());
             result.put("result", false);
         }
-            return result;
+        return result;
+    }
+
+
+    /**
+     * 检查单位用户是否已经回应了投递记录
+     *
+     * @param tdjlkId 投递记录id
+     * @return Map<String, Object> 返回结果
+     */
+    public Map<String, Object> isAreadyHy(int tdjlkId) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            // 处理检查单位用户是否已经回应了投递记录逻辑
+            if (!tdjlkMapper.isHyTdjlkById(tdjlkId).isEmpty()) {
+                result.put("code", 200);
+                result.put("msg", "你已经回应了该简历");    // 已经回应了
+                result.put("result", true);
+                System.out.println("你已经回应了该简历!!");
+            } else {
+                result.put("isError", false);
+                result.put("msg", "你未回应该简历");    // 未回应
+                result.put("result", false);
+                System.out.println("你未回应该简历!!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("isError", true);
+            result.put("msg", "server error");
+            result.put("result", false);
+            System.out.println("server error!!");
+        }
+        return result;
     }
 }
