@@ -12,7 +12,7 @@
  Target Server Version : 15002000
  File Encoding         : 65001
 
- Date: 18/02/2025 10:44:03
+ Date: 19/02/2025 01:11:14
 */
 
 
@@ -3955,7 +3955,7 @@ GO
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1237', N'陈兴远', N'男', N'2002-07-14', N'20213260024', N'123', N'1292', N'1085', N'452725200207140594', N'共青团员', N'2021', N'4', N'壮族', N'20213260024', N'2021级信息管理与信息系统', N'6', N'1000', NULL, N'1', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1238', N'覃如寒', N'女', N'2003-05-10', N'20213260019', N'123', N'1292', N'1085', N'452730200305101127', N'共青团员', N'2021', N'4', N'壮族', N'20213260019', N'2021级信息管理与信息系统', N'6', N'1000', NULL, N'1', NULL)
+INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1238', N'覃如寒', N'女', N'2003-05-09', N'20213260019', N'123', N'1292', N'1085', N'452730200305101127', N'共青团员', N'2021', N'4', N'壮族', N'20213260019', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260019_1739866044859_.jpg', N'1', N'0')
 GO
 
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1239', N'李思思', N'女', N'2003-03-25', N'20213260027', N'123', N'1292', N'1085', N'452731200303253924', N'中共党员', N'2021', N'4', N'汉族', N'20213260027', N'2021级信息管理与信息系统', N'6', N'0', NULL, N'1', NULL)
@@ -9094,6 +9094,60 @@ GO
 
 
 -- ----------------------------
+-- Table structure for TDJGK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[TDJGK]') AND type IN ('U'))
+	DROP TABLE [dbo].[TDJGK]
+GO
+
+CREATE TABLE [dbo].[TDJGK] (
+  [ID] int NOT NULL,
+  [TDJG] nvarchar(50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+  [CREATETIME] datetime DEFAULT (getdate()) NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[TDJGK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'投递结果内容',
+'SCHEMA', N'dbo',
+'TABLE', N'TDJGK',
+'COLUMN', N'TDJG'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'创建时间',
+'SCHEMA', N'dbo',
+'TABLE', N'TDJGK',
+'COLUMN', N'CREATETIME'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'投递结果库',
+'SCHEMA', N'dbo',
+'TABLE', N'TDJGK'
+GO
+
+
+-- ----------------------------
+-- Records of [TDJGK]
+-- ----------------------------
+INSERT INTO [dbo].[TDJGK]  VALUES (N'0', N'不录用', N'2025-02-18 15:40:42.727')
+GO
+
+INSERT INTO [dbo].[TDJGK]  VALUES (N'1', N'录用', N'2025-02-18 15:43:12.067')
+GO
+
+INSERT INTO [dbo].[TDJGK]  VALUES (N'2', N'安排面试', N'2025-02-18 15:43:21.497')
+GO
+
+INSERT INTO [dbo].[TDJGK]  VALUES (N'3', N'待定', N'2025-02-18 15:43:46.027')
+GO
+
+
+-- ----------------------------
 -- Table structure for TDJLK
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[TDJLK]') AND type IN ('U'))
@@ -9111,7 +9165,10 @@ CREATE TABLE [dbo].[TDJLK] (
   [JLDM] int NULL,
   [HYDM] int DEFAULT ((0)) NULL,
   [HYNR] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
-  [TDJG] int NULL
+  [TDJG] int NULL,
+  [HYSJ] datetime NULL,
+  [DWYH] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [TDJGNR] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL
 )
 GO
 
@@ -9189,10 +9246,31 @@ EXEC sp_addextendedproperty
 GO
 
 EXEC sp_addextendedproperty
-'MS_Description', N'回应结果：0 不录用，2 安排面试  3 录用 4 待定 ',
+'MS_Description', N'回应结果：0 不录用， 1 录用  3 待定  2 安排面试',
 'SCHEMA', N'dbo',
 'TABLE', N'TDJLK',
 'COLUMN', N'TDJG'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'回应时间',
+'SCHEMA', N'dbo',
+'TABLE', N'TDJLK',
+'COLUMN', N'HYSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'回应的单位用户',
+'SCHEMA', N'dbo',
+'TABLE', N'TDJLK',
+'COLUMN', N'DWYH'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'投递结果内容，对应TDJG',
+'SCHEMA', N'dbo',
+'TABLE', N'TDJLK',
+'COLUMN', N'TDJGNR'
 GO
 
 EXEC sp_addextendedproperty
@@ -9208,114 +9286,19 @@ GO
 SET IDENTITY_INSERT [dbo].[TDJLK] ON
 GO
 
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'3', N'1226', N'33', N'2025-02-15 00:27:00.847', N'1', N'1', N'特斯拉是信仰！', N'1', NULL, NULL, NULL)
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR]) VALUES (N'1', N'1226', N'34', N'2025-02-18 22:04:18.107', N'1', N'1', N'求求', N'1', N'1', N'为你安排了面试！', N'2', N'2025-02-18 22:36:26.997', N'msk', N'安排面试')
 GO
 
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'4', N'1226', N'4', N'2025-02-15 01:11:13.133', N'1', N'0', N'我是数学科学家！！', N'1', NULL, NULL, NULL)
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR]) VALUES (N'3', N'1234', N'33', N'2025-02-18 23:53:31.987', N'0', N'0', N'---', N'49', N'0', NULL, NULL, NULL, NULL, NULL)
 GO
 
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'5', N'1226', N'5', N'2025-02-15 01:16:53.823', N'1', N'0', N'“您好，感谢您给我这个机会。我的名字是[你的名字]，我是一名市场分析师，拥有[具体年数]年的相关工作经验。在过去的职业生涯中，我曾在[公司或行业]中负责市场研究与数据分析，熟练使用Excel和Tableau等工具，有效支持决策制定。
-
-我对[公司名]的[提及一两个具体的项目或成果]非常感兴趣，这让我对能够加入贵公司的团队感到兴奋。我相信，我的分析能力和对市场趋势的敏锐洞察，能够为贵公司带来价值。
-
-非常期待能展开进一步的交流，了解贵公司在市场策略方面的需求。”', N'1', NULL, NULL, NULL)
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR]) VALUES (N'4', N'1234', N'34', N'2025-02-19 00:05:22.607', N'0', N'0', N'你啊哈哦', N'49', N'0', NULL, NULL, NULL, NULL, NULL)
 GO
 
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'6', N'1226', N'6', N'2025-02-15 01:17:26.683', N'1', N'0', N'“您好！感谢您给我这次面试的机会。我是[你的名字]，我是一名产品设计师，拥有[具体年数]年的设计经验。在我的职业生涯中，我曾参与多个项目，专注于用户体验（UX）和用户界面（UI）的设计，帮助开发出既美观又实用的产品。
-
-我在[提及过往工作的公司或项目]中，利用[提及使用的设计工具，比如Sketch、Adobe XD、Figma等]设计并优化了多个界面，提高了用户满意度和产品功能性。我特别喜欢与跨职能团队合作，深信设计不仅是外观，更是解决用户痛点的重要过程。
-
-我对[公司名]在[提及某个具体的产品或项目]方面的创新设计非常钦佩，尤其是[具体的特点，比如用户反馈、设计理念等]。我希望能将我的创意思维和技术能力加入贵公司的设计团队，一同推动更优秀的产品。
-
-期待能进一步交流，感谢您提供这次机会。', N'1', NULL, NULL, NULL)
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR]) VALUES (N'5', N'1211', N'32', N'2025-02-19 00:17:01.937', N'0', N'0', N'你好！', N'26', N'0', NULL, NULL, NULL, NULL, NULL)
 GO
 
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'7', N'1226', N'34', N'2025-02-15 01:17:56.453', N'1', N'1', N'“您好！感谢您给我这个机会，我叫[你的名字]。我是一名具有[具体年数]年销售经验的专业人士，曾在[相关公司或行业]领域工作。在这一过程中，我不仅积累了丰富的销售技巧，还学会了如何建立和维护客户关系，确保客户满意度。
-
-我对电动车行业充满热情，特别是特斯拉在可持续能源和技术创新方面的领先地位，让我深感钦佩。我了解特斯拉的核心价值观，包括对环境的承诺和推动全球向可持续交通转型的使命。这也让我更加渴望成为贵公司的一员，帮助更多客户了解和选择特斯拉的产品。
-
-在我的上一份工作中，我成功达成并超越销售目标，尤其是在推广新产品和教育客户方面。我相信，凭借我的人际交往能力和对市场趋势的敏锐洞察，我能够为特斯拉带来更多客户和销售业绩。
-
-期待能够进一步讨论我如何为特斯拉贡献力量，感谢您再次给予我这个机会。”', N'1', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'8', N'1227', N'34', N'2025-02-15 23:27:48.177', N'1', N'0', N'求你给我这份工作！！！', N'4', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'11', N'1234', N'33', N'2025-02-16 12:31:58.883', N'1', N'0', N'浩哥', N'49', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'18', N'1226', N'7', N'2025-02-17 13:14:19.113', N'1', N'0', N'你好！！', N'1', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'19', N'1226', N'9', N'2025-02-17 13:15:11.560', N'1', N'0', N'111', N'1', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'20', N'1226', N'11', N'2025-02-17 13:15:42.380', N'1', N'0', N'iii', N'1', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'21', N'1211', N'4', N'2025-02-17 13:33:50.223', N'1', N'0', N'你啊哈哦！！！', N'26', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'22', N'1211', N'5', N'2025-02-17 13:41:12.190', N'1', N'0', N'111', N'26', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'23', N'1211', N'6', N'2025-02-17 13:44:56.910', N'1', N'0', N'111', N'26', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'24', N'1211', N'17', N'2025-02-17 13:53:28.820', N'1', N'1', N'罗邓给我个岗位吧！！', N'26', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'9', N'1227', N'6', N'2025-02-15 23:28:55.497', N'1', N'0', N'求求！！！我找不懂啊', N'4', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'16', N'1226', N'12', N'2025-02-17 13:12:52.273', N'1', N'0', N'hahahha1', N'41', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'17', N'1226', N'8', N'2025-02-17 13:13:30.140', N'1', N'0', N'1111', N'41', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'10', N'1234', N'9', N'2025-02-16 11:17:42.720', N'1', N'0', N'求求求求！', N'49', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'12', N'1234', N'34', N'2025-02-16 12:32:15.140', N'1', N'0', N'哈哈', N'49', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'13', N'1234', N'29', N'2025-02-16 12:53:35.420', N'1', N'1', N'罗邓先生你好', N'49', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'15', N'1226', N'30', N'2025-02-16 21:27:42.477', N'1', N'1', N'求求给我工作', N'41', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'14', N'1226', N'17', N'2025-02-16 13:05:17.390', N'1', N'1', N'hello!', N'41', NULL, NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'25', N'1222', N'17', N'2025-02-17 14:15:38.547', N'1', N'1', N'尊敬的大佬：
-展信安。晚辈梁琪，辛巳年荷月生于潇湘之地，今值桃李之年，谨以寸楮聊表拳拳之意。《诗经》有云"有匪君子，如切如磋，如琢如磨"，二十二载春秋的自我砥砺，恰似璞玉初现莹润之色。
-
-幼承庭训，祖父授我以《颜氏家训》，故深谙"积财千万，不如薄技在身"之理。求学时期效仿欧阳修"三上读书"之志，于中南大学主修工商管理时，常携《商君书》《盐铁论》出入图书馆，尤在市场营销课程中，借管仲"通轻重之权，徼山海之业"的智慧，带领团队斩获全国高校商业精英挑战赛金奖。这份经历恰如《文心雕龙》所言"操千曲而后晓声，观千剑而后识器"。
-
-曾于某上市公司实习，亲历"治大国若烹小鲜"的管理艺术。在策划"国潮复兴"营销项目时，取法张择端《清明上河图》的叙事格局，融合苏轼"腹有诗书气自华"的文化底蕴，使产品销售额环比提升47%。这段经历让我体悟到《周易》"穷则变，变则通，通则久"的真谛。
-
-平素以顾恺之"渐入佳境"自勉，好研习《梦溪笔谈》中的创新思维。近日正研读彼得·德鲁克著作，尝试用《孙子兵法》"以正合，以奇胜"的谋略解构现代企业管理案例。闲暇时亦效法李清照"赌书消得泼茶香"的雅趣，在茶艺与书法中涵养心性。
-
-庄子云"吾生也有涯，而知也无涯"，我愿以韩愈《进学解》中"业精于勤荒于嬉"为座右铭，期待能在贵司这片沃土上，效仿范仲淹"不以物喜，不以己悲"的胸怀，践行《中庸》"致广大而尽精微"的职业追求。
-
-临书仓促，不尽欲言。惟愿能得春风化雨，使新燕得衔芹藻之香。
-梁琪 谨呈', N'37', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'26', N'1207', N'34', N'2025-02-17 15:32:40.257', N'1', N'0', N'我是一个积极进取、充满热情的人，对工作认真负责，能够适应快节奏的工作环境，并且在团队中能够发挥自己的优势，与团队成员共同合作完成任务。在大学期间，我始终保持积极的学习态度，努力拓宽自己的知识面，不仅仅局限于课本知识，还积极参与了多个校外项目和实践，锻炼了自己的实际操作能力。
-在未来的职业生涯中，我希望能够在[行业名称]领域中发挥自己的所学，并在贵公司这个平台上不断进步。如果有机会加入贵公司，我将尽全力发挥自己的优势，贡献我的力量。', N'22', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'28', N'1226', N'35', N'2025-02-17 19:39:16.590', N'1', N'1', N'碧梨！！', N'41', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'29', N'1234', N'35', N'2025-02-17 19:50:28.343', N'1', N'0', N'碧梨你好，我是大数据工程师！', N'49', N'0', NULL, NULL)
-GO
-
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG]) VALUES (N'30', N'1226', N'10', N'2025-02-17 20:51:57.100', N'1', N'0', N'法律顾问！', N'1', N'0', NULL, NULL)
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR]) VALUES (N'6', N'1226', N'4', N'2025-02-19 01:09:00.300', N'1', N'0', N'123', N'1', N'0', NULL, NULL, NULL, NULL, NULL)
 GO
 
 SET IDENTITY_INSERT [dbo].[TDJLK] OFF
@@ -9628,7 +9611,7 @@ CREATE TABLE [dbo].[XXDMK] (
   [DZLX] int NOT NULL,
   [CFZSFDM] int NOT NULL,
   [JSZSFDM] int NOT NULL,
-  [DZNR] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [DZNR] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
   [YDBZ] int DEFAULT ((0)) NOT NULL
 )
 GO
@@ -9726,7 +9709,28 @@ GO
 SET IDENTITY_INSERT [dbo].[XXDMK] ON
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'1', N'1', N'学生投递了岗位', N'2025-02-17 20:51:57.350', N'billie', N'0', N'6', N'4', N'3', N'学生投递', N'0')
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'1', N'1', N'学生投递了岗位', N'2025-02-18 22:04:18.120', N'msk', N'0', N'6', N'4', N'3', N'学生投递', N'0')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'2', N'msk', N'单位确认了投递', N'2025-02-18 22:35:32.617', N'1', N'0', N'1', N'3', N'4', N'单位收到了您的 "特斯拉销售代表" 职位投递', N'0')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'3', N'msk', N'单位回应了投递', N'2025-02-18 22:36:27.000', N'1', N'0', N'2', N'3', N'4', N'为你安排了面试！', N'0')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'4', N'20213260032', N'学生投递了岗位', N'2025-02-18 22:37:42.223', N'msk', N'0', N'6', N'4', N'3', N'学生投递', N'0')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'5', N'20213260032', N'学生投递了岗位', N'2025-02-18 23:53:31.993', N'msk', N'0', N'6', N'4', N'3', N'学生投递', N'0')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'6', N'20213260032', N'学生投递了岗位', N'2025-02-19 00:05:22.617', N'msk', N'0', N'6', N'4', N'3', N'学生投递', N'0')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'7', N'20213260035', N'学生投递了岗位', N'2025-02-19 00:17:01.940', N'msk', N'0', N'6', N'4', N'3', N'学生投递', N'0')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ]) VALUES (N'8', N'1', N'学生投递了岗位', N'2025-02-19 01:09:00.307', N'billie', N'0', N'6', N'4', N'3', N'学生投递岗位:“数据科学家”', N'0')
 GO
 
 SET IDENTITY_INSERT [dbo].[XXDMK] OFF
@@ -10305,7 +10309,7 @@ BEGIN
 		left join XLTTK d on b.XLDM=d.ID
 		left join DATA_DWDMK e on c.DWDM=e.DWDM 
 		left join DWYHK f on c.FBZ= f.YHM
-		where  c.FBZ=  @YHM and c.FBZYHSFDM=3 and f.TYBZ=0-- 单位用户
+		where  c.FBZ=  @YHM and c.FBZYHSFDM=3 and f.TYBZ=0 and a.QYDM=1-- 单位用户，学生撤销投递后无法查看投递记录!
     END  
     ELSE IF @Style = 5  
     BEGIN  
@@ -10397,6 +10401,31 @@ BEGIN
  select a.*,(select count(*) from DATA_GWDMK where FBZ=@YHM and FBZYHSFDM=3 and QYDM=1) GWFBSL,b.* from DWYHK a 
 left join DATA_DWDMK b on a.SSDW=b.DWDM
 where a.YHM=@YHM
+END
+GO
+
+
+-- ----------------------------
+-- Procedure structure for usp_Clear
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_Clear]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_Clear]
+GO
+
+CREATE PROCEDURE [dbo].[usp_Clear]  
+ 
+AS  
+BEGIN  
+    /*  
+        作用：清库 ：XXDMK，TDJLK，
+        时间：2025年2月14日  
+		--  f.TYBZ=0 即只显示 没有停用的单位用户
+    */  
+
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;  
+	 TRUNCATE TABLE XXDMK;
+	 TRUNCATE TABLE TDJLK;
 END
 GO
 
@@ -10741,7 +10770,7 @@ order by
     a.id,a.colorder
 	-- DISPLAY COLUMN IF TABLE / VIEW
 	
-	-- DISPLAY TABLE INDEXES & CONSTRAINTS
+/*	-- DISPLAY TABLE INDEXES & CONSTRAINTS
 	if @sysobj_type in ('S ','U ')
 	begin
 		print ' '
@@ -10768,6 +10797,7 @@ order by
 		raiserror(15470,-1,-1,@objname) -- No foreign keys reference table '%ls'.
 		EXEC sys.sp_helpindex @objname
 	end
+	*/
 end
 GO
 
@@ -10857,6 +10887,91 @@ BEGIN
 				  (SELECT SFDM FROM YHSFDMK WHERE SFMC='学生') AS 'YHSFDM';  
     
 			END  
+END
+GO
+
+
+-- ----------------------------
+-- Procedure structure for usp_getXxdmkData
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_getXxdmkData]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_getXxdmkData]
+GO
+
+CREATE PROCEDURE [dbo].[usp_getXxdmkData]
+	@UserRole int , -- 对照YHSFDMK.ID 
+	@YHM NVARCHAR(50) --用户名
+AS
+BEGIN  
+    /*  
+	  各种用户获取消息信息 
+	*/  
+	--select* from YHSFDMK
+	--select* from XXDMK
+    DECLARE @CFZSFDM NVARCHAR(50);  -- 触发者身份代码
+	DECLARE @JSZSFDM NVARCHAR(50);  -- 接收者身份代码
+ 
+    IF @UserRole = 1  -- 管理员：获取全部的消息即可 
+		BEGIN  
+		  select 
+		  a.ID,
+			a.CFZ,
+			CFZSFDM,
+			JSZSFDM,
+			 case a.CFZSFDM 
+				when 3 then (select YHXM from DWYHK where YHM=CFZ) -- 触发者是单位
+				when 4 then (select XSXM from DATA_STUDENT where YHM=CFZ) -- 触发者是学生
+			end as CFZXM, --姓名
+			a.CFZXW,
+			a.JSZ,
+			case a.JSZSFDM 
+				when 3 then (select YHXM from DWYHK where YHM=JSZ) -- 接收者是单位
+				when 4 then (select XSXM from DATA_STUDENT where YHM=JSZ) -- 接收者是学生
+			end as JSZXM, --姓名	
+			DZNR,-- 动作内容
+			YDBZ,
+			CFSJ
+			from XXDMK a
+			/*
+			 left join DATA_STUDENT b on a.CFZ=b.YHM or a.JSZ=b.YHM
+			 left join DWYHK c on a.CFZ=c.YHM  or a.JSZ=b.YHM  --使用left join 匹配，匹配不到也能显示出该XXDMK的信息
+			*/
+			order by a.CFSJ desc
+		END
+	ELSE IF @UserRole = 2  -- 老师用户无权限（暂时不涉及）
+		BEGIN 
+			select '老师用户暂无权限查看消息' error
+		END
+	ELSE IF @UserRole = 3 or  @UserRole = 4 --单位用户或者学生
+		BEGIN 
+		  -- 获取触发者用户身份代码、接收者身份代码
+		  select @CFZSFDM=CFZSFDM,@JSZSFDM=JSZSFDM from XXDMK
+		  select 
+			a.CFZ,
+			 case a.CFZSFDM 
+				when 3 then c.YHXM -- 触发者是单位
+				when 4 then b.XSXM -- 触发者是学生
+			end as CFZXM, --姓名
+			a.CFZXW,
+			a.JSZ,
+			case a.JSZSFDM 
+				when 3 then c.YHXM -- 接收者是单位
+				when 4 then b.XSXM -- 接收者是学生
+			end as JSZXM, --姓名	
+			DZNR,-- 动作内容
+			YDBZ,
+			DZLX,
+			CFSJ
+			from XXDMK a
+			 left join DATA_STUDENT b on a.CFZ=b.YHM or a.JSZ=b.YHM
+			 left join DWYHK c on a.CFZ=c.YHM  or a.JSZ=b.YHM  --使用left join 匹配，匹配不到也能显示出该XXDMK的信息
+			where CFZ=@YHM or JSZ =@YHM or QBBZ=1 
+			order by a.CFSJ desc
+		END
+	ELSE 
+	  BEGIN
+		select '无效身份 ' error
+	  END
 END
 GO
 
@@ -11067,6 +11182,15 @@ GO
 
 
 -- ----------------------------
+-- Primary Key structure for table TDJGK
+-- ----------------------------
+ALTER TABLE [dbo].[TDJGK] ADD CONSTRAINT [PK_TDJGK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
 -- Triggers structure for table TDJLK
 -- ----------------------------
 CREATE TRIGGER [dbo].[trg_AfterInsert_TDJLK]
@@ -11077,6 +11201,7 @@ AS
 BEGIN   
     DECLARE @STUID INT;  
     DECLARE @GWDM INT;  
+	DECLARE @GWMC NVARCHAR(100)
 	/*
 		此触发器为INSERT 即学生投递简历
 
@@ -11086,8 +11211,10 @@ BEGIN
 	*/
     SELECT   
         @STUID = STUID,  
-        @GWDM = GWDM
-     FROM inserted;  -- 'inserted' 表只有新插入的行  
+        @GWDM = GWDM,
+		@GWMC=b.GWMC
+     FROM inserted a
+	 left join DATA_GWDMK b on a.GWDM=b.ID ;  -- 'inserted' 表只有新插入的行  
 	 /*
 		ID	   消息代码
 		CFZ	    触发者
@@ -11106,8 +11233,107 @@ BEGIN
 
 	INSERT INTO XXDMK(CFZ,CFZXW,JSZ,DZLX,DZNR,CFZSFDM,JSZSFDM) 
 	 values((select YHM from DATA_STUDENT where ID=@STUID),
-	          '学生投递了岗位',@GWFBZ,6,'学生投递',4,@FBZSFDM)
+	          '学生投递了岗位',@GWFBZ,6,'学生投递岗位:“'+@GWMC+'”',4,@FBZSFDM)
 END;
+GO
+
+CREATE TRIGGER [dbo].[trg_AfterUpdate_TDJLK]
+ON [dbo].[TDJLK]
+WITH EXECUTE AS CALLER
+FOR UPDATE
+AS
+BEGIN  
+    /*  
+	单位用户回应学生的投递时、确认学生的投递时候，会执行此触发器：将回应消息插入到XXDMK里  
+	*/  
+
+    DECLARE @ISHY INT;  -- 是否是回应  
+    DECLARE @QRDM INT;  -- 若QRDM变成1，就是单位确认  
+    DECLARE @QYDM INT;  -- 若QYDM变成0 则为学生撤销，对与QYDM变成1的情况，是学生继续投递，学生撤销投递也是不去关注，我们不再去关注，也不发给单位  
+
+    SELECT @ISHY = HYDM, @QRDM = QRDM, @QYDM = QYDM FROM INSERTED;  
+	--1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果 5学生预览岗位 6 学生投递 7 新增系统请求
+    -- 注意：QRDM、HYDM不可能由1变0，当QYDM由1变成0时为学生撤销流程  
+
+    IF @ISHY = 1  -- 此为单位回应  
+    BEGIN  
+        -- 将新值插入到XXDMK表  
+        INSERT INTO XXDMK (  
+            CFZ,        -- 触发者单位用户名  
+            CFZXW,      -- 触发者行为：单位回应了投递  
+            JSZ,        -- 接收者：学生用户名  
+            DZLX,       -- 动作类型: 2：单位用户回应投递  
+            CFZSFDM,    -- 单位用户编码  
+            JSZSFDM,    -- 学生编码  
+            DZNR        -- 单位回应内容  
+        )  
+        SELECT  
+            c.FBZ AS CFZ,                 -- 触发者单位用户名  
+            '单位回应了投递' AS CFZXW,  -- 触发者行为  
+            b.YHM AS JSZ,                 -- 获取接收者：学生用户名  
+            2 AS DZLX,                     -- 动作类型  
+            c.FBZYHSFDM AS CFZSFDM,       -- 单位用户的编码  
+            4 AS JSZSFDM,                 -- 学生的编码  
+            a.HYNR AS DZNR                 -- 单位回应内容  
+        FROM   
+            INSERTED a  
+        LEFT JOIN DATA_STUDENT b ON a.STUID = b.ID  
+        LEFT JOIN DATA_GWDMK c ON a.GWDM = c.ID;  
+    END  
+    ELSE IF @ISHY = 0 AND @QRDM = 1  -- 此为单位确认  
+    BEGIN  
+        -- 将新值插入到XXDMK表  
+        INSERT INTO XXDMK (  
+            CFZ,        -- 触发者单位用户名  
+            CFZXW,      -- 触发者行为：单位确认了投递  
+            JSZ,        -- 接收者：学生用户名  
+            DZLX,       -- 动作类型: 1：单位用户确认投递  
+            CFZSFDM,    -- 单位用户编码  
+            JSZSFDM,    -- 学生编码  
+            DZNR        -- 单位回应内容  
+        )  
+        SELECT  
+            c.FBZ AS CFZ,                  -- 触发者单位用户名  
+            '单位确认了投递' AS CFZXW,   -- 触发者行为  
+            b.YHM AS JSZ,                  -- 获取接收者：学生用户名  
+            1 AS DZLX,                      -- 动作类型  
+            c.FBZYHSFDM AS CFZSFDM,        -- 单位用户的编码  
+            4 AS JSZSFDM,                  -- 学生的编码  
+            '单位收到了您的 "' + c.GWMC + '" 职位投递' AS DZNR  -- 单位回应内容  
+        FROM   
+            INSERTED a  
+        LEFT JOIN DATA_STUDENT b ON a.STUID = b.ID  
+        LEFT JOIN DATA_GWDMK c ON a.GWDM = c.ID;  
+    END  
+END;
+
+/*
+  ELSE IF @QYDM = 0  -- 此为学生撤销投递---
+    BEGIN  
+        -- 将新值插入到XXDMK表  
+        INSERT INTO XXDMK (  
+            CFZ,        -- 触发者单位用户名  
+            CFZXW,      -- 触发者行为：单位回应了投递  
+            JSZ,        -- 接收者：学生用户名  
+            DZLX,       -- 动作类型: 2：单位用户回应投递  
+            CFZSFDM,    -- 单位用户编码  
+            JSZSFDM,    -- 学生编码  
+            DZNR        -- 单位回应内容  
+        )  
+        SELECT  
+            c.FBZ AS CFZ,                  -- 触发者单位用户名  
+            '单位回应了投递' AS CFZXW,   -- 触发者行为  
+            b.YHM AS JSZ,                  -- 获取接收者：学生用户名  
+            2 AS DZLX,                      -- 动作类型  
+            c.FBZYHSFDM AS CFZSFDM,        -- 单位用户的编码  
+            4 AS JSZSFDM,                  -- 学生的编码  
+            a.HYNR AS DZNR                  -- 单位回应内容  
+        FROM   
+            INSERTED a  
+        LEFT JOIN DATA_STUDENT b ON a.STUID = b.ID  
+        LEFT JOIN DATA_GWDMK c ON a.GWDM = c.ID;  
+    END   
+*/
 GO
 
 
