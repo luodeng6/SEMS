@@ -100,8 +100,9 @@
                         <el-table-column prop="id" label="岗位ID" width="100"></el-table-column>
                         <el-table-column prop="id" label="投递状态" fixed="left" width="100">
                           <template slot-scope="scope">
-                            <el-tag type="success" v-if="getTzztByGwdm(scope.row.id)">已投递</el-tag>
-                            <el-tag type="danger" v-else>未投递</el-tag>
+                            <el-tag type="success" v-if="getTzztByGwdm(scope.row.id)===1">已投递</el-tag>
+                            <el-tag type="warning" v-if="getTzztByGwdm(scope.row.id)===2">存在投递记录</el-tag>
+                            <el-tag type="danger" v-if="getTzztByGwdm(scope.row.id)===3">未投递</el-tag>
                           </template>
                         </el-table-column>
 
@@ -147,7 +148,7 @@
                         <el-table-column label="操作" :width="150" align="right" fixed="right">
                           <template slot-scope="scope">
                             <el-button size="mini" @click="ShowJobDetail(scope.row)">查看岗位详情</el-button>
-                            <el-button size="mini" type="danger"  v-show="!getTzztByGwdm(scope.row.id)" @click="TouDiJl(scope.row)">投递简历</el-button>
+                            <el-button size="mini" type="danger"  v-show="getTzztByGwdm(scope.row.id)===3" @click="TouDiJl(scope.row)">投递简历</el-button>
                           </template>
                         </el-table-column>
                       </el-table>
@@ -307,14 +308,31 @@ export default {
   },
   methods: {
     // 获取投递信息
-    getTzztByGwdm(gwdm){
-      // 遍历投递数据，找到对应岗位的投递状态
-      for(let i=0;i<this.TDDATA.length;i++){
-        if(this.TDDATA[i].GWDM === gwdm){
-            return true;
+    getTzztByGwdm(gwdm) {
+      // 遍历投递数据，找到该岗位的投递信息
+      let hasDelivery = false;
+      let hasWithdrawal = false;
+
+      for (let i = 0; i < this.TDDATA.length; i++) {
+        if (this.TDDATA[i].GWDM === gwdm) {
+          if (this.TDDATA[i].QYDM === 1) {
+            console.log("已投递");
+            console.log(this.TDDATA[i]);
+            return 1; // 还未撤销
+          } else if (this.TDDATA[i].QYDM === 0) {
+            hasWithdrawal = true;
+            console.log("存在投递记录:");
+            console.log(this.TDDATA[i]);
+          }
+          hasDelivery = true; // 存在投递记录
         }
       }
-      return false;
+
+      // 如果没有找到任何记录
+      if (!hasDelivery) {
+        return 3; // 未投递
+      }
+      return hasWithdrawal ? 2 : 3; // 如果有投递记录，但已撤销则返回2；否则返回3
     },
     // 通过学生用户名 获取投递数据
     getTdInfoByStuUsername(username) {

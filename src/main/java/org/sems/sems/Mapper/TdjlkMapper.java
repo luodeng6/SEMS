@@ -29,8 +29,8 @@ public interface TdjlkMapper {
     int updateQrdmById( @Param("id") int id);
 
 
-    // 根据学生 ID +岗位代码 获取投递记录信息，也可以用于检查是否已经投递过
-    @Select("select * from tdjlk where stuid = #{stuid} and gwdm = #{gwdm}")
+    // 根据学生 ID +岗位代码 获取投递记录信息，也可以用于检查是否已经投递过;;Qydm=1 表示投递是否已经撤销
+    @Select("select * from tdjlk where stuid = #{stuid} and gwdm = #{gwdm} and qydm=1")
     Tdjlk getTdjlkByStuidAndGwdm(@Param("stuid") Integer stuid, @Param("gwdm") Integer gwdm);
 
     // 根据投递记录ID删除投递记录

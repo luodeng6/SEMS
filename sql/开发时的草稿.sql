@@ -53,7 +53,14 @@ exec LuodengTable 'MSJGDMK' --面试结果代码库
 exec LuodengTable 'TDJLK'-- 投递记录库
 exec LuodengTable 'DATA_XSJLK'--学生简历库
 exec LuodengTable 'TDJGK'
-exec LuodengTable ''
+exec usp_getXxdmkData 1,'123'
+
+exec LuodengTable 'XXDMK'
+--查看系统消息
+SELECT   
+   *
+from XXDMK
+
 select * from 
 exec LuodengTable 'XXDMK'--消息代码库
 select * from JYZTDMK
