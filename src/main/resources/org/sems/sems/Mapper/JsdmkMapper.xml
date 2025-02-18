@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.JsdmkMapper">
+
+
+    <update id="UpdateTeacher">
+        UPDATE Jsdmk
+        <set>
+            <if test="jsmc != null">JSMC = #{jsmc},</if>
+            <if test="sex != null">SEX = #{sex},</if>
+            <if test="dlzh != null">DLZH = #{dlzh},</if>
+            <if test="dlmm != null">DLMM = #{dlmm},</if>
+            <if test="qydm != null">QYDM = #{qydm},</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+
+
+    <!--    新增教师信息-->
+    <insert id="AddJsdmkDataZhineng">
+        INSERT INTO Jsdmk
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="jsmc != null">JSMC,</if>
+            <if test="sex != null">SEX,</if>
+            <if test="dlzh != null">DLZH,</if>
+            <if test="dlmm != null">DLMM,</if>
+            <if test="qydm != null">QYDM,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="jsmc != null">#{jsmc},</if>
+            <if test="sex != null">#{sex},</if>
+            <if test="dlzh != null">#{dlzh},</if>
+            <if test="dlmm != null">#{dlmm},</if>
+            <if test="qydm != null">#{qydm},</if>
+        </trim>
+    </insert>
+</mapper>
+

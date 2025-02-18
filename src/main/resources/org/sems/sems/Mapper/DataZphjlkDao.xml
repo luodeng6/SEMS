@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.DataZphjlkDao">
+
+    <resultMap type=".entity.DataZphjlk" id="DataZphjlkMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="zphbt" column="ZPHBT" jdbcType="VARCHAR"/>
+        <result property="dwdm" column="DWDM" jdbcType="INTEGER"/>
+        <result property="wzbz" column="WZBZ" jdbcType="INTEGER"/>
+        <result property="jbsj" column="JBSJ" jdbcType="TIMESTAMP"/>
+        <result property="dygwdm" column="DYGWDM" jdbcType="VARCHAR"/>
+        <result property="szxx" column="SZXX" jdbcType="VARCHAR"/>
+        <result property="jbdd" column="JBDD" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="DataZphjlkMap">
+        select
+IDZPHBTDWDMWZBZJBSJDYGWDMSZXXJBDD
+        from DATA_ZPHJLK
+        where ID = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="DataZphjlkMap">
+        select
+IDZPHBTDWDMWZBZJBSJDYGWDMSZXXJBDD
+        from DATA_ZPHJLK
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="zphbt != null and zphbt != ''">
+                and ZPHBT = #{zphbt}
+            </if>
+            <if test="dwdm != null">
+                and DWDM = #{dwdm}
+            </if>
+            <if test="wzbz != null">
+                and WZBZ = #{wzbz}
+            </if>
+            <if test="jbsj != null">
+                and JBSJ = #{jbsj}
+            </if>
+            <if test="dygwdm != null and dygwdm != ''">
+                and DYGWDM = #{dygwdm}
+            </if>
+            <if test="szxx != null and szxx != ''">
+                and SZXX = #{szxx}
+            </if>
+            <if test="jbdd != null and jbdd != ''">
+                and JBDD = #{jbdd}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from DATA_ZPHJLK
+        <where>
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="zphbt != null and zphbt != ''">
+                and ZPHBT = #{zphbt}
+            </if>
+            <if test="dwdm != null">
+                and DWDM = #{dwdm}
+            </if>
+            <if test="wzbz != null">
+                and WZBZ = #{wzbz}
+            </if>
+            <if test="jbsj != null">
+                and JBSJ = #{jbsj}
+            </if>
+            <if test="dygwdm != null and dygwdm != ''">
+                and DYGWDM = #{dygwdm}
+            </if>
+            <if test="szxx != null and szxx != ''">
+                and SZXX = #{szxx}
+            </if>
+            <if test="jbdd != null and jbdd != ''">
+                and JBDD = #{jbdd}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into DATA_ZPHJLK(ZPHBTDWDMWZBZJBSJDYGWDMSZXXJBDD)
+        values (#{zphbt}#{dwdm}#{wzbz}#{jbsj}#{dygwdm}#{szxx}#{jbdd})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into DATA_ZPHJLK(ZPHBTDWDMWZBZJBSJDYGWDMSZXXJBDD)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.zphbt}#{entity.dwdm}#{entity.wzbz}#{entity.jbsj}#{entity.dygwdm}#{entity.szxx}#{entity.jbdd})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into DATA_ZPHJLK(ZPHBTDWDMWZBZJBSJDYGWDMSZXXJBDD)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.zphbt}#{entity.dwdm}#{entity.wzbz}#{entity.jbsj}#{entity.dygwdm}#{entity.szxx}#{entity.jbdd})
+        </foreach>
+        on duplicate key update
+ZPHBT = values(ZPHBT)DWDM = values(DWDM)WZBZ = values(WZBZ)JBSJ = values(JBSJ)DYGWDM = values(DYGWDM)SZXX = values(SZXX)JBDD = values(JBDD)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update DATA_ZPHJLK
+        <set>
+            <if test="zphbt != null and zphbt != ''">
+                ZPHBT = #{zphbt},
+            </if>
+            <if test="dwdm != null">
+                DWDM = #{dwdm},
+            </if>
+            <if test="wzbz != null">
+                WZBZ = #{wzbz},
+            </if>
+            <if test="jbsj != null">
+                JBSJ = #{jbsj},
+            </if>
+            <if test="dygwdm != null and dygwdm != ''">
+                DYGWDM = #{dygwdm},
+            </if>
+            <if test="szxx != null and szxx != ''">
+                SZXX = #{szxx},
+            </if>
+            <if test="jbdd != null and jbdd != ''">
+                JBDD = #{jbdd},
+            </if>
+        </set>
+        where ID = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from DATA_ZPHJLK where ID = #{id}
+    </delete>
+
+</mapper>
+

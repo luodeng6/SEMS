@@ -1,0 +1,70 @@
+{
+  "STUDYDATA": {
+    "学生代码": "ID",
+    "学生姓名": "XSXM",
+    "性别": "XSXB",
+    "出生日期": "BIRTH",
+    "登录账号": "YHM",
+    "专业": "ZYDM",
+    "身份证号": "SFZH",
+    "政治面貌": "ZZMM",
+    "年级": "SSNJ",
+    "学制": "XZ",
+    "民族": "MZ",
+    "学号": "XSXH",
+    "班级": "SSBJ",
+    "学历": "XLDM",
+    "就业状态": "JYZT",
+    "负责教师": "FZJS"
+  },
+
+  "developer": {
+    "name": "Alice",
+    "age": 30,
+    "isStudent": false,
+    "contact": {
+      "email": "3066992141@qq.com",
+      "phone": "19195872107"
+    },
+    "skills": [
+      {
+        "name": "Java",
+        "proficiency": "高级"
+      },
+      {
+        "name": "JavaScript",
+        "proficiency": "中级"
+      },
+      {
+        "name": "Python",
+        "proficiency": "中级"
+      }
+    ],
+    "experience": [
+      {
+        "company": "科技解决方案公司",
+        "position": "软件工程师",
+        "years": 3,
+        "responsibilities": [
+          "使用Java和Spring Boot开发Web应用程序。",
+          "与跨职能团队合作，定义项目需求。",
+          "实现RESTful API。"
+        ]
+      },
+      {
+        "company": "网络创新公司",
+        "position": "初级开发员",
+        "years": 2,
+        "responsibilities": [
+          "协助使用JavaScript和React开发前端组件。",
+          "参与代码审查和团队会议。"
+        ]
+      }
+    ],
+    "education": {
+      "degree": "计算机科学学士学位",
+      "university": "任意城大学",
+      "graduationYear": 2019
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DataStudentMapper">
+
+    <!--新增学生数据-->
+    <insert id="AddStudentData">
+
+        INSERT INTO DATA_STUDENT (xsxm, xsxb, birth, yhm, zydm, sfzh, zzmm, ssnj, xz, mz, xsxh, ssbj, xldm, jyzt)
+        VALUES (#{xsxm}, #{xsxb}, #{birth}, #{yhm}, #{zydm}, #{sfzh}, #{zzmm}, #{ssnj}, #{xz}, #{mz}, #{xsxh}, #{ssbj}, #{xldm}, #{jyzt})
+    </insert>
+
+    <insert id="AddStudentDataZhiNeng">
+            INSERT INTO DATA_STUDENT
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="xsxm != null">xsxm,</if>
+                <if test="xsxb != null">xsxb,</if>
+                <if test="birth != null">birth,</if>
+                <if test="yhm != null">yhm,</if>
+                <if test="yhm != null">mm,</if>
+                <if test="zydm != null">zydm,</if>
+                <if test="sfzh != null">sfzh,</if>
+                <if test="zzmm != null">zzmm,</if>
+                <if test="ssnj != null">ssnj,</if>
+                <if test="xz != null">xz,</if>
+                <if test="mz != null">mz,</if>
+                <if test="xsxh != null">xsxh,</if>
+                <if test="ssbj != null">ssbj,</if>
+                <if test="xldm != null">xldm,</if>
+                <if test="jyzt != null">jyzt,</if>
+            </trim>
+            <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+                <if test="xsxm != null">#{xsxm},</if>
+                <if test="xsxb != null">#{xsxb},</if>
+                <if test="birth != null">#{birth},</if>
+                <if test="yhm != null">#{yhm},</if>
+                <if test="mm != null">#{mm},</if>
+                <if test="zydm != null">#{zydm},</if>
+                <if test="sfzh != null">#{sfzh},</if>
+                <if test="zzmm != null">#{zzmm},</if>
+                <if test="ssnj != null">#{ssnj},</if>
+                <if test="xz != null">#{xz},</if>
+                <if test="mz != null">#{mz},</if>
+                <if test="xsxh != null">#{xsxh},</if>
+                <if test="ssbj != null">#{ssbj},</if>
+                <if test="xldm != null">#{xldm},</if>
+                <if test="jyzt != null">#{jyzt},</if>
+            </trim>
+        </insert>
+
+
+
+   <!-- <update id="AdminUpdateStudentData">
+        UPDATE DATA_STUDENT
+        SET xsxm = #{xsxm}, &#45;&#45; 姓名
+            xsxb= #{xsxb}, &#45;&#45; 性别
+            birth= #{birth}, &#45;&#45; 出生日期
+            yhm= #{yhm}, &#45;&#45; 用户名
+            zydm= #{zydm}, &#45;&#45; 专业代码
+            sfzh= #{sfzh},&#45;&#45; 身份证号码
+            zzmm= #{zzmm}, &#45;&#45; 政治面貌
+            ssnj= #{ssnj},&#45;&#45; 年级
+            xz= #{xz}, &#45;&#45; 学制
+            mz= #{mz}, &#45;&#45; 民族
+            xsxh= #{xsxh}, &#45;&#45; 学号
+            ssbj= #{ssbj}, &#45;&#45; 班级代码，使用触发器获取班级具体名称
+            xldm= #{xldm},  &#45;&#45; 学历代码
+            jyzt= #{jyzt}, &#45;&#45; 就业状态代码
+            fzjs= #{fzjs} &#45;&#45; 负责教师工号
+        WHERE
+            ID = #{id}
+    </update>-->
+
+    <!-- 更新学生数据 -->
+    <update id="AdminUpdateStudentData">
+        UPDATE DATA_STUDENT
+        <set>
+            <if test="xsxm != null">xsxm = #{xsxm},</if>
+            <if test="xsxb != null">xsxb = #{xsxb},</if>
+            <if test="birth != null">birth = #{birth},</if>
+            <if test="yhm != null">yhm = #{yhm},</if>
+            <if test="mm != null">mm = #{mm},</if>
+            <if test="zydm != null">zydm = #{zydm},</if>
+            <if test="sfzh != null">sfzh = #{sfzh},</if>
+            <if test="zzmm != null">zzmm = #{zzmm},</if>
+            <if test="ssnj != null">ssnj = #{ssnj},</if>
+            <if test="xz != null">xz = #{xz},</if>
+            <if test="mz != null">mz = #{mz},</if>
+            <if test="xsxh != null">xsxh = #{xsxh},</if>
+            <if test="ssbj != null">ssbj = #{ssbj},</if>
+            <if test="xldm != null">xldm = #{xldm},</if>
+            <if test="jyzt != null">jyzt = #{jyzt},</if>
+            <if test="fzjs != null">fzjs = #{fzjs},</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+</mapper>
+
