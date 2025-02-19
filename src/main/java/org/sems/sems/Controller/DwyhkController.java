@@ -3,10 +3,8 @@ package org.sems.sems.Controller;
 import org.sems.sems.entity.Dwyhk;
 import org.sems.sems.service.DwyhkService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -41,5 +39,12 @@ public class DwyhkController {
     @GetMapping("/getDwyhkAndDwDataAndPostCountByYhm")
     public Map<String, Object> getDwyhkAndDwDataAndPostCountByYhm(String yhm) {
         return dwyhkService.getDwyhkAndDwDataAndPostCountByYhm(yhm);
+    }
+
+    // 更新用户头像
+    @PostMapping("/uploadPhoto")
+    public Map<String, Object> uploadPhoto(@RequestParam("yhm") String yhm,
+                                           @RequestParam("file") MultipartFile file) {
+        return dwyhkService.uploadPhoto(file, yhm);
     }
 }

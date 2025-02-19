@@ -2,15 +2,56 @@
   <div class="content">
     <dw-menu />
     <main class="ml-64 flex-1 p-6 bg-gray-100 min-h-screen">
-      <header class="flex justify-between items-center mb-6">
-        <div>
+      <header class="flex items-center mb-6" style="justify-content: end">
+        <div style="    width: 64%;">
           <h1 class="text-3xl font-bold text-gray-800">企业招聘管理中心</h1>
           <p class="text-sm text-gray-500 mt-1">欢迎回来，{{ DATADWDMK.dwmc+'-'+loginUser.name }}</p>
         </div>
-        <div class="flex items-center space-x-4">
-          <notification-bell />
-          <el-button type="primary" icon="el-icon-plus" @click="postNewJob">发布新职位</el-button>
+        <div class="  mx-auto px-4">
+          <div class="flex justify-between items-center h-16" style="margin-bottom: 27px;">
+
+            <!-- 右侧功能区域 -->
+            <div class="flex items-center space-x-6">
+              <!-- 通知按钮 -->
+              <button class=" hover:text-slate-600 relative">
+                <i class="el-icon-bell text-xl"></i>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+              </button>
+
+              <!-- 用户头像和下拉菜单 -->
+              <el-dropdown trigger="click">
+                <div class="flex items-center cursor-pointer">
+                  <el-avatar
+                      src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                      class="border-2 hover:text-slate-600"
+                  ></el-avatar>
+                  <span class="ml-2  hover:text-slate-600">{{ loginUser.name }}</span>
+                  <i class="el-icon-arrow-down el-icon--right "></i>
+                </div>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>
+                    <i class="el-icon-user mr-2"></i>个人中心
+                  </el-dropdown-item>
+                  <el-dropdown-item>
+                    <i class="el-icon-setting mr-2"></i>账户设置
+                  </el-dropdown-item>
+                  <el-dropdown-item divided>
+                    <i class="el-icon-switch-button mr-2"></i>退出登录
+                  </el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+
+              <!-- 通知按钮 -->
+              <button class=" hover:text-slate-600 relative" style="display: flex;color: #606266;align-items: center;">
+                <i class="el-icon-message text-xl"></i> 消息
+              </button>
+            </div>
+          </div>
         </div>
+<!--        <div class="flex items-center space-x-4">
+          <el-button type="info" icon="el-icon-message" circle></el-button>
+          <el-button type="text" icon="el-icon-plus" @click="postNewJob">发布新职位</el-button>
+        </div>-->
       </header>
 
       <!-- 招聘数据概览 -->
@@ -47,16 +88,16 @@
                 </el-select>
               </div>
             </template>
-            <echarts :options="applicationChart" auto-resize style="height: 400px"/>
+            <div id="main" style="width: 100%; height: 300px;"></div>
           </el-card>
         </el-col>
 
         <el-col :span="8">
           <el-card shadow="never" class="chart-card">
+          <-- 职位来源 -->
             <template #header>
-              <span class="card-title">简历来源分析</span>
+              <span class="card-title">职位来源</span>
             </template>
-            <echarts :options="sourceChart" auto-resize style="height: 400px"/>
           </el-card>
         </el-col>
       </el-row>
@@ -131,12 +172,7 @@
 
 <script>
 import ECharts from 'vue-echarts'
-import 'echarts/lib/chart/line'
-import 'echarts/lib/chart/bar'
-import 'echarts/lib/chart/pie'
-import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/legend'
-import 'echarts/lib/component/title'
+import * as echarts from 'echarts';
 import DwMenu from "@/components/dw/Dw_menu.vue";
 import axios from "axios";
 
@@ -221,8 +257,33 @@ export default {
   },
   mounted() {
     this.getLoginUser();
+   this.showTjtData();
   },
   methods: {
+    showTjtData() {
+      var chartDom = document.getElementById('main');
+      var myChart = echarts.init(chartDom, 'dark');
+      var option;
+
+      option = {
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            smooth: true
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    },
     // 格式化日期
     formatDate(dateStr) {
       return dateStr ? new Date(dateStr).toLocaleString() : '-'
@@ -295,6 +356,7 @@ export default {
       axios.get('/dw/getDwDataByDwUserName?dwUserName=' + yhm).then(response => {
         if (response.data.result) {
           this.DATADWDMK = response.data.data;
+          this.showTjtData();
         } else {
           this.$message.error("获取单位信息失败！");
           setTimeout(() => {
@@ -315,7 +377,7 @@ export default {
     // 查看全部投递数据-跳转到指定页面
     goToPageViewAllTdData(){
       this.$router.push('/dw/sqzmd');
-    }
+    },
   }
 }
 </script>
@@ -324,7 +386,9 @@ export default {
 .icon-box {
   @apply w-12 h-12 rounded-lg flex items-center justify-center;
 }
-
+.px-4{
+  padding-left: 0px!important;
+}
 .stat-card {
   @apply transition-all duration-300 hover:transform hover:scale-105;
 }

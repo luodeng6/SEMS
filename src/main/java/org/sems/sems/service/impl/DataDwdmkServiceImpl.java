@@ -7,8 +7,13 @@ import org.sems.sems.entity.DataDwdmk;
 import org.sems.sems.entity.DataGwdmk;
 import org.sems.sems.service.DataDwdmkService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -208,4 +213,18 @@ public class DataDwdmkServiceImpl implements DataDwdmkService {
         }
         return result;
     }
+
+
+    // 读取配置文件上传路径
+    @Value("${video.upload.dir}")
+    private String uploadDir;
+
+    // 读取配置文件浏览器路径
+    @Value("${app.domain}")
+    private String appDomain;
+
+    @Value("${app.WenJianJiaName}")
+    private String WenJianJiaName;
+
+
 }

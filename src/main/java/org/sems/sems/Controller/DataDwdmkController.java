@@ -4,6 +4,7 @@ import org.sems.sems.entity.DataDwdmk;
 import org.sems.sems.service.DataDwdmkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -35,7 +36,7 @@ private DataDwdmkService dataDwdmkService;
         return dataDwdmkService.getDwGangWei(dwdm);
     }
 
-    // 修改单位接口: 只修改单位名称、规模、行业、性质、简介、公司名称、公司简介
+    // 修改单位接口: 只修改单位名称、规模、行业、性质、简介、公司名称、公司简介----动态修改
     @PostMapping("/updateDw")
     public Map<String, Object> updateDw(DataDwdmk dataDwdm) {
         System.out.println("修改单位接口:"+dataDwdm.toString());
@@ -54,4 +55,6 @@ private DataDwdmkService dataDwdmkService;
     public Map<String, Object> getDwDataByDwUserName(String dwUserName) {
         return dataDwdmkService.getDwDataByDwUserName(dwUserName);
     }
+
+
 }

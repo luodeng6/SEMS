@@ -68,7 +68,7 @@ export default {
       backgrounds: [
         ServerIP + '/img.png',
         // 'http://localhost:83/img_1.png',
-        ServerIP + '/1.png',
+       /* ServerIP + '/1.png',*/
         'https://s.qkmov.cc/files/202412201639744.webp',
         'http://172.18.2.104:18040/static/img/002.54397cf9.png',
         'http://172.18.2.104:18040/static/img/003.6ab30b51.png'

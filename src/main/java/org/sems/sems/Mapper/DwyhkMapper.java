@@ -21,4 +21,8 @@ public interface DwyhkMapper {
 
     // 动态智能更新语句
     int AdminUpdateDwyhkData(Dwyhk dwyhk);
+
+
+    @Update("UPDATE DWYHK SET YHZP = #{yhzp} WHERE YHM = #{yhm}")
+    int updateDwPhoto(@Param("yhm")String yhm,@Param("yhzp") String yhzp);
 }

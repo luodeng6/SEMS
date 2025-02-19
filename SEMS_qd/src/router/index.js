@@ -261,6 +261,13 @@ const routes = [
         name: 'StudentJobHelperView',
         component: () => import('@/views/student/StudentJobHelperView.vue'),
         meta: {style: '学生',title: '学生-就业咨询助手'}
+    },
+    {
+        //单位用户岗位编辑
+        path: '/dw/DwJobEditView',
+        name: 'DwJobEditView',
+        component: () => import('@/views/dw/DwJobEditView.vue'),
+        meta: {style: '单位',title: '单位-岗位编辑'}
     }
 ]
 

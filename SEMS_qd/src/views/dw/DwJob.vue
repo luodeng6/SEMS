@@ -299,7 +299,19 @@ export default {
     },
     // 编辑岗位
     eiditGw() {
-
+      // 获取当前行数据
+      if (this.currentJobSelectRow === null) {
+        //使用 Jquery confirm 弹窗提示
+        this.$confirm('请选择需要编辑的岗位！', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        })
+      } else {
+        console.log("跳转到编辑岗位页面");
+        console.log(this.currentJobSelectRow.id);
+        this.$router.push({path: '/dw/DwJobEditView', query: {id: this.currentJobSelectRow.id}})
+      }
     },
     // 高级筛选
     toggleAdvancedSearch() {

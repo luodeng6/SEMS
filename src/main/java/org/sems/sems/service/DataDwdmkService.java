@@ -2,6 +2,7 @@ package org.sems.sems.service;
 
 
 import org.sems.sems.entity.DataDwdmk;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -60,4 +61,6 @@ public interface DataDwdmkService {
      * @return Map<String, Object>
      */
     Map<String, Object> getDwByQydm(int qydm);
+
+
 }

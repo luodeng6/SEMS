@@ -26,18 +26,20 @@
 
 
     <update id="updateDataDwdmk">
-        update data_dwdmk
-        set dwmc = #{dwmc}, /*单位名称*/
-            dwxz = #{dwxz}, /*单位性质*/
-            dwxzdm = #{dwxzdm},  /*单位性质代码*/
-            dwgmdm = #{dwgmdm}, /*单位规模代码*/
-            dwgm = #{dwgm},   /*单位规模*/
-            dwhydm = #{dwhydm},  /*单位行业代码*/
-            dwhy = #{dwhy},  /*单位行业*/
-            gsmc = #{gsmc},   /*公司名称*/
-            gsjj = #{gsjj},   /*公司简介*/
-            szdq = #{szdq}   /*所在地区*/
-        where dwdm = #{dwdm} /*单位代码*/
+        UPDATE data_dwdmk
+        <set>
+            <if test="dwmc != null">dwmc = #{dwmc}, /*单位名称*/</if>
+            <if test="dwxz != null">dwxz = #{dwxz}, /*单位性质*/</if>
+            <if test="dwxzdm != null">dwxzdm = #{dwxzdm},  /*单位性质代码*/</if>
+            <if test="dwgmdm != null">dwgmdm = #{dwgmdm}, /*单位规模代码*/</if>
+            <if test="dwgm != null">dwgm = #{dwgm},   /*单位规模*/</if>
+            <if test="dwhydm != null">dwhydm = #{dwhydm},  /*单位行业代码*/</if>
+            <if test="dwhy != null">dwhy = #{dwhy},  /*单位行业*/</if>
+            <if test="gsmc != null">gsmc = #{gsmc},   /*公司名称*/</if>
+            <if test="gsjj != null">gsjj = #{gsjj},   /*公司简介*/</if>
+            <if test="szdq != null">szdq = #{szdq}   /*所在地区*/</if>
+        </set>
+        WHERE dwdm = #{dwdm} /*单位代码*/
     </update>
 </mapper>
 

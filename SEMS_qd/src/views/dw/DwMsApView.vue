@@ -12,6 +12,34 @@
       <div class="interview-management">
         <el-tabs v-model="activeTab">
           <!-- 面试管理 -->
+          <el-tab-pane label="待安排面试" name="arranged">
+            <div class="operation-bar">
+              <el-button type="primary" @click="showDialog">发布新面试</el-button>
+              <el-input
+                  v-model="searchKeyword"
+                  placeholder="搜索学生/岗位"
+                  style="width: 300px; margin-left: 20px"></el-input>
+            </div>
+
+            <el-table :data="filteredInterviews" border height="500">
+              <el-table-column prop="jobTitle" label="岗位" width="180"></el-table-column>
+              <el-table-column prop="time" label="时间" width="180"></el-table-column>
+              <el-table-column prop="student" label="学生"></el-table-column>
+              <el-table-column prop="location" label="地点"></el-table-column>
+              <el-table-column prop="status" label="状态" width="120">
+                <template slot-scope="{ row }">
+                  <el-tag :type="statusType[row.status]">{{ row.status }}</el-tag>
+                </template>
+              </el-table-column>
+              <el-table-column label="操作" width="150">
+                <template slot-scope="{ row }">
+                  <el-button size="mini" @click="editInterview(row)">编辑</el-button>
+                  <el-button size="mini" type="danger" @click="deleteInterview(row.id)">删除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </el-tab-pane>
+          <!-- 面试管理 -->
           <el-tab-pane label="面试管理" name="management">
             <div class="operation-bar">
               <el-button type="primary" @click="showDialog">发布新面试</el-button>
@@ -130,7 +158,7 @@ export default {
   components: {DwMenu},
   data() {
     return {
-      activeTab: 'management',
+      activeTab: 'arranged',
       searchKeyword: '',
       statusType: {
         '待面试': 'warning',

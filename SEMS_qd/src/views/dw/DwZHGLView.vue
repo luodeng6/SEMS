@@ -47,9 +47,10 @@
               <el-dropdown trigger="click">
                 <div class="flex items-center cursor-pointer">
                   <el-avatar
-                      src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                      :src="IMGURL"
                       class="border-2 border-white"
                   ></el-avatar>
+
                   <span class="ml-2 text-gray-200 hover:text-white">{{ UserInfo.name }}</span>
                   <i class="el-icon-arrow-down el-icon--right text-gray-200"></i>
                 </div>
@@ -85,44 +86,7 @@
           :rules="rules">
         <!-- 第一行 -->
         <div class="flex gap-6">
-          <!-- 左列
-
-          {
-              "ID": 1000,
-              "DYDW": 1,
-              "YHM": "luo",
-              "MM": "123",
-              "TYBZ": 0,
-              "YHXM": "罗邓卫宁招聘",
-              "SEX": "男",
-              "ZW": "人事专员",
-              "SSDW": 1,
-              "RZBZ": 1,
-              "GWFBSL": 4,
-              "DWDM": 1,
-              "DWMC": "卫宁",
-              "DWXZ": "机关",
-              "DWXZDM": 1,
-              "DWGMDM": 14,
-              "DWGM": "10000人以上",
-              "DWHYDM": 20,
-              "DWHY": "国际组织",
-              "GSMC": "卫宁健康科技集团有限公司",
-              "GSJJ": "卫宁",
-              "GSJJHTML": "",
-              "QYDM": 1,
-              "SZDQ": "上海市浦东区"
-            }
-             rules: {
-                MM: [
-                  {required: true, message: '请输入密码', trigger: 'blur'},
-                  {min: 6, message: '密码长度不能小于6位', trigger: 'blur'}
-                ],
-                YHXM: {required: true, message: '请输入姓名', trigger: 'blur'},
-                SSDW: {required: true, message: '请选择所属单位', trigger: 'change'},
-                GSMC: {required: true, message: '请输入公司名称', trigger: 'blur'}
-              },
-          -->
+          <!-- 左列-->
           <div class="flex-1">
             <el-form-item label="用户名" prop="YHM">
               <el-input v-model="form.YHM" disabled></el-input>
@@ -139,7 +103,8 @@
             <el-form-item label="所属单位" prop="DWDM">
               <el-select v-model="form.DWDM" class="w-full">
                 <el-option label="请选择单位" value=""></el-option>
-                <el-option v-for="item in DATADWDMK" :key="item.dwdm" :label="item.dwdm + '-' + item.dwmc+'-'+item.gsmc" :value="item.dwdm"></el-option>
+                <el-option v-for="item in DATADWDMK" :key="item.dwdm" :label="item.dwdm + '-' + item.dwmc+'-'+item.gsmc"
+                           :value="item.dwdm"></el-option>
               </el-select>
             </el-form-item>
 
@@ -162,7 +127,7 @@
                     :show-file-list="false"
                     :before-upload="beforeAvatarUpload"
                     :on-change="handleAvatarChange">
-                  <el-button size="small" >选择图片</el-button>
+                  <el-button size="small">选择图片</el-button>
                 </el-upload>
                 <img v-if="imageUrl" :src="imageUrl" class="w-20 h-20 rounded-full object-cover">
               </div>
@@ -209,6 +174,7 @@
 import DwMenu from "@/components/dw/Dw_menu.vue";
 import axios from "axios";
 import {EventBus} from "@/event-bus";
+import {ServerIP} from "@/SystemConfig";
 
 export default {
   name: 'DwZhglView',
@@ -219,7 +185,9 @@ export default {
   },
   data() {
     return {
+      IMGURL: null,
       PhotoFile: null,// 头像文件
+      isQieHuan: false, // 用户是否切换了图片
       // 用户信息
       UserInfo: {
         id: '',
@@ -274,6 +242,8 @@ export default {
         if (res.data.result) {
           this.form = res.data.data;
           console.log(this.form);
+          this.imageUrl=ServerIP+this.form.YHZP;
+          this.IMGURL=ServerIP+this.form.YHZP;
         } else if (res.data.code === 504) {
           this.$message.error("数据冗余，系统错误，请联系管理员:" + res.data.msg);
         } else {
@@ -307,22 +277,93 @@ export default {
         }, 1000);
       });
     },
+
     submitForm() {
       this.$refs.form.validate(valid => {
         if (valid) {
-          // 打印修改后的数据
-          console.log('修改后的数据:', {
-            ...this.form,
-            avatar: this.imageUrl // 这里实际应上传到服务器后返回的URL
+          console.log(this.form)
+          // 先更新账号信息，再上传头像
+          /*
+            ID
+           -- DYDW	单位代码(对应)
+            YHM	用户名
+            MM	密码
+           -- TYBZ	停用代码
+            YHXM	用户名称
+            SEX	用户性别
+            ZW	职位
+           --SSDW	所属单位,对应DWDMK的DWDM
+           -- RZBZ	认证标志，0 未认证，1 认证审核中 2 已认证
+           -- YHZP	用户照片
+           */
+
+          let formData = new FormData();
+          formData.append('id', this.form.ID)
+          formData.append('yhm', this.form.YHM);// 用户名
+          formData.append('mm', this.form.MM);// 密码
+          formData.append('yhxm', this.form.YHXM); // 姓名
+          //formData.append('SZDQ', this.form.SZDQ); // 所在地区
+          formData.append('sex', this.form.SEX); // 性别
+          //formData.append('DWDM', this.form.DWDM); // 所属单位
+          //formData.append('GSMC', this.form.GSMC); // 公司名称
+          formData.append('zw', this.form.ZW); // 职位
+          //formData.append('GSJJ', this.form.GSJJ); // 公司简介
+          //formData.append('PhotoFile', this.PhotoFile); // 头像文件
+
+          //更新DWYHK信息
+          axios.post('/dwyhk/updateDwyhk', formData).then(res => {
+            if (res.data.result) {
+              this.$message.success('修改单位用户信息成功');
+            } else {
+              this.$message.error('修改失败：' + res.data.msg);
+            }
+          }).catch(err => {
+            console.log(err);
+            this.$message.error('修改账号信息失败：' + err.message);
           });
 
-          console.log(this.PhotoFile)
-          this.$message.success('修改成功');
+          // 更新单位信息
+          let formData2 = new FormData();
+          formData2.append('dwdm', this.form.DWDM) // 所属单位
+          formData2.append('szdq', this.form.SZDQ); // 所在地区
+          formData2.append('gsmc', this.form.GSMC); // 公司名称
+          formData2.append('gsjj', this.form.GSJJ); // 公司简介
+
+          axios.post('/dw/updateDw', formData2).then(res => {
+            if (res.data.result) {
+              this.$message.success('修改单位信息成功');
+            } else {
+              this.$message.error('修改失败：' + res.data.msg);
+            }
+          }).catch(err => {
+            console.log(err);
+            this.$message.error('修改单位信息失败：' + err.message);
+          });
+
+          if (this.isQieHuan) {
+            console.log('开始上传头像，修改');
+            // 上传头像
+            let formData3 = new FormData();
+            formData3.append('yhm', this.form.YHM);
+            formData3.append('file', this.PhotoFile);
+            axios.post('/dwyhk/uploadPhoto', formData3).then(res => {
+              if (res.data.result) {
+                this.$message.success('上传更新头像成功');
+              } else {
+                this.$message.error('上传失败：' + res.data.msg);
+              }
+            }).catch(err => {
+              console.log(err);
+              this.$message.error('上传头像失败：' + err.message);
+            });
+          }
+
         } else {
           this.$message.error('请完善表单信息');
           return false;
         }
       });
+
     },
     beforeAvatarUpload(file) {
       const isImage = file.type.startsWith('image/');
@@ -339,6 +380,8 @@ export default {
     handleAvatarChange(file) {
       this.imageUrl = URL.createObjectURL(file.raw);
       this.PhotoFile = file.raw;
+      console.log("用户切换了头像")
+      this.isQieHuan = true;
     },
 
   }

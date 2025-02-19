@@ -978,8 +978,6 @@ export default {
           message: '已取消删除'
         });
       });
-
-
     },
     // 获取火热岗位7个
     getHotGwdmkData() {

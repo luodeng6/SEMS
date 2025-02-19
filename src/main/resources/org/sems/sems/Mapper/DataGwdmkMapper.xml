@@ -33,57 +33,60 @@
                 #{tdxzbz}, #{tdxzcs}, #{qydm}, #{zprs}, #{jyhj}, #{jyhjms}, #{gzzz}, #{gwfl},#{fbz},#{fbzyhsfdm})
     </insert>
     <!--通过主键修改数据-->
+
+    <!--可以更新的字段 ：
+    ID	岗位id
+    GWMC	岗位名称
+    GWMS	岗位描述
+    GWYQ	岗位要求
+    FBSJ	岗位发布时间
+    TDSM	投递说明
+    ZGXZ	最高薪资
+    ZDXZ	最低薪资
+    ZDXLYQ	最低学历要求
+    GZDD	工作地点
+    GZSF	工作省份，对应SFDMK 省份代码库
+    SXBZ	实习标志,1为实习岗位，2为正式岗位
+    ZYXZ	专业限制
+    DWMC	单位名称
+    DWDM	单位代码,对应DWDMK
+    TDCS	投递次数
+    TDXZBZ	投递限制标志，默认0
+    TDXZCS	投递限制次数，若TDXZBZ为0则设置为空
+    QYDM	启用代码
+    ZPRS	招聘人数
+    JYHJ	就业环境(图)
+    JYHJMS	就业环境吗描述
+    GZZZ	工作职责
+    GWFL	岗位分类
+    -->
     <update id="updateGangWei">
-        /*可以更新的字段 ：
-          ID	岗位id
-            GWMC	岗位名称
-            GWMS	岗位描述
-            GWYQ	岗位要求
-            FBSJ	岗位发布时间
-            TDSM	投递说明
-            ZGXZ	最高薪资
-            ZDXZ	最低薪资
-            ZDXLYQ	最低学历要求
-            GZDD	工作地点
-            GZSF	工作省份，对应SFDMK 省份代码库
-            SXBZ	实习标志,1为实习岗位，2为正式岗位
-            ZYXZ	专业限制
-            DWMC	单位名称
-            DWDM	单位代码,对应DWDMK
-            TDCS	投递次数
-            TDXZBZ	投递限制标志，默认0
-            TDXZCS	投递限制次数，若TDXZBZ为0则设置为空
-            QYDM	启用代码
-            ZPRS	招聘人数
-            JYHJ	就业环境(图)
-            JYHJMS	就业环境吗描述
-            GZZZ	工作职责
-            GWFL	岗位分类
-          */
-        UPDATE DATA_GWDMK SET
-              GWMC=#{gwmc},
-              GWMS=#{gwms},
-              GWYQ=#{gwyq},
-              FBSJ=#{fbsj},
-              TDSM=#{tdsm},
-              ZGXZ=#{zgxz},
-              ZDXZ=#{zdxz},
-              ZDXLYQ=#{zdxlyq},
-              GZDD=#{gzdd},
-              GZSF=#{gzsf},
-              SXBZ=#{sxbz},
-              ZYXZ=#{zyxz},
-              DWMC=#{dwmc},
-              DWDM=#{dwdm},
-              TDCS=#{tdcs},
-              TDXZBZ=#{tdxzbz},
-              TDXZCS=#{tdxzcs},
-              QYDM=#{qydm},
-              ZPRS=#{zprs},
-              JYHJMS=#{jyhjms},
-              JYHJ=#{jyhj},
-              GZZZ=#{gzzz},
-              GWFL=#{gwfl}
+        UPDATE DATA_GWDMK
+        <set>
+            <if test="gwmc != null">GWMC = #{gwmc},</if>
+            <if test="gwms != null">GWMS = #{gwms},</if>
+            <if test="gwyq != null">GWYQ = #{gwyq},</if>
+            <if test="fbsj != null">FBSJ = #{fbsj},</if>
+            <if test="tdsm != null">TDSM = #{tdsm},</if>
+            <if test="zgxz != null">ZGXZ = #{zgxz},</if>
+            <if test="zdxz != null">ZDXZ = #{zdxz},</if>
+            <if test="zdxlyq != null">ZDXLYQ = #{zdxlyq},</if>
+            <if test="gzdd != null">GZDD = #{gzdd},</if>
+            <if test="gzsf != null">GZSF = #{gzsf},</if>
+            <if test="sxbz != null">SXBZ = #{sxbz},</if>
+            <if test="zyxz != null">ZYXZ = #{zyxz},</if>
+            <if test="dwmc != null">DWMC = #{dwmc},</if>
+            <if test="dwdm != null">DWDM = #{dwdm},</if>
+            <if test="tdcs != null">TDCS = #{tdcs},</if>
+            <if test="tdxzbz != null">TDXZBZ = #{tdxzbz},</if>
+            <if test="tdxzcs != null">TDXZCS = #{tdxzcs},</if>
+            <if test="qydm != null">QYDM = #{qydm},</if>
+            <if test="zprs != null">ZPRS = #{zprs},</if>
+            <if test="jyhjms != null">JYHJMS = #{jyhjms},</if>
+            <if test="jyhj != null">JYHJ = #{jyhj},</if>
+            <if test="gzzz != null">GZZZ = #{gzzz},</if>
+            <if test="gwfl != null">GWFL = #{gwfl},</if>
+        </set>
         WHERE ID = #{id}
     </update>
 

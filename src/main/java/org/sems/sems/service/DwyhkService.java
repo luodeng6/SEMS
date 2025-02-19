@@ -1,7 +1,12 @@
 package org.sems.sems.service;
 
 import org.sems.sems.entity.Dwyhk;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.Map;
 
 public interface DwyhkService {
@@ -39,4 +44,15 @@ public interface DwyhkService {
      * @return Map<String, Object>
      */
     Map<String, Object> getDwyhkAndDwDataAndPostCountByYhm(String yhm);
+
+
+
+    /**
+     *  上传单位照片
+     * @param file 头像数据
+     * @param yhm 用户名
+     * @return Map<String, Object>
+     */
+    Map<String, Object> uploadPhoto(MultipartFile file, String yhm);
+
 }
