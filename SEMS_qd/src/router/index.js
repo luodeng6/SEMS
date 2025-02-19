@@ -249,10 +249,18 @@ const routes = [
         meta: {style: '学生',title: '学生-个人信息管理'}
     },
     {
+        // 面试安排
         path: '/dw/msap',
         name: 'DwMsApView',
         component: () => import('@/views/dw/DwMsApView.vue'),
         meta: {style: '单位',title: '单位-面试安排'}
+    },
+    {
+        //  就业咨询助手
+        path: '/stu/JobHelper',
+        name: 'StudentJobHelperView',
+        component: () => import('@/views/student/StudentJobHelperView.vue'),
+        meta: {style: '学生',title: '学生-就业咨询助手'}
     }
 ]
 

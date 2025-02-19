@@ -68,24 +68,29 @@
             <template #header>
               <div class="flex justify-between items-center">
                 <span class="card-title">最新投递</span>
-                <el-button type="text">查看全部</el-button>
+                <el-button @click="goToPageViewAllTdData" type="text">查看全部</el-button>
               </div>
             </template>
-            <el-table :data="applications" style="width: 100%">
-              <el-table-column prop="name" label="候选人" width="120">
+            <el-table :data="applications" style="width: 100%" :loading="loading">
+              <el-table-column prop="XSXM" label="学生" width="120">
                 <template #default="{ row }">
                   <div class="flex items-center">
-                    <el-avatar :size="30" :src="row.avatar" class="mr-2"></el-avatar>
-                    {{ row.name }}
+                    <el-avatar :size="30" :src="row.XSZP" class="mr-2"></el-avatar>
+                    {{ row.XSXM }}
                   </div>
                 </template>
               </el-table-column>
-              <el-table-column prop="position" label="应聘职位" />
-              <el-table-column prop="time" label="投递时间" width="140" />
+              <el-table-column prop="GWMC" label="应聘职位" />
+              <el-table-column prop="TDSJ" label="投递时间" width="180" sortable>
+                <template #default="{row}">
+                  {{ formatDate(row.TDSJ) }}
+                </template>
+              </el-table-column>
+
               <el-table-column label="状态" width="100">
                 <template #default="{ row }">
-                  <el-tag :type="statusType[row.status]" size="small">
-                    {{ row.status }}
+                  <el-tag :type="statusType[getTdzt(row)]" size="small">
+                    {{ getTdzt(row) }}
                   </el-tag>
                 </template>
               </el-table-column>
@@ -139,6 +144,7 @@ export default {
   components: {DwMenu, ECharts},
   data() {
     return {
+      loading: false,// 投递数据加载状态
       companyName: "XX科技有限公司",
       timeRange: '7d',
       stats: [
@@ -180,38 +186,14 @@ export default {
           ]
         }]
       },
-      applications: [
-        {
-          name: '王小明',
-          avatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-          position: '前端开发工程师',
-          time: '2024-02-16 14:30',
-          status: '待处理'
-        },{
-          name: '王小明',
-          avatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-          position: '前端开发工程师',
-          time: '2024-02-16 14:30',
-          status: '待处理'
-        },{
-          name: '王小明',
-          avatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-          position: '前端开发工程师',
-          time: '2024-02-16 14:30',
-          status: '待处理'
-        },{
-          name: '王小明',
-          avatar: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-          position: '前端开发工程师',
-          time: '2024-02-16 14:30',
-          status: '待处理'
-        },
-
-      ],
+      applications: null,
       statusType: {
         '待处理': 'warning',
-        '已查看': 'info',
-        '已安排面试': 'success',
+        '待回应': 'warning',
+        '待录入': 'warning',
+        '待安排面试': 'warning',
+        '已录用': 'primary',
+        '待定': 'info',
         '已拒绝': 'danger'
       },
       notices: [
@@ -241,6 +223,41 @@ export default {
     this.getLoginUser();
   },
   methods: {
+    // 格式化日期
+    formatDate(dateStr) {
+      return dateStr ? new Date(dateStr).toLocaleString() : '-'
+    },
+    // 获取投递状态
+    getTdzt(row){
+     /* statusType: {
+        '待处理': 'warning',
+            '待回应': 'warning',
+             '待录入': 'warning',
+            '已安排面试': 'success',
+            '已录用': 'primary',
+            '待定': 'info',
+            '已拒绝': 'danger'
+      },*/
+      if(row.QRDM===0){
+        return '待处理'
+      }else if(row.HYDM===0){
+        return '待回应'
+      }else if(row.TDJG===null){
+        return '待录入'
+      } else {
+        // 使用case语句判断状态  --对应后台固定表 ：TDJGK
+        switch (row.TDJG) {
+          case 0:
+            return '不录用'
+          case 1:
+            return '已录用'
+          case 2:
+            return '待安排面试'
+          case 3:
+            return '待定'
+        }
+      }
+    },
     // 获取登录信息
     getLoginUser() {
       axios.get('/user/checkSession').then(response => {
@@ -249,6 +266,7 @@ export default {
           this.loginUser.name= response.data.name;
           console.log("单位用户："+this.loginUser.username);
           this.getDwYhmDyDw(this.loginUser.username);
+          this.getTdData();//加载投递数据
         } else {
           this.$message.error("当前用户未登录，请先登录！");
           this.$router.push('/dw/login');
@@ -256,6 +274,21 @@ export default {
       }).catch(error => {
         console.log(error);
       });
+    },
+    getTdData(){
+      this.loading = true
+      // 通过但我用户名 获取投递数据
+      axios.get(`/tdjlk/getTdjlk?Style=4&YHM=${this.loginUser.username}&GWDM=1`).then((response) => {
+        if (response.data.result) {
+          this.applications=response.data.data;// 获取所有数据的前四条
+        } else {
+          this.$message.error('加载投递数据库失败:'+ response.data.msg);
+        }
+        this.loading = false
+      }).catch((error) => {
+        this.loading = false
+        this.$message.error('加载投递数据库失败:'+ error.message)
+      })
     },
     // 获取所属单位信息
     getDwYhmDyDw(yhm) {
@@ -278,6 +311,10 @@ export default {
     },
     viewResume(row) {
       // 查看简历逻辑
+    },
+    // 查看全部投递数据-跳转到指定页面
+    goToPageViewAllTdData(){
+      this.$router.push('/dw/sqzmd');
     }
   }
 }

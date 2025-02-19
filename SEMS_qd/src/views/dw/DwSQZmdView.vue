@@ -587,7 +587,7 @@ export default {
        }*/
     loadData() {
       this.loading = true
-      // 通过学生用户名 获取投递数据
+      // 通过但我用户名 获取投递数据
       axios.get(`/tdjlk/getTdjlk?Style=4&YHM=${this.UserInfo.username}&GWDM=1`).then((response) => {
         if (response.data.result) {
           // 假设接口返回数据结构为 { records: [], total: 100 }

@@ -134,7 +134,7 @@
             </li>
 
             <li class="hover:bg-blue-50 rounded">
-              <router-link to="/admin/stats/students">
+              <router-link to="/stu/JobHelper">
                 <a class="flex items-center p-2 text-gray-700">
                   就业咨询助手
                 </a>
