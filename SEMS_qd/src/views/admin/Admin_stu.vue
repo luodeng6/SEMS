@@ -35,139 +35,161 @@
 
       <!-- 数据统计卡片 -->
       <div class="grid grid-cols-4 gap-4 mb-6">
-        <div class="bg-white p-4 rounded-lg shadow">
-          <div class="flex justify-between items-center">
-            <div>
-              <p class="text-gray-500">总学生数</p>
-              <p class="text-2xl font-bold text-blue-600">{{ totalStudents }}</p>
+        <el-card shadow="never">
+          <div class="bg-white p-4 rounded-lg ">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">总学生数</p>
+                <p class="text-2xl font-bold text-blue-600">{{ totalStudents }}</p>
+              </div>
+              <i class="fas fa-users text-blue-400"></i>
             </div>
-            <i class="fas fa-users text-blue-400"></i>
           </div>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-          <div class="flex justify-between items-center">
-            <div>
-              <p class="text-gray-500">本科生</p>
-              <p class="text-2xl font-bold text-green-600">{{ undergraduateCount }}</p>
+        </el-card>
+        <el-card shadow="never">
+          <div class="bg-white p-4 rounded-lg ">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">本科生</p>
+                <p class="text-2xl font-bold text-green-600">{{ undergraduateCount }}</p>
+              </div>
+              <i class="fas fa-graduation-cap text-green-400"></i>
             </div>
-            <i class="fas fa-graduation-cap text-green-400"></i>
           </div>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-          <div class="flex justify-between items-center">
-            <div>
-              <p class="text-gray-500">研究生</p>
-              <p class="text-2xl font-bold text-purple-600">{{ postgraduateCount }}</p>
+        </el-card>
+
+        <el-card shadow="never">
+          <div class="bg-white p-4 rounded-lg ">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">研究生</p>
+                <p class="text-2xl font-bold text-purple-600">{{ postgraduateCount }}</p>
+              </div>
+              <i class="fas fa-university text-purple-400"></i>
             </div>
-            <i class="fas fa-university text-purple-400"></i>
           </div>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-          <div class="flex justify-between items-center">
-            <div>
-              <p class="text-gray-500">外籍学生</p>
-              <p class="text-2xl font-bold text-yellow-600">{{ internationalCount }}</p>
+        </el-card>
+        <el-card shadow="never">
+          <div class="bg-white p-4 rounded-lg ">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-gray-500">外籍学生</p>
+                <p class="text-2xl font-bold text-yellow-600">{{ internationalCount }}</p>
+              </div>
+              <i class="fas fa-globe text-yellow-400"></i>
             </div>
-            <i class="fas fa-globe text-yellow-400"></i>
           </div>
-        </div>
+        </el-card>
       </div>
 
       <!-- 学生列表 -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div class="lg:col-span-2 bg-white rounded-lg shadow p-4">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-semibold">学生列表</h2>
-            <div class="flex items-center space-x-2">
-<!--              <input
-                  v-model="searchQuery"
-                  type="text"
-                  placeholder="搜索学生"
-                  class="border px-2 py-1 rounded"
-                  prefix-icon="el-icon-search"
-              >-->
+      <el-card shadow="never">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 bg-white rounded-lg  p-4">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-semibold">学生列表</h2>
+              <div class="flex items-center space-x-2">
+                <!--              <input
+                                  v-model="searchQuery"
+                                  type="text"
+                                  placeholder="搜索学生"
+                                  class="border px-2 py-1 rounded"
+                                  prefix-icon="el-icon-search"
+                              >-->
 
-             <el-input
-              placeholder="搜索学生"
-              v-model="searchQuery">
-              <i slot="prefix" class="el-input__icon el-icon-search"></i>
-              </el-input>
+                <el-input
+                    placeholder="搜索学生"
+                    v-model="searchQuery">
+                  <i slot="prefix" class="el-input__icon el-icon-search"></i>
+                </el-input>
 
-              <select v-model="selectedMajor" class="border px-2 py-1 rounded">
-                <option value="">选择专业</option>
-                <option>计算机</option>
-                <option>电子工程</option>
-                <option>外语</option>
-                <option>机械</option>
-                <option>经济</option>
-                <option>艺术</option>
-              </select>
+                <select v-model="selectedMajor" class="border px-2 py-1 rounded">
+                  <option value="">选择专业</option>
+                  <option>计算机</option>
+                  <option>电子工程</option>
+                  <option>外语</option>
+                  <option>机械</option>
+                  <option>经济</option>
+                  <option>艺术</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <el-table
-              :data="paginatedStudents"
-              style="width: 100%;">
-            <el-table-column label="编号" prop="学生代码"></el-table-column>
-            <el-table-column label="姓名" prop="学生姓名">
-              <template slot-scope="scope">
-                <span v-tooltip="scope.row.学生姓名">{{ truncateText(scope.row.学生姓名) }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column label="性别" prop="性别"></el-table-column>
-            <el-table-column label="学生照片" prop="学生照片"></el-table-column>
-            <el-table-column label="出生日期" prop="出生日期"></el-table-column>
-            <el-table-column label="年龄" prop="年龄"></el-table-column>
-            <el-table-column label="账号" prop="登录账号"></el-table-column>
-            <el-table-column label="专业" prop="专业"></el-table-column>
-            <el-table-column label="身份证号" prop="身份证号"></el-table-column>
-            <el-table-column label="政治面貌" prop="政治面貌"></el-table-column>
-            <el-table-column label="年级" prop="年级"></el-table-column>
-            <el-table-column label="学制" prop="学制"></el-table-column>
-            <el-table-column label="民族" prop="民族"></el-table-column>
-            <el-table-column label="学号" prop="学号"></el-table-column>
-            <el-table-column label="班级" prop="班级"></el-table-column>
-            <el-table-column label="学历" prop="学历"></el-table-column>
-            <el-table-column label="负责教师" prop="教师名称"></el-table-column>
-            <el-table-column label="就业状态" prop="就业状态">
-              <template slot-scope="scope">
+            <el-table
+                :data="paginatedStudents"
+                style="width: 100%;"
+                border>
+              <el-table-column label="编号" prop="学生代码"></el-table-column>
+              <el-table-column label="姓名" prop="学生姓名">
+                <template slot-scope="scope">
+                  <span v-tooltip="scope.row.学生姓名">{{ truncateText(scope.row.学生姓名) }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="性别" prop="性别"></el-table-column>
+
+
+              <el-table-column label="学生照片" width="120"  align="center"  prop="学生照片">
+                <template #default="{ row }">
+                  <el-image
+                      style="width: 80px; height: 100px"
+                      :src="row.学生照片"
+                      :preview-src-list="[row.学生照片]"
+                      fit="cover">
+                  </el-image>
+                </template>
+              </el-table-column>
+              <el-table-column label="出生日期" width="100"  prop="出生日期"></el-table-column>
+              <el-table-column label="年龄" prop="年龄"></el-table-column>
+              <el-table-column label="账号" width="100"  prop="登录账号"></el-table-column>
+              <el-table-column label="专业" width="150" prop="专业"></el-table-column>
+              <el-table-column label="身份证号" width="150"  prop="身份证号"></el-table-column>
+              <el-table-column label="政治面貌" prop="政治面貌"></el-table-column>
+              <el-table-column label="年级" prop="年级"></el-table-column>
+              <el-table-column label="学制" prop="学制"></el-table-column>
+              <el-table-column label="民族" prop="民族"></el-table-column>
+              <el-table-column label="学号" prop="学号"></el-table-column>
+              <el-table-column label="班级" width="150"  prop="班级"></el-table-column>
+              <el-table-column label="学历" prop="学历"></el-table-column>
+              <el-table-column label="负责教师" prop="教师名称"></el-table-column>
+              <el-table-column label="就业状态" prop="就业状态" fixed="left">
+                <template slot-scope="scope">
                 <span :style="{ color: scope.row.就业状态 === '未就业' ? 'red' : 'green' }">
                   {{ scope.row.就业状态 }}
                 </span>
-              </template>
-            </el-table-column>
+                </template>
+              </el-table-column>
 
-            <el-table-column align="right">
-              <template slot-scope="scope">
-                <el-button size="mini" @click="editStudent(scope.row)">编辑</el-button>
-                <el-button size="mini" type="danger" @click="deleteStudent(scope.row)">删除</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
+              <el-table-column align="right" label="操作 " fixed="right">
+                <template slot-scope="scope">
+                  <el-button size="mini" @click="editStudent(scope.row)">编辑</el-button>
+                  <el-button size="mini" type="danger" @click="deleteStudent(scope.row)">删除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
 
-          <!-- 分页组件 -->
-          <div class="mt-4">
-            <el-pagination
-                @current-change="handleCurrentChange"
-                :current-page="currentPage"
-                :page-size="pageSize"
-                :total="filteredStudents.length"
-                layout="total, prev, pager, next, jumper">
-            </el-pagination>
+            <!-- 分页组件 -->
+            <div class="mt-4">
+              <el-pagination
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage"
+                  :page-size="pageSize"
+                  :total="filteredStudents.length"
+                  layout="total, prev, pager, next, jumper">
+              </el-pagination>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg  p-4">
+            <h2 class="text-lg font-semibold mb-4">学生统计图</h2>
+            <select v-model="selectedChart" class="border px-2 py-1 rounded mb-4" @change="initCharts">
+              <option value="majorDistribution">专业分布</option>
+              <option value="employmentStatus">就业状态</option>
+              <option value="genderDistribution">性别分布</option>
+            </select>
+            <canvas id="majorDistributionChart" width="300" height="300"></canvas>
           </div>
         </div>
-
-        <div class="bg-white rounded-lg shadow p-4">
-          <h2 class="text-lg font-semibold mb-4">学生统计图</h2>
-          <select v-model="selectedChart" class="border px-2 py-1 rounded mb-4" @change="initCharts">
-            <option value="majorDistribution">专业分布</option>
-            <option value="employmentStatus">就业状态</option>
-            <option value="genderDistribution">性别分布</option>
-          </select>
-          <canvas id="majorDistributionChart" width="300" height="300"></canvas>
-        </div>
-      </div>
-
+      </el-card>
 
       <!-- 新增、编辑学生信息弹窗 -->
       <transition name="fade">
@@ -297,7 +319,10 @@
 
               <select v-model="studentForm.班级" class="border p-2 rounded">
                 <option value="">请选择</option>
-                <option v-for="(item, index) in classList" :key="index" :value="item.bjmc">{{ item.id+'-'+item.bjmc }}</option>
+                <option v-for="(item, index) in classList" :key="index" :value="item.bjmc">{{
+                    item.id + '-' + item.bjmc
+                  }}
+                </option>
               </select>
             </label>
             <label class="block">
@@ -314,7 +339,9 @@
               <i class="fas fa-graduation-cap"></i> 负责老师：
               <select v-model="studentForm.负责教师" class="border p-2 rounded">
                 <option value="">请选择</option>
-                <option v-for="(item, index) in FZTeacherList" :key="index" :value="item.id">{{ item.id +'-'+item.jsmc }}</option>
+                <option v-for="(item, index) in FZTeacherList" :key="index" :value="item.id">
+                  {{ item.id + '-' + item.jsmc }}
+                </option>
               </select>
             </label>
 
@@ -905,6 +932,10 @@ export default {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
+.el-card__body, .el-main {
+  padding: 0px !important;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -925,5 +956,8 @@ export default {
   border-radius: 0.375rem; /* 分别定义元素粗细边框和圆角 */
 }
 
+.p-6 {
+  padding: 1rem !important;
+}
 
 </style>

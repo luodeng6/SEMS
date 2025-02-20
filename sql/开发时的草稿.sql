@@ -39,10 +39,11 @@ exec LuodengTable 'SFDMK' --省份代码库
 exec LuodengTable 'XLTTK' -- 学历天题库
 exec LuodengTable 'DWXZK' -- 单位性质库
 exec LuodengTable 'DATA_GWDMK' --岗位代码库
+exec LuodengTable 'DATA_DWDMK_luodeng' --岗位代码库
 exec LuodengTable 'DWGMK'-- 单位规模库
 exec LuodengTable 'JYHJK' --就业环境库
 exec LuodengTable 'GWFLK' --岗位分类库
-exec LuodengTable 'DATA_DWDMK_luodeng'-- 单位代码库
+exec LuodengTable 'DATA_DWDMK'-- 单位代码库
 exec LuodengTable 'DWYHK'  --单位用户库
 exec LuodengTable 'MSDMK' -- 面试代码库
 exec LuodengTable 'JYHJK' -- 就业环境库
@@ -54,12 +55,18 @@ exec LuodengTable 'TDJLK'-- 投递记录库
 exec LuodengTable 'DATA_XSJLK'--学生简历库
 exec LuodengTable 'TDJGK'
 exec usp_getXxdmkData 1,'123'
-
+select * from TDJGK
+select * from DATA_DWDMK
+select * from DWYHK
 exec LuodengTable 'XXDMK'
 --查看系统消息
 SELECT   
    *
 from XXDMK
+
+ALTER TABLE DWYHK  
+ADD CONSTRAINT DF_DWYHK_YHZP DEFAULT 'defaultphoto.png' FOR YHZP;  
+
 
 select * from 
 exec LuodengTable 'XXDMK'--消息代码库

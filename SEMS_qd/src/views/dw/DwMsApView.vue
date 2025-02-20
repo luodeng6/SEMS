@@ -14,23 +14,127 @@
           <!-- 面试管理 -->
           <el-tab-pane label="待安排面试" name="arranged">
             <div class="operation-bar">
-              <el-button type="primary" @click="showDialog">发布新面试</el-button>
               <el-input
                   v-model="searchKeyword"
                   placeholder="搜索学生/岗位"
                   style="width: 300px; margin-left: 20px"></el-input>
             </div>
+<!--            BJMC
+            :
+            "2021级信息管理与信息系统"
+            DWYH
+            :
+            "msk"
+            FBZ
+            :
+            "msk"
+            FZJS
+            :
+            0
+            GSMC
+            :
+            "特斯拉（Tesla）"
+            GWDM
+            :
+            34
+            GWMC
+            :
+            "特斯拉销售代表"
+            HYDM
+            :
+            1
+            HYNR
+            :
+            "为你安排了面试！"
+            HYSJ
+            :
+            "2025-02-18T14:36:26.997+00:00"
+            ID
+            :
+            1
+            JLDM
+            :
+            1
+            LYNR
+            :
+            "求求"
+            QRDM
+            :
+            1
+            QYDM
+            :
+            1
+            SSBJ
+            :
+            1292
+            SSNJ
+            :
+            "2021"
+            STUID
+            :
+            1226
+            TDJG
+            :
+            2
+            TDJGNR
+            :
+            "安排面试"
+            TDSJ
+            :
+            "2025-02-18T14:04:18.107+00:00"
+            TDSM
+            :
+            "请通过特斯拉官网的招聘页面提交申请，面试将通过电话和面对面两种方式进行。"
+            XLDM
+            :
+            6
+            XLMC
+            :
+            "本科"
+            XSXB
+            :
+            "1"
+            XSXH
+            :
+            "20213260031"
+            XSXM
+            :
+            "罗邓"
+            XSZP
+            :
+            "/img/upload/Userpofile/1_1739720921987_.jpg"
+            YHXM
+            :
+            "Elon Reeve Musk"
+            ZZMM
+            :
+            "群众"-->
 
             <el-table :data="filteredInterviews" border height="500">
-              <el-table-column prop="jobTitle" label="岗位" width="180"></el-table-column>
-              <el-table-column prop="time" label="时间" width="180"></el-table-column>
-              <el-table-column prop="student" label="学生"></el-table-column>
-              <el-table-column prop="location" label="地点"></el-table-column>
-              <el-table-column prop="status" label="状态" width="120">
+              <el-table-column prop="GWMC" label="岗位" width="180"></el-table-column>
+              <el-table-column prop="TDSJ" label="时间" width="180">
+                <template #default="{row}">
+                  {{ formatDate(row.TDSJ) }}
+                </template>
+              </el-table-column>
+              <el-table-column label="图片" width="120" align="center">
+                <template #default="{ row }">
+                  <el-image
+                      style="width: 80px; height: 100px"
+                      :src="row.XSZP"
+                      :preview-src-list="[row.XSZP]"
+                      fit="cover">
+                  </el-image>
+                </template>
+              </el-table-column>
+              <el-table-column prop="XSXM" label="学生"></el-table-column>
+              <el-table-column prop="BJMC" label="班级"></el-table-column>
+              <el-table-column prop="BZRXM" label="班主任"></el-table-column>
+<!--              <el-table-column prop="status" label="状态" width="120">
                 <template slot-scope="{ row }">
                   <el-tag :type="statusType[row.status]">{{ row.status }}</el-tag>
                 </template>
-              </el-table-column>
+              </el-table-column>-->
               <el-table-column label="操作" width="150">
                 <template slot-scope="{ row }">
                   <el-button size="mini" @click="editInterview(row)">编辑</el-button>
@@ -42,7 +146,7 @@
           <!-- 面试管理 -->
           <el-tab-pane label="面试管理" name="management">
             <div class="operation-bar">
-              <el-button type="primary" @click="showDialog">发布新面试</el-button>
+              <el-button type="default" @click="showDialog">发布新面试</el-button>
               <el-input
                   v-model="searchKeyword"
                   placeholder="搜索学生/岗位"
@@ -108,7 +212,7 @@
           </el-tab-pane>
         </el-tabs>
         <!-- 面试表单对话框 -->
-        <el-dialog :title="formTitle" :visible.sync="dialogVisible">
+        <el-dialog :title="formTitle" :visible.sync="isAddMsDialogVisible">
           <el-form :model="formData" label-width="80px">
             <el-form-item label="岗位">
               <el-input v-model="formData.jobTitle"></el-input>
@@ -152,6 +256,8 @@
 <script>
 import DwMenu from "@/components/dw/Dw_menu.vue";
 import * as echarts from 'echarts'
+import axios from "axios";
+import {EventBus} from "@/event-bus";
 
 export default {
   name: 'DwMsApView',
@@ -167,7 +273,7 @@ export default {
       },
       statusOptions: ['待面试', '已通过', '未通过'],
       interviews: [
-        // 假数据示例
+       /* // 假数据示例
         {
           id: 1, jobTitle: '前端开发', time: '2023-07-20 14:00', student: '张三',
           location: '第一会议室', status: '待面试'
@@ -175,19 +281,30 @@ export default {
         {
           id: 2, jobTitle: 'Java开发', time: '2023-07-21 10:30', student: '李四',
           location: '线上会议', status: '已通过'
-        }
+        }*/
+
       ],
-      dialogVisible: false,
+      isAddMsDialogVisible: false,
       formData: this.emptyForm(),
       currentEditingId: null,
-      calendarDays: []
+      calendarDays: [],
+
+
+      // 面试数据
+      allInterviews: [],
+      UserInfo: {
+        id: '',
+        name: '',
+        role: '',
+        username: '',
+      },
     }
   },
   computed: {
     filteredInterviews() {
       return this.interviews.filter(item =>
-          item.jobTitle.includes(this.searchKeyword) ||
-          item.student.includes(this.searchKeyword)
+          item.GWMC.includes(this.searchKeyword) ||
+          item.XSXM.includes(this.searchKeyword)
       )
     },
     formTitle() {
@@ -199,10 +316,64 @@ export default {
     }
   },
   mounted() {
+    this.getLoginUserInfo();
     this.initCharts()
     this.generateCalendar()
   },
   methods: {
+    formatDate(dateStr) {
+      return dateStr ? new Date(dateStr).toLocaleString() : '-'
+    },
+    async getLoginUserInfo() {
+      await axios.get('/user/checkSession').then(response => {
+        if (!response.data.result) {
+          EventBus.$emit('show-auth-popup');
+          setTimeout(() => {
+            this.$router.push({name: 'StudentLoginView'});
+          }, 1000);
+        } else {
+          console.log('登录成功-----！');
+          this.UserInfo.name = response.data.name;
+          this.UserInfo.role = response.data.role;
+          this.UserInfo.username = response.data.username;
+         this.getArrangedInterviews();
+         this.getInterviews();// 获取面试数据
+        }
+      }).catch(error => {
+        EventBus.$emit('show-auth-popup');
+        console.error('获取用户信息失败,网络错误！', error);
+        setTimeout(() => {
+          this.$router.push({name: 'StudentLoginView'});
+        }, 1000);
+      });
+    },
+    // 获取待安排的面试列表
+    getArrangedInterviews() {
+      axios.get('/msdmk/getWaitApms?yhm='+this.UserInfo.username).then(response => {
+        if (response.data.result) {
+          this.interviews = response.data.data;
+        } else {
+          this.$message.error('获取待安排的面试列表失败:'+ response.data.message);
+        }
+      }).catch(error => {
+        console.error('获取待安排的面试列表失败,网络错误！', error);
+        this.$message.error('获取待安排的面试列表失败:'+ error.message);
+      });
+    },
+    // 获取面试数据
+    getInterviews() {
+      axios.get(`/msdmk/getAllInterviews?yhm=${this.UserInfo.username}&yhsfdm=3`).then(response => {
+        if (response.data.result) { // 成功获取数据
+          this.allInterviews = response.data.data;
+        } else {
+          this.$message.error('获取面试数据失败:'+ response.data.message);
+        }
+      }).catch(error => {
+        console.error('获取面试数据失败,网络错误！', error);
+        this.$message.error('获取面试数据失败:'+ error.message);
+      });
+    },
+
     // 初始化图表
     initCharts() {
       const barChart = echarts.init(this.$refs.barChart)
@@ -244,9 +415,9 @@ export default {
       }
       this.calendarDays = days
     },
-
+    // 打开新增面试对话框
     showDialog() {
-      this.dialogVisible = true
+      this.isAddMsDialogVisible = true
       this.formData = this.emptyForm()
       this.currentEditingId = null
     },

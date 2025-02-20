@@ -3,58 +3,20 @@
     <dw-menu />
     <main class="ml-64 flex-1 p-6 bg-gray-100 min-h-screen">
       <header class="flex items-center mb-6" style="justify-content: end">
-        <div style="width: 64%;">
+        <div style="    width: 64%;">
           <h1 class="text-3xl font-bold text-gray-800">企业招聘管理中心</h1>
-          <p class="text-sm text-gray-500 mt-1">欢迎回来，{{ DATADWDMK.dwmc + '-' + loginUser.name }}</p>
+          <p class="text-sm text-gray-500 mt-1">欢迎回来，{{ DATADWDMK.dwmc+'-'+loginUser.name }}</p>
         </div>
-        <div class="mx-auto px-4">
+        <div class="  mx-auto px-4">
           <div class="flex justify-between items-center h-16" style="margin-bottom: 27px;">
+
             <!-- 右侧功能区域 -->
             <div class="flex items-center space-x-6">
-              <!-- 通知按钮和弹窗 -->
-              <el-popover
-                  placement="bottom-end"
-                  width="400"
-                  trigger="click"
-                  popper-class="notification-popover"
-              >
-                <div class="notification-container">
-                  <div class="message-list">
-                    <div
-                        v-for="(message, index) in currentPageMessages"
-                        :key="index"
-                        class="message-card"
-                        @click="markAsRead(message)"
-                    >
-                      <!-- 用户头像 -->
-                      <el-avatar :size="40" :src="message.avatar" class="mr-3"></el-avatar>
-                      <div class="message-content">
-                        <div class="message-header">
-                          <span class="sender">{{ message.sender }}</span>
-                          <span class="time">{{ message.time }}</span>
-                        </div>
-                        <p>{{ message.content }}</p>
-                      </div>
-                      <!-- 未读红点 -->
-                      <div v-if="!message.isRead" class="unread-dot"></div>
-                    </div>
-                  </div>
-                  <!-- 分页 -->
-                  <el-pagination
-                      :current-page.sync="currentPage"
-                      :page-size="pageSize"
-                      :total="messages.length"
-                      layout="prev, pager, next"
-                      class="pagination"
-                      @current-change="handlePageChange"
-                  />
-                </div>
-                <!-- 触发按钮 -->
-                <button slot="reference" class="hover:text-slate-600 relative">
-                  <i class="el-icon-bell text-xl"></i>
-                  <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                </button>
-              </el-popover>
+              <!-- 通知按钮 -->
+              <button class=" hover:text-slate-600 relative" @click="isTongZhiShow = true">
+                <i class="el-icon-bell text-xl"></i>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+              </button>
 
               <!-- 用户头像和下拉菜单 -->
               <el-dropdown trigger="click">
@@ -63,23 +25,33 @@
                       src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
                       class="border-2 hover:text-slate-600"
                   ></el-avatar>
-                  <span class="ml-2 hover:text-slate-600">{{ loginUser.name }}</span>
-                  <i class="el-icon-arrow-down el-icon--right"></i>
+                  <span class="ml-2  hover:text-slate-600">{{ loginUser.name }}</span>
+                  <i class="el-icon-arrow-down el-icon--right "></i>
                 </div>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item><i class="el-icon-user mr-2"></i>个人中心</el-dropdown-item>
-                  <el-dropdown-item><i class="el-icon-setting mr-2"></i>账户设置</el-dropdown-item>
-                  <el-dropdown-item divided><i class="el-icon-switch-button mr-2"></i>退出登录</el-dropdown-item>
+                  <el-dropdown-item>
+                    <i class="el-icon-user mr-2"></i>个人中心
+                  </el-dropdown-item>
+                  <el-dropdown-item>
+                    <i class="el-icon-setting mr-2"></i>账户设置
+                  </el-dropdown-item>
+                  <el-dropdown-item divided>
+                    <i class="el-icon-switch-button mr-2"></i>退出登录
+                  </el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
 
-              <!-- 原消息按钮 -->
-              <button class="hover:text-slate-600 relative" style="display: flex; color: #606266; align-items: center;">
+              <!-- 通知按钮 -->
+              <button class=" hover:text-slate-600 relative" style="display: flex;color: #606266;align-items: center;">
                 <i class="el-icon-message text-xl"></i> 消息
               </button>
             </div>
           </div>
         </div>
+        <!--        <div class="flex items-center space-x-4">
+                  <el-button type="info" icon="el-icon-message" circle></el-button>
+                  <el-button type="text" icon="el-icon-plus" @click="postNewJob">发布新职位</el-button>
+                </div>-->
       </header>
 
       <!-- 招聘数据概览 -->
@@ -119,8 +91,10 @@
             <div id="main" style="width: 100%; height: 300px;"></div>
           </el-card>
         </el-col>
+
         <el-col :span="8">
           <el-card shadow="never" class="chart-card">
+            <-- 职位来源 -->
             <template #header>
               <span class="card-title">职位来源</span>
             </template>
@@ -153,6 +127,7 @@
                   {{ formatDate(row.TDSJ) }}
                 </template>
               </el-table-column>
+
               <el-table-column label="状态" width="100">
                 <template #default="{ row }">
                   <el-tag :type="statusType[getTdzt(row)]" size="small">
@@ -191,6 +166,40 @@
           </el-card>
         </el-col>
       </el-row>
+      <el-dialog
+          title="#新消息"
+          :visible.sync="isTongZhiShow"
+          width="100%"
+          top="28vh"
+          :before-close="handleClose">
+        <div class="notification-container">
+          <!-- 单个通知示例 -->
+          <div v-for="item in 4" class="notification-card unread">
+            <!-- 左侧状态区 -->
+            <div class="notification-status">
+              <div class="unread-indicator"></div>
+              <img src="avatar.jpg" class="user-avatar">
+            </div>
+
+            <!-- 主要内容区 -->
+            <div class="notification-content">
+              <div class="header">
+                <span class="username">李华</span>
+                <span class="timestamp">2分钟前</span>
+              </div>
+              <p class="message">
+                <i class="icon-comment"></i>
+                回复了你的帖子《如何设计用户友好的界面》
+              </p>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="notification-actions">
+              <button class="btn-mark-read">标记已读</button>
+            </div>
+          </div>
+        </div>
+      </el-dialog>
     </main>
   </div>
 </template>
@@ -202,49 +211,49 @@ import DwMenu from "@/components/dw/Dw_menu.vue";
 import axios from "axios";
 
 export default {
-  components: { DwMenu, ECharts },
+  components: {DwMenu, ECharts},
   data() {
     return {
       isTongZhiShow: false,
-      loading: false,
+      loading: false,// 投递数据加载状态
       companyName: "XX科技有限公司",
       timeRange: '7d',
       stats: [
-        { label: '发布职位', value: 15, icon: 'suitcase', color: 'blue', trend: 'up', change: 12 },
-        { label: '收到简历', value: 234, icon: 'document', color: 'green', trend: 'up', change: 8 },
-        { label: '待处理简历', value: 42, icon: 'files', color: 'orange', trend: 'down', change: 5 },
-        { label: '安排面试', value: 68, icon: 'date', color: 'purple', trend: 'up', change: 20 }
+        {label: '发布职位', value: 15, icon: 'suitcase', color: 'blue', trend: 'up', change: 12},
+        {label: '收到简历', value: 234, icon: 'document', color: 'green', trend: 'up', change: 8},
+        {label: '待处理简历', value: 42, icon: 'files', color: 'orange', trend: 'down', change: 5},
+        {label: '安排面试', value: 68, icon: 'date', color: 'purple', trend: 'up', change: 20}
       ],
       applicationChart: {
-        tooltip: { trigger: 'axis' },
+        tooltip: {trigger: 'axis'},
         xAxis: {
           type: 'category',
           data: ['02-10', '02-11', '02-12', '02-13', '02-14', '02-15', '02-16'],
-          axisLine: { lineStyle: { color: '#999' } }
+          axisLine: {lineStyle: {color: '#999'}}
         },
-        yAxis: { type: 'value', axisLine: { show: false } },
+        yAxis: {type: 'value', axisLine: {show: false}},
         series: [{
           name: '简历投递量',
           type: 'line',
           smooth: true,
-          itemStyle: { color: '#67C23A' },
-          areaStyle: { color: 'rgba(103, 194, 58, 0.1)' },
+          itemStyle: {color: '#67C23A'},
+          areaStyle: {color: 'rgba(103, 194, 58, 0.1)'},
           data: [45, 52, 38, 65, 49, 72, 60]
         }]
       },
       sourceChart: {
-        tooltip: { trigger: 'item' },
-        legend: { orient: 'vertical', right: 10 },
+        tooltip: {trigger: 'item'},
+        legend: {orient: 'vertical', right: 10},
         series: [{
           type: 'pie',
           radius: ['40%', '70%'],
           center: ['35%', '50%'],
-          itemStyle: { borderRadius: 6 },
+          itemStyle: {borderRadius: 6},
           data: [
-            { value: 156, name: '招聘平台', itemStyle: { color: '#409EFF' } },
-            { value: 89, name: '企业官网', itemStyle: { color: '#67C23A' } },
-            { value: 45, name: '校园宣讲', itemStyle: { color: '#E6A23C' } },
-            { value: 34, name: '内推渠道', itemStyle: { color: '#F56C6C' } }
+            {value: 156, name: '招聘平台', itemStyle: {color: '#409EFF'}},
+            {value: 89, name: '企业官网', itemStyle: {color: '#67C23A'}},
+            {value: 45, name: '校园宣讲', itemStyle: {color: '#E6A23C'}},
+            {value: 34, name: '内推渠道', itemStyle: {color: '#F56C6C'}}
           ]
         }]
       },
@@ -274,27 +283,11 @@ export default {
           tag: '功能更新'
         }
       ],
-      loginUser: { username: null, name: null },
-      DATADWDMK: null,
-      // 消息通知数据（增加了 isRead 字段）
-      messages: [
-        { sender: '用户A', time: '2024-10-24 10:00', content: '这是第一条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户B', time: '2024-10-24 10:05', content: '这是第二条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户C', time: '2024-10-24 10:10', content: '这是第三条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户A', time: '2024-10-24 10:15', content: '这是第四条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户B', time: '2024-10-24 10:20', content: '这是第五条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户C', time: '2024-10-24 10:25', content: '这是第六条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户A', time: '2024-10-24 10:30', content: '这是第七条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-      ],
-      currentPage: 1,
-      pageSize: 5
-    }
-  },
-  computed: {
-    currentPageMessages() {
-      const start = (this.currentPage - 1) * this.pageSize;
-      const end = start + this.pageSize;
-      return this.messages.slice(start, end);
+      loginUser: {
+        username: null,  // 登录用户名
+        name: null,  // 登录用户姓名
+      },
+      DATADWDMK: null,  // 所属单位信息
     }
   },
   mounted() {
@@ -305,37 +298,71 @@ export default {
     showTjtData() {
       var chartDom = document.getElementById('main');
       var myChart = echarts.init(chartDom, 'dark');
-      var option = {
-        xAxis: { type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] },
-        yAxis: { type: 'value' },
-        series: [{ data: [820, 932, 901, 934, 1290, 1330, 1320], type: 'line', smooth: true }]
+      var option;
+
+      option = {
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            smooth: true
+          }
+        ]
       };
+
       option && myChart.setOption(option);
     },
+    // 格式化日期
     formatDate(dateStr) {
-      return dateStr ? new Date(dateStr).toLocaleString() : '-';
+      return dateStr ? new Date(dateStr).toLocaleString() : '-'
     },
-    getTdzt(row) {
-      if (row.QRDM === 0) return '待处理';
-      else if (row.HYDM === 0) return '待回应';
-      else if (row.TDJG === null) return '待录入';
-      else {
+    // 获取投递状态
+    getTdzt(row){
+      /* statusType: {
+         '待处理': 'warning',
+             '待回应': 'warning',
+              '待录入': 'warning',
+             '已安排面试': 'success',
+             '已录用': 'primary',
+             '待定': 'info',
+             '已拒绝': 'danger'
+       },*/
+      if(row.QRDM===0){
+        return '待处理'
+      }else if(row.HYDM===0){
+        return '待回应'
+      }else if(row.TDJG===null){
+        return '待录入'
+      } else {
+        // 使用case语句判断状态  --对应后台固定表 ：TDJGK
         switch (row.TDJG) {
-          case 0: return '不录用';
-          case 1: return '已录用';
-          case 2: return '待安排面试';
-          case 3: return '待定';
+          case 0:
+            return '不录用'
+          case 1:
+            return '已录用'
+          case 2:
+            return '待安排面试'
+          case 3:
+            return '待定'
         }
       }
     },
+    // 获取登录信息
     getLoginUser() {
       axios.get('/user/checkSession').then(response => {
         if (response.data.result) {
           this.loginUser.username = response.data.username;
-          this.loginUser.name = response.data.name;
-          console.log("单位用户：" + this.loginUser.username);
+          this.loginUser.name= response.data.name;
+          console.log("单位用户："+this.loginUser.username);
           this.getDwYhmDyDw(this.loginUser.username);
-          this.getTdData();
+          this.getTdData();//加载投递数据
         } else {
           this.$message.error("当前用户未登录，请先登录！");
           this.$router.push('/dw/login');
@@ -344,20 +371,22 @@ export default {
         console.log(error);
       });
     },
-    getTdData() {
-      this.loading = true;
+    getTdData(){
+      this.loading = true
+      // 通过但我用户名 获取投递数据
       axios.get(`/tdjlk/getTdjlk?Style=4&YHM=${this.loginUser.username}&GWDM=1`).then((response) => {
         if (response.data.result) {
-          this.applications = response.data.data;
+          this.applications=response.data.data;// 获取所有数据的前四条
         } else {
-          this.$message.error('加载投递数据库失败:' + response.data.msg);
+          this.$message.error('加载投递数据库失败:'+ response.data.msg);
         }
-        this.loading = false;
+        this.loading = false
       }).catch((error) => {
-        this.loading = false;
-        this.$message.error('加载投递数据库失败:' + error.message);
-      });
+        this.loading = false
+        this.$message.error('加载投递数据库失败:'+ error.message)
+      })
     },
+    // 获取所属单位信息
     getDwYhmDyDw(yhm) {
       axios.get('/dw/getDwDataByDwUserName?dwUserName=' + yhm).then(response => {
         if (response.data.result) {
@@ -374,20 +403,16 @@ export default {
       });
     },
     postNewJob() {
+      // 发布新职位逻辑
       this.$router.push('/dw/addJob');
     },
     viewResume(row) {
       // 查看简历逻辑
     },
-    goToPageViewAllTdData() {
+    // 查看全部投递数据-跳转到指定页面
+    goToPageViewAllTdData(){
       this.$router.push('/dw/sqzmd');
     },
-    handlePageChange(page) {
-      this.currentPage = page;
-    },
-    markAsRead(message) {
-      message.isRead = true; // 标记消息为已读
-    }
   }
 }
 </script>
@@ -396,98 +421,102 @@ export default {
 .icon-box {
   @apply w-12 h-12 rounded-lg flex items-center justify-center;
 }
-.px-4 {
-  padding-left: 0px !important;
+.px-4{
+  padding-left: 0px!important;
 }
 .stat-card {
   @apply transition-all duration-300 hover:transform hover:scale-105;
 }
+
 .chart-card {
   @apply border-0 bg-white rounded-lg shadow-sm;
 }
+
 .card-title {
   @apply text-lg font-semibold text-gray-800;
 }
+
 .notice-item {
   @apply p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors;
 }
+
 :deep(.el-card__header) {
   @apply border-b-0;
 }
 
-/* 消息通知样式 */
-.notification-popover {
-  padding: 0 !important;
-}
+
+
 .notification-container {
-  max-height: 400px;
-  overflow-y: auto;
-  padding: 10px;
+  max-width: 600px;
+  margin: 20px auto;
 }
-.message-list {
+
+.notification-card {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.message-card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 10px;
+  padding: 16px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 12px;
   transition: all 0.3s ease;
 }
-.message-card:hover {
+
+.unread {
+  border-left: 4px solid #1890ff;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.username {
+  font-weight: 600;
+  color: #333;
+}
+
+.timestamp {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.message {
+  color: #666;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.icon-comment {
+  color: #1890ff;
+  margin-right: 8px;
+}
+
+/* 悬停效果 */
+.notification-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-.message-content {
-  flex: 1;
-}
-.message-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  font-size: 0.9em;
-  color: #909399;
-}
-.sender {
-  font-weight: bold;
-  color: #303133;
-}
-.time {
-  color: #909399;
-}
-.message-content p {
-  margin: 0;
-  font-size: 1em;
-  color: #606266;
-}
-.unread-dot {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+
+/* 未读状态指示器 */
+.unread-indicator {
   width: 8px;
   height: 8px;
-  background-color: red;
+  background: #1890ff;
   border-radius: 50%;
-}
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-.el-pager li {
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-.el-pager li:hover {
-  background-color: #ecf5ff;
-}
-.el-pager li.active {
-  background-color: #409eff;
-  color: #fff;
+  position: absolute;
+  margin-left: 28px;
 }
 </style>

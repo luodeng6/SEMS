@@ -105,6 +105,13 @@
               </router-link>
             </li>
             <li class="hover:bg-blue-50 rounded">
+              <router-link to="/admin/xtgg">
+                <a class="flex items-center p-2 text-gray-700">
+                  系统公告
+                </a>
+              </router-link>
+            </li>
+            <li class="hover:bg-blue-50 rounded">
               <router-link to="/admin/stats/graduates">
                 <a class="flex items-center p-2 text-gray-700">
                   系统参数配置
@@ -208,7 +215,7 @@ export default {
       title: '',
       message: '',
       visible: false,
-      isStatsMenuQiTaOpen: false, // 控制统计分析子菜单的展开状态
+      isStatsMenuQiTaOpen: true, // 控制统计分析子菜单的展开状态
       isStatsMenuXiaoYuanOpen: false,// 控制校园信息管理子菜单的展开状态
       isStatsMenuXiTongOpen: false // 控制系统设置子菜单的展开状态
     }

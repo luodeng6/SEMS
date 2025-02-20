@@ -19,7 +19,7 @@ const routes = [
         path: "/",
         name: "index",
         component: index,
-        meta: {style: 'public',title: '学生就业信息系统-欢迎广大师生用人单位^-^!!'} // 不需要认证的路由
+        meta: {style: 'public', title: '学生就业信息系统-欢迎广大师生用人单位^-^!!'} // 不需要认证的路由
     },
     {
         // 登录页面管理员
@@ -110,7 +110,7 @@ const routes = [
         path: '/stu/job',
         name: 'StudentJobView',
         component: () => import('@/views/student/StudentJobView.vue'),
-        meta: {style: '学生',title: '学生端-岗位'}
+        meta: {style: '学生', title: '学生端-岗位'}
     },
     {   //职位详情-学生
         path: '/stu/jobDetail',
@@ -168,7 +168,7 @@ const routes = [
         // 新增岗位页面
         path: '/dw/addJob',
         name: 'addJob',
-        component: () =>import('@/views/dw/DwAddJobView.vue'),
+        component: () => import('@/views/dw/DwAddJobView.vue'),
         meta: {style: '单位'}
     },
     {
@@ -188,14 +188,14 @@ const routes = [
     {
         // 岗位环境管理
         path: '/dw/gwhjgl',
-        name : 'gwhjgl',
+        name: 'gwhjgl',
         component: () => import('@/views/dw/DwGwhjView.vue'),
         meta: {style: '单位'}
     },
-   {
+    {
         // 系统用户管理
         path: '/admin/sysUseradmin',
-        name : 'AdminUser',
+        name: 'AdminUser',
         component: () => import('@/views/admin/Admin_User.vue'),
         meta: {style: '管理员'}
     },
@@ -216,58 +216,63 @@ const routes = [
         path: '/stu/info',
         name: 'Info',
         component: () => import('@/views/student/StudentInfoView.vue'),
-        meta: {style: '学生',title: '学生-个人信息'}
+        meta: {style: '学生', title: '学生-个人信息'}
     },
     {
         path: '/stu/tdjl',
         name: 'StudentTdjlView',
         component: () => import('@/views/student/StudentTdjlView.vue'),
-        meta: {style: '学生',title: '学生-我的投递'}
+        meta: {style: '学生', title: '学生-我的投递'}
     },
     {
         path: '/dw/sqzmd',
-        name : 'Sqzmd',
+        name: 'Sqzmd',
         component: () => import('@/views/dw/DwSQZmdView.vue'),
-        meta: {style: '单位',title: '单位-学生申请名单'}
+        meta: {style: '单位', title: '单位-学生申请名单'}
     },
     {
         path: '/dw/zhgl',
         name: 'dwzhgl',
         component: () => import('@/views/dw/DwZHGLView.vue'),
-        meta: {style: '单位',title: '单位-个人信息管理'}
+        meta: {style: '单位', title: '单位-个人信息管理'}
     },
     {
         path: '/dw/xtqqview',
         name: 'dwxqqview',
         component: () => import('@/views/dw/DwXtqqView.vue'),
-        meta: {style: '单位',title: '单位-系统请求'}
+        meta: {style: '单位', title: '单位-系统请求'}
     },
     {
         path: '/stu/zhgl',
         name: 'StudentZhglView',
         component: () => import('@/views/student/StudentZhglView.vue'),
-        meta: {style: '学生',title: '学生-个人信息管理'}
+        meta: {style: '学生', title: '学生-个人信息管理'}
     },
     {
         // 面试安排
         path: '/dw/msap',
         name: 'DwMsApView',
         component: () => import('@/views/dw/DwMsApView.vue'),
-        meta: {style: '单位',title: '单位-面试安排'}
+        meta: {style: '单位', title: '单位-面试安排'}
     },
     {
         //  就业咨询助手
         path: '/stu/JobHelper',
         name: 'StudentJobHelperView',
         component: () => import('@/views/student/StudentJobHelperView.vue'),
-        meta: {style: '学生',title: '学生-就业咨询助手'}
+        meta: {style: '学生', title: '学生-就业咨询助手'}
     },
     {
         //单位用户岗位编辑
         path: '/dw/DwJobEditView',
         name: 'DwJobEditView',
         component: () => import('@/views/dw/DwJobEditView.vue'),
-        meta: {style: '单位',title: '单位-岗位编辑'}
+        meta: {style: '单位', title: '单位-岗位编辑'}
+    }, {
+        path: '/admin/xtgg',
+        name: 'AdminXtgg',
+        component: () => import('@/views/admin/Admin_Xtgg.vue'),
+        meta: {style: '管理员', title: '管理员-系统公告'}
     }
 ]
 
@@ -296,35 +301,35 @@ router.beforeEach((to, from, next) => {
         paths.push(routes[i].path);
     }
 
- /*   let paths = [
-        "/",
-        "/Login",
-        "/admin/index",
-        "/admin/stu",
-        "/admin/job",
-        "/admin/teacher",
-        "/admin/jcsj",
-        "/admin/dwgl",
-        "/admin/Zph",
-        "/admin/xsjl",
-        "/stu/Login",
-        "/stu/index",
-        "/stu/xsjl",
-        "/stu/job",
-        "/stu/jobDetail",
-        "/teacher/login",
-        "/teacher/index",
-        "/dw/login",
-        "/dw/index",
-        "/dw/job",
-        "/dw/csJob",
-        "/dw/AI",
-        "/dw/addJob"
-    ]*/
+    /*   let paths = [
+           "/",
+           "/Login",
+           "/admin/index",
+           "/admin/stu",
+           "/admin/job",
+           "/admin/teacher",
+           "/admin/jcsj",
+           "/admin/dwgl",
+           "/admin/Zph",
+           "/admin/xsjl",
+           "/stu/Login",
+           "/stu/index",
+           "/stu/xsjl",
+           "/stu/job",
+           "/stu/jobDetail",
+           "/teacher/login",
+           "/teacher/index",
+           "/dw/login",
+           "/dw/index",
+           "/dw/job",
+           "/dw/csJob",
+           "/dw/AI",
+           "/dw/addJob"
+       ]*/
 
     //  routes.map(route => route.path);
-   /* console.log("所有路由path:");
-    console.log(paths);*/
+    /* console.log("所有路由path:");
+     console.log(paths);*/
 
 
     if (!paths.includes(to.path)) {
@@ -370,7 +375,7 @@ router.beforeEach((to, from, next) => {
                         console.log("----- 管理员未登录，跳转到管理员登录页面")
                         // 其他角色未登录，跳转到管理员登录页面
                         next({name: 'Login'});
-                    }else if (to.meta.style === '单位') {
+                    } else if (to.meta.style === '单位') {
                         console.log("----- 单位未登录，跳转到单位登录页面")
                         // 其他角色未登录，跳转到单位登录页面
                         next({name: 'DwLoginView'});
@@ -379,7 +384,7 @@ router.beforeEach((to, from, next) => {
             }
 
             // 设置当前页面的title
-            document.title = to.meta.title===undefined? '学生就业管理系统':to.meta.title;
+            document.title = to.meta.title === undefined ? '学生就业管理系统' : to.meta.title;
 
         }
     ).catch(error => {
