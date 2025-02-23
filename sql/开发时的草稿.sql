@@ -13,6 +13,7 @@ select * from GWFLK
 select * from DATA_DWDMK 
 select * from XLTTK
 select * from DWYHK
+select * from XXDMK
 Select QYDM,* from DATA_STUDENT
 
 select * from tdjlk where stuid = 1226 and gwdm =4
@@ -26,7 +27,7 @@ exec LuoDeng_getAlltableInfo
 -- 获取某岗位对应的 环境
 select * from JYHJK order by TJSJ desc
 select * from DATA_GWDMK where ID=34
-select * from MSJGDMK MSDMK
+select * from  MSDMK  MSJGDMK
 exec usp_GetTdjlk 2,'1',''
 select * from DATA_GWDMK
 exec usp_Clear
@@ -54,15 +55,26 @@ exec LuodengTable 'MSJGDMK' --面试结果代码库
 exec LuodengTable 'TDJLK'-- 投递记录库
 exec LuodengTable 'DATA_XSJLK'--学生简历库
 exec LuodengTable 'TDJGK'
+exec LuodengTable 'XXDMK'
+exec LuodengTable 'MSSQK'
+
+
 exec usp_getXxdmkData 1,'123'
 select * from TDJGK
 select * from DATA_DWDMK
 select * from DWYHK
+select a.GWMC,* from MSDMK b left join DATA_GWDMK a on a.ID=b.GWDM
+select * from TDJLK
 exec LuodengTable 'XXDMK'
 --查看系统消息
 SELECT   
    *
 from XXDMK
+
+-- 新建一个草稿表
+select *  into MSCGDMK  from MSDMK 
+
+exec usp_Clear
 
 ALTER TABLE DWYHK  
 ADD CONSTRAINT DF_DWYHK_YHZP DEFAULT 'defaultphoto.png' FOR YHZP;  
@@ -76,7 +88,7 @@ select * from XXDMK
 select * from DATA_XSJLK
 SELECT * FROM DATA_STUDENT WHERE ID=1226
 select * from JYHJK
-
+exec usp_Clear 
 upadte TDJLK set TDJGNR =case 
 
 
@@ -129,14 +141,15 @@ CROSS JOIN (
 
  --
  update DATA_XSJLK set FB
-
+ exec usp_getWaitAddMS '1'
 
 select * from TDJLK
 -- 获取投递数据
 exec usp_GetTdjlk 2,'1',1
 
 select * from DWYHK
-
+select * from JSDMK
+update BJDMK set BZRDM=1002
 
 exec usp_GetAllSystemUser 5,1
 

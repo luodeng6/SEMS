@@ -169,15 +169,24 @@ public class TdjlkServiceImpl implements TdjlkService {
     public Map<String, Object> UpdateTdjlkQyztById(int id, int qyzt) {
         Map<String, Object> result = new HashMap<>();
         try {
-            // 处理取消/继续使用 投递简历逻辑
-            if (tdjlkMapper.updateQyztById(id, qyzt) > 0) {
-                result.put("code", 200);
-                result.put("msg", "success");
-                result.put("data", "更新成功");
-                result.put("result", true);
+            // 先检查是否可以撤销
+            if (tdjlkMapper.isCanCXTdjlkById(id).isEmpty()) {
+                // 处理取消/继续使用 投递简历逻辑
+                if (tdjlkMapper.updateQyztById(id, qyzt) > 0) {
+                    result.put("code", 200);
+                    result.put("msg", "success");
+                    result.put("data", "更新成功");
+                    result.put("result", true);
+                } else {
+                    result.put("code", 504);
+                    result.put("msg", "database error");
+                    result.put("data", "更新失败");
+                    result.put("result", false);
+                }
             } else {
-                result.put("code", 504);
-                result.put("msg", "database error");
+                // 不能撤销
+                result.put("code", 200);
+                result.put("msg", "单位已确认，不可取消");
                 result.put("data", "更新失败");
                 result.put("result", false);
             }
@@ -190,6 +199,37 @@ public class TdjlkServiceImpl implements TdjlkService {
         }
         return result;
     }
+
+    /**
+     * 检查当前投递记录是否可以被插销
+     *
+     * @param id 投递记录id
+     * @return Map<String, Object> 返回结果
+     */
+    public Map<String, Object> isCanCXTdjlk(int id) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            // 处理检查当前投递记录是否可以被插销逻辑
+            if (tdjlkMapper.isCanCXTdjlkById(id).isEmpty()) {
+                result.put("code", 200);
+                result.put("msg", "该投递记录可以被插销");    // 可以被插销
+                result.put("result", true);
+            } else {
+                result.put("isError", false);
+                result.put("msg", "单位已确认");    // 不可以被插销
+                result.put("result", false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("isError", true);
+            result.put("msg", "server error");
+            result.put("result", false);
+            System.out.println("server error!!");
+        }
+        System.out.println(result);
+        return result;
+    }
+
 
     /**
      * 单位确认收到投递记录
@@ -272,9 +312,9 @@ public class TdjlkServiceImpl implements TdjlkService {
                 System.out.println("1");
                 // 已经回应过该简历
                 result.put("code", 200);
-                result.put("msg",checkResult.get("msg"));
+                result.put("msg", checkResult.get("msg"));
                 result.put("result", false);
-            }else{
+            } else {
                 // 判断是否发生错误
                 if (checkResult.get("isError").equals(true)) {
                     System.out.println("2");
@@ -283,7 +323,7 @@ public class TdjlkServiceImpl implements TdjlkService {
                     result.put("data", checkResult.get("msg"));
                     result.put("result", false);
 
-                }else{
+                } else {
                     System.out.println("3");                    // 处理单位确认回应投递记录逻辑
                     if (tdjlkMapper.HyTdjlkById(id, hynr, dwyh, hyjg) > 0) {
                         result.put("code", 200);

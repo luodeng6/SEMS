@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.*;
 import org.sems.sems.entity.Tdjlk;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface TdjlkMapper {
@@ -45,4 +46,8 @@ public interface TdjlkMapper {
     // 用户是否已经回应
     @Select("select * from tdjlk where id = #{id} and hydm = 1")
    List<Tdjlk>  isHyTdjlkById(int id);
+
+    // 单位是否以及确认
+    @Select("select * from tdjlk where id = #{id} and qrdm = 1")
+    List<Tdjlk> isCanCXTdjlkById(int id);
 }

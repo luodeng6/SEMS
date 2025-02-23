@@ -1,20 +1,20 @@
 package org.sems.sems.service.impl;
 
+import org.sems.sems.entity.Msdmk;
 import org.sems.sems.service.MsdmkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import org.sems.sems.Mapper.MsdmkMapper;
 
 @Service
 public class MsdmkServiceImpl implements MsdmkService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private MsdmkMapper msdmkMapper;
 
     /**
      * 获取待面试列表
@@ -52,26 +52,126 @@ public class MsdmkServiceImpl implements MsdmkService {
      * @return 所有面试列表
      */
     @Override
-    public Map<String, Object> getAllInterviews(String yhm,int yhsfdm) {
+    public Map<String, Object> getAllInterviews(String yhm, int yhsfdm) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            // 处理获取所有面试列表逻辑
+            List<Map<String, Object>> resultList = new ArrayList<>();
+            resultList = jdbcTemplate.queryForList(
+                    "{call usp_getMsData(?,?)}", yhsfdm, yhm
+            );
+            System.out.println("获取的面试列表：");
+            System.out.println(resultList);
+            resultMap.put("data", resultList);
+            resultMap.put("code", 200);
+            resultMap.put("msg", "success");
+            resultMap.put("result", true);
+            return resultMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+
+    /**
+     * 发布面试
+     *
+     * @param msdmk 面试信息
+     * @return Map<String, Object>
+     */
+    @Override
+    public Map<String, Object> addInterview(Msdmk msdmk) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+
+            // 处理发布面试逻辑
+            if (msdmkMapper.addMsdmk(msdmk) > 0) {
+                // 发布成功后，更新TDJLK ISMS (是否已经安排面试)状态
+                if(msdmkMapper.updateTdjlkIsms(msdmk.getXsdm(), msdmk.getGwdm()) > 0){
+                    resultMap.put("code", 200);
+                    resultMap.put("msg", "all success");
+                    resultMap.put("result", true);
+                }else{
+                    resultMap.put("code", 504);
+                    resultMap.put("msg", "database error, update TDJLK ISMS failed");
+                    resultMap.put("result", false);
+                }
+            } else {
+                resultMap.put("code", 500);
+                resultMap.put("msg", "database error, add MSDMK failed");
+                resultMap.put("result", false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+
+    /**
+     * 删除草稿面试
+     *
+     * @param msdm 面试ID
+     * @return Map<String, Object>
+     */
+    @Override
+    public Map<String, Object> deletemsdmk(int msdm) {
        Map<String, Object> resultMap = new HashMap<>();
-       try {
-           // 处理获取所有面试列表逻辑
-           List<Map<String, Object>> resultList = new ArrayList<>();
-           resultList = jdbcTemplate.queryForList(
-                   "{call usp_getMsData(?,?)}", yhsfdm, yhm
-           );
-           resultMap.put("data", resultList);
-           resultMap.put("code", 200);
-           resultMap.put("msg", "success");
-           resultMap.put("result", true);
-           return resultMap;
-       } catch (Exception e) {
-           e.printStackTrace();
-           resultMap.put("code", 500);
-           resultMap.put("msg", "server error");
-           resultMap.put("result", false);
-           resultMap.put("data", e.getMessage());
-       }
-       return resultMap;
+        try {
+            // 处理删除草稿面试逻辑
+            if (msdmkMapper.deleteMsdmk(msdm) > 0) {
+                resultMap.put("code", 200);
+                resultMap.put("msg", "success");
+                resultMap.put("result", true);
+            } else {
+                resultMap.put("code", 500);
+                resultMap.put("msg", "database error");
+                resultMap.put("result", false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+
+    /**
+     * 更新面试信息
+     *
+     * @param msdmk 面试信息
+     * @return Map<String, Object>
+     */
+    @Override
+    public Map<String, Object> updateInterview(Msdmk msdmk) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            // 处理更新面试信息逻辑
+            if (msdmkMapper.updateMsdmk(msdmk) > 0) {
+                resultMap.put("code", 200);
+                resultMap.put("msg", "success");
+                resultMap.put("result", true);
+            } else {
+                resultMap.put("code", 500);
+                resultMap.put("msg", "database error");
+                resultMap.put("result", false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
     }
 }

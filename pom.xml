@@ -61,7 +61,7 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>9.4.0.jre8</version> <!-- 此版本请根据需要选择 -->
+            <version>9.4.0.jre8</version>
         </dependency>
 
         <dependency>

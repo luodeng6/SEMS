@@ -273,7 +273,25 @@ const routes = [
         name: 'AdminXtgg',
         component: () => import('@/views/admin/Admin_Xtgg.vue'),
         meta: {style: '管理员', title: '管理员-系统公告'}
-    }
+    },{
+        path: '/stu/jyzd',
+        name: 'StudentJyzdView',
+        component: () => import('@/views/student/StudentJyzdView.vue'),
+        meta: {style: '学生', title: '学生-就业指导'}
+    },{
+        // 面试复盘
+        path: '/stu/msfp',
+        name: 'DwJyzdView',
+        component: () => import('@/views/student/StudentMsfpView.vue'),
+        meta: {style: '学生', title: '学生-面试复盘'}
+    },
+    {
+        // 面试确认
+        path: '/stu/msqr',
+        name: 'StudentMsqrView',
+        component: () => import('@/views/student/StudentMsqrView.vue'),
+        meta: {style: '学生', title: '学生-面试确认'}
+    },
 ]
 
 

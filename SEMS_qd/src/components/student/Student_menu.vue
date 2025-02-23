@@ -93,14 +93,14 @@
             </li>
 
             <li class="hover:bg-blue-50 rounded">
-              <router-link to="/admin/stats/students">
+              <router-link to="/stu/msqr">
                 <a class="flex items-center p-2 text-gray-700">
                   面试确认
                 </a>
               </router-link>
             </li>
             <li class="hover:bg-blue-50 rounded">
-              <router-link to="/admin/stats/students">
+              <router-link to="/stu/msfp">
                 <a class="flex items-center p-2 text-gray-700">
                   面试复盘
                 </a>
@@ -141,7 +141,7 @@
               </router-link>
             </li>
             <li class="hover:bg-blue-50 rounded">
-              <router-link to="/admin/stats/students">
+              <router-link to="/stu/jyzd">
                 <a class="flex items-center p-2 text-gray-700">
                   就业指导
                 </a>

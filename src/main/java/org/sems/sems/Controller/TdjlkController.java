@@ -45,7 +45,7 @@ public class TdjlkController {
         return tdjlkService.UpdateTdjlkQyztById(id,qyzt);
     }
 
-    // 获取学生简历列表
+    // 单位用户获取学生投递列表
     @GetMapping("/getTdjlk")
     public Map<String, Object> getTdjlk(int  Style,String YHM,int GWDM) {
         return tdjlkService.getTdjlk(Style,YHM,GWDM);

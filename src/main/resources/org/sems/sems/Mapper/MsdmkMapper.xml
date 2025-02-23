@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.MsdmkMapper">
+    <insert id="addMsdmk">
+        INSERT INTO MSDMK (
+        <trim prefix="" suffix="" suffixOverrides=",">
+            <if test="xsdm != null">XSDM,</if>
+            <if test="dwdm != null">DWDM,</if>
+            <if test="gwdm != null">GWDM,</if>
+            <if test="mssj != null">MSSJ,</if>
+            <if test="mszt != null">MSZT,</if>
+            <if test="msjg != null">MSJG,</if>
+            <if test="fqz != null">FQZ,</if>
+            <if test="fqzsfdm != null">FQZSFDM,</if>
+            <if test="fqsj != null">FQSJ,</if>
+            <if test="qydm != null">QYDM,</if>
+            <if test="qrdm != null">QRDM,</if>
+            <if test="msdd != null">MSDD,</if>
+        </trim>
+        ) VALUES (
+        <trim prefix="" suffix="" suffixOverrides=",">
+            <if test="xsdm != null">#{xsdm},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="gwdm != null">#{gwdm},</if>
+            <if test="mssj != null">#{mssj},</if>
+            <if test="mszt != null">#{mszt},</if>
+            <if test="msjg != null">#{msjg},</if>
+            <if test="fqz != null">#{fqz},</if>
+            <if test="fqzsfdm != null">#{fqzsfdm},</if>
+            <if test="fqsj != null">#{fqsj},</if>
+            <if test="qydm != null">#{qydm},</if>
+            <if test="qrdm != null">#{qrdm},</if>
+            <if test="msdd != null">#{msdd},</if>
+        </trim>
+        )
+    </insert>
+    <update id="updateMsdmk">
+        UPDATE MSDMK
+        <set>
+            <if test="xsdm != null">XSDM = #{xsdm},</if>
+            <if test="dwdm != null">DWDM = #{dwdm},</if>
+            <if test="gwdm != null">GWDM = #{gwdm},</if>
+            <if test="mssj != null">MSSJ = #{mssj},</if>
+            <if test="mszt != null">MSZT = #{mszt},</if>
+            <if test="msjg != null">MSJG = #{msjg},</if>
+            <if test="fqz != null">FQZ = #{fqz},</if>
+            <if test="fqzsfdm != null">FQZSFDM = #{fqzsfdm},</if>
+            <if test="fqsj != null">FQSJ = #{fqsj},</if>
+            <if test="qydm != null">QYDM = #{qydm},</if>
+            <if test="qrdm != null">QRDM = #{qrdm},</if>
+            <if test="msdd != null">MSDD = #{msdd},</if>
+        </set>
+        WHERE MSDM = #{msdm};
+    </update>
+
+</mapper>
+

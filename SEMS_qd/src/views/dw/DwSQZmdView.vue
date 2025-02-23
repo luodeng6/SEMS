@@ -340,6 +340,9 @@
             <el-descriptions-item label="回应时间" :span="2">
               {{ formatDate(currentRow.HYSJ) }}
             </el-descriptions-item>
+            <el-descriptions-item label="投递结果" :span="2">
+              {{getTdjg(currentRow.TDJG)}}
+            </el-descriptions-item>
             <el-descriptions-item label="回应内容" :span="2">
               {{ currentRow.HYNR }}
             </el-descriptions-item>
@@ -400,6 +403,25 @@ export default {
         timeRange: []
       },
       tableData: [],
+      getTdjg(JGDM){
+       /* 0	不录用
+        1	录用
+        2	安排面试
+        3	待定*/
+        // 使用switch语句来判断
+        switch (JGDM) {
+          case 1:
+            return "录用";
+          case 2:
+            return "安排面试";
+          case 3:
+            return "待定";
+          case 0:
+            return "不录用";
+          default:
+            return "未知";
+        }
+      },
       loading: false,
       pagination: {
         current: 1,
