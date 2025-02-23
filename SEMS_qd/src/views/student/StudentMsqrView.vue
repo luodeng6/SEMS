@@ -37,13 +37,13 @@
 
       <!-- 数据统计 -->
       <div class="grid grid-cols-2 gap-4 mb-6">
-        <el-card class="bg-blue-50">
+        <el-card  shadow="never">
           <div class="p-4">
             <div class="text-sm text-gray-600 mb-2">待确认面试</div>
             <div class="text-3xl font-bold text-blue-600">{{ stats.pending }}</div>
           </div>
         </el-card>
-        <el-card class="bg-green-50">
+        <el-card class="bg-green-50"  shadow="never">
           <div class="p-4">
             <div class="text-sm text-gray-600 mb-2">已确认面试</div>
             <div class="text-3xl font-bold text-green-600">{{ stats.confirmed }}</div>
@@ -52,7 +52,7 @@
       </div>
 
       <!-- 面试列表 -->
-      <el-card>
+      <el-card shadow="never">
         <div class="p-4">
           <div v-for="(item, index) in paginatedData" :key="item.id"
                class="mb-4 pb-4 border-b last:border-0">
@@ -221,6 +221,9 @@ export default {
   padding: 0;
 }
 
+.p-6 {
+  padding:0 1.5rem  !important;
+}
 
 .header {
   display: flex;
