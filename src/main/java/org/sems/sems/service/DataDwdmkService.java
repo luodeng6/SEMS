@@ -62,5 +62,16 @@ public interface DataDwdmkService {
      */
     Map<String, Object> getDwByQydm(int qydm);
 
-
+    /**
+     *  上传单位简介里的图片
+     * @param file
+     * @return Map<String, Object>
+     */
+    Map<String, Object> uploadGsjjImg(MultipartFile file);
+    /**
+     *  上传视频文件
+     * @param videoFile 视频文件
+     * @return Map<String, Object>
+     */
+    Map<String, Object> uploadVideoFile(MultipartFile videoFile);
 }

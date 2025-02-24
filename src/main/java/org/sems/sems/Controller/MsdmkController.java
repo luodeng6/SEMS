@@ -46,4 +46,7 @@ public class MsdmkController {
         System.out.println(msdmk);
         return msdmkService.updateInterview(msdmk);
     }
+    //学生获取待确认的面试安排
+    @GetMapping("/getWaitConfirmApms")
+    public Map<String, Object> getWaitConfirmApms(String yhm) { return msdmkService.getWaitConfirmApms(yhm); }
 }

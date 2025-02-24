@@ -174,4 +174,32 @@ public class MsdmkServiceImpl implements MsdmkService {
         }
         return resultMap;
     }
+
+    /**
+     * 学生获取待确认面试列表
+     *
+     * @param yhm 用户名
+     * @return 待确认的APM列表
+     */
+    @Override
+    public Map<String, Object> getWaitConfirmApms(String yhm) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            // 处理获取待确认面试列表逻辑
+            List<Map<String, Object>> resultList = new ArrayList<>();
+            resultList = jdbcTemplate.queryForList(
+                    "{call usp_StuGetWaitMsData(?)}", yhm);
+            resultMap.put("data", resultList);
+            resultMap.put("code", 200);
+            resultMap.put("msg", "success");
+            resultMap.put("result", true);
+        }catch (Exception e){
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
 }

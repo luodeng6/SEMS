@@ -70,6 +70,10 @@ public class DataDwdmk implements Serializable {
      * 所在地区
      */
     private String szdq;
-    
+    /**
+     * logo 图片地址
+     */
+    private String logo;
+
 }
 

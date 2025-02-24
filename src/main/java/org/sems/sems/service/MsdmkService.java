@@ -36,4 +36,10 @@ public interface MsdmkService {
      * @return Map<String, Object>
      */
     Map<String, Object> updateInterview(Msdmk msdmk);
+    /**
+     * 获取待确认面试列表
+     * @param yhm 用户名
+     * @return 待确认的APM列表
+     */
+    Map<String, Object> getWaitConfirmApms(String yhm);
 }

@@ -11,11 +11,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * 单位代码库(DataDwdmk)表服务实现类
@@ -214,7 +217,6 @@ public class DataDwdmkServiceImpl implements DataDwdmkService {
         return result;
     }
 
-
     // 读取配置文件上传路径
     @Value("${video.upload.dir}")
     private String uploadDir;
@@ -225,6 +227,122 @@ public class DataDwdmkServiceImpl implements DataDwdmkService {
 
     @Value("${app.WenJianJiaName}")
     private String WenJianJiaName;
+
+
+    /**
+     * 上传单位简介里的图片
+     *
+     * @param file
+     * @return Map<String, Object>
+     */
+    @Override
+    public Map<String, Object> uploadGsjjImg(MultipartFile file) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            // 创建存储目录
+            Path uploadPath = Paths.get(uploadDir);
+            System.out.println("上传目录：" + uploadPath.toString());
+
+            // 生成唯一文件名（防止重名覆盖）
+            String originalFilename = file.getOriginalFilename();// 获取原始文件名
+
+            // 获取当前时间戳
+            String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));// 从原始文件名中获取文件扩展名
+            String uniqueFileName = String.valueOf(System.currentTimeMillis()) + "_" + fileExtension;// 加上文件扩展名 UUID.randomUUID()生成唯一的字符串
+            System.out.println("唯一文件名：" + uniqueFileName);
+            System.out.println("原始文件名：" + originalFilename);
+            System.out.println("文件扩展名：" + fileExtension);
+            System.out.println("文件大小：" + file.getSize());
+            System.out.println("文件类型：" + file.getContentType());
+            System.out.println("新文件名：" + uniqueFileName);
+            System.out.println("最终上场地址：" + uploadPath.toString() + "/"+"Wangeditor/" + uniqueFileName);
+
+            String ZuiZhongUrl=uploadPath.toString() + "/"+"Wangeditor/"+  uniqueFileName;
+            System.out.println("最终上场地址2组合：" + ZuiZhongUrl);
+
+            if (!Files.exists(Path.of(uploadPath.toString() + "/"+"Wangeditor/"))) {
+                Files.createDirectories(Path.of(uploadPath.toString() + "/" + "Wangeditor/"));
+                System.out.println("目录" + uploadPath.toString() + "/"+"Wangeditor/" + "不存在，已创建目录成功!");
+            }
+
+            // 保存文件到本地
+            Path filePath = Paths.get(ZuiZhongUrl);
+            System.out.println("上传文件路径：" + filePath);
+            System.out.println("浏览器路径:" + appDomain  +"Wangeditor/" +uniqueFileName);
+            Files.copy(file.getInputStream(), filePath);
+            result.put("code", 200);
+            result.put("result", true);
+            result.put("message", "success");
+            result.put("data", WenJianJiaName+"Wangeditor/"+uniqueFileName);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("result", false);
+            result.put("code", 500);
+            result.put("message", e.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * 上传视频文件
+     *
+     * @param videoFile 视频文件
+     * @return Map<String, Object>
+     */
+    @Override
+    public Map<String, Object> uploadVideoFile(MultipartFile videoFile) {
+
+        Map<String, Object> result = new HashMap<>();
+        try {
+            // 创建存储目录
+            Path uploadPath = Paths.get(uploadDir);
+            System.out.println("上传目录：" + uploadPath.toString());
+
+            // 生成唯一文件名（防止重名覆盖）
+            String originalFilename = videoFile.getOriginalFilename();// 获取原始文件名
+
+            // 获取当前时间戳
+            String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));// 从原始文件名中获取文件扩展名
+            String uniqueFileName = String.valueOf(System.currentTimeMillis()) + "_" + fileExtension;// 加上文件扩展名 UUID.randomUUID()生成唯一的字符串
+            System.out.println("唯一文件名：" + uniqueFileName);
+            System.out.println("原始文件名：" + originalFilename);
+            System.out.println("文件扩展名：" + fileExtension);
+            System.out.println("文件大小：" + videoFile.getSize());
+            System.out.println("文件类型：" + videoFile.getContentType());
+            System.out.println("新文件名：" + uniqueFileName);
+            System.out.println("最终上场地址：" + uploadPath.toString() + "/"+"Wangeditor/" + uniqueFileName);
+
+            String ZuiZhongUrl=uploadPath.toString() + "/"+"Wangeditor/"+  uniqueFileName;
+            System.out.println("最终上场地址2组合：" + ZuiZhongUrl);
+
+            if (!Files.exists(Path.of(uploadPath.toString() + "/"+"Wangeditor/"))) {
+                Files.createDirectories(Path.of(uploadPath.toString() + "/" + "Wangeditor/"));
+                System.out.println("目录" + uploadPath.toString() + "/"+"Wangeditor/" + "不存在，已创建目录成功!");
+            }
+
+            // 保存文件到本地
+            Path filePath = Paths.get(ZuiZhongUrl);
+            System.out.println("上传文件路径：" + filePath);
+            System.out.println("浏览器路径:" + appDomain  +"Wangeditor/" +uniqueFileName);
+            Files.copy(videoFile.getInputStream(), filePath);
+
+
+
+            // 6. 构造返回数据，与前端 customInsert 期望的格式匹配
+            result.put("code", 200);
+            result.put("message", "上传成功");
+            // 返回视频的访问路径（这里假设是本地路径，生产环境应返回实际URL）
+            result.put("data", WenJianJiaName+"Wangeditor/"+uniqueFileName);
+
+        } catch (IOException e) {
+            // 7. 异常处理
+            result.put("code", 500);
+            result.put("message", "视频上传失败: " + e.getMessage());
+        }
+        System.out.println(result);
+        return result;
+    }
 
 
 }

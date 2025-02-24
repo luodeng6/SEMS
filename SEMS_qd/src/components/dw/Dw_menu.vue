@@ -23,6 +23,15 @@
             </router-link>
           </li>
 
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/dw/dwxxgl">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-briefcase mr-2"></i>
+                单位信息管理
+              </a>
+            </router-link>
+          </li>
+
           <li @click="toggleStatsMenu" class="hover:bg-blue-50 rounded cursor-pointer">
             <a class="flex items-center p-2 text-gray-700">
               <i class="fas fa-chart-pie mr-2"></i>

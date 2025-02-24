@@ -3,10 +3,15 @@ package org.sems.sems.Controller;
 import org.sems.sems.entity.DataDwdmk;
 import org.sems.sems.service.DataDwdmkService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/dw")
@@ -54,6 +59,20 @@ private DataDwdmkService dataDwdmkService;
     @GetMapping("/getDwDataByDwUserName")
     public Map<String, Object> getDwDataByDwUserName(String dwUserName) {
         return dataDwdmkService.getDwDataByDwUserName(dwUserName);
+    }
+
+    // 单位编辑 GSJJHTML时，上传图片接口
+    @PostMapping("/uploadGsjjImg")
+    public Map<String, Object> uploadGsjjImg(MultipartFile file) {
+        return dataDwdmkService.uploadGsjjImg(file);
+    }
+
+
+    // 视频上传接口，与前端配置的 uploadVideoServer 对应
+    @PostMapping("/uploadVideo")
+    public Map<String, Object> uploadVideo(
+            @RequestParam("videoFile") MultipartFile videoFile) {
+        return dataDwdmkService. uploadVideoFile(videoFile);
     }
 
 

@@ -52,32 +52,68 @@
       </div>
 
       <!-- 面试列表 -->
-      <el-card shadow="never">
+      <el-card class="shadow-sm">
         <div class="p-4">
           <div v-for="(item, index) in paginatedData" :key="item.id"
-               class="mb-4 pb-4 border-b last:border-0">
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="text-lg font-semibold text-gray-800">{{ item.company }}</h3>
-                <p class="text-sm text-gray-600 mb-1">{{ item.position }}</p>
-                <div class="text-sm text-gray-500">
-                  <span class="mr-4"><i class="el-icon-time"></i> {{ item.time }}</span>
-                  <span><i class="el-icon-location-outline"></i> {{ item.location }}</span>
+               class="mb-4 pb-4 border-b last:border-0 hover:bg-gray-50 transition-colors">
+            <div class="flex items-start justify-between">
+              <!-- 左侧信息 -->
+              <div class="flex items-start flex-1">
+                <!-- Logo展示 -->
+                <div class="mr-4 flex-shrink-0">
+                  <img
+                      :src="item.logo"
+                      alt="公司logo"
+                      class="w-16 h-16 rounded-lg border object-cover bg-white p-1"
+                      @error="handleLogoError"
+                  >
+                </div>
+
+                <!-- 公司信息 -->
+                <div class="flex-1">
+                  <div class="flex items-baseline mb-1">
+                    <h3 class="text-lg font-semibold text-gray-800 mr-3">{{ item.company }}</h3>
+                    <el-tag
+                        size="mini"
+                        :type="statusConfig[item.status].type"
+                        effect="light"
+                        class="!font-medium"
+                    >
+                      {{ statusConfig[item.status].text }}
+                    </el-tag>
+                  </div>
+                  <p class="text-sm text-gray-600 mb-2">{{ item.position }}</p>
+                  <div class="space-y-1">
+                    <div class="text-sm text-gray-500 flex items-center">
+                      <i class="el-icon-time mr-1 text-gray-400"></i>
+                      <span>{{ item.time }}</span>
+                    </div>
+                    <div class="text-sm text-gray-500 flex items-center">
+                      <i class="el-icon-location-outline mr-1 text-gray-400"></i>
+                      <span>{{ item.location }}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="flex gap-2">
+
+              <!-- 操作按钮 -->
+              <div class="flex flex-col gap-2 ml-4 min-w-[120px]">
                 <el-button
                     type="success"
                     size="small"
                     :disabled="item.status !== 'pending'"
-                    @click="handleConfirm(item)">
+                    @click="handleConfirm(item)"
+                    class="w-full"
+                >
                   {{ item.status === 'confirmed' ? '已确认' : '确认参加' }}
                 </el-button>
                 <el-button
                     type="danger"
                     size="small"
                     :disabled="item.status !== 'pending'"
-                    @click="handleCancel(item)">
+                    @click="handleCancel(item)"
+                    class="w-full"
+                >
                   取消参加
                 </el-button>
               </div>
@@ -103,8 +139,6 @@
 <script>
 import StudentMenu from "@/components/student/Student_menu.vue";
 import axios from "axios";
-import {EventBus} from "@/event-bus";
-
 export default {
   name: 'StudentMsqrView',
   components: { StudentMenu },
@@ -120,9 +154,15 @@ export default {
         pending: 3,
         confirmed: 2
       },
+      statusConfig: {
+        pending: { type: 'warning', text: '待确认' },
+        confirmed: { type: 'success', text: '已确认' },
+        canceled: { type: 'info', text: '已取消' }
+      },
       interviewList: [
         {
           id: 1,
+          logo: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
           company: '腾讯科技',
           position: '前端开发工程师',
           time: '2024-03-20 14:00',
@@ -131,13 +171,22 @@ export default {
         },
         {
           id: 2,
+          logo: 'https://cube.elemecdn.com/3/7d/89a12b9bae59e3bbc8a8025e18b78jpeg.jpeg',
           company: '阿里巴巴',
           position: 'Java开发工程师',
           time: '2024-03-22 10:30',
           location: '阿里中心T2座10层',
           status: 'confirmed'
         },
-        // 更多模拟数据...
+        {
+          id: 3,
+          logo: 'https://cube.elemecdn.com/e/fd/0fb7e36a8a4e4d8a58b3a5b7d30fjpeg.jpeg',
+          company: '字节跳动',
+          position: '产品经理',
+          time: '2024-03-25 09:00',
+          location: '中航广场1号楼',
+          status: 'pending'
+        }
       ],
       currentPage: 1,
       pageSize: 5
@@ -150,9 +199,12 @@ export default {
       return this.interviewList.slice(start, end);
     }
   },
+  created() {
+    this.getLoginUserInfo();
+  },
   methods: {
     getLoginUserInfo() {
-        axios.get('/user/checkSession').then(response => {
+      axios.get('/user/checkSession').then(response => {
         if (!response.data.result) {
           EventBus.$emit('show-auth-popup');
           setTimeout(() => {
@@ -164,8 +216,8 @@ export default {
           this.UserInfo.role = response.data.role;
           this.UserInfo.username = response.data.username;
           console.log(this.UserInfo);
-          // this.loadData(this.UserInfo.username);
-          this.loadData(); // 获取学生信息
+          // 获取待确认面试列表
+          this.getWaitConfirmInterviews();
         }
       }).catch(error => {
         EventBus.$emit('show-auth-popup');
@@ -174,6 +226,20 @@ export default {
           this.$router.push({name: 'DwLoginView'});
         }, 1000);
       });
+    },
+    // 获取待确认面试列表
+    getWaitConfirmInterviews() {
+      axios.get("/msdmk/getWaitConfirmApms?yhm="+this.UserInfo.username).then(response => {
+        if (response.data.result){
+          this.interviewList = response.data.data;
+        }else{
+          console.log("获取待确认面试列表失败！");
+          this.$message.error("获取面试数据失败:"+response.data.msg);
+        }}).catch(error => {
+        console.error("获取待确认面试列表失败！", error);
+        this.$message.error("获取面试数据失败："+error.message);
+      });
+
     },
     handlePageChange(page) {
       this.currentPage = page;
@@ -207,12 +273,54 @@ export default {
       this.stats.confirmed = this.interviewList.filter(
           item => item.status === 'confirmed'
       ).length;
+    },
+    handleLogoError(e) {
+      const defaultLogo = 'https://cube.elemecdn.com/e/fd/0fb7e36a8a4e4d8a58b3a5b7d30fjpeg.jpeg';
+      if (e.target.src !== defaultLogo) {
+        e.target.src = defaultLogo;
+      }
     }
   }
 };
 </script>
 
 <style scoped>
+.el-card {
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+}
+
+.el-card__body {
+  padding: 0;
+}
+
+.el-tag {
+  transform: translateY(-1px);
+  letter-spacing: 0.5px;
+}
+
+.el-button.is-disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.el-pagination {
+  @apply mt-4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .el-card {
   border-radius: 8px;
   border: 1px solid #ebeef5;
@@ -226,6 +334,7 @@ export default {
 }
 
 .header {
+  margin-bottom: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;

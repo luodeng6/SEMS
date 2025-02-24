@@ -292,6 +292,13 @@ const routes = [
         component: () => import('@/views/student/StudentMsqrView.vue'),
         meta: {style: '学生', title: '学生-面试确认'}
     },
+    {
+        // 单位信息管理
+        path: '/dw/dwxxgl',
+        name: 'DwDwXXGLView',
+        component: () => import('@/views/dw/DwDwXXGLView.vue'),
+        meta: {style: '单位', title: '单位-单位信息管理'}
+    }
 ]
 
 
