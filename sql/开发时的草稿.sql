@@ -15,7 +15,7 @@ select * from XLTTK
 select * from DWYHK
 select * from XXDMK
 Select QYDM,* from DATA_STUDENT
-
+exec usp_getXxdmkData 3,'msk'
 select * from tdjlk where stuid = 1226 and gwdm =4
 select * from 
 
@@ -24,13 +24,16 @@ select * from
 update DATA_GWDMK set FBZ='billie' , FBZYHSFDM=3 where FBZYHSFDM=1
 
 exec LuoDeng_getAlltableInfo
+exec LuodengTable 'MSDMK'
+
+
 -- 获取某岗位对应的 环境
 select * from JYHJK order by TJSJ desc
 select * from DATA_GWDMK where ID=34
 select * from  MSDMK  MSJGDMK
 exec usp_GetTdjlk 2,'1',''
 select * from DATA_GWDMK
-exec usp_Clear
+exec usp_Clear   -- 清库
 exec usp_GetDwyhData 'luo'
 exec sems.dbo.LuodengTable 'DWHYDMK'
 exec LuodengTable 'DATA_STUDENT' --学生代码库
@@ -40,7 +43,8 @@ exec LuodengTable 'SFDMK' --省份代码库
 exec LuodengTable 'XLTTK' -- 学历天题库
 exec LuodengTable 'DWXZK' -- 单位性质库
 exec LuodengTable 'DATA_GWDMK' --岗位代码库
-exec LuodengTable 'DATA_DWDMK_luodeng' --岗位代码库
+exec LuodengTable 'DWXZK' --单位性质库
+exec LuodengTable 'DATA_DWDMK' --单位代码库
 exec LuodengTable 'DWGMK'-- 单位规模库
 exec LuodengTable 'JYHJK' --就业环境库
 exec LuodengTable 'GWFLK' --岗位分类库
@@ -57,12 +61,15 @@ exec LuodengTable 'DATA_XSJLK'--学生简历库
 exec LuodengTable 'TDJGK'
 exec LuodengTable 'XXDMK'
 exec LuodengTable 'MSSQK'
+select * from DATA_DWDMK where DWMC like '%特斯拉%'
+update DWYHK set MM=1
 
-
-exec usp_getXxdmkData 1,'123'
-select * from TDJGK
+ select * from TDJGK
 select * from DATA_DWDMK
 select * from DWYHK
+
+select b.XSXM,a.* from MSDMK a left join DATA_STUDENT b on a.XSDM=b.ID
+
 select a.GWMC,* from MSDMK b left join DATA_GWDMK a on a.ID=b.GWDM
 select * from TDJLK
 exec LuodengTable 'XXDMK'
@@ -79,7 +86,10 @@ exec usp_Clear
 ALTER TABLE DWYHK  
 ADD CONSTRAINT DF_DWYHK_YHZP DEFAULT 'defaultphoto.png' FOR YHZP;  
 
+exec usp_getXxdmkData 3,'msk'
 
+exec usp_StuGetWaitMsData '20213260024'-- 获取学生待确认的面试信息
+update XXDMK set YDBZ=1 
 select * from 
 exec LuodengTable 'XXDMK'--消息代码库
 select * from JYZTDMK

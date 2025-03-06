@@ -74,4 +74,11 @@ public interface DataDwdmkService {
      * @return Map<String, Object>
      */
     Map<String, Object> uploadVideoFile(MultipartFile videoFile);
+    /**
+     *  上传单位logo
+     * @param file 图片文件
+     * @param dwdm 单位代码
+     * @return Map<String, Object>
+     */
+    Map<String, Object> uploadDwLogo(MultipartFile file, int dwdm);
 }

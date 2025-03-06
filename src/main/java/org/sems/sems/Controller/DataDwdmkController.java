@@ -74,6 +74,11 @@ private DataDwdmkService dataDwdmkService;
             @RequestParam("videoFile") MultipartFile videoFile) {
         return dataDwdmkService. uploadVideoFile(videoFile);
     }
-
+    @PostMapping("/uploadDwLogo")
+    public Map<String, Object> uploadDwLogo(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("dwdm") int dwdm) {
+        return dataDwdmkService.uploadDwLogo(file, dwdm);
+    }
 
 }

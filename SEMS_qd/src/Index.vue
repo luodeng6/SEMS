@@ -1,254 +1,602 @@
 <template>
-  <div>
-      <public-menu></public-menu>
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <!-- Sidebar -->
-        <aside class="col-md-3 mb-4">
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action bg-success text-white">
-              <i class="fas fa-building me-2"></i>校园招聘
-            </a>
-            <router-link to="/dw/login">
-              <a  class="list-group-item list-group-item-action bg-primary text-white">
-                <i class="fas fa-tasks me-2"></i>就业管理
-              </a>
-            </router-link>
+  <div class="next-gen-container">
+    <header class="glass-header">
+      <public-menu class="modern-nav"></public-menu>
+      <div class="hero-banner">
+        <h1 class="dynamic-text">开启你的职业未来</h1>
+        <div class="search-bar">
+          <input type="text" placeholder="搜索职位或企业...">
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </header>
 
-            <a href="#" class="list-group-item list-group-item-action bg-warning text-white">
-              <i class="fas fa-file-alt me-2"></i>手续办理
-            </a>
-            <router-link to="/stu/Login">
-              <a   class="list-group-item list-group-item-action bg-secondary text-white">
-                <i class="fas fa-user me-2"></i>学生登录
-              </a>
-            </router-link>
-
-            <router-link to="/dw/login">
-              <a class="list-group-item list-group-item-action bg-danger text-white">
-                <i class="fas fa-user-plus me-2"></i>单位登录/注册
-              </a>
-            </router-link>
-
-          </div>
-
-          <h2>宣讲会</h2>
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="cloud-tab" data-bs-toggle="tab" data-bs-target="#cloud" type="button" role="tab" aria-controls="cloud" aria-selected="true">云宣讲</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="online-tab" data-bs-toggle="tab" data-bs-target="#online" type="button" role="tab" aria-controls="online" aria-selected="false">在线招聘</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="campus-tab" data-bs-toggle="tab" data-bs-target="#campus" type="button" role="tab" aria-controls="campus" aria-selected="false">校内宣讲会</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="off-campus-tab" data-bs-toggle="tab" data-bs-target="#off-campus" type="button" role="tab" aria-controls="off-campus" aria-selected="false">校外宣讲会</button>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="cloud" role="tabpanel" aria-labelledby="cloud-tab">
-              <div class="event">
-                <div class="event-date">04月23日</div>
-                <div class="event-title">【9月读研】南方医科大学...</div>
-                <div class="event-meta">湖南中医药大学 线上专场 19:00 237</div>
+    <main class="fluid-layout">
+      <!-- 新增的快速信息栏 -->
+<!--      <section class="quick-info-bar">-->
+<!--        <div class="info-card recent-jobs">-->
+<!--          <h3><i class="fas fa-briefcase"></i> 最近岗位</h3>-->
+<!--          <div class="job-grid">-->
+<!--            <div v-for="(job, index) in recentJobs" :key="index" class="job-card">-->
+<!--              <div class="company-logo">-->
+<!--                <img :src="job.logo" alt="公司logo">-->
+<!--              </div>-->
+<!--              <div class="job-details">-->
+<!--                <h4>{{ job.title }}</h4>-->
+<!--                <p class="company-name">{{ job.company }}</p>-->
+<!--                <div class="job-meta">-->
+<!--                  <span class="salary">{{ job.salary }}</span>-->
+<!--                  <span class="location">{{ job.location }}</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </section>-->
+      <!-- 功能卡片区 -->
+      <div class="container-fluid" style="padding: 39px 76px;">
+        <section  class="row">
+          <div class="col-md-3">
+            <div class="card quick-actions">
+              <div class="action-grid">
+                <router-link
+                    v-for="(action, index) in quickActions"
+                    :key="index"
+                    :to="action.path"
+                    class="action-card"
+                    :style="`--hue: ${index * 60}`"
+                >
+                  <i :class="action.icon"></i>
+                  <span>{{ action.title }}</span>
+                </router-link>
               </div>
-              <div class="event">
-                <div class="event-date">06月13日</div>
-                <div class="event-title">【最后召集】南方医科大...</div>
-                <div class="event-meta">湖南中医药大学 线上专场 10:00 6565</div>
-              </div>
-              <div class="event">
-                <div class="event-date">12月06日</div>
-                <div class="event-title">新领先医药2023年...</div>
-                <div class="event-meta">湖南中医药大学 线上专场 16:30 14013</div>
-              </div>
-              <div class="event">
-                <div class="event-date">11月10日</div>
-                <div class="event-title">普洛药业2023秋季线...</div>
-                <div class="event-meta">湖南中医药大学 线上专场 11:12 15125</div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="online" role="tabpanel" aria-labelledby="online-tab">
-              <!-- Online recruitment content -->
-            </div>
-            <div class="tab-pane fade" id="campus" role="tabpanel" aria-labelledby="campus-tab">
-              <!-- On-campus presentation content -->
-            </div>
-            <div class="tab-pane fade" id="off-campus" role="tabpanel" aria-labelledby="off-campus-tab">
-              <!-- Off-campus presentation content -->
             </div>
           </div>
-        </aside>
-
-        <!-- Main Section -->
-        <main class="col-md-9">
-          <div class="row">
-            <div class="col-md-8">
-
-              <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <div class="col-md-5">
+            <div class="card">
+              <div class="carousel-content">
+                <img src="http://localhost:83/img.png" alt="职业发展">
+                <div class="carousel-overlay">
+                  <h3>2024届名企招聘季</h3>
+                  <p>500+优质岗位火热进行中</p>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="http://static.bysjy.com.cn/frontend/public/images/push/push_4.jpg" class="d-block w-100" alt="轮播图1">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://o.bysjy.com.cn/notice/1719819395-6178.jpeg@1e_500w_250h_1c_0i_1o_100Q_1x.jpg" class="d-block w-100" alt="轮播图2">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="http://static.bysjy.com.cn/frontend/public/images/push/push_2.jpg" class="d-block w-100" alt="轮播图3">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
               </div>
             </div>
-            <div class="col-md-4">
-              <h2>招聘信息</h2>
-              <ul class="list-unstyled">
-                <li class="news-item mb-2">• "追梦鹏城，创享未来" 第二十八届深圳市全国高校毕业生秋季就业双选会：600+名企荟萃！...</li>
-                <li class="news-item mb-2">• 饿了么秋季2025届应届生招聘启动啦！</li>
-                <li class="news-item mb-2">• 2024届第28届全国高校毕业生秋季双选会高校对接团</li>
-                <li class="news-item mb-2">• 腾讯2024届校园招聘全面启动，多个岗位开放！</li>
-                <li class="news-item mb-2">• 阿里巴巴2024届秋季招聘，期待你的加入！</li>
-                <li class="news-item mb-2">• 华为2024届全球校园招聘，面向未来的你！</li>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card announcements">
+              <h3><i class="fas fa-bullhorn"></i> 最新公告</h3>
+              <ul class="announcement-list">
+                <li v-for="(announcement, index) in announcements" :key="index">
+                  <span class="announcement-date">{{ announcement.date }}</span>
+                  <span class="announcement-title">{{ announcement.title }}</span>
+                  <i class="fas fa-external-link-alt"></i>
+                </li>
               </ul>
             </div>
           </div>
 
-        </main>
+        </section>
       </div>
-    </div>
 
-    <!-- Fixed Sidebar -->
-    <div class="fixed-sidebar">
-      <a href="tel:123456789"><i class="fas fa-phone"></i></a>
-      <a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a>
-      <a href="#"><i class="fas fa-map-marker-alt"></i></a>
-      <a href="#"><i class="fas fa-comments"></i></a>
+
+      <!-- 内容分区 -->
+      <section class="content-sections">
+<!--        &lt;!&ndash; 宣讲会时间轴 &ndash;&gt;
+        <div class="card event-timeline">
+          <h2 class="section-title"><i class="fas fa-calendar-star"></i> 近期宣讲会</h2>
+          <div class="timeline-container">
+            <div
+                v-for="(event, index) in events"
+                :key="index"
+                class="timeline-item"
+                :class="{'highlight': event.highlight}"
+            >
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h4>{{ event.title }}</h4>
+                <div class="event-meta">
+                  <span class="event-type" :class="event.type">{{ event.type }}</span>
+                  <span class="event-time">{{ event.time }}</span>
+                  <span class="event-location">{{ event.location }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+
+        <!-- 实时资讯 -->
+        <div class="card live-feed">
+          <h2 class="section-title"><i class="fas fa-bolt"></i> 招聘快讯</h2>
+          <div class="feed-container">
+            <div
+                v-for="(news, index) in newsList"
+                :key="index"
+                class="feed-item"
+                :style="`--delay: ${index * 0.1}s`"
+            >
+              <div class="feed-badge">{{ news.tag }}</div>
+              <div class="feed-content">
+                <h5>{{ news.title }}</h5>
+                <div class="feed-meta">
+                  <span>{{ news.company }}</span>
+                  <span>{{ news.deadline }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 浮动操作按钮 -->
+    <div class="fab-container">
+      <button class="fab-main">
+        <i class="fas fa-comment-dots"></i>
+      </button>
+      <div class="fab-actions">
+        <button class="fab-action">
+          <i class="fas fa-file-alt"></i>
+        </button>
+        <button class="fab-action">
+          <i class="fas fa-video"></i>
+        </button>
+        <button class="fab-action">
+          <i class="fas fa-calendar-check"></i>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import publicMenu  from "@/components/public/public_menu.vue";
+import publicMenu from "@/components/public/public_menu.vue";
+
 export default {
-  name: "",
   components: {
-    publicMenu,
+    publicMenu
   },
   data() {
-    return {}
-  },
-  methods: {}
+    return {
+      quickActions: [
+        { title: '校园招聘', icon: 'fas fa-building', path: '#' },
+        { title: '简历中心', icon: 'fas fa-file-signature', path: '#' },
+        { title: '面试预约', icon: 'fas fa-handshake', path: '#' },
+        { title: '职业测评', icon: 'fas fa-chart-line', path: '#' },
+        { title: '单位入口', icon: 'fas fa-door-open', path: '/dw/login' },
+        { title: '学生登录', icon: 'fas fa-user-graduate', path: '/stu/Login' }
+      ],
+      events: [
+        {
+          title: '腾讯科技2024校园宣讲会',
+          type: '线上',
+          time: '9月15日 14:00',
+          location: '腾讯会议 #123456',
+          highlight: true
+        },
+        // 其他活动数据...
+      ],
+      newsList: [
+        {
+          title: '阿里巴巴秋招正式启动',
+          tag: '热门',
+          company: '阿里巴巴集团',
+          deadline: '截止10月31日'
+        },
+        // 其他资讯数据...
+      ],
+      user: {
+        name: "张三",
+        role: "学生",
+        avatar: "https://source.unsplash.com/100x100/?portrait"
+      },
+      announcements: [
+        {
+          date: "09-01",
+          title: "2024秋季校园招聘会通知"
+        },
+        {
+          date: "08-28",
+          title: "就业协议书电子签署系统上线"
+        },
+        {
+          date: "08-25",
+          title: "职业指导讲座时间调整通知"
+        }
+      ],
+      recentJobs: [
+        {
+          title: "前端开发工程师",
+          company: "腾讯科技",
+          salary: "15-25K",
+          location: "深圳",
+          logo: "https://logo.clearbit.com/tencent.com"
+        },
+        {
+          title: "数据分析师",
+          company: "阿里巴巴",
+          salary: "18-30K",
+          location: "杭州",
+          logo: "https://logo.clearbit.com/alibaba.com"
+        },
+        {
+          title: "移动开发工程师",
+          company: "字节跳动",
+          salary: "20-35K",
+          location: "北京",
+          logo: "https://logo.clearbit.com/bytedance.com"
+        },
+        {
+          title: "数据分析师",
+          company: "阿里巴巴",
+          salary: "18-30K",
+          location: "杭州",
+          logo: "https://logo.clearbit.com/alibaba.com"
+        }, {
+          title: "数据分析师",
+          company: "阿里巴巴",
+          salary: "18-30K",
+          location: "杭州",
+          logo: "https://logo.clearbit.com/alibaba.com"
+        }, {
+          title: "数据分析师",
+          company: "阿里巴巴",
+          salary: "18-30K",
+          location: "杭州",
+          logo: "https://logo.clearbit.com/alibaba.com"
+        }, {
+          title: "数据分析师",
+          company: "阿里巴巴",
+          salary: "18-30K",
+          location: "杭州",
+          logo: "https://logo.clearbit.com/alibaba.com"
+        },
+      ]
+    }
+  }
 }
 </script>
 
 <style scoped>
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
+.next-gen-container {
+  --primary-hue: 220;
+  --glass-bg: hsla(var(--primary-hue), 100%, 98%, 0.9);
+  --text-primary: hsl(var(--primary-hue), 76%, 35%);
+  --gradient-1: linear-gradient(145deg,
+  hsl(var(--primary-hue), 100%, 92%) 0%,
+  hsl(260, 90%, 92%) 100%);
+  --shadow-sm: 0 4px 12px hsla(var(--primary-hue), 50%, 20%, 0.08);
 }
-.navbar {
-  border-radius: 0 0 15px 15px;
+
+/* 玻璃质感头部 */
+.glass-header {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  padding-bottom: 120px;
 }
-.carousel-item img {
-  height: 400px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-.list-group-item {
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.list-group-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.dropdown-menu {
-  border-radius: 10px;
-}
-.news-item {
-  transition: background-color 0.3s;
-}
-.news-item:hover {
-  background-color: #e9ecef;
-}
-.calendar {
-  border-radius: 10px;
-  transition: background-color 0.3s;
-}
-.calendar:hover {
-  background-color: #28a745;
-}
-.fixed-sidebar {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-}
-.fixed-sidebar a {
-  display: block;
-  margin-bottom: 10px;
+
+.hero-banner {
   text-align: center;
-  color: white;
-  background-color: #28a745;
-  padding: 10px;
-  border-radius: 50%;
-  transition: background-color 0.3s;
+  padding: 4rem 1rem 8rem;
+  background: var(--gradient-1);
+  clip-path: ellipse(100% 80% at 50% 20%);
 }
-.fixed-sidebar a:hover {
-  background-color: #218838;
+
+.dynamic-text {
+  font-size: 3.5rem;
+  background: linear-gradient(45deg,
+  hsl(250, 80%, 50%),
+  hsl(220, 90%, 55%));
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
 }
-.tab-content {
-  border: 1px solid #dee2e6;
-  border-top: none;
-  padding: 20px;
-  border-radius: 0 0 10px 10px;
-}
-.tab-pane {
+
+.search-bar {
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
-.tab-pane .event {
-  flex: 1 1 45%;
-  border: 1px solid #dee2e6;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  transition: transform 0.3s, box-shadow 0.3s;
+
+.search-bar input {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  border: none;
+  font-size: 1.1rem;
 }
-.tab-pane .event:hover {
+
+.search-btn {
+  width: 80px;
+  background: var(--text-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-btn:hover {
+  background: hsl(var(--primary-hue), 80%, 45%);
+}
+
+/* 仪表盘布局 */
+.dashboard-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: -8px;
+  padding: 0 2rem;
+  grid-template-columns: 1fr 400px;
+}
+
+.main-carousel {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+}
+
+.quick-actions {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  height: 100%;
+}
+
+.action-card {
+  padding: 1.5rem;
+  border-radius: 15px;
+  background: hsl(var(--hue), 90%, 96%);
+  color: hsl(var(--hue), 80%, 40%);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.action-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px hsla(var(--hue), 50%, 50%, 0.1);
 }
-.event-date {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #dc3545;
+
+/* 时间轴设计 */
+.event-timeline {
+  margin: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
 }
-.event-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #007bff;
+
+.timeline-container {
+  position: relative;
+  padding-left: 40px;
 }
-.event-meta {
-  font-size: 0.9rem;
-  color: #6c757d;
+
+.timeline-item {
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -28px;
+  top: 24px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 3px solid white;
+  box-shadow: 0 0 0 4px hsl(var(--primary-hue), 90%, 90%);
+}
+
+.timeline-item.highlight .timeline-marker {
+  background: #ff6b6b;
+  box-shadow: 0 0 0 4px #ffe3e3;
+}
+
+/* 悬浮按钮系统 */
+.fab-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.fab-main {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+
+.fab-main:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dynamic-text {
+    font-size: 2.5rem;
+  }
+}
+
+/* 新增样式 */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.username {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.user-role {
+  font-size: 0.8em;
+  color: #666;
+}
+
+.quick-info-bar {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.info-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.announcement-list li {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.announcement-list li:hover {
+  background: #f8f9fa;
+  transform: translateX(5px);
+}
+
+.announcement-date {
+  width: 60px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.announcement-title {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.job-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 15px;
+  background: #f8f9fa;
+  transition: all 0.3s;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+.company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.job-details {
+  flex: 1;
+}
+
+.company-name {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.job-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9em;
+}
+
+.salary {
+  color: #e91e63;
+  font-weight: 500;
+}
+
+.location {
+  color: #2196f3;
+}
+
+@media (max-width: 768px) {
+  .quick-info-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-profile {
+    margin-top: 1rem;
+  }
 }
 </style>

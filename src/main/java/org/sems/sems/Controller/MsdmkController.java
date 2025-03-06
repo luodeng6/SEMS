@@ -49,4 +49,19 @@ public class MsdmkController {
     //学生获取待确认的面试安排
     @GetMapping("/getWaitConfirmApms")
     public Map<String, Object> getWaitConfirmApms(String yhm) { return msdmkService.getWaitConfirmApms(yhm); }
+
+    // 学生和单位获取面试数据
+    @GetMapping("/getInterviewsMainIdea")
+    public Map<String, Object> getInterviewsMainIdea(int Type, String yhm ) { return msdmkService.getInterviewsMainIdea(Type,yhm); }
+
+    // 学生确认面试-- 接受面试
+    @PostMapping("/confirmInterview")
+    public Map<String, Object> confirmInterview(Msdmk msdmk) { return msdmkService.confirmInterview(msdmk); }
+
+    // 单位开始面试
+    @GetMapping("/startInterview")
+    public Map<String, Object> startInterview(int msdm) { return msdmkService.startInterview(msdm); }
+    // 学生确认面试-- 拒绝面试
+    @PostMapping("/refuseInterview")
+    public Map<String, Object> refuseInterview(Msdmk msdmk) { return msdmkService.refuseInterview(msdmk); }
 }

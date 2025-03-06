@@ -71,6 +71,13 @@
                 </a>
               </router-link>
             </li>
+            <li class="hover:bg-blue-50 rounded">
+              <router-link to="/dw/dwjobs">
+                <a class="flex items-center p-2 text-gray-700">
+                  单位岗位
+                </a>
+              </router-link>
+            </li>
 
           </ul>
 

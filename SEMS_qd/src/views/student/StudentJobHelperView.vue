@@ -4,10 +4,12 @@
       <StudentMenu></StudentMenu>
     </div>
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
-      <header class="flex justify-between items-center mb-4">
-        <h1 class="text-2xl font-semibold">学生信息管理</h1>
-      </header>
-      <el-container style="height: 600px; border: 1px solid #eee">
+<!--      <header class="flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-semibold">
+          模拟面试助手
+        </h1>
+      </header>-->
+      <el-container style="height: 100%; border: 1px solid #eee">
         <!-- 左侧联系人列表 -->
         <el-aside width="200px" style="background-color: #f5f5f5">
           <el-menu
@@ -126,29 +128,26 @@ export default {
       data: [[], []]
     },
     contacts: [
-      { id: '1', name: '张三', avatar: 'https://example.com/avatar1.jpg' },
-      { id: '2', name: '罗四', avatar: 'https://example.com/avatar2.jpg' },
-      {id: '2', name: '李老师', avatar: 'https://example.com/avatar2.jpg'}
+      { id: '1', name: '卫宁健康', avatar: 'http://localhost:83/img/upload/Userpofile/luo_1739980834683_.jpg' },
+      { id: '2', name: '阿里巴巴公司', avatar: 'http://localhost:83/img/upload/Userpofile/luo_1739980834683_.jpg' },
+      {id: '2', name: '腾讯科技公司', avatar: 'http://localhost:83/img/upload/Userpofile/luo_1739981940374_.jpg'}
     ],
     messages: {
       '1': [
         {
           id: 1,
           type: 'text',
-          content: '你好！',
+          content: '“您好，我是小明，非常感谢贵公司给我这次面试机会。我对全栈开发工程师这个职位非常感兴趣，尤其是在[提及公司业务/项目/文化等具体细节]方面，这与我过往的[相关经验/技能/职业目标]非常契合。今天希望能通过交流更深入地了解这个岗位，也向您展示我的经验和能力。”',
           sender: 'me',
-          avatar: 'https://example.com/my-avatar.jpg',
+          avatar: 'http://localhost:83/img/upload/Userpofile/luo_1739981940374_.jpg',
           time: '10:00'
         },
         {
           id: 2,
           type: 'table',
-          content: [
-            ['姓名', '年龄'],
-            ['张三', '25']
-          ],
+          content:[ ["“薪资结构会根据您的经验和岗位匹配度综合评估，我们会在最终录用沟通中详细说明。"],["目前这个岗位的预算范围是1000-9000，您方便分享您的期望薪资吗？”"]],
           sender: 'other',
-          avatar: 'https://example.com/avatar1.jpg',
+          avatar: 'http://localhost:83/img/upload/Userpofile/luo_1739980834683_.jpg',
           time: '10:05'
         }
       ],
@@ -207,7 +206,7 @@ export default {
 
 <style scoped>
 .message-container {
-  height: 400px;
+  height: 721px;
   overflow-y: auto;
   padding: 20px;
 }

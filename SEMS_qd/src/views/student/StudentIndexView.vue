@@ -9,6 +9,61 @@
         <!--        <h1 class="text-dark font-bold">就业信息系统</h1>-->
         <div class="user-info">
           <div class="user-dropdown">
+            <!-- 通知按钮和弹窗 -->
+            <el-popover
+                placement="bottom-end"
+                width="400"
+                trigger="click"
+                popper-class="notification-popover">
+              <div class="notification-container">
+                <div class="message-list">
+                  <div
+                      v-for="(message, index) in currentPageMessages"
+                      :key="index"
+                      class="message-card"
+                      @click="markAsRead(message)"
+                  >
+<!--                 "CFZ": "20213260024",
+                    "CFZXM": "陈兴远",
+                    "CFZXW": "学生确认了面试",
+                    "JSZ": "msk",
+                    "JSZXM": "Elon Reeve Musk",
+                    "DZNR": "学生:陈兴远,确认了面试:“特斯拉销售代表”",
+                    "YDBZ": 0,
+                    "DZLX": 10,
+                    "CFSJ": "2025-02-28T06:44:33.453+00:00"
+                    },-->
+
+                    <!-- 用户头像 -->
+                    <el-avatar :size="40" :src="message.YHZP" class="mr-3"></el-avatar>
+                    <div class="message-content">
+                      <div class="message-header">
+                        <span class="sender">{{ message.CFZXM }}</span>
+                        <span class="time">{{formatDate(message.CFSJ)  }}</span>
+                      </div>
+                      <p>{{ message.DZNR }}</p>
+                    </div>
+
+                    <!-- 未读红点 -->
+                    <div v-if="!message.YDBZ" class="unread-dot"></div>
+                  </div>
+                </div>
+                <!-- 分页 -->
+                <el-pagination
+                    :current-page.sync="currentPage"
+                    :page-size="pageSize"
+                    :total="messages.length"
+                    layout="prev, pager, next"
+                    class="pagination"
+                    @current-change="handlePageChange"
+                />
+              </div>
+              <!-- 触发按钮 -->
+              <button slot="reference" class="hover:text-slate-600 relative" style="margin-right: 10px;color: black;">
+                <i class="el-icon-bell text-xl"></i>
+                <span v-show="(messages.filter(message => message.YDBZ===0).length)!== 0" class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+              </button>
+            </el-popover>
 
             <el-badge :value="12" class="item" style="margin-right: 20px;">
               <el-button size="small" plain>待处理面试</el-button>
@@ -142,7 +197,6 @@
           </div>
         </div>
 
-
         <div class="col-md-3">
           <div class="system-info">
             <h2 class="text-main">
@@ -181,6 +235,9 @@ export default {
         role: '',
         username: '',
       },
+      messages: [],
+      currentPage: 1,
+      pageSize: 5,
       activeName: 'first',
       highlightedDates: [
         {
@@ -268,10 +325,20 @@ export default {
       ]
     }
   },
+  computed: {
+    currentPageMessages() {
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      return this.messages.slice(start, end);
+    }
+  },
   mounted() {
     this.getLoginUserInfo();
   },
   methods: {
+    formatDate(dateStr) {
+      return dateStr ? new Date(dateStr).toLocaleString() : '-'
+    },
     getLoginUserInfo() {
       axios.get('/user/checkSession').then(response => {
         if (!response.data.result) {
@@ -284,6 +351,7 @@ export default {
           this.UserInfo.name = response.data.name;
           this.UserInfo.role = response.data.role;
           this.UserInfo.username = response.data.username;
+          this.getXxdm();
           console.log(this.UserInfo);
         }
       }).catch(error => {
@@ -292,6 +360,34 @@ export default {
         setTimeout(() => {
           this.$router.push({name: 'StudentLoginView'});
         }, 1000);
+      });
+    },
+    getXxdm(){
+      /*{
+      "CFZ": "20213260024",
+          "CFZXM": "陈兴远",
+          "CFZXW": "学生确认了面试",
+          "JSZ": "msk",
+          "JSZXM": "Elon Reeve Musk",
+          "DZNR": "学生:陈兴远,确认了面试:“特斯拉销售代表”",
+          "YDBZ": 0,
+          "DZLX": 10,
+          "CFSJ": "2025-02-28T06:44:33.453+00:00"
+    },*/
+
+      axios.get(`/xxdmk/getXxdmk?YHM=${this.UserInfo.username}&YHSFDM=4`).then(response => {
+        if (response.data.result){
+            this.messages = response.data.data;
+            // 不看自己发起的消息
+            this.messages = this.messages.filter(message => message.CFZ !== this.UserInfo.username);
+
+        }else{
+          console.error('获取消息信息失败,网络错误：'+ response.data.msg);
+          this.$message.error('获取消息信息失败:'+response.data.msg);
+        }
+      }).catch(error => {
+        console.error('获取消息信息失败,网络错误！', error);
+        this.$message.error('获取消息信息失败:'+error.message);
       });
     },
     navigateTo(announcementId) {
@@ -306,6 +402,78 @@ export default {
 </script>
 
 <style scoped>
+.notification-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+}
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.message-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.message-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.message-content {
+  flex: 1;
+}
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #909399;
+}
+.sender {
+  font-weight: bold;
+  color: #303133;
+}
+.time {
+  color: #909399;
+}
+.message-content p {
+  margin: 0;
+  font-size: 1em;
+  color: #606266;
+}
+.unread-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.el-pager li {
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.el-pager li:hover {
+  background-color: #ecf5ff;
+}
+.el-pager li.active {
+  background-color: #409eff;
+  color: #fff;
+}
+
 /*.job-list {
   background-color: #f9f9f9; !* 背景颜色 *!
   border-radius: 8px; !* 圆角 *!

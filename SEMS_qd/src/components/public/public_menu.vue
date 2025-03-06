@@ -1,13 +1,13 @@
 <template>
   <div>
     <!-- 头部 -->
-
-
     <!-- 导航栏菜单 -->
     <nav class="bg-dark text-white mb-4">
       <div class="container mx-auto">
         <div class="flex justify-between items-center py-3">
-          <a class="text-white text-lg font-semibold" href="#">首页</a>
+          <router-link to="/">
+          <a class="text-white text-lg font-semibold" >首页</a>
+          </router-link>
           <div :class="{'hidden': !isNavbarOpen, 'block': isNavbarOpen}" class="md:flex md:items-center md:justify-end">
             <ul class="flex flex-col md:flex-row md:space-x-4">
 
@@ -19,7 +19,10 @@
               </router-link>
 
               <li><a class="text-white hover:bg-gray-700 px-3 py-2 rounded" href="就业指导.html">就业指导</a></li>
-              <li><a class="text-white hover:bg-gray-700 px-3 py-2 rounded" href="#">公示栏</a></li>
+
+              <router-link to="/public/ggbar">
+                <li><a class="text-white hover:bg-gray-700 px-3 py-2 rounded">公示栏</a></li>
+              </router-link>
 
               <li><a class="text-white hover:bg-gray-700 px-3 py-2 rounded" href="#">新闻公告</a></li>
 

@@ -11,13 +11,13 @@
           <div class="flex justify-between items-center h-16" style="margin-bottom: 27px;">
             <!-- 右侧功能区域 -->
             <div class="flex items-center space-x-6">
+
               <!-- 通知按钮和弹窗 -->
               <el-popover
                   placement="bottom-end"
                   width="400"
                   trigger="click"
-                  popper-class="notification-popover"
-              >
+                  popper-class="notification-popover">
                 <div class="notification-container">
                   <div class="message-list">
                     <div
@@ -26,17 +26,29 @@
                         class="message-card"
                         @click="markAsRead(message)"
                     >
+                      <!--                 "CFZ": "20213260024",
+                                          "CFZXM": "陈兴远",
+                                          "CFZXW": "学生确认了面试",
+                                          "JSZ": "msk",
+                                          "JSZXM": "Elon Reeve Musk",
+                                          "DZNR": "学生:陈兴远,确认了面试:“特斯拉销售代表”",
+                                          "YDBZ": 0,
+                                          "DZLX": 10,
+                                          "CFSJ": "2025-02-28T06:44:33.453+00:00"
+                                          },-->
+
                       <!-- 用户头像 -->
-                      <el-avatar :size="40" :src="message.avatar" class="mr-3"></el-avatar>
+                      <el-avatar :size="40" :src="message.YHZP" class="mr-3"></el-avatar>
                       <div class="message-content">
                         <div class="message-header">
-                          <span class="sender">{{ message.sender }}</span>
-                          <span class="time">{{ message.time }}</span>
+                          <span class="sender">{{ message.CFZXM }}</span>
+                          <span class="time">{{formatDate(message.CFSJ)  }}</span>
                         </div>
-                        <p>{{ message.content }}</p>
+                        <p>{{ message.DZNR }}</p>
                       </div>
+
                       <!-- 未读红点 -->
-                      <div v-if="!message.isRead" class="unread-dot"></div>
+                      <div v-if="!message.YDBZ" class="unread-dot"></div>
                     </div>
                   </div>
                   <!-- 分页 -->
@@ -52,7 +64,7 @@
                 <!-- 触发按钮 -->
                 <button slot="reference" class="hover:text-slate-600 relative">
                   <i class="el-icon-bell text-xl"></i>
-                  <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                  <span v-show="(messages.filter(message => message.YDBZ===0).length)!== 0" class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                 </button>
               </el-popover>
 
@@ -276,16 +288,8 @@ export default {
       ],
       loginUser: { username: null, name: null },
       DATADWDMK: null,
-      // 消息通知数据（增加了 isRead 字段）
-      messages: [
-        { sender: '用户A', time: '2024-10-24 10:00', content: '这是第一条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户B', time: '2024-10-24 10:05', content: '这是第二条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户C', time: '2024-10-24 10:10', content: '这是第三条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户A', time: '2024-10-24 10:15', content: '这是第四条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户B', time: '2024-10-24 10:20', content: '这是第五条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户C', time: '2024-10-24 10:25', content: '这是第六条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-        { sender: '用户A', time: '2024-10-24 10:30', content: '这是第七条消息。', avatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', isRead: false },
-      ],
+      // 消息通知数据
+      messages: [],
       currentPage: 1,
       pageSize: 5
     }
@@ -302,6 +306,32 @@ export default {
     this.showTjtData();
   },
   methods: {
+    getXxdm(){
+      /*{
+      "CFZ": "20213260024",
+          "CFZXM": "陈兴远",
+          "CFZXW": "学生确认了面试",
+          "JSZ": "msk",
+          "JSZXM": "Elon Reeve Musk",
+          "DZNR": "学生:陈兴远,确认了面试:“特斯拉销售代表”",
+          "YDBZ": 0,
+          "DZLX": 10,
+          "CFSJ": "2025-02-28T06:44:33.453+00:00"
+    },*/
+      axios.get(`/xxdmk/getXxdmk?YHM=${this.loginUser.username}&YHSFDM=3`).then(response => {
+        if (response.data.result){
+          this.messages = response.data.data;
+          // 不看自己发起的消息
+          this.messages = this.messages.filter(message => message.CFZ !== this.loginUser.username);
+        }else{
+          console.error('获取消息信息失败,网络错误：'+ response.data.msg);
+          this.$message.error('获取消息信息失败:'+response.data.msg);
+        }
+      }).catch(error => {
+        console.error('获取消息信息失败,网络错误！', error);
+        this.$message.error('获取消息信息失败:'+error.message);
+      });
+    },
     showTjtData() {
       var chartDom = document.getElementById('main');
       var myChart = echarts.init(chartDom, 'dark');
@@ -336,6 +366,7 @@ export default {
           console.log("单位用户：" + this.loginUser.username);
           this.getDwYhmDyDw(this.loginUser.username);
           this.getTdData();
+          this.getXxdm();
         } else {
           this.$message.error("当前用户未登录，请先登录！");
           this.$router.push('/dw/login');

@@ -19,4 +19,8 @@ public interface MsdmkMapper {
 
     // 更新面试信息
     int updateMsdmk(Msdmk msdmk);
+
+    // 单位开始面试
+    @Update("update MSDMK set MSKSSJ=getdate(),MSZT=3,QYDM=1,QRDM=1 where MSDM=#{msdm}")
+    int startMsdmk(@Param("msdm") int msdm);
 }

@@ -298,7 +298,27 @@ const routes = [
         name: 'DwDwXXGLView',
         component: () => import('@/views/dw/DwDwXXGLView.vue'),
         meta: {style: '单位', title: '单位-单位信息管理'}
+    },{
+        // 单位用户信息管理
+        path: '/dw/dwjobs',
+        name: 'StudentDwjobsView',
+        component: () => import('@/views/student/StudentDwJobsView.vue'),
+        meta: {style: '学生', title: '学生-单位岗位'}
+    },
+    {
+        //公共网站-公告栏
+        path: '/public/ggbar',
+        name: 'PublicGgbar',
+        component: () => import('@/views/publicView/PublicGongGaoView.vue'),
+        meta: {style: 'public', title: '公告栏'}
+    },
+    {
+        path: '/public/gonggaoDetail',
+        name: 'PublicGongGaoDetail',
+        component: () => import('@/views/publicView/PublicGongGaoDetailView.vue'),
+        meta: {style: 'public', title: '公告详情'}
     }
+
 ]
 
 

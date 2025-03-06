@@ -34,4 +34,6 @@ public interface DataDwdmkMapper {
     @Select("SELECT * FROM DATA_DWDMK WHERE QYDM = #{qydm}")
     List<DataDwdmk> getAllDwDataByQydm(@Param("qydm") int qydm);
 
+    @Update("update DATA_DWDMK SET LOGO=#{logo} WHERE DWDM=#{dwdm}")
+    int updateDwLogo(@Param("dwdm") int dwdm,@Param("logo") String LogoUrl);
 }

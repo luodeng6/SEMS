@@ -122,7 +122,7 @@
               <el-input v-model="form.szdq"></el-input>
             </el-form-item>
           </div>
-          <el-form-item v-show="currentStep === 1" label="公司LOGO" prop="logo">
+<!--          <el-form-item label="公司LOGO" >
             <el-upload
                 class="avatar-uploader"
                 action="/api/upload"
@@ -132,7 +132,25 @@
               <img v-if="form.logo" :src="form.logo" class="avatar">
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
+          </el-form-item>-->
+
+          <el-form-item v-show="currentStep === 1"  label="公司LOGO" prop="logo">
+
+              <el-upload
+                  action="#"
+                  class="avatar-uploader"
+                  v-model="PhotoFile"
+                  :show-file-list="false"
+                  :before-upload="beforeAvatarUpload"
+                  :on-change="handleAvatarChange">
+                <img v-if="form.logo" :src="form.logo" class="w-20 h-20 rounded-full object-cover">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              </el-upload>
+
           </el-form-item>
+
+
+
           <el-form-item v-show="currentStep === 2" label="公司简介" prop="gsjjhtml">
             <div ref="editorElem" style="text-align:left"></div>
             <!-- 隐藏的真实表单字段用于验证 -->
@@ -163,6 +181,7 @@ export default {
   components: {DwMenu},
   data() {
     return {
+      PhotoFile:null,// logo的文件对象
       // 用户信息
       UserInfo: {
         id: '',
@@ -185,7 +204,8 @@ export default {
         dwmc: [{required: true, message: '请输入单位名称', trigger: 'blur'}],
         gsmc: [{required: true, message: '请输入公司名称', trigger: 'blur'}],
         gsjjhtml: [{required: true, message: '请输入公司简介', trigger: 'change'}] // 修改触发方式
-      }
+      },
+      loading:null,
     }
   },
   watch: {
@@ -206,6 +226,23 @@ export default {
     }
   },
   methods: {
+    beforeAvatarUpload(file) {
+      const isImage = file.type.startsWith('image/');
+      const isLt2M = file.size / 1024 / 1024 < 2;
+
+      if (!isImage) {
+        this.$message.error('只能上传图片文件');
+      }
+      if (!isLt2M) {
+        this.$message.error('图片大小不能超过2MB');
+      }
+      return isImage && isLt2M;
+    },
+    handleAvatarChange(file) {
+      this.form.logo = URL.createObjectURL(file.raw);// 设置预览图片
+      this.PhotoFile = file.raw;
+      console.log("用户切换了头像")
+    },
     // 获取基础数据
     get_All_JCSJ() {
       axios.get("/data/getAllJCSJ2").then((response) => {
@@ -353,11 +390,9 @@ export default {
     // 更新编辑器内容（新增方法）
     updateEditorContent(html) {
       if (!this.editor || this.editor.txt.html() === html) return
-
       // 保存选区
       const selection = window.getSelection()
       const range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null
-
       // 更新内容
       this.editor.txt.html(html)
 
@@ -388,44 +423,83 @@ export default {
         console.log(error);
       });
     },
-
-    handleLogoSuccess(res, file) {
-      this.form.LOGO = URL.createObjectURL(file.raw)
-      this.$message.success('上传成功')
-    },
-
-    beforeLogoUpload(file) {
-      const isImage = file.type.startsWith('image/')
-      const isLt5M = file.size / 1024 / 1024 < 5
-
-      if (!isImage) {
-        this.$message.error('只能上传图片文件!')
-      }
-      if (!isLt5M) {
-        this.$message.error('图片大小不能超过5MB!')
-      }
-      return isImage && isLt5M
-    },
-
     submitForm() {
       this.$refs.form.validate(valid => {
         if (valid) {
-          const loading = this.$loading({
+          this. loading = this.$loading({
             lock: true,
             text: '提交中...',
             spinner: 'el-icon-loading',
           })
 
-          this.$axios.post('/api/saveUnitInfo', this.form)
-              .then(() => {
-                this.$message.success('保存成功')
-              })
-              .catch(err => {
-                this.$message.error('保存失败: ' + (err.response?.data?.message || err.message))
-              })
-              .finally(() => {
-                loading.close()
-              })
+          if(this.PhotoFile!==null){
+            // 上传LOGO
+            let formData = new FormData();
+            formData.append('file', this.PhotoFile);
+            formData.append('dwdm', this.form.dwdm);
+            axios.post('/dw/uploadDwLogo', formData).then(response => {
+              if (response.data.result) {
+                this.loading.close();
+                this.loading = this.$loading({
+                  lock: true,
+                  text: '继续提交基础信息...',
+                  spinner: 'el-icon-loading',
+                })
+              } else {
+                this.$message.error("上传LOGO失败：server error");
+              }
+            }).catch(error => {
+              console.log(error);
+              this.$message.error("上传LOGO失败："+error.message);
+            });
+          }
+
+
+          /*
+            DWDM	单位代码  ，单位代码库
+            DWMC	单位名称
+            DWXZ	单位性质
+            DWXZDM	单位性质代码，对应DWXZK 单位性质库
+            DWGMDM	单位规模代码，对应DWGMK 单位规模库
+            DWGM	单位规模，文本，存储
+            DWHYDM	单位行业代码,对应DWHYDMK 单位行业代码库
+            DWHY	单位行业
+            GSMC	公司名称
+            GSJJ	公司简介
+            GSJJHTML	公司简介HTML
+           -- QYDM	启用代码
+            SZDQ	所在地区，不匹配其他表，即可以自由编辑
+          --  LOGO	单位或公司的LOGO
+          */
+          let DwDataForm = new FormData();
+          DwDataForm.append('dwdm', this.form.dwdm);// 单位代码
+          DwDataForm.append('dwmc', this.form.dwmc); // 单位名称
+          DwDataForm.append('dwxzdm', this.form.dwxzdm); // 单位性质代码
+          DwDataForm.append('dwxz',this.DWXZK.find(item => item.dwxzdm === this.form.dwxzdm).dwxz)
+          DwDataForm.append('dwgmdm', this.form.dwgmdm); // 单位规模代码
+          DwDataForm.append('dwgm', this.DWGMK.find(item => item.gmdm === this.form.dwgmdm).gmxq); // 单位规模
+          DwDataForm.append('dwhydm', this.form.dwhydm); // 单位行业代码
+          DwDataForm.append('dwhy', this.DWHYDMK.find(item => item.hydm === this.form.dwhydm).hymc); // 单位行业
+          DwDataForm.append('gsmc', this.form.gsmc); // 公司名称
+          DwDataForm.append('gsjj', this.form.gsjj); // 公司简介
+          DwDataForm.append('gsjjhtml', this.form.gsjjhtml); // 公司简介HTML
+          DwDataForm.append('szdq', this.form.szdq); // 所在地区
+          axios.post("/dw/updateDw", DwDataForm).then(response => {
+            this.loading.close();
+            if (response.data.result) {
+
+              this.$message.success("修改成功！");
+            } else {
+              this.$message.error("修改失败："+response.data.msg);
+            }
+          }).catch(error => {
+            this.loading.close();
+            this.$message.error("修改失败："+error.message);
+          });
+          console.log(this.form)
+          console.log(this.PhotoFile);
+        }else{
+         this.$message.error("请完善信息！");
         }
       })
     },

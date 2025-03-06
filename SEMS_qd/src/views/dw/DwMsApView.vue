@@ -195,6 +195,9 @@
                   <el-button v-show="getisButtonShowData(row).isCanDelete" icon="el-icon-circle-close"
                              style="color: red;" type="text" @click="deleteInterview(row)">取消面试
                   </el-button>
+                  <el-button v-show="getisButtonShowData(row).isCanStart" icon="el-icon-circle-check"
+                             style="color: green;" type="text" @click="StartInterview(row)">开始面试
+                  </el-button>
                   <el-button v-show="getisButtonShowData(row).isCanInterResult" icon="el-icon-circle-check"
                              style="color: green;" type="text" @click="InterviewResult(row)">录入结果
                   </el-button>
@@ -358,7 +361,6 @@ import DwMenu from "@/components/dw/Dw_menu.vue";
 import * as echarts from 'echarts'
 import axios from "axios";
 import {EventBus} from "@/event-bus";
-
 export default {
   name: 'DwMsApView',
   components: {DwMenu},
@@ -607,41 +609,90 @@ export default {
     // 获取面试状态信息
     getMSZTType(row) {
       if (row.QYDM === 1) {
+        // 正式发布,待学生确认
         if (row.QRDM === 0 && row.MSZT === 1) {
           return this.statusType['1'];
+          // 正式发布,学生已确认，待开始面试
         } else if (row.MSZT === 2) {
           return this.statusType['2'];
+          // 正式发布,面试中，待录入结果
         } else if (row.MSZT === 3) {
+          // 正式发布,已录入结果
           return this.statusType['3'];
         } else if (row.MSZT === 4) {
+          // 正式发布,面试已结束
           return this.statusType['4'];
         } else if (row.MSZT === 5) {
+          // 正式发布,面试关闭
           return this.statusType['5'];
         } else {
           return this.statusType['6'];
         }
       } else {
+        // 草稿
         return this.statusType['0'];
       }
+    },
+    // 开始面试
+    StartInterview(row){
+      console.log(row);
+      $.confirm({
+        title: '提示！',
+        content: '确定要开始面试吗？',
+        type: 'blue',
+        typeAnimated: true,
+        buttons: {
+          ok: {
+            text: '确定',
+            btnClass: 'btn-blue',
+            action: () => {
+              axios.get("/msdmk/startInterview?msdm=" + row.MSDM).then((response) => {
+                if (response.data.result) {
+                  this.$message.success('开始面试成功');
+                  this.getInterviews();
+                } else {
+                  this.$message.error('开始面试失败:' + response.data.msg);
+                }
+              }).catch((error) => {
+                console.error('开始面试失败:', error);
+                this.$message.error('开始面试失败:' + error.message);
+              });
+            }
+          },
+          close: {
+            text: '关闭',
+            action: () => {
+              console.log("关闭！")
+              this.$message.info('已取消');
+            }
+          }
+        }});
     },
     // 按钮是否显示
     getisButtonShowData(row) {
       if (row.QYDM === 1) {
         if (row.QRDM === 0 && row.MSZT === 1) {
-          return {isCanDelete: true, isCanEidt: true, isCanInterResult: false, isCanUpdataResult: false};
+          // 正式发布,待学生确认:可删除、可编辑、不可面试结果、不可更新结果、不可开始面试
+          return {isCanDelete: true, isCanEidt: true, isCanInterResult: false, isCanUpdataResult: false, isCanStart: false};
         } else if (row.MSZT === 2) {
-          return {isCanDelete: true, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: false};
+          // 正式发布,学生已确认，待开始面试:可删除、可编辑、不可面试结果、不可更新结果、可开始面试
+          return {isCanDelete: true, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: false,isCanStart: true};
         } else if (row.MSZT === 3) {
-          return {isCanDelete: false, isCanEidt: false, isCanInterResult: true, isCanUpdataResult: false};
+          // 正式发布,面试中，待录入结果:可删除、可编辑、可面试结果、不可更新结果、不可开始面试
+          return {isCanDelete: false, isCanEidt: false, isCanInterResult: true, isCanUpdataResult: false, isCanStart: false};
         } else if (row.MSZT === 4) {
-          return {isCanDelete: false, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: true};
+          // 正式发布,已录入结果:不可删除、不可编辑、不可面试结果、可更新结果、不可开始面试
+          return {isCanDelete: false, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: true, isCanStart: false};
         } else if (row.MSZT === 5) {
-          return {isCanDelete: false, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: true};
+          // 正式发布,面试已结束:不可删除、不可编辑、不可面试结果、不可更新结果、不可开始面试
+          return {isCanDelete: false, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: true, isCanStart: false};
         } else {
-          return {isCanDelete: false, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: false};
+          // 未知异常状态:不可删除、不可编辑、不可面试结果、不可更新结果、不可开始面试
+          return {isCanDelete: false, isCanEidt: false, isCanInterResult: false, isCanUpdataResult: false, isCanStart: false};
         }
       } else {
-        return {isCanDelete: false, isCanEidt: true, isCanInterResult: false, isCanUpdataResult: false};
+        // 草稿:可删除、可编辑、不可面试结果、不可更新结果,不可开始面试
+        return {isCanDelete: false, isCanEidt: true, isCanInterResult: false, isCanUpdataResult: false, isCanStart: false};
       }
     },
     changeQydm(newVal) {

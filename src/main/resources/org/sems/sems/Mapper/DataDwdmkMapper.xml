@@ -37,7 +37,9 @@
             <if test="dwhy != null">dwhy = #{dwhy},  /*单位行业*/</if>
             <if test="gsmc != null">gsmc = #{gsmc},   /*公司名称*/</if>
             <if test="gsjj != null">gsjj = #{gsjj},   /*公司简介*/</if>
-            <if test="szdq != null">szdq = #{szdq}   /*所在地区*/</if>
+            <if test="szdq != null">szdq = #{szdq},   /*所在地区*/</if>
+            <if test="gsjjhtml != null">gsjjhtml = #{gsjjhtml}   /*公司简介html*/</if>
+
         </set>
         WHERE dwdm = #{dwdm} /*单位代码*/
     </update>

@@ -42,4 +42,30 @@ public interface MsdmkService {
      * @return 待确认的APM列表
      */
     Map<String, Object> getWaitConfirmApms(String yhm);
+    /**
+     * 确认面试
+     * @param msdmk 面试信息
+     * @return Map<String, Object>
+     */
+    Map<String, Object> confirmInterview(Msdmk msdmk);
+
+    /**
+     * 拒绝面试
+     * @param msdmk 面试信息
+     * @return Map<String, Object>
+     */
+    Map<String, Object> refuseInterview(Msdmk msdmk);
+    /**
+     * 获取面试数据：单位、学生都可以用
+     * @param type 获取方式
+     * @param yhm 用户名
+     * @return Map<String, Object> 面试数据
+     */
+    Map<String, Object> getInterviewsMainIdea(int type, String yhm);
+    /**
+     * 开始面试
+     * @param msdm 面试ID
+     * @return Map<String, Object> 结果
+     */
+    Map<String, Object> startInterview(int msdm);
 }
