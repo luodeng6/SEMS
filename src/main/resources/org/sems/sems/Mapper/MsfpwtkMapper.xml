@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.MsfpwtkMapper">
+
+    <insert id="insertMsfpwtk" parameterType="org.sems.sems.entity.Msfpwtk" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO MSFPWTK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="wtms != null">WTMS,</if>
+            <if test="wdhd != null">WDHD,</if>
+            <if test="gjhd != null">GJHD,</if>
+            <if test="zwpf != null">ZWPF,</if>
+            <if test="lrsj != null">LRSJ,</if>
+            <if test="fpdm != null">FPDM,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="wtms != null">#{wtms},</if>
+            <if test="wdhd != null">#{wdhd},</if>
+            <if test="gjhd != null">#{gjhd},</if>
+            <if test="zwpf != null">#{zwpf},</if>
+            <if test="lrsj != null">#{lrsj},</if>
+            <if test="fpdm != null">#{fpdm},</if>
+        </trim>
+    </insert>
+
+</mapper>
+

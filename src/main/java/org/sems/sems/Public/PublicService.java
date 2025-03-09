@@ -21,4 +21,6 @@ public interface PublicService {
     List<Map<String, Object>> getUserOneType(int userRole, int state);
     // 获取所有用户信息接口
     List<List<Map<String, Object>>> getUserAllType(int state) ;
+
+    List<List<Map<String, Object>>> getDataFromCCGC(String sqlText, Object... params);
 }

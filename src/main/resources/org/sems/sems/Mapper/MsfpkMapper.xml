@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.MsfpkMapper">
+
+    <insert id="insertMsfpk" parameterType="org.sems.sems.entity.Msfpk" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO MSFPK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">STUID,</if>
+            <if test="gwdm != null">GWDM,</if>
+            <if test="gwmc != null">GWMC,</if>
+            <if test="qydm != null">QYDM,</if>
+            <if test="msdm != null">MSDM,</if>
+            <if test="ndpj != null">NDPJ,</if>
+            <if test="msxs != null">MSXS,</if>
+            <if test="ztfs != null">ZTFS,</if>
+            <if test="mssj != null">MSSJ,</if>
+            <if test="fpsj != null">FPSJ,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">#{stuid},</if>
+            <if test="gwdm != null">#{gwdm},</if>
+            <if test="gwmc != null">#{gwmc},</if>
+            <if test="qydm != null">#{qydm},</if>
+            <if test="msdm != null">#{msdm},</if>
+            <if test="ndpj != null">#{ndpj},</if>
+            <if test="msxs != null">#{msxs},</if>
+            <if test="ztfs != null">#{ztfs},</if>
+            <if test="mssj != null">#{mssj},</if>
+            <if test="fpsj != null">#{fpsj},</if>
+        </trim>
+    </insert>
+</mapper>
+

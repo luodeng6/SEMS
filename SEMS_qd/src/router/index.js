@@ -317,8 +317,13 @@ const routes = [
         name: 'PublicGongGaoDetail',
         component: () => import('@/views/publicView/PublicGongGaoDetailView.vue'),
         meta: {style: 'public', title: '公告详情'}
+    },
+    {
+        path: '/stu/msfpDetail',
+        name: 'StudentMsfpDetailView',
+        component: () => import('@/views/student/StudentMsfpDetailView.vue'),
+        meta: {style: '学生', title: '学生-历史面试复盘'}
     }
-
 ]
 
 

@@ -17,10 +17,8 @@ import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.SQLException;
+import java.util.*;
 
 
 @Service
@@ -237,6 +235,53 @@ public class PublicServiceImpl implements PublicService {
             e.printStackTrace();
         }
         return jsonMap;
+    }
+
+
+
+
+
+
+    public List<List<Map<String, Object>>> getDataFromCCGC(String sqlText, Object... params) {
+        return jdbcTemplate.execute((ConnectionCallback<List<List<Map<String, Object>>>>) conn -> {
+            List<List<Map<String, Object>>> results = new ArrayList<>();
+            try (CallableStatement stmt = conn.prepareCall(sqlText)) {
+
+                // 设置输入参数
+                for (int i = 0; i < params.length; i++) {
+                    stmt.setObject(i + 1, params[i]);
+                }
+
+                boolean hasResultSet = stmt.execute();
+
+                while (hasResultSet) {
+                    try (ResultSet rs = stmt.getResultSet()) {
+                        results.add(mapResultSet(rs));
+                    }
+                    hasResultSet = stmt.getMoreResults();
+                }
+            }
+            return results;
+        });
+    }
+
+    private List<Map<String, Object>> mapResultSet(ResultSet rs) throws SQLException {
+        List<Map<String, Object>> resultList = new ArrayList<>();
+        ResultSetMetaData metaData = rs.getMetaData();
+        int columnCount = metaData.getColumnCount();
+
+        while (rs.next()) {
+            Map<String, Object> row = new LinkedHashMap<>();  // 保持列顺序
+            for (int i = 1; i <= columnCount; i++) {
+                row.put(
+                        metaData.getColumnLabel(i),  // 获取列标签（包含别名）
+                        rs.getObject(i)
+                );
+            }
+            resultList.add(row);
+        }
+
+        return resultList;
     }
 
 }

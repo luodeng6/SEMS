@@ -185,6 +185,7 @@
 
 <script>
 import StudentMenu from "@/components/student/Student_menu.vue";
+import axios from "axios";
 
 export default {
   name: 'CareerGuidance',
@@ -240,6 +241,11 @@ export default {
     }
   },
   methods: {
+    // 获取面试信息
+    getInterviewInfo() {
+
+
+    },
     handleSearch() {
       // 实现搜索逻辑
       console.log('Search key:', this.searchKey);

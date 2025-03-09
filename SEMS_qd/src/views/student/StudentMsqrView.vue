@@ -251,7 +251,7 @@ export default {
           this.interviewList = response.data.data;
           console.log(this.interviewList);
         } else {
-            this.$message.error("获取面试数据失败:" + response.data.msg);
+          this.$message.error("获取面试数据失败:" + response.data.msg);
         }
       }).catch(error => {
         console.error("获取面试列表失败！", error);

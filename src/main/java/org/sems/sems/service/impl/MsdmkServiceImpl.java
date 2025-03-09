@@ -266,7 +266,7 @@ public class MsdmkServiceImpl implements MsdmkService {
      *
      * @param type 获取方式
      * @param yhm  用户名
-     * @return 面试主观题列表
+     * @return Map<String, Object> 面试数据
      */
     @Override
     public Map<String, Object> getInterviewsMainIdea(int type, String yhm) {
