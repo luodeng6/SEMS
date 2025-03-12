@@ -12,7 +12,7 @@
  Target Server Version : 15002000
  File Encoding         : 65001
 
- Date: 23/02/2025 17:23:44
+ Date: 13/03/2025 01:24:49
 */
 
 
@@ -906,11 +906,110 @@ CREATE TABLE [dbo].[DATA_DWDMK] (
   [GSJJ] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
   [GSJJHTML] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
   [QYDM] int DEFAULT ((1)) NOT NULL,
-  [SZDQ] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL
+  [SZDQ] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [LOGO] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL
 )
 GO
 
 ALTER TABLE [dbo].[DATA_DWDMK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位代码  ，单位代码库',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位名称',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWMC'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位性质',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWXZ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位性质代码，对应DWXZK 单位性质库',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWXZDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位规模代码，对应DWGMK 单位规模库',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWGMDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位规模，文本，存储',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWGM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位行业代码,对应DWHYDMK 单位行业代码库',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWHYDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位行业',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'DWHY'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'公司名称',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'GSMC'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'公司简介',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'GSJJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'公司简介HTML',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'GSJJHTML'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'启用代码',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'QYDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'所在地区，不匹配其他表，即可以自由编辑',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'SZDQ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位或公司的LOGO',
+'SCHEMA', N'dbo',
+'TABLE', N'DATA_DWDMK',
+'COLUMN', N'LOGO'
 GO
 
 
@@ -920,133 +1019,43 @@ GO
 SET IDENTITY_INSERT [dbo].[DATA_DWDMK] ON
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'1', N'卫宁', N'机关', N'1', N'14', N'10000人以上', N'20', N'国际组织', N'卫宁健康科技集团有限公司', N'罗邓-卫宁健康科技集团有限公司（Weining Health Technology Group Co., Ltd.）是一家致力于提供医疗健康信息化解决方案的公司，成立于2000年，总部位于中国。以下是关于卫宁公司的详细简介：
-
-1. 公司的宗旨和愿景
-卫宁公司致力于通过科技创新推动医疗行业的信息化发展，提升医疗服务的质量和效率。其愿景是成为全球领先的健康科技解决方案提供商。
-
-2. 主要业务领域
-卫宁的业务覆盖多个领域，包括但不限于：
-
-医疗信息化解决方案：提供医院管理系统（HIS）、电子病历（EMR）、影像存档与传输系统（PACS）、检验信息系统等，帮助医院实现信息化管理。
-智能医疗：运用人工智能、大数据分析和云计算技术，为医疗行业提供智能化服务，如智能诊断、健康管理等。
-数据服务：为医疗机构提供数据采集、分析和应用服务，提升管理水平和医疗服务能力。
-3. 技术与创新
-卫宁公司在技术创新方面不断投入，结合行业需求，推出了一系列领先的产品和服务。公司注重研发，拥有多项专利技术及软件著作权，致力于为医疗行业提供先进的解决方案。
-
-4. 客户群体
-卫宁的客户主要包括各类医疗机构，如综合医院、专科医院、社区医疗中心等，以及医药公司、健康管理机构等。其解决方案已在全国多个省市的医疗机构中得到广泛应用。
-
-5. 社会责任
-卫宁公司积极参与社会公益事业，通过推动医疗信息化、促进健康管理等方式，为改善公共健康水平和提升医疗服务质量作出贡献。
-
-6. 国际化发展
-近年来，卫宁公司致力于拓展国际市场，积极参加国际医疗健康相关展会，与多国企业和机构进行合作，探索全球业务发展机会。
-
-卫宁健康科技在中国医疗信息化领域中具有一定的影响力，其产品和服务已帮助许多医疗机构实现了管理现代化，提高了医疗服务的效率与质量。', N'  <div class="container mx-auto px-4 py-8 max-w-4xl">  
-        <header class="text-center mb-12">  
-            <h1 class="text-4xl font-extrabold text-blue-700 mb-4">卫宁健康科技股份有限公司</h1>  
-            <p class="text-xl text-gray-600">医疗信息化转型的引领者，健康科技创新的推动者</p>  
-        </header>  
-
-        <section class="bg-white shadow-lg rounded-lg p-8 mb-8">  
-            <h2 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-500 pb-3 mb-6">公司简介</h2>  
-            <p class="text-gray-700">  
-                卫宁健康成立于1998年，总部位于杭州，是中国医疗健康信息化领域的领先企业。公司致力于为医疗机构提供全面的数字化转型解决方案，以科技创新推动医疗行业的智能化发展。  
-            </p>  
-        </section>  
-
-        <div class="grid md:grid-cols-2 gap-6">  
-            <section class="bg-white shadow-md rounded-lg p-6">  
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">核心产品</h3>  
-                <ul class="space-y-3">  
-                    <li class="flex items-center">  
-                        <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">  
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>  
-                        </svg>  
-                        医院信息管理系统(HIS)  
-                    </li>  
-                    <li class="flex items-center">  
-                        <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">  
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>  
-                        </svg>  
-                        电子病历系统(EMR)  
-                    </li>  
-                    <li class="flex items-center">  
-                        <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">  
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>  
-                        </svg>  
-                        实验室信息系统(LIS)  
-                    </li>  
-                </ul>  
-            </section>  
-
-            <section class="bg-white shadow-md rounded-lg p-6">  
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">技术优势</h3>  
-                <div class="space-y-3">  
-                    <div class="flex items-center">  
-                        <span class="text-blue-500 mr-2">✓</span>  
-                        大数据智能分析技术  
-                    </div>  
-                    <div class="flex items-center">  
-                        <span class="text-blue-500 mr-2">✓</span>  
-                        云计算医疗解决方案  
-                    </div>  
-                    <div class="flex items-center">  
-                        <span class="text-blue-500 mr-2">✓</span>  
-                        人工智能辅助诊断  
-                    </div>  
-                </div>  
-            </section>  
-        </div>  
-
-        <section class="bg-white shadow-lg rounded-lg p-8 mt-8">  
-            <h2 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-500 pb-3 mb-6">社会价值</h2>  
-            <p class="text-gray-700">  
-                卫宁健康不仅是技术的提供者，更是医疗健康事业的推动者。我们通过持续的技术创新，助力医疗机构提高服务效率，为患者提供更优质、更便捷的医疗服务。  
-            </p>  
-        </section>  
-
-        <footer class="text-center mt-8 text-gray-600">  
-            <p>© 2024 卫宁健康科技股份有限公司 | 专注医疗信息化，服务健康美国！！！</p>  
-        </footer>  
-    </div>  ', N'1', N'上海市浦东新区')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'1', N'卫宁健康科技集团有限公司', N'机关', N'1', N'14', N'10000人以上', N'20', N'国际组织', N'卫宁健康科技集团有限公司', N'', N'<iframe src="https://www.winning.com.cn/introduction.html" width="1400" height="800" frameborder="0"></iframe>', N'1', N'上海市浦东新区', N'/img/upload/DwLogo/1740402865472_.png')
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'2', N'销售部', N'民营企业', N'8', N'13', N'5000-10000人', N'9', N'信息传输、软件和信息技术服务业', N'阿里巴巴集团', N'阿里巴巴集团成立于1999年，是一家全球领先的互联网和科技公司，致力于为消费者和企业提供全面的数字经济服务。', N'阿里巴巴集团成立于1999年，是一家全球领先的互联网和科技公司，致力于为消费者和企业提供全面的数字经济服务。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'2', N'销售部', N'民营企业', N'8', N'13', N'5000-10000人', N'9', N'信息传输、软件和信息技术服务业', N'阿里巴巴集团', N'阿里巴巴集团成立于1999年，是一家全球领先的互联网和科技公司，致力于为消费者和企业提供全面的数字经济服务。', N'阿里巴巴集团成立于1999年，是一家全球领先的互联网和科技公司，致力于为消费者和企业提供全面的数字经济服务。', N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'3', N'开发部', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'腾讯控股有限公司', N'腾讯是一家中国领先的互联网增值服务提供商，旗下拥有社交、游戏、金融等多个业务板块。', N'腾讯是一家中国领先的互联网增值服务提供商，旗下拥有社交、游戏、金融等多个业务板块。', N'1', N'广东深圳市')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'3', N'开发部', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'腾讯控股有限公司', N'腾讯是一家中国领先的互联网增值服务提供商，旗下拥有社交、游戏、金融等多个业务板块。', N'腾讯是一家中国领先的互联网增值服务提供商，旗下拥有社交、游戏、金融等多个业务板块。', N'1', N'广东深圳市', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'4', N'百度', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'百度公司', N'百度是中国最大的搜索引擎公司，致力于通过技术创新推动人工智能的发展。', N'百度是中国最大的搜索引擎公司，致力于通过技术创新推动人工智能的发展。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'4', N'百度', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'百度公司', N'', N'<iframe src="https://e.baidu.com/about/?refer=90058801&amp;bd_vid=10246278139870555608&amp;token_id=13" width="1600" height="1400" allowfullscreen=""></iframe>', N'1', N'null', N'/img/upload/DwLogo/1740411792415_.jpeg')
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'5', N'华为', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'华为技术有限公司', N'华为是一家全球领先的信息与通信技术（ICT）解决方案供应商，致力于为客户提供创新的技术和服务。', N'华为是一家全球领先的信息与通信技术（ICT）解决方案供应商，致力于为客户提供创新的技术和服务。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'5', N'华为', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'华为技术有限公司', N'华为是一家全球领先的信息与通信技术（ICT）解决方案供应商，致力于为客户提供创新的技术和服务。', N'华为是一家全球领先的信息与通信技术（ICT）解决方案供应商，致力于为客户提供创新的技术和服务。', N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'6', N'中国移动', N'国有企业', N'7', N'12', N'1000-5000人', N'7', N'交通运输、仓储和邮政业', N'中国移动通信集团公司', N'中国移动是全球最大的移动通信运营商，提供全面的移动通信服务。', N'中国移动是全球最大的移动通信运营商，提供全面的移动通信服务。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'6', N'中国移动', N'国有企业', N'7', N'12', N'1000-5000人', N'7', N'交通运输、仓储和邮政业', N'中国移动通信集团公司', N'中国移动是全球最大的移动通信运营商，提供全面的移动通信服务。', N'中国移动是全球最大的移动通信运营商，提供全面的移动通信服务。', N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'7', N'中国电信', N'国有企业', N'7', N'12', N'1000-5000人', N'7', N'交通运输、仓储和邮政业', N'中国电信集团公司', N'中国电信是中国主要的电信运营商之一，提供固定电话、移动电话和宽带等服务。', N'中国电信是中国主要的电信运营商之一，提供固定电话、移动电话和宽带等服务。', N'1', N'北京市朝阳区')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'7', N'中国电信', N'国有企业', N'7', N'12', N'1000-5000人', N'7', N'交通运输、仓储和邮政业', N'中国电信集团公司', N'中国电信是中国主要的电信运营商之一，提供固定电话、移动电话和宽带等服务。', N'中国电信是中国主要的电信运营商之一，提供固定电话、移动电话和宽带等服务。', N'1', N'北京市朝阳区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'8', N'中国联通', N'国有企业', N'7', N'12', N'1000-5000人', N'7', N'交通运输、仓储和邮政业', N'中国联合网络通信有限公司', N'中国联通是中国主要的电信运营商之一，提供多种通信服务。', N'中国联通是中国主要的电信运营商之一，提供多种通信服务。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'8', N'中国联通', N'国有企业', N'7', N'12', N'1000-5000人', N'7', N'交通运输、仓储和邮政业', N'中国联合网络通信有限公司', N'中国联通是中国主要的电信运营商之一，提供多种通信服务。', N'中国联通是中国主要的电信运营商之一，提供多种通信服务。', N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'9', N'京东', N'民营企业', N'8', N'12', N'1000-5000人', N'6', N'批发和零售业', N'京东集团', N'京东是中国最大的自营式电商企业，提供丰富的商品和优质的服务。', N'京东是中国最大的自营式电商企业，提供丰富的商品和优质的服务。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'9', N'京东', N'民营企业', N'8', N'12', N'1000-5000人', N'6', N'批发和零售业', N'京东集团', N'京东是中国最大的自营式电商企业，提供丰富的商品和优质的服务。', N'京东是中国最大的自营式电商企业，提供丰富的商品和优质的服务。', N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'10', N'美团', N'民营企业', N'8', N'12', N'1000-5000人', N'8', N'住店和餐饮业', N'美团点评', N'美团是一家综合性互联网服务平台，提供外卖、酒店、旅游等多种服务。', N'美团是一家综合性互联网服务平台，提供外卖、酒店、旅游等多种服务。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'10', N'美团', N'民营企业', N'8', N'12', N'1000-5000人', N'8', N'住店和餐饮业', N'美团点评', N'美团是一家综合性互联网服务平台，提供外卖、酒店、旅游等多种服务。', N'美团是一家综合性互联网服务平台，提供外卖、酒店、旅游等多种服务。', N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'11', N'字节跳动', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'字节跳动有限公司', N'字节跳动是一家全球领先的科技公司，旗下拥有抖音、今日头条等多个知名产品。', N'字节跳动是一家全球领先的科技公司，旗下拥有抖音、今日头条等多个知名产品。', N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'11', N'字节跳动', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'字节跳动有限公司', N'字节跳动是一家全球领先的科技公司，旗下拥有抖音、今日头条等多个知名产品。', N'字节跳动是一家全球领先的科技公司，旗下拥有抖音、今日头条等多个知名产品。', N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'13', N'广西实施部', N'民营企业', N'8', N'14', N'10000人以上', N'9', N'信息传输、软件和信息技术服务业', N'罗式科技集团股份有限公司', N'123', NULL, N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'13', N'广西实施部', N'民营企业', N'8', N'14', N'10000人以上', N'9', N'信息传输、软件和信息技术服务业', N'罗式科技集团股份有限公司', N'123', NULL, N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'15', N'信息科', N'医疗卫生单位', N'5', N'11', N'500-1000人', N'17', N'卫生和社会工作', N'麻栗坡县中医院', N'### 罗式科技集团有限公司简介
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'15', N'信息科', N'医疗卫生单位', N'5', N'11', N'500-1000人', N'17', N'卫生和社会工作', N'麻栗坡县中医院', N'### 罗式科技集团有限公司简介
 
 **公司概况**
 
@@ -1093,41 +1102,38 @@ INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWG
 ### 结语
 
 罗式科技集团有限公司凭借其卓越的技术实力和市场敏锐度，在激烈的市场竞争中脱颖而出。未来，罗式科技将继续以科技创新为驱动力，推动行业的发展与变革，努力实现更高的目标。
-', NULL, N'1', NULL)
+', NULL, N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'16', N'麻栗坡县人民医院 信息科', N'医疗卫生单位', N'5', N'11', N'500-1000人', N'19', N'公共管理、社会保障和社会组织', N'云南医药器械有限公司', N'无', NULL, N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'16', N'麻栗坡县人民医院 信息科', N'医疗卫生单位', N'5', N'11', N'500-1000人', N'19', N'公共管理、社会保障和社会组织', N'云南医药器械有限公司', N'无', NULL, N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'17', N'东软运维部', N'民营企业', N'8', N'11', N'500-1000人', N'9', N'信息传输、软件和信息技术服务业', N'东软集团股份有限公司', N'东软是个大公司！', NULL, N'1', NULL)
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'17', N'东软运维部', N'民营企业', N'8', N'11', N'500-1000人', N'9', N'信息传输、软件和信息技术服务业', N'东软集团股份有限公司', N'东软是个大公司！', NULL, N'1', NULL, NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'18', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'中大恒润', N'湖北中大恒润能源工程有限公司位于湖北武汉东湖高新技术开发区，是一家较早专注和开展新能源电动汽车充电设施、电网输变电工程、城农网工程和新能源（风电、光伏等）设计、施工的高新技术企业。公司拥有一批专业种类完整的高素质技术和管理团队，为客户涉电工程提供科学、精准、及时的全程服务，以服务赢得客户信赖。 
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'18', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'中大恒润', N'湖北中大恒润能源工程有限公司位于湖北武汉东湖高新技术开发区，是一家较早专注和开展新能源电动汽车充电设施、电网输变电工程、城农网工程和新能源（风电、光伏等）设计、施工的高新技术企业。公司拥有一批专业种类完整的高素质技术和管理团队，为客户涉电工程提供科学、精准、及时的全程服务，以服务赢得客户信赖。 
 
 
-	  公司具有电力行业送变电工程设计乙级资质、新能源工程咨询丙级资质和工程测绘乙级资质证书。并通过ISO9001质量、ISO14001环境和OHSAS18001职业健康安全三体系认证。2015年至今，我公司设计电动汽车充电站186座、110千伏变电站20多座、110千伏线路工程30多条、10～35千伏配网线路工程800多条、住宅配套工程180多项、新能源光伏项目30多项。', NULL, N'1', N'湖北-武汉市-洪山区')
+	  公司具有电力行业送变电工程设计乙级资质、新能源工程咨询丙级资质和工程测绘乙级资质证书。并通过ISO9001质量、ISO14001环境和OHSAS18001职业健康安全三体系认证。2015年至今，我公司设计电动汽车充电站186座、110千伏变电站20多座、110千伏线路工程30多条、10～35千伏配网线路工程800多条、住宅配套工程180多项、新能源光伏项目30多项。', NULL, N'1', N'湖北-武汉市-洪山区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'57', N'研发部', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'杭州深度求索人工智能基础技术研究有限公司', N'DeepSeek，全称杭州深度求索人工智能基础技术研究有限公司，是一家创新型科技公司，成立于2023年7月17日，专注于使用数据蒸馏技术以获取更为精炼的数据。公司由知名私募巨头幻方量化孕育而生，致力于开发先进的大语言模型（LLM）和相关技术。注册地址位于浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室，法定代表人为裴湉，经营范围包括技术服务、技术开发、软件开发等。
-
-2024年1月5日，发布DeepSeek LLM（深度求索的第一个大模型）；1月25日，发布DeepSeek-Coder；2月5日，发布DeepSeekMath；3月11日，发布DeepSeek-VL；5月7日，发布DeepSeek-V2；6月17日，发布DeepSeek-Coder-V2；9月5日，更新API支持文档，宣布合并DeepSeek Coder V2和DeepSeek V2 Chat，推出DeepSeek V2.5；12月13日，发布DeepSeek-VL2；12月26日晚，正式上线DeepSeek-V3首个版本并同步开源。2025年1月31日，英伟达宣布DeepSeek-R1模型登陆NVIDIA NIM，同时亚马逊和微软也接入该模型。英伟达称DeepSeek-R1是最先进的大语言模型。2月5日消息，DeepSeek-R1、V3、Coder等系列模型已陆续上线国家超算互联网平台。2月6日，澳大利亚政府以“担心安全风险”为由，禁止在所有政府设备中使用DeepSeek。2月8日，DeepSeek正式登陆苏州，并在苏州市公共算力服务平台上完成部署上线，为用户提供开箱即用的软硬件一体服务。
-', NULL, N'1', N'浙江杭州市')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'57', N'研发部', N'民营企业', N'8', N'12', N'1000-5000人', N'9', N'信息传输、软件和信息技术服务业', N'杭州深度求索人工智能基础技术研究有限公司', N'', N'<iframe src="https://www.deepseek.com/" width="1100" height="800" frameborder="0"></iframe>', N'1', N'浙江杭州市', N'/img/upload/DwLogo/1741783900630_.webp')
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'20', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'鑫邦电气', N'<br />
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'20', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'鑫邦电气', N'<br />
 	<br />
 		江西鑫邦电气有限公司拥有雄厚的资本，现有在册员工232人，工厂占地面积30亩地，厂房、办公室楼建筑面积1.8万平方米，注册基本2000万。公司具有大专以上学历的占37.9%，其中高级工程师8人，工程师及经济师10人。公司产品获得国家CCC认证，被评为国家名辉产品，有中国人民保险公司承保，企业通过ISO9001：2000质量体系认证，并被评为“AAA”级资格企业。<br />
 鑫邦电气主要从事高/低成套设备，防窃电产品生产与销售，主要产品有：JP户外配变补偿控制柜、GGJ低压无功补偿控制柜、MNS低压抽出式开关柜、XB-FDCP低压电能计量箱、DFW低压电缆分支箱、GGD交流低压配电柜、KYN28-12铠装移开式交流金属封闭开关柜、SH15非晶合金电力变压器、XB.FDCPX防窃电电表箱等一系列产品。<br />
 	<br />
 <br />
 <br />
-	展开<br />', NULL, N'1', N'未知')
+	展开<br />', NULL, N'1', N'未知', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'21', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'一览新能源猎头', N'未找到公司信息', NULL, N'1', N'未知')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'21', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'一览新能源猎头', N'未找到公司信息', NULL, N'1', N'未知', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'22', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'正运动技术', N'深圳市正运动技术有限公司成立于2013年，专注于纯国产运动控制技术研究和通用运动控制软硬件平台和产品
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'22', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'正运动技术', N'深圳市正运动技术有限公司成立于2013年，专注于纯国产运动控制技术研究和通用运动控制软硬件平台和产品
 的研发，是国家级高新技术和专精特新“小巨人”企业。
 正运动技术汇集了来自华为、中兴等公司的优秀人才。力求创新，目前公司拥有专利、著作权等知识产权五十
 余项。在坚持自主创新的同时，积极联合各大高校和科研院所协同运动控制基础技术的研究，是国内工控领域发展
@@ -1135,46 +1141,46 @@ INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWG
 正运动技术除本部研发中心外，设有中山、武汉、上海三个研发分部。为更好地服务客户，本部之外设有苏
 州、东莞两个区域性服务中心，设有佛山、厦门、青岛、西安、武汉、成都、天津、郑州等销售和技术服务机构。
 经过众多合作伙伴多年的开发应用，正运动技术的产品广泛地应用于3C电子、半导体、新能源、机器人、包装
-印刷、纺织服装、激光加工、医疗制药、数控机床、传统加工等领域。', NULL, N'1', N'广东-深圳市-宝安区')
+印刷、纺织服装、激光加工、医疗制药、数控机床、传统加工等领域。', NULL, N'1', N'广东-深圳市-宝安区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'23', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'深圳市泰永电气科技有限..', N'深圳市泰永电气科技有限公司以下简称泰永电气创立于1994年公司总部位于深圳国内专业电气及控制系统研究及整体解决方案供应商高新技术企业泰永科技斥资建设的长九工业园是中国规模的低压电器现代化生产基地之一_x000d__x000d_        泰永电气在全国主要城市建立四十多个分支机构经销商网络遍及全国各省市2008年泰永重组贵州长征电气低压电器事业部(原长征电气九厂和一厂低压)成立贵州长征开关制造有限公司将泰永的管理理念营销优势与长九四十多年制造工艺研发实力及行业影响力进行充分整合赋予长九品牌发展新使命旗下TYT泰永及长九两个品牌现为中国电器工业影响力品牌', NULL, N'1', N'广东-深圳市-南山区')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'23', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'深圳市泰永电气科技有限..', N'深圳市泰永电气科技有限公司以下简称泰永电气创立于1994年公司总部位于深圳国内专业电气及控制系统研究及整体解决方案供应商高新技术企业泰永科技斥资建设的长九工业园是中国规模的低压电器现代化生产基地之一_x000d__x000d_        泰永电气在全国主要城市建立四十多个分支机构经销商网络遍及全国各省市2008年泰永重组贵州长征电气低压电器事业部(原长征电气九厂和一厂低压)成立贵州长征开关制造有限公司将泰永的管理理念营销优势与长九四十多年制造工艺研发实力及行业影响力进行充分整合赋予长九品牌发展新使命旗下TYT泰永及长九两个品牌现为中国电器工业影响力品牌', NULL, N'1', N'广东-深圳市-南山区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'25', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'国新能源', N'该企业暂未填写公司简介', NULL, N'1', N'河南-郑州市')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'25', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'国新能源', N'该企业暂未填写公司简介', NULL, N'1', N'河南-郑州市', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'26', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'东方电子', N'东方电子股份有限公司为深交所上市公司（股票代码：000682，A股 简称：东方电子），是国家重点扶持企业、火炬计划重点高新技术企业和山东省重点企业。历经半个世纪的发展与变迁，东方电子传承电力行业的领先优势，追随技术的不断进步与创新，拓展更加广泛的业务领域。
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'26', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'东方电子', N'东方电子股份有限公司为深交所上市公司（股票代码：000682，A股 简称：东方电子），是国家重点扶持企业、火炬计划重点高新技术企业和山东省重点企业。历经半个世纪的发展与变迁，东方电子传承电力行业的领先优势，追随技术的不断进步与创新，拓展更加广泛的业务领域。
  作为奥运电力设备及国家智能电网的设备供应商，东方电子已发展成为集科研开发、生产经营、技术服务、系统集成于一体的大型高新技术企业，是中国能源管理系统解决方案的主要供应商之一，参加IEC（国际电工委员会）国际标准制定，是EMCA（中国节能协会节能服务产业委员会）主要成员。
  公司拥有计算机信息系统集成一级资质，国内市场占有率始终在中国电力自动化行业名列前茅。产品遍及东南亚、南亚、中东、非洲及欧洲等多个国家和地区，在国内同行业厂家中出口数量居首；顺利入围印度国家“十二?五”配电网改造计划，成为唯一一家印度国家电网指定的中国电网设备供应商。
- 公司以“珍爱环境，节约资源”为愿景，把环保、节能、安全、智能融入业务流程中，在智能电网、环保节能等领域为电力、大型厂矿企业、政府部门、居民小区等提供能源管理和节能服务系统解决方案。', NULL, N'1', N'山东-烟台市-芝罘区')
+ 公司以“珍爱环境，节约资源”为愿景，把环保、节能、安全、智能融入业务流程中，在智能电网、环保节能等领域为电力、大型厂矿企业、政府部门、居民小区等提供能源管理和节能服务系统解决方案。', NULL, N'1', N'山东-烟台市-芝罘区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'27', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'天合光能', N'未找到公司信息', NULL, N'1', N'江苏-常州市-新北区')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'27', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'天合光能', N'未找到公司信息', NULL, N'1', N'江苏-常州市-新北区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'28', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'浙江奔一', N'未找到公司信息', NULL, N'1', N'浙江-温州市-乐清市')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'28', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'浙江奔一', N'未找到公司信息', NULL, N'1', N'浙江-温州市-乐清市', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'29', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'特变电工衡阳变压器有限..', N'未找到公司信息', NULL, N'1', N'湖南-衡阳市-雁峰区')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'29', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'特变电工衡阳变压器有限..', N'未找到公司信息', NULL, N'1', N'湖南-衡阳市-雁峰区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'30', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'天顺智能', N'未找到公司信息', NULL, N'1', N'广东-深圳市')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'30', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'天顺智能', N'未找到公司信息', NULL, N'1', N'广东-深圳市', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'31', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'神马电力', N'未找到公司信息', NULL, N'1', N'江苏-南通市-如皋市')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'31', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'神马电力', N'未找到公司信息', NULL, N'1', N'江苏-南通市-如皋市', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'33', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'湖北方源东力', N'未找到公司信息', NULL, N'1', N'湖北-武汉市-洪山区')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'33', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'湖北方源东力', N'未找到公司信息', NULL, N'1', N'湖北-武汉市-洪山区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'34', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'杭州品联科技有限公司', N'未找到公司信息', NULL, N'1', N'未知')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'34', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'杭州品联科技有限公司', N'未找到公司信息', NULL, N'1', N'未知', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'46', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'长园深瑞继保自动化有限..', N'未找到公司信息', NULL, N'1', N'未知')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'46', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'长园深瑞继保自动化有限..', N'未找到公司信息', NULL, N'1', N'未知', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'32', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'沃瑞电力', N'杭州沃瑞电力科技有限公司，是一家以浙江大学产学研为基础的规范化、创新化、工程化的高新技术企业，公司的核心人员以浙江大学的教授、博士、硕士毕业生、海外归国留学人员与电力行业的专家为主，依托浙江大学的研发优势，以“无限创新、永恒服务”的企业精神和“科技体现价值，真诚追求卓越”的企业文化，专业研发、生产、销售电网高级应用系统，为坚强智能电网提供相关产品和技术支持、工程实施、系统集成以及售后服务等工作。
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'32', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'沃瑞电力', N'杭州沃瑞电力科技有限公司，是一家以浙江大学产学研为基础的规范化、创新化、工程化的高新技术企业，公司的核心人员以浙江大学的教授、博士、硕士毕业生、海外归国留学人员与电力行业的专家为主，依托浙江大学的研发优势，以“无限创新、永恒服务”的企业精神和“科技体现价值，真诚追求卓越”的企业文化，专业研发、生产、销售电网高级应用系统，为坚强智能电网提供相关产品和技术支持、工程实施、系统集成以及售后服务等工作。
      公司在电力系统领域曾获得的奖项有：2004年浙江省电力公司科技进步二等奖、2005年浙江省电力公司科技进步二等奖、2006年河南省电力公司科技进步一等奖、2007年国家电网公司科技进步二等奖、2007年福建省科技进步二等奖、2007年福建省科技进步二等奖、2007年、2008年福建省电力公司科技进步一等奖、2008年浙江省电力公司科技进步二等奖、2009年浙江省电力公司科技进步一等奖、2009年浙江省科技进步二等奖、2010年浙江省电力公司科技进步二等奖、、2010年浙江省电力公司科技进步三等奖。
      一个人能走多远，取决于与谁同行，企业也是如此。杭州沃瑞电力科技有限公司在与著名院校浙江大学以及世界知名企业一路同行的日子里，企业态势蒸蒸日上，发展成熟稳健。
     “鸿鹄之志，合力进取”，展望未来，公司将秉持“与广大用户共赢，与合作伙伴共赢”的经营理念，聚合精英力量，整合行业资源，不断提升企业的核心竞争能力，提升企业的经济效益，并竭诚为电力行业提供更加完善优质的综合服务。
@@ -1184,10 +1190,10 @@ INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWG
      多层次的培训体系，帮您打造全方位的职业发展平台；
      丰富多彩的团队活动，年度旅游、季度生日会、登山郊游……最大程度为您丰富业余生活；
      再加上民主、平等、自由、开放的企业文化，会让您在“家”的氛围中，融洽工作，快乐生活！
-     我们期待更多优秀人才带着智慧、热情和创造力加入沃瑞，和我们一起迎接机遇和挑战，期待您的加入！', NULL, N'1', N'浙江-杭州市-西湖区')
+     我们期待更多优秀人才带着智慧、热情和创造力加入沃瑞，和我们一起迎接机遇和挑战，期待您的加入！', NULL, N'1', N'浙江-杭州市-西湖区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'35', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'三一重能2023校招', N'三一重能2023届校园招聘-招聘简章
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'35', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'三一重能2023校招', N'三一重能2023届校园招聘-招聘简章
 
 
 	 
@@ -1283,10 +1289,10 @@ INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWG
 	四、校招流程
 
 
-	1、进行网申——线上测评——专业笔试（部分岗位）——专业面试（以远程面试为主，请同学们关注短信邮件及AI电话面试邀约通知）——终面——offer发放', NULL, N'1', N'北京-昌平区')
+	1、进行网申——线上测评——专业笔试（部分岗位）——专业面试（以远程面试为主，请同学们关注短信邮件及AI电话面试邀约通知）——终面——offer发放', NULL, N'1', N'北京-昌平区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'38', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'金风慧能', N'金风慧能2023届校园招聘简章 
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'38', N'', N'民营企业', N'8', N'12', N'1000-5000人', N'4', N'电力、热力、燃气及水生产和供应业', N'金风慧能', N'金风慧能2023届校园招聘简章 
 
 
 	  
@@ -1317,14 +1323,13 @@ INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWG
  
 
 
-	2023届校园招聘岗位需求', NULL, N'1', N'北京-大兴区')
+	2023届校园招聘岗位需求', NULL, N'1', N'北京-大兴区', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'58', N'特斯拉（Tesla）', N'民营企业', N'8', N'14', N'10000人以上', N'3', N'制造业', N'特斯拉（Tesla）', N'特斯拉（Tesla）是一家电动汽车及清洁能源行业跨国公司，总部位于美国得克萨斯州 [1] [175-176]，产销电动汽车、太阳能板、及储能设备与系统解决方案 [176]。现任CEO为埃隆·马斯克。 [178]
-2003年7月1日 [179]，马丁·艾伯哈德和马克·塔彭宁联合创立“特斯拉汽车公司”。2004年，马斯克投资后任公司董事长。创立之初，因成本失控，公司一度陷入危机。2008年，艾伯哈德和塔彭宁先后离开公司 [177] [179]，马斯克出任CEO，着力进行改革、对外融资 [181]，同年，首款车型跑车Roadster问世 [2] [180]。2010年，特斯拉获得美国政府4.65亿美元低息贷款，并在纳斯达克上市后，开始稳定发展 [181-182]。2012年，第二款车型轿车Model S发布后，在世界范围刮起纯电动车热潮，公司首次扭亏为盈 [3] [182]。2014年，特斯拉宣布共享专利技术 [183]。此后，于2015年发布第三款车型SUV Model X [4-5] [152] [180]，于2017年推出电动车Model 3、电动卡车Tesla Semi，于2019年推出电动皮卡Cybertruck，以及SUV Model Y等产品，除电动车外，还推出了Powerwall、Powerpack、Megapack等电池产品 [180]，并逐步在中国、德国、韩国等地开办工厂 [1] [185]。2020年，特斯拉市值突破2100亿美元，成为全球市值最高车企 [184]，2021年，市值达到1.3万亿美元峰值后逐渐下降 [186]，截至2024年6月，特斯拉已累计生产超过600万辆电动车。 [315]2025年1月3日消息，特斯拉2024年中国市场的累计销量增长8.8%。', NULL, N'1', N'美国洛杉矶')
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'58', N'特斯拉科技股份有限公司', N'民营企业', N'8', N'13', N'5000-10000人', N'3', N'制造业', N'特斯拉科技股份有限公司', N'公司规模&nbsp; &nbsp; &nbsp; &nbsp;特斯拉（Tesla）是一家电动汽车及清洁能源行业跨国公司，总部位于美国得克萨斯州 [1]&nbsp; ，产销电动汽车、太阳能板、及储能设备与系统解决方案&nbsp; 。现任CEO为埃隆·马斯克。&nbsp; &nbsp;2003年7月1日 ，马丁·艾伯哈德和马克·塔彭宁联合创立“特斯拉汽车公司”。&nbsp; &nbsp; &nbsp; &nbsp;2004年，马斯克投资后任公司董事长。创立之初，因成本失控，公司一度陷入危机。2008年，艾伯哈德和塔彭宁先后离开公司 [177]&nbsp; ，马斯克出任CEO，着力进行改革、对外融资 ，同年，首款车型跑车Roadster问世 [2] [180]。&nbsp; &nbsp; &nbsp; 2010年，特斯拉获得美国政府4.65亿美元低息贷款，并在纳斯达克上市后，开始稳定发展 。&nbsp; &nbsp; &nbsp; 2012年，第二款车型轿车Model S发布后，在世界范围刮起纯电动车热潮，公司首次扭亏为盈 。&nbsp; 2014年，特斯拉宣布共享专利技术 。&nbsp; &nbsp; &nbsp;此后，于2015年发布第三款车型SUV Model X [4-5]，于2017年推出电动车Model 3、电动卡车Tesla Semi，于2019年推出电动皮卡Cybertruck，以及SUV Model Y等产品，除电动车外，还推出了Powerwall、Powerpack、Megapack等电池产品 [180]，并逐步在中国、德国、韩国等地开办工厂 [1] [185]。2020年，特斯拉市值突破2100亿美元，成为全球市值最高车企 [184]，2021年，市值达到1.3万亿美元峰值后逐渐下降 [186]，截至2024年6月，特斯拉已累计生产超过600万辆电动车。&nbsp;&nbsp; &nbsp; &nbsp; 2025年1月3日消息，特斯拉2024年中国市场的累计销量增长8.8%。😇', N'<p style="line-height:2.5;"><img src="/img/upload/Wangeditor/1740387399754_.jpeg" contenteditable="false" width="583" height="444.14" style="font-size: 14px; font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight);"/><br/></p><table border="0" width="100%" cellpadding="0" cellspacing="0"><tbody><tr><th>公司</th><th>规模</th></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table><p><br/></p><p style="line-height:2.5;"><font size="5" style=""><b><font color="#46acc8">&nbsp; &nbsp; &nbsp; &nbsp;特斯拉（Tesla）</font></b><font color="#7b5ba1">是一家电动汽车及清洁能源行业跨国公司，总部位于美国得克萨斯州 [1]&nbsp; ，产销电动汽车、太阳能板、及储能设备与系统解决方案&nbsp; 。现任CEO为埃隆·马斯克。&nbsp; &nbsp;2003年7月1日 ，马丁·艾伯哈德和马克·塔彭宁联合创立“特斯拉汽车公司”。</font></font></p><p style="line-height:2.5;"><font size="5" color="#7b5ba1">&nbsp; &nbsp; &nbsp; &nbsp;2004年，马斯克投资后任公司董事长。创立之初，因成本失控，公司一度陷入危机。2008年，艾伯哈德和塔彭宁先后离开公司 [177]&nbsp; ，马斯克出任CEO，着力进行改革、对外融资 ，同年，首款车型跑车Roadster问世 [2] [180]。</font></p><p style="line-height:2.5;"><font size="5" color="#7b5ba1">&nbsp; &nbsp; &nbsp; 2010年，特斯拉获得美国政府4.65亿美元低息贷款，并在纳斯达克上市后，开始稳定发展 。&nbsp; &nbsp; &nbsp; 2012年，第二款车型轿车Model S发布后，在世界范围刮起纯电动车热潮，公司首次扭亏为盈 。&nbsp; 2014年，特斯拉宣布共享专利技术 。</font></p><p style="line-height:2.5;"><font size="5" color="#7b5ba1">&nbsp; &nbsp; &nbsp;此后，于2015年发布第三款车型SUV Model X [4-5]，于2017年推出电动车Model 3、电动卡车Tesla Semi，于2019年推出电动皮卡Cybertruck，以及SUV Model Y等产品，除电动车外，还推出了Powerwall、Powerpack、Megapack等电池产品 [180]，并逐步在中国、德国、韩国等地开办工厂 [1] [185]。2020年，特斯拉市值突破2100亿美元，成为全球市值最高车企 [184]，2021年，市值达到1.3万亿美元峰值后逐渐下降 [186]，截至2024年6月，特斯拉已累计生产超过600万辆电动车。</font></p><p style="line-height:2.5;"><font size="5" style="" color="#7b5ba1">&nbsp;&nbsp; &nbsp; &nbsp; 2025年1月3日消息，特斯拉2024年中国市场的累计销量增长8.8%。</font><span style="font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight);"><font size="5">😇</font></span></p>', N'1', N'美国硅谷', N'/img/upload/DwLogo/1740386974147_.webp')
 GO
 
-INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ]) VALUES (N'59', N'芯片研发部', N'民营企业', N'8', N'14', N'10000人以上', N'9', N'信息传输、软件和信息技术服务业', N'英伟达（NVIDIA）', N'英伟达（NVIDIA）是一家总部位于美国加利福尼亚州圣克拉拉的科技公司，成立于1993年。它以设计和制造图形处理单元（GPU）而闻名，尤其是在视频游戏、专业视觉化、数据中心和人工智能等领域。
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'59', N'芯片研发部', N'民营企业', N'8', N'14', N'10000人以上', N'9', N'信息传输、软件和信息技术服务业', N'英伟达（NVIDIA）', N'英伟达（NVIDIA）是一家总部位于美国加利福尼亚州圣克拉拉的科技公司，成立于1993年。它以设计和制造图形处理单元（GPU）而闻名，尤其是在视频游戏、专业视觉化、数据中心和人工智能等领域。
 
 ### 主要业务领域
 
@@ -1354,7 +1359,16 @@ INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWG
 ### 未来展望
 
 英伟达致力于推动计算技术的前沿，尤其是在AI、机器学习和自动驾驶等领域。随着这些技术的不断发展，英伟达在全球科技行业中的影响力也在不断增强。
-', NULL, N'1', N'美国旧金山')
+', NULL, N'1', N'美国旧金山', NULL)
+GO
+
+INSERT INTO [dbo].[DATA_DWDMK] ([DWDM], [DWMC], [DWXZ], [DWXZDM], [DWGMDM], [DWGM], [DWHYDM], [DWHY], [GSMC], [GSJJ], [GSJJHTML], [QYDM], [SZDQ], [LOGO]) VALUES (N'60', N'信息科', N'医疗卫生单位', N'5', N'12', N'1000-5000人', N'17', N'卫生和社会工作', N'北海市中医医院', N'&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 北海市中医医院始建于1923年，前身是爱群医院，1954年更名为北海市中医院，是两广地区较早建立的中医医院之一。现已发展成为集医疗、教学、科研、预防、保健、养生于一体的三级甲等中医医院，是广西中医药大学附属北海医院和研究生联合培养协作单位，广西高校临床教学基地A级教学医院。2020年获批广西博士后创新实践基地，第三批国家中医住院医师规范化培训基地，广西非中医类别医师中医药培训基地。&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 医院秉承“中医立院、文化建院
+ 
+、人才兴院、科教强院、管理优院”的工作方略，构建“中西并进，兼容并蓄”的医院文化价值体系。先后获得“广东省特等卫生先进单位”、“广东省文教卫生群英大会先进单位”、北海市和自治区“价格诚信单位”、“全国中医医院总务后勤先进单位”、“广西中医药大学2009-2010学年实践教学工作先进单位”、自治区“免疫规划先进集体”、自治区“节水型单位”、自治区“文明单位”以及北海市“优质护理服务示范工程”先进单位、“绿色环保医院”等荣誉称号，2019年评为“广西医师协会第一届先进单位会员奖”、“广西中医外治法示范基地”、“广西壮族自治区卫生先进单位”、“北京中医药大学就业基地”、“北海市社会科学普及基地”和北海市“先进职工之家”、2022年获批“北海市中医药防治疫病人才小高地”。&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 医院老院区现状：目前医院占地面积27亩，业务用房4.6万平方米，全院职工944人，卫生技术人员占比85.6%，中医师占比75.2%，拥有广西名老中医2名，广西名中医2名，广西杰出青年中医1名，其中博士1人，研究生74人，中级职称以上400人，其中高级职称147人。设有24个临床科室和10个医技科室，共开设了12个住院病区，开放病床524张，年门诊急量30多万人次，住院1.14万多人次。骨伤科、脑病科、脾胃病科、儿科是省级重点专科，其中医骨伤科是省级重点学科、中医脾胃病科是省级培育学科。&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 医院新院区介绍：在建的新院区位于南珠大道以东、北海大道北侧，北海大道东延长线上，碧桂园与新鸥鹏教育小镇之间，项目总占地面积106232.71㎡，规划设置病床1100张，总建筑面积144946.13㎡，（其中地上建筑面积116495.68㎡，地下建筑面积28450.45㎡）。主要建设基本功能用房（门诊医技住院楼、行政培训及宿舍综合楼、感染楼、制剂楼等），并配套建设报告厅等后勤用房以及停车场、道路、绿化围墙、电气工程、给排水工程、地下室及人防工程等附属工程。&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 主要建设国家三级甲等中医医院基本功能用房，其中门诊医技住院楼建筑面积（地上）95667.96㎡，行政培训及宿舍综合楼建筑面积（地上）11856.61㎡，感染楼建筑面积（地上）2702.05㎡，污水处理站房及垃圾用房150㎡，制剂楼建筑面积（地上）4211.58㎡，高压氧仓及制氧站建筑面积（地上）651.79㎡，1#配电房建筑面积（地上）678.07㎡，2#配电房建筑面积（地上）405.87㎡,
+ 3#配电房建筑面积（地上）171.75㎡。工程总投资为96457.09万元，项目于2020年12月30日正式开工建设，已完成主体结构，目前处于装修阶段。&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 项目建成后拟购置购置直线加速器、128排CT、3.0T磁共振成像仪、血管机（DSA）、数字乳腺钼靶、大C臂、骨密度仪、数字胃肠机、心血管介入诊疗大C臂大型医疗设备等。拟开设住院病区24个，医技科室16个，门急诊科室35个。投入使用后将立足北部湾地区、辐射粤港澳大湾区和西南区域，走向东盟国家，为广大人民群众提供安全、有效、便捷、经济的生命全周期健康服务。医院精神：仁爱　和谐　精诚　创新医院宗旨：安全有效　视病犹亲　服务群众　造福社会医院院训：精勤不倦　博采众方　诚信笃实　与时俱进医院理念：人才是根本　科技是动力　质量是核心　需求是导向地址：广西北海市海城区新建路1号&nbsp;邮编：536000', N'<p><font size="4">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <b>北海市中医医院</b>始建于1923年，前身是爱群医院，1954年更名为北海市中医院，是两广地区较早建立的中医医院之一。现已发展成为集医疗、教学、科研、预防、保健、养生于一体的三级甲等中医医院，是广西中医药大学附属北海医院和研究生联合培养协作单位，广西高校临床教学基地A级教学医院。2020年获批广西博士后创新实践基地，第三批国家中医住院医师规范化培训基地，广西非中医类别医师中医药培训基地。</font>&nbsp;&nbsp;&nbsp; <br/></p><p style="padding-left:4em;"><img src="/img/upload/Wangeditor/1741780353818_.jpg" style="max-width:100%;" contenteditable="false" width="384.85" height="280.28"/><br/></p><p><font size="4">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span><span>医院秉承“中医立院、文化建院
+ 
+、人才兴院、科教强院、管理优院”的工作方略，构建“中西并进，兼容并蓄”的医院文化价值体系。先后获得“广东省特等卫生先进单位”、“广东省文教卫生群英大会先进单位”、北海市和自治区“价格诚信单位”、“全国中医医院总务后勤先进单位”、“广西中医药大学2009-2010学年实践教学工作先进单位”、自治区“免疫规划先进集体”、自治区“节水型单位”、自治区“文明单位”以及北海市“优质护理服务示范工程”先进单位、“绿色环保医院”等荣誉称号，2019年评为“广西医师协会第一届先进单位会员奖”、“广西中医外治法示范基地”、“广西壮族自治区卫生先进单位”、“北京中医药大学就业基地”、“北海市社会科学普及基地”和北海市“先进职工之家”、2022年</span>获批“北海市中医药防治疫病人才小高地”。</span></font></p><p><font size="4">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <strong><span>医院老院区现状：</span></strong>目前医院占地面积27亩，业务用房4.6万平方米，全院职工944人，卫生技术人员占比85.6%，中医师占比75.2%，拥有广西名老中医2名，广西名中医2名，广西杰出青年中医1名，其中博士1人，研究生74人，中级职称以上400人，其中高级职称147人。设有24个临床科室和10个医技科室，共开设了12个住院病区，开放病床524张，年门诊急量30多万人次，住院1.14万多人次。骨伤科、脑病科、脾胃病科、儿科是省级重点专科，其中医骨伤科是省级重点学科、中医脾胃病科是省级培育学科。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <strong><span>医院新院区介绍：</span></strong>在建的新院区位于南珠大道以东、北海大道北侧，北海大道东延长线上，碧桂园与新鸥鹏教育小镇之间，项目总占地面积106232.71㎡，规划设置病床1100张，总建筑面积144946.13㎡，（其中地上建筑面积116495.68㎡，地下建筑面积28450.45㎡）。主要建设基本功能用房（门诊医技住院楼、行政培训及宿舍综合楼、感染楼、制剂楼等），并配套建设报告厅等后勤用房以及停车场、道路、绿化围墙、电气工程、给排水工程、地下室及人防工程等附属工程。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span>主要建设国家三级甲等中医医院基本功能用房，其中门诊医技住院楼建筑面积（地上）95667.96㎡，行政培训及宿舍综合楼建筑面积（地上）11856.61㎡，感染楼建筑面积（地上）2702.05㎡，污水处理站房及垃圾用房150㎡，制剂楼建筑面积（地上）4211.58㎡，高压氧仓及制氧站建筑面积（地上）651.79㎡，1#配电房建筑面积（地上）678.07㎡，2#配电房建筑面积（地上）405.87㎡,
+ 3#配电房建筑面积（地上）171.75㎡。</span></font></p><p><font size="4">工程总投资为96457.09万元，项目于2020年12月30日正式开工建设，已完成主体结构，目前处于装修阶段。</font></p><p data-we-video-p="true"><video src="/img/upload/Wangeditor/1741780521877_.mp4" controls="controls" style="max-width:100%"></video></p><p><br/></p><p><font size="4">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 项目建成后拟购置购置直线加速器、128排CT、3.0T磁共振成像仪、血管机（DSA）、数字乳腺钼靶、大C臂、骨密度仪、数字胃肠机、心血管介入诊疗大C臂大型医疗设备等。拟开设住院病区24个，医技科室16个，门急诊科室35个。投入使用后将立足北部湾地区、辐射粤港澳大湾区和西南区域，走向东盟国家，为广大人民群众提供安全、有效、便捷、经济的生命全周期健康服务。</font></p><p><font size="4">医院精神：仁爱　和谐　精诚　创新</font></p><p><font size="4">医院宗旨：安全有效　视病犹亲　服务群众　造福社会</font></p><p><font size="4">医院院训：精勤不倦　博采众方　诚信笃实　与时俱进</font></p><p><font size="4">医院理念：人才是根本　科技是动力　质量是核心　需求是导向</font></p><p><font size="4">地址：广西北海市海城区新建路1号&nbsp;</font></p><p><font size="4">邮编：536000</font></p>', N'1', N'北海市', N'/img/upload/DwLogo/1741780569995_.webp')
 GO
 
 SET IDENTITY_INSERT [dbo].[DATA_DWDMK] OFF
@@ -3756,6 +3770,74 @@ INSERT INTO [dbo].[DATA_GWDMK] ([ID], [GWMC], [GWMS], [GWYQ], [FBSJ], [TDSM], [Z
 ', N'1', N'billie', N'3')
 GO
 
+INSERT INTO [dbo].[DATA_GWDMK] ([ID], [GWMC], [GWMS], [GWYQ], [FBSJ], [TDSM], [ZGXZ], [ZDXZ], [ZDXLYQ], [GZDD], [GZSF], [SXBZ], [ZYXZ], [DWMC], [DWDM], [TDCS], [TDXZBZ], [TDXZCS], [QYDM], [ZPRS], [JYHJ], [JYHJMS], [GZZZ], [GWFL], [FBZ], [FBZYHSFDM]) VALUES (N'36', N'AI算法工程师', N'AI算法工程师负责医疗信息系统的实施、配置和优化，确保软件解决方案能够满足医疗机构的需求。该职位需要与客户、开发团队和其他相关方密切合作，以确保系统的顺利部署和有效运行', N'学历要求：
+本科及以上学历，计算机科学、信息技术、医疗信息学等相关专业。
+工作经验：
+
+具有医疗软件实施或相关领域的工作经验者优先。
+熟悉医疗行业的相关法规和标准。
+技能要求：
+
+熟悉医疗信息系统（如电子病历、医院管理系统等）的实施和配置。
+具备良好的沟通能力和团队合作精神。
+具备项目管理能力，能够有效协调各方资源。
+技术能力：
+
+熟悉数据库管理（如SQL）和基本的编程知识（如Java、Python等）。
+了解网络和系统架构，能够进行基本的故障排除。', N'2024-12-11 16:00:00.000', N'请按照以下说明提交您的申请材料：
+1. 申请材料 请准备以下文件并一并提交： 个人简历：请确保简历中包含您的联系方式、教育背景、工作经历、技能和相关证书。 求职信：简要说明您对该职位的兴趣、相关经验以及您能为公司带来的价值。 相关证书（如有）：如项目管理专业人士（PMP）、医疗信息技术认证（CPHIMS）等。
+2. 投递方式 电子邮件投递：
+请将申请材料发送至以下邮箱：hr@yourcompany.com 邮件主题格式：医疗软件实施工程师申请 - 姓名 附件格式：请将简历和求职信以PDF格式附加在邮件中。 
+在线申请： 访问我们的网站：www.yourcompany.com/careers 找到医疗软件实施工程师职位，点击“申请”按钮，按照提示填写申请表并上传相关材料。 3. 申请截止日期 请在2025年2月28日之前提交您的申请。我们将尽快对所有申请进行审核，并与符合条件的候选人联系安排面试。
+4. 面试流程 初步筛选后，我们将通过电子邮件或电话与您联系，安排面试时间。 面试将包括技术面试和行为面试，旨在评估您的专业技能和团队合作能力。
+5. 联系方式 如有任何疑问，请随时联系： 人力资源部 电话：123-456-7890 邮箱：hr@yourcompany.com 感谢您对我们公司的兴趣，期待您的申请！', N'90005.000000000000000', N'5000.000000000000000', N'6', N'广西河池', N'21', N'1', N'无', N'特斯拉科技股份有限公司', N'58', N'0', N'1', N'800', N'1', N'9000', N'1', N'工作地点：通常在医疗机构（如医院、诊所）或软件公司的办公室工作，可能需要到客户现场进行实施和培训。
+工作时间：一般为标准工作时间，但在项目实施期间可能需要加班或出差。
+团队合作：与项目经理、开发人员、客户支持团队和医疗机构的工作人员密切合作，形成跨职能团队。', N'需求分析：
+
+1、与客户沟通，了解其业务需求和流程，进行需求收集和分析。
+撰写需求文档，确保所有需求得到准确记录。
+系统配置与实施：
+
+2、根据客户需求配置医疗软件系统，包括用户权限、数据输入和输出设置等。
+负责软件的安装、配置和调试，确保系统正常运行。
+培训与支持：
+
+3、为客户提供系统使用培训，确保用户能够熟练操作软件。
+提供技术支持，解决客户在使用过程中遇到的问题。
+项目管理：
+
+4、参与项目计划的制定，跟踪项目进度，确保按时交付。
+协调各方资源，确保项目顺利进行。
+系统优化与维护：
+
+5、定期评估系统性能，提出优化建议。
+负责系统的日常维护和更新，确保软件的安全性和稳定性。', N'1', N'msk', N'3')
+GO
+
+INSERT INTO [dbo].[DATA_GWDMK] ([ID], [GWMC], [GWMS], [GWYQ], [FBSJ], [TDSM], [ZGXZ], [ZDXZ], [ZDXLYQ], [GZDD], [GZSF], [SXBZ], [ZYXZ], [DWMC], [DWDM], [TDCS], [TDXZBZ], [TDXZCS], [QYDM], [ZPRS], [JYHJ], [JYHJMS], [GZZZ], [GWFL], [FBZ], [FBZYHSFDM]) VALUES (N'37', N'信息科工作人员', N'主要负责医院信息化建没相关工作。包括但不限于:
+1.负责医院信息化系统的规划、建设、维护和管理工作
+2.参与医院信息系统的需求分析、方案设计、实施及优化;
+3.负责医院网络、服务器、数据库等基础设施的运维与管理;
+4.协助完成医院信息安全管理，确保信息系统的稳定运行;
+5.参与医院信息化项目的推进与实施，协调各部门信息化需求;
+6.完成上级领导交办的其他信息化相关工作。', N'1.了解医信息系统的数据管理机制，包括数据存储、数据交换、数据共享等，有网络安全基础知识，具备一定的网络安全防护能力
+2.具备扎实的计算机基础知识，熟悉医院信息系统(如HIS、LIS、PACS等)
+3.掌握至少一种编程语言(如Java、Python、C#等)，有一定的编程能力。
+4.熟悉至少一种主流数据库(如Oracle、SQLServer等)的管理与维护，具备服务器运维经验。
+
+1.遵纪守法，品行良好;2.具有正常履行职责的身体条件，具备良好的沟通能力和服务意识，能够与医护人员和患者进行有效沟通;
+3.本科及以上学历，计算机科学与技术、信息管理与信息系统、医学信息学等相关专业，年龄35周岁及以下，特别优秀者可放宽至40周岁
+4.具备计算机技术与软件专业技术资格(水平)考试二级及以上证书，或相关专业资格证书者优先;
+5.有医院信息科或相关领域工作经验者优先，应届毕业生也可报名。', N'2025-03-11 16:00:00.000', N'有意应聘者请于2025年3月21日前将个人简历发送至邮箱:bh2038119@126.com，邮件主题请注明“应聘信息科工作人员-姓名]”，经医院人事科初审后通知面试。
+对报名应聘者，资格审查工作由本院人事科负责，对审核不通过的人员不再电话告知。报名者对提供的信息和材料的真实性负责，凡提供虚假信息的一经查实，取消聘用资格。', N'10000.000000000000000', N'4000.000000000000000', N'6', N'广西北海市海城区新建路1号', N'21', N'2', N'计算机科学与技术、信息管理与信息系统、医学信息学', N'信息科', N'60', N'0', N'0', N'-1', N'1', N'1', NULL, N'中医院', N'主要负责医院信息化建没相关工作。包括但不限于:
+1.负责医院信息化系统的规划、建设、维护和管理工作
+2.参与医院信息系统的需求分析、方案设计、实施及优化;
+3.负责医院网络、服务器、数据库等基础设施的运维与管理;
+4.协助完成医院信息安全管理，确保信息系统的稳定运行;
+5.参与医院信息化项目的推进与实施，协调各部门信息化需求;
+6.完成上级领导交办的其他信息化相关工作。', N'75', N'ozf', N'3')
+GO
+
 SET IDENTITY_INSERT [dbo].[DATA_GWDMK] OFF
 GO
 
@@ -3974,7 +4056,7 @@ GO
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1213', N'石青盈', N'女', N'2002-09-28', N'20213260008', N'123', N'1292', N'1085', N'450703200209282721', N'共青团员', N'2021', N'4', N'壮族', N'20213260008', N'2021级信息管理与信息系统', N'6', N'1000', NULL, N'1', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1214', N'李家辉', N'男', N'2003-02-20', N'20213260030', N'123', N'1292', N'1085', N'450703200302201551', N'共青团员', N'2021', N'4', N'壮族', N'20213260030', N'2021级信息管理与信息系统', N'6', N'1000', NULL, N'1', NULL)
+INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1214', N'李家辉', N'男', N'2003-02-19', N'20213260030', N'123', N'1292', N'1085', N'450703200302201551', N'共青团员', N'2021', N'4', N'壮族', N'20213260030', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260030_1740397262501_.jpeg', N'1', N'0')
 GO
 
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1215', N'刘新贵', N'男', N'2001-11-17', N'20213260023', N'123', N'1292', N'1085', N'450721200111183939', N'群众', N'2021', N'4', N'汉族', N'20213260023', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260023_1740016026804_.jpg', N'1', N'0')
@@ -3986,7 +4068,7 @@ GO
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1217', N'李杏双', N'女', N'1999-12-31', N'20213260006', N'123', N'1292', N'1085', N'450804199912314146', N'共青团员', N'2021', N'4', N'汉族', N'20213260006', N'2021级信息管理与信息系统', N'6', N'1000', NULL, N'1', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1218', N'蒙思敏', N'女', N'2002-02-14', N'20213260026', N'123', N'1292', N'1085', N'450821200202151460', N'群众', N'2021', N'4', N'汉族', N'20213260026', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260026_1740156657870_.jpeg', N'1', N'0')
+INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1218', N'蒙思敏', N'女', N'2002-02-13', N'20213260026', N'123', N'1292', N'1085', N'450821200202151460', N'群众', N'2021', N'4', N'汉族', N'20213260026', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260026_1741581846220_.jpg', N'1', N'0')
 GO
 
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1219', N'黄丹连', N'女', N'2002-08-28', N'20213260018', N'123', N'1292', N'1085', N'450821200208284926', N'共青团员', N'2021', N'4', N'瑶族', N'20213260018', N'2021级信息管理与信息系统', N'6', N'1000', NULL, N'1', NULL)
@@ -4043,7 +4125,7 @@ GO
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1236', N'谢培玲', N'女', N'2002-08-23', N'20213260012', N'123', N'1292', N'1085', N'452723200208231225', N'群众', N'2021', N'4', N'仫佬族', N'20213260012', N'2021级信息管理与信息系统', N'6', N'1000', NULL, N'1', NULL)
 GO
 
-INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1237', N'陈兴远', N'男', N'2002-07-13', N'20213260024', N'123', N'1292', N'1085', N'452725200207140594', N'共青团员', N'2021', N'4', N'壮族', N'20213260024', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260024_1740234303171_.jpg', N'1', N'0')
+INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1237', N'陈兴远', N'男', N'2002-07-12', N'20213260024', N'123', N'1292', N'1085', N'452725200207140594', N'共青团员', N'2021', N'4', N'壮族', N'20213260024', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260024_1740234303171_.jpg', N'1', N'0')
 GO
 
 INSERT INTO [dbo].[DATA_STUDENT] ([ID], [XSXM], [XSXB], [BIRTH], [YHM], [MM], [SSBJ], [ZYDM], [SFZH], [ZZMM], [SSNJ], [XZ], [MZ], [XSXH], [BJMC], [XLDM], [JYZT], [XSZP], [QYDM], [FZJS]) VALUES (N'1238', N'覃如寒', N'女', N'2003-05-09', N'20213260019', N'123', N'1292', N'1085', N'452730200305101127', N'共青团员', N'2021', N'4', N'壮族', N'20213260019', N'2021级信息管理与信息系统', N'6', N'1000', N'/img/upload/Userpofile/20213260019_1739866044859_.jpg', N'1', N'0')
@@ -7076,25 +7158,142 @@ GO
 SET IDENTITY_INSERT [dbo].[DWYHK] ON
 GO
 
-INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1000', N'1', N'luo', N'123456', N'0', N'罗邓卫宁招聘', N'男', N'人事专员', N'1', N'1', N'/img/upload/Userpofile/luo_1739981940374_.jpg')
+INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1000', N'1', N'luo', N'1', N'0', N'罗邓卫宁招聘', N'男', N'人事专员', N'1', N'1', N'/img/upload/Userpofile/luo_1739981940374_.jpg')
 GO
 
-INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1001', N'4', N'billie', N'123', N'0', N'Billie Eilish', N'女', N'CEO', N'4', N'0', NULL)
+INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1001', N'4', N'billie', N'123456', N'0', N'Billie Eilish', N'女', N'CEO', N'4', N'0', N'/img/upload/Userpofile/billie_1740411818977_.jpeg')
 GO
 
-INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1002', N'57', N'deepseek', N'123', N'0', N'梁文锋', N'男', N'董事长', N'57', N'2', NULL)
+INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1002', N'57', N'deepseek', N'1', N'0', N'梁文锋', N'男', N'董事长', N'57', N'2', NULL)
 GO
 
-INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1003', N'58', N'msk', N'1234567', N'0', N'Elon Reeve Musk', N'男', N'首席执行官CEO', N'58', N'0', N'/img/upload/Userpofile/msk_1740146313143_.jpeg')
+INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1003', N'58', N'msk', N'1', N'0', N'Elon Reeve Musk', N'男', N'首席执行官CEO', N'58', N'0', N'/img/upload/Userpofile/msk_1740146313143_.jpeg')
 GO
 
-INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1004', N'59', N'hrx', N'123', N'0', N'黄仁勋', N'男', N'CEO 创始人', N'59', N'2', NULL)
+INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1004', N'59', N'hrx', N'1', N'0', N'黄仁勋', N'男', N'CEO 创始人', N'59', N'2', NULL)
 GO
 
-INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1005', N'45', N'212', N'123', N'0', N'luodeng', N'女', N'CEO', N'59', N'0', N'defaultphoto.png')
+INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1005', N'4', N'212', N'111', N'0', N'luodeng', N'女', N'董事长', N'59', N'0', N'defaultphoto.png')
+GO
+
+INSERT INTO [dbo].[DWYHK] ([ID], [DYDW], [YHM], [MM], [TYBZ], [YHXM], [SEX], [ZW], [SSDW], [RZBZ], [YHZP]) VALUES (N'1006', N'60', N'ozf', N'123', N'0', N'欧簪发', N'男', N'信息科科长', N'60', N'2', N'/img/upload/Userpofile/ozf_1741780210112_.jpg')
 GO
 
 SET IDENTITY_INSERT [dbo].[DWYHK] OFF
+GO
+
+
+-- ----------------------------
+-- Table structure for DWZPGGK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[DWZPGGK]') AND type IN ('U'))
+	DROP TABLE [dbo].[DWZPGGK]
+GO
+
+CREATE TABLE [dbo].[DWZPGGK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [FBZ] nvarchar(50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+  [FBZSFDM] int NOT NULL,
+  [QYDM] int DEFAULT ((1)) NOT NULL,
+  [GGNR] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [GGNRHTML] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [CJSJ] datetime DEFAULT (getdate()) NOT NULL,
+  [GGBT] nvarchar(500) COLLATE Chinese_PRC_CI_AS NOT NULL,
+  [LLL] int DEFAULT ((0)) NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[DWZPGGK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'发布者',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'FBZ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'发布者身份代码',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'FBZSFDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'启用代码',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'QYDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'公告内容',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'GGNR'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'公告内容HTML',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'GGNRHTML'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'创建时间',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'CJSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'公告标题',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'GGBT'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'浏览量',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK',
+'COLUMN', N'LLL'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位招聘公告库',
+'SCHEMA', N'dbo',
+'TABLE', N'DWZPGGK'
+GO
+
+
+-- ----------------------------
+-- Records of [DWZPGGK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[DWZPGGK] ON
+GO
+
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'1', N'msk', N'3', N'1', N'&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;根据《关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知》（湘教通〔2021〕348号）文件精神，我校严格按照评选条件，经班级提名、学院考察、学校推荐、校长办公会审议，拟推选李磊磊等165名同学为湖南省2022届优秀毕业生，刘德果等19名同学为湖南省2022届创新创业优秀毕业生，马文元等7名同学为湖南省2022届退伍优秀毕业生，具体名单公示如下：优秀毕业生（165人）&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;李磊磊倪&nbsp;&nbsp;裳刘&nbsp;&nbsp;娟展立芬陈康利李纳平陈立浩殷淑婷戴&nbsp;&nbsp;敏刘宗义李江伟彭丽琪卢圣花左耀辰高&nbsp;&nbsp;宇赵&nbsp;&nbsp;姣皇&nbsp;&nbsp;毅左世国毕思源吕广仁陈&nbsp;&nbsp;中于文奇蒋伶俐王紫艳徐&nbsp;&nbsp;权凌&nbsp;&nbsp;佳刘峥屿曾&nbsp;&nbsp;娟王惠芹曹倩茹张&nbsp;&nbsp;振钟森杰吴&nbsp;&nbsp;仪李&nbsp;&nbsp;航迟&nbsp;&nbsp;宇蔡&nbsp;&nbsp;伊陈柯伽齐雨佳田龙芝谭碧璨陈&nbsp;&nbsp;欣符&nbsp;&nbsp;楚周&nbsp;&nbsp;琪郑若琪邓诗慧梁春燕敖&nbsp;&nbsp;丹王雨晴杨&nbsp;&nbsp;琴包郑楠陈&nbsp;&nbsp;琴陈&nbsp;&nbsp;娟王爱玉孔彦斐张&nbsp;&nbsp;晗袁雅琦宁&nbsp;&nbsp;瑛谢春梅平&nbsp;&nbsp;伊李嘉明曾&nbsp;&nbsp;艳杨旭东梁&nbsp;&nbsp;森肖宇辉郭惠敏伊&nbsp;&nbsp;娜李琳菊鲍泓玮曹泽龙张&nbsp;&nbsp;诺王&nbsp;&nbsp;杰李慧婷陈倩虹邵嘉悦曾&nbsp;&nbsp;晴武雅楠唐&nbsp;&nbsp;灿盛丹丹王海娟黄明娟吴&nbsp;&nbsp;娟严小青邹&nbsp;&nbsp;静胡&nbsp;&nbsp;格刘&nbsp;&nbsp;可林玉婷李紫阳刘亦菲刘亚辉桂&nbsp;&nbsp;珏蒋&nbsp;&nbsp;玲张思云侯向刚肖含瑜潘雨瑶王文华邓鑫杰章淑薇秦&nbsp;&nbsp;钦周亚沁梁生姣梁&nbsp;&nbsp;海蒋&nbsp;&nbsp;伟刘&nbsp;&nbsp;珑熊&nbsp;&nbsp;奕袁&nbsp;&nbsp;婕李婧玉余光华方紫枫王祎敏刘欣怡彭杰林张昕璐吕舒悦袁&nbsp;&nbsp;琼段邓彬沛曹&nbsp;&nbsp;楠唐华丽蒋丽娇张珊珊谢&nbsp;&nbsp;梦肖俐敏谢&nbsp;&nbsp;瑶杨&nbsp;&nbsp;丹陈于琪唐&nbsp;&nbsp;欢李雅雯刀小燕朱丽萍欧&nbsp;&nbsp;婷梁柔筠李媛敏卢婧芬刘昱辛王&nbsp;&nbsp;科方&nbsp;&nbsp;震秦富豪冯佳宁宋&nbsp;&nbsp;丽曾&nbsp;&nbsp;阳武&nbsp;&nbsp;雪朱炎贞贾&nbsp;&nbsp;蓓刘乐顺吴沛涓谢碧岑赵&nbsp;&nbsp;轲花&nbsp;&nbsp;袁张婧如周雨诗王&nbsp;&nbsp;娟郭&nbsp;&nbsp;沁唐海月谢琦辉周&nbsp;&nbsp;滔万泳宏吴英博李&nbsp;&nbsp;帆周&nbsp;&nbsp;麟周思怡闻&nbsp;&nbsp;湘许&nbsp;&nbsp;婷吴文建张煜珩陈&nbsp;&nbsp;扬创新创业优秀毕业生（19人）刘德果刘继平夏&nbsp;&nbsp;雨凌&nbsp;&nbsp;晨吴雨薇曾淑梅付晶晶段琛滢阳嘉麟许意坚徐子悟卢白荟刘艳杨杜佳琪陈平安王杏平蒋心如谢&nbsp;&nbsp;希周顺华退伍优秀毕业生（7人）马文元包成通谢江华王浩锴尹嘉晟陆润友陈志锦&nbsp; &nbsp;现对推荐名单进行公示，公示时间：2022年1月10日至1月16日&nbsp;&nbsp; &nbsp;如对优秀毕业生及退伍优秀毕业生有异议，请在公示期内与学校就业指导中心联系，联系电话0731-85381116;&nbsp; &nbsp;如对创新创业优秀毕业生有异议，请在公示期内与创新创业学院联系，联系电话0731-88458930。', N'<p><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><span style="font-size: large; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">根据《关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知》（湘教通〔2021〕348号）文件精神，我校严格按照评选条件，经班级提名、学院考察、学校推荐、校长办公会审议，拟推选李磊磊等165名同学为湖南省2022届优秀毕业生，刘德果等19名同学为湖南省2022届创新创业优秀毕业生，马文元等7名同学为湖南省2022届退伍优秀毕业生，具体名单公示如下：</span></p><table><tbody><tr><td colspan="5"><p>优秀毕业生（165人）&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p></td></tr><tr><td><p>李磊磊</p></td><td><p>倪&nbsp;&nbsp;裳</p></td><td><p>刘&nbsp;&nbsp;娟</p></td><td><p>展立芬</p></td><td><p>陈康利</p></td></tr><tr><td><p>李纳平</p></td><td><p>陈立浩</p></td><td><p>殷淑婷</p></td><td><p>戴&nbsp;&nbsp;敏</p></td><td><p>刘宗义</p></td></tr><tr><td><p>李江伟</p></td><td><p>彭丽琪</p></td><td><p>卢圣花</p></td><td><p>左耀辰</p></td><td><p>高&nbsp;&nbsp;宇</p></td></tr><tr><td><p>赵&nbsp;&nbsp;姣</p></td><td><p>皇&nbsp;&nbsp;毅</p></td><td><p>左世国</p></td><td><p>毕思源</p></td><td><p>吕广仁</p></td></tr><tr><td><p>陈&nbsp;&nbsp;中</p></td><td><p>于文奇</p></td><td><p>蒋伶俐</p></td><td><p>王紫艳</p></td><td><p>徐&nbsp;&nbsp;权</p></td></tr><tr><td><p>凌&nbsp;&nbsp;佳</p></td><td><p>刘峥屿</p></td><td><p>曾&nbsp;&nbsp;娟</p></td><td><p>王惠芹</p></td><td><p>曹倩茹</p></td></tr><tr><td><p>张&nbsp;&nbsp;振</p></td><td><p>钟森杰</p></td><td><p>吴&nbsp;&nbsp;仪</p></td><td><p>李&nbsp;&nbsp;航</p></td><td><p>迟&nbsp;&nbsp;宇</p></td></tr><tr><td><p>蔡&nbsp;&nbsp;伊</p></td><td><p>陈柯伽</p></td><td><p>齐雨佳</p></td><td><p>田龙芝</p></td><td><p>谭碧璨</p></td></tr><tr><td><p>陈&nbsp;&nbsp;欣</p></td><td><p>符&nbsp;&nbsp;楚</p></td><td><p>周&nbsp;&nbsp;琪</p></td><td><p>郑若琪</p></td><td><p>邓诗慧</p></td></tr><tr><td><p>梁春燕</p></td><td><p>敖&nbsp;&nbsp;丹</p></td><td><p>王雨晴</p></td><td><p>杨&nbsp;&nbsp;琴</p></td><td><p>包郑楠</p></td></tr><tr><td><p>陈&nbsp;&nbsp;琴</p></td><td><p>陈&nbsp;&nbsp;娟</p></td><td><p>王爱玉</p></td><td><p>孔彦斐</p></td><td><p>张&nbsp;&nbsp;晗</p></td></tr><tr><td><p>袁雅琦</p></td><td><p>宁&nbsp;&nbsp;瑛</p></td><td><p>谢春梅</p></td><td><p>平&nbsp;&nbsp;伊</p></td><td><p>李嘉明</p></td></tr><tr><td><p>曾&nbsp;&nbsp;艳</p></td><td><p>杨旭东</p></td><td><p>梁&nbsp;&nbsp;森</p></td><td><p>肖宇辉</p></td><td><p>郭惠敏</p></td></tr><tr><td><p>伊&nbsp;&nbsp;娜</p></td><td><p>李琳菊</p></td><td><p>鲍泓玮</p></td><td><p>曹泽龙</p></td><td><p>张&nbsp;&nbsp;诺</p></td></tr><tr><td><p>王&nbsp;&nbsp;杰</p></td><td><p>李慧婷</p></td><td><p>陈倩虹</p></td><td><p>邵嘉悦</p></td><td><p>曾&nbsp;&nbsp;晴</p></td></tr><tr><td><p>武雅楠</p></td><td><p>唐&nbsp;&nbsp;灿</p></td><td><p>盛丹丹</p></td><td><p>王海娟</p></td><td><p>黄明娟</p></td></tr><tr><td><p>吴&nbsp;&nbsp;娟</p></td><td><p>严小青</p></td><td><p>邹&nbsp;&nbsp;静</p></td><td><p>胡&nbsp;&nbsp;格</p></td><td><p>刘&nbsp;&nbsp;可</p></td></tr><tr><td><p>林玉婷</p></td><td><p>李紫阳</p></td><td><p>刘亦菲</p></td><td><p>刘亚辉</p></td><td><p>桂&nbsp;&nbsp;珏</p></td></tr><tr><td><p>蒋&nbsp;&nbsp;玲</p></td><td><p>张思云</p></td><td><p>侯向刚</p></td><td><p>肖含瑜</p></td><td><p>潘雨瑶</p></td></tr><tr><td><p>王文华</p></td><td><p>邓鑫杰</p></td><td><p>章淑薇</p></td><td><p>秦&nbsp;&nbsp;钦</p></td><td><p>周亚沁</p></td></tr><tr><td><p>梁生姣</p></td><td><p>梁&nbsp;&nbsp;海</p></td><td><p>蒋&nbsp;&nbsp;伟</p></td><td><p>刘&nbsp;&nbsp;珑</p></td><td><p>熊&nbsp;&nbsp;奕</p></td></tr><tr><td><p>袁&nbsp;&nbsp;婕</p></td><td><p>李婧玉</p></td><td><p>余光华</p></td><td><p>方紫枫</p></td><td><p>王祎敏</p></td></tr><tr><td><p>刘欣怡</p></td><td><p>彭杰林</p></td><td><p>张昕璐</p></td><td><p>吕舒悦</p></td><td><p>袁&nbsp;&nbsp;琼</p></td></tr><tr><td><p>段邓彬沛</p></td><td><p>曹&nbsp;&nbsp;楠</p></td><td><p>唐华丽</p></td><td><p>蒋丽娇</p></td><td><p>张珊珊</p></td></tr><tr><td><p>谢&nbsp;&nbsp;梦</p></td><td><p>肖俐敏</p></td><td><p>谢&nbsp;&nbsp;瑶</p></td><td><p>杨&nbsp;&nbsp;丹</p></td><td><p>陈于琪</p></td></tr><tr><td><p>唐&nbsp;&nbsp;欢</p></td><td><p>李雅雯</p></td><td><p>刀小燕</p></td><td><p>朱丽萍</p></td><td><p>欧&nbsp;&nbsp;婷</p></td></tr><tr><td><p>梁柔筠</p></td><td><p>李媛敏</p></td><td><p>卢婧芬</p></td><td><p>刘昱辛</p></td><td><p>王&nbsp;&nbsp;科</p></td></tr><tr><td><p>方&nbsp;&nbsp;震</p></td><td><p>秦富豪</p></td><td><p>冯佳宁</p></td><td><p>宋&nbsp;&nbsp;丽</p></td><td><p>曾&nbsp;&nbsp;阳</p></td></tr><tr><td><p>武&nbsp;&nbsp;雪</p></td><td><p>朱炎贞</p></td><td><p>贾&nbsp;&nbsp;蓓</p></td><td><p>刘乐顺</p></td><td><p>吴沛涓</p></td></tr><tr><td><p>谢碧岑</p></td><td><p>赵&nbsp;&nbsp;轲</p></td><td><p>花&nbsp;&nbsp;袁</p></td><td><p>张婧如</p></td><td><p>周雨诗</p></td></tr><tr><td><p>王&nbsp;&nbsp;娟</p></td><td><p>郭&nbsp;&nbsp;沁</p></td><td><p>唐海月</p></td><td><p>谢琦辉</p></td><td><p>周&nbsp;&nbsp;滔</p></td></tr><tr><td><p>万泳宏</p></td><td><p>吴英博</p></td><td><p>李&nbsp;&nbsp;帆</p></td><td><p>周&nbsp;&nbsp;麟</p></td><td><p>周思怡</p></td></tr><tr><td><p>闻&nbsp;&nbsp;湘</p></td><td><p>许&nbsp;&nbsp;婷</p></td><td><p>吴文建</p></td><td><p>张煜珩</p></td><td><p>陈&nbsp;&nbsp;扬</p></td></tr><tr><td colspan="5"><p>创新创业优秀毕业生（19人）</p></td></tr><tr><td><p>刘德果</p></td><td><p>刘继平</p></td><td><p>夏&nbsp;&nbsp;雨</p></td><td><p>凌&nbsp;&nbsp;晨</p></td><td><p>吴雨薇</p></td></tr><tr><td><p>曾淑梅</p></td><td><p>付晶晶</p></td><td><p>段琛滢</p></td><td><p>阳嘉麟</p></td><td><p>许意坚</p></td></tr><tr><td><p>徐子悟</p></td><td><p>卢白荟</p></td><td><p>刘艳杨</p></td><td><p>杜佳琪</p></td><td><p>陈平安</p></td></tr><tr><td><p>王杏平</p></td><td><p>蒋心如</p></td><td><p>谢&nbsp;&nbsp;希</p></td><td><p>周顺华</p></td><td><br/></td></tr><tr><td colspan="5"><p>退伍优秀毕业生（7人）</p></td></tr><tr><td><p>马文元</p></td><td><p>包成通</p></td><td><p>谢江华</p></td><td><p>王浩锴</p></td><td><p>尹嘉晟</p></td></tr><tr><td><p>陆润友</p></td><td><p>陈志锦</p></td><td><br/></td><td><br/></td><td><br/></td></tr></tbody></table><p>&nbsp; &nbsp;现对推荐名单进行公示，公示时间：2022年1月10日至1月16日&nbsp;</p><p data-we-empty-p="" style="padding-left:2em;"><img src="/img/upload/DwzpGg/1741622886992_.jpg" contenteditable="false" width="30%"/></p><p>&nbsp; &nbsp;如对优秀毕业生及退伍优秀毕业生有异议，请在公示期内与学校就业指导中心联系，联系电话0731-85381116;</p><p>&nbsp; &nbsp;如对创新创业优秀毕业生有异议，请在公示期内与创新创业学院联系，联系电话0731-88458930。</p>', N'2025-03-11 00:08:41.490', N'关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知', N'0')
+GO
+
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'2', N'luo', N'3', N'1', N'一、项目编号：LNQY202501018（招标文件编号：LNQY202501018）二、项目名称：辽宁科技学院乒乓球室改造工程三、中标（成交）信息供应商名称：辽宁奥晨建设工程有限公司供应商地址：辽宁省本溪市明山区水洞路崔家巷7栋1层3门中标（成交）金额：13.3636260（万元）四、主要标的信息序号&nbsp;&nbsp;&nbsp;供应商名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工程名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;施工范围&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;施工工期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目经理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;执业证书&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;辽宁奥晨建设工程有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;辽宁科技学院乒乓球室改造工程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乒乓球室改造工程，具体详见工程量清单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合同签订后15日内完成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;岳利民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二级建造师；辽221181987218&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五、评审专家（单一来源采购人员）名单：孙皎敏、张颖、杨建新六、代理服务收费标准及金额：本项目代理费收费标准：本项目一次性收取6000元整。本项目代理费总金额：0.600000 万元（人民币）七、公告期限自本公告发布之日起1个工作日。八、其它补充事宜&nbsp;&nbsp;九、凡对本次公告内容提出询问，请按以下方式联系。1.采购人信息名 称：辽宁科技学院　　　　　地址：本溪高新技术产业开发区香槐路176号　　　　　　　　联系方式：宋老师 024-43164101　　　', N'<p><u></u><strong style="color: var(--bs-body-color); font-family: var(--bs-body-font-family); text-align: var(--bs-body-text-align);">一、项目编号：LNQY202501018</strong><span style="color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">（招标文件编号：LNQY202501018）</span></p><p><strong>二、项目名称：辽宁科技学院乒乓球室改造工程</strong></p><p><strong>三、中标（成交）信息</strong></p><p>供应商名称：辽宁奥晨建设工程有限公司</p><p>供应商地址：辽宁省本溪市明山区水洞路崔家巷7栋1层3门</p><p>中标（成交）金额：13.3636260（万元）</p><p><strong>四、主要标的信息</strong></p><table><tbody><tr><td>序号</td><td>&nbsp;&nbsp;&nbsp;供应商名称&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;工程名称&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;施工范围&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;施工工期&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;项目经理&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;执业证书&nbsp;&nbsp;</td></tr><tr><td>1</td><td>&nbsp;&nbsp;&nbsp;辽宁奥晨建设工程有限公司&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;辽宁科技学院乒乓球室改造工程&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;乒乓球室改造工程，具体详见工程量清单&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;合同签订后15日内完成&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;岳利民&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;二级建造师；辽221181987218&nbsp;&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><p><strong>五、评审专家（单一来源采购人员）名单：</strong></p><p>孙皎敏、张颖、杨建新</p><p><strong>六、代理服务收费标准及金额：</strong></p><p>本项目代理费收费标准：本项目一次性收取6000元整。</p><p><strong>本项目代理费总金额：0.600000 万元（人民币）</strong></p><p><strong>七、公告期限</strong></p><p>自本公告发布之日起1个工作日。</p><p><strong>八、其它补充事宜</strong></p><p>&nbsp;</p><p>&nbsp;</p><p><strong>九、凡对本次公告内容提出询问，请按以下方式联系。</strong></p><p>1.采购人信息</p><p>名 称：辽宁科技学院　　　　　</p><p>地址：本溪高新技术产业开发区香槐路176号　　　　　　　　</p><p>联系方式：宋老师 024-43164101　　　</p>', N'2025-03-11 13:53:31.640', N'学院乒乓球室改造工程成交公告', N'0')
+GO
+
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'3', N'msk', N'3', N'1', N'尊敬的2024届应届毕业生及家长：您好！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个充满希望与挑战的季节里，我们迎来了又一个毕业季。首先，衷心祝贺各位同学顺利完成学业，即将踏上人生新的征程。为了帮助大家更好地实现从校园到职场的平稳过渡，特此发布本就业通知，旨在为大家提供全面的就业指导、信息分享及资源对接，助力每一位毕业生找到理想的工作岗位，开启职业生涯的辉煌篇章。一、就业形势分析当前，随着经济结构的调整和产业升级的加速，就业市场呈现出多元化、专业化的趋势。一方面，新兴行业如人工智能、大数据、新能源等领域对人才的需求旺盛；另一方面，传统行业也在积极转型，对复合型、创新型人才的需求日益增长。面对这样的形势，同学们需密切关注行业动态，结合自身兴趣与专长，合理规划职业路径。二、就业指导与服务职业规划工作坊：学校将于近期举办系列职业规划讲座与工作坊，邀请行业专家、HR及成功校友分享职业规划经验、求职技巧及职场心得，帮助大家明确职业目标，提升竞争力。简历诊断与面试模拟：提供一对一简历修改服务，以及多轮面试模拟训练，通过实战演练，让同学们在真实面试中更加自信从容。就业信息平台：完善校内就业信息网，实时更新企业招聘信息、招聘会日程及求职攻略，确保每位同学都能及时获取最新就业资讯。校企合作项目：深化与企业的合作，推出实习实训、定向培养等项目，为同学们搭建直通名企的桥梁。三、求职注意事项精准定位：根据自身专业背景、兴趣爱好及市场趋势，明确求职方向，避免盲目投递。积极准备：提前了解目标企业的文化、业务范围及岗位要求，准备针对性的自我介绍和作品集，展现个人优势。诚信为本：在简历制作、面试交流等环节，务必保持诚实守信，任何夸大其词或虚假信息都可能影响个人信誉及职业发展。心态调整：求职过程中难免会遇到挫折，保持积极乐观的心态，从每次失败中吸取经验，不断自我提升。四、家长支持与鼓励&nbsp; &nbsp; &nbsp; 我们深知，每一位毕业生的成长离不开家庭的支持与鼓励。在此，也恳请家长们给予孩子更多的理解与鼓励，帮助他们树立正确的就业观念，共同面对挑战，迎接机遇。最后，祝愿所有2023届应届毕业生前程似锦，愿你们在未来的职业道路上勇往直前，实现个人价值与社会贡献的双重丰收！敬请关注后续具体活动安排及通知，让我们携手并进，共创美好未来！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此致&nbsp;&nbsp;&nbsp;&nbsp;敬礼！&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 广西中医药大学&nbsp; 就业指导中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024年12月1日', N'<p>尊敬的2024届应届毕业生及家长：</p><p>您好！</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个充满希望与挑战的季节里，我们迎来了又一个毕业季。首先，衷心祝贺各位同学顺利完成学业，即将踏上人生新的征程。为了帮助大家更好地实现从校园到职场的平稳过渡，特此发布本就业通知，旨在为大家提供全面的就业指导、信息分享及资源对接，助力每一位毕业生找到理想的工作岗位，开启职业生涯的辉煌篇章。</p><p><strong>一、就业形势分析</strong></p><p>当前，随着经济结构的调整和产业升级的加速，就业市场呈现出多元化、专业化的趋势。一方面，新兴行业如人工智能、大数据、新能源等领域对人才的需求旺盛；另一方面，传统行业也在积极转型，对复合型、创新型人才的需求日益增长。面对这样的形势，同学们需密切关注行业动态，结合自身兴趣与专长，合理规划职业路径。</p><p><strong>二、就业指导与服务</strong></p><ol><li><p><strong>职业规划工作坊</strong>：学校将于近期举办系列职业规划讲座与工作坊，邀请行业专家、HR及成功校友分享职业规划经验、求职技巧及职场心得，帮助大家明确职业目标，提升竞争力。</p></li><li><p><strong>简历诊断与面试模拟</strong>：提供一对一简历修改服务，以及多轮面试模拟训练，通过实战演练，让同学们在真实面试中更加自信从容。</p></li><li><p><strong>就业信息平台</strong>：完善校内就业信息网，实时更新企业招聘信息、招聘会日程及求职攻略，确保每位同学都能及时获取最新就业资讯。</p></li><li><p><strong>校企合作项目</strong>：深化与企业的合作，推出实习实训、定向培养等项目，为同学们搭建直通名企的桥梁。</p></li></ol><p><strong>三、求职注意事项</strong></p><ol><li><p><strong>精准定位</strong>：根据自身专业背景、兴趣爱好及市场趋势，明确求职方向，避免盲目投递。</p></li><li><p><strong>积极准备</strong>：提前了解目标企业的文化、业务范围及岗位要求，准备针对性的自我介绍和作品集，展现个人优势。</p></li><li><p><strong>诚信为本</strong>：在简历制作、面试交流等环节，务必保持诚实守信，任何夸大其词或虚假信息都可能影响个人信誉及职业发展。</p></li><li><p><strong>心态调整</strong>：求职过程中难免会遇到挫折，保持积极乐观的心态，从每次失败中吸取经验，不断自我提升。</p></li></ol><p><strong>四、家长支持与鼓励</strong></p><p>&nbsp; &nbsp; &nbsp; 我们深知，每一位毕业生的成长离不开家庭的支持与鼓励。在此，也恳请家长们给予孩子更多的理解与鼓励，帮助他们树立正确的就业观念，共同面对挑战，迎接机遇。</p><p>最后，祝愿所有2023届应届毕业生前程似锦，愿你们在未来的职业道路上勇往直前，实现个人价值与社会贡献的双重丰收！</p><p>敬请关注后续具体活动安排及通知，让我们携手并进，共创美好未来！</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此致<br/>&nbsp;&nbsp;&nbsp;&nbsp;敬礼！</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 广西中医药大学&nbsp; 就业指导中心<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024年12月1日</p>', N'2025-03-11 17:01:04.507', N'应届生就业通知', N'0')
+GO
+
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'4', N'msk', N'3', N'1', N'Billie Eilish：音乐界的独特之声引言&nbsp;&nbsp;&nbsp;&nbsp;在当代音乐界，Billie Eilish以其独特的音乐风格和鲜明的个性脱颖而出，成为备受瞩目的年轻艺术家之一。本文将详细介绍Billie Eilish的音乐生涯、个人背景、音乐风格、社会影响力等方面，以展现这位年轻艺术家的非凡才华和深远影响。个人背景&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish，全名Billie Eilish Pirate Baird O''Connell，于2001年12月18日出生于美国加利福尼亚州洛杉矶。她的父母帕特里克·奥康奈尔和玛吉·贝尔德都是演员，家庭艺术氛围浓厚。她有一个亲密的哥哥菲尼亚斯·奥康奈尔，两人经常合作创作音乐，菲尼亚斯在她的音乐生涯中扮演了重要角色。音乐生涯起步个人照片&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐生涯始于2015年，当时她与哥哥将原创歌曲《Ocean Eyes》上传至网络，该曲迅速获得了广泛关注，并在全美达到了破百万的白金销量。这一成功为她打开了音乐界的大门，2016年，她签约环球音乐旗下的新视镜唱片公司，并将《Ocean Eyes》进行全球发行，进一步扩大了她的影响力。&nbsp;&nbsp;&nbsp;&nbsp;此后，Billie Eilish不断推出新的音乐作品。2017年，她发行了个人首张EP《Don''t Smile at Me》，在Spotify上播放量高达18亿次。2019年，她的首张个人录音室专辑《When We All Fall Asleep, Where Do We Go?》正式发行，该专辑从创作到录制都在洛杉矶的家中完成，风格独特且充满了暗黑、神秘的氛围。专辑内的单曲《Bad Guy》获得了公告牌百强单曲榜冠军，她也因此成为首个登顶该榜单的00后歌手。音乐风格与成就&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐风格独树一帜，融合了流行、摇滚、电子等多种元素，营造出独特的氛围。她的歌词直白而深刻，反映了年轻人的真实情感，如《Bad Guy》的节奏强烈，歌词充满个性；而《Everything I Wanted》则表达了对成名的思考与内心的挣扎。&nbsp;&nbsp;&nbsp;&nbsp;在音乐奖项方面，Billie Eilish取得了令人瞩目的成就。她凭借专辑《When We All Fall Asleep, Where Do We Go?》荣获了第62届格莱美奖的多个奖项，包括年度专辑、最佳流行演唱专辑奖等。此后，她的歌曲《Everything I Wanted》和《No Time to Die》也分别获得了第63届格莱美奖的年度制作奖和最佳影视原创歌曲奖。此外，她还凭借《No Time to Die》荣获了第94届奥斯卡金像奖最佳原创歌曲奖。截至2025年，她已经获得了2项奥斯卡金像奖和9项格莱美奖，成为最年轻包揽格莱美奖四个通类奖项的艺人。社会影响力与公益活动&nbsp;&nbsp;&nbsp;&nbsp;除了音乐上的成就，Billie Eilish还以其鲜明的个性和对社会的关注而著称。她经常穿着超大码和宽松的衣服，这一时尚选择引发了关于身体积极态度和时尚界性别规范的讨论。此外，她还积极利用自己的平台关注心理健康、身体形象等话题，为年轻人发声。&nbsp;&nbsp;&nbsp;&nbsp;在公益活动方面，Billie Eilish也积极参与。例如，在2020年的“Together at Home”特别慈善音乐会上，她与哥哥一同演唱了歌曲《Sunny》，为抗击疫情贡献了自己的力量。结论&nbsp;&nbsp;&nbsp;&nbsp;综上所述，Billie Eilish以其独特的音乐风格、出色的创作才华和鲜明的个性，在全球音乐界和年轻人群体中拥有广泛的影响力。她的音乐作品不仅触动了无数人的心灵，还引发了对社会重要话题的关注和讨论。作为一位年轻而充满活力的艺术家，Billie Eilish的未来无疑充满了无限可能。我们期待她在未来的音乐道路上继续创造更多的辉煌成就，为音乐界注入更多的新鲜血液和活力。', N'<h1><font id="w13c4" size="6">Billie Eilish：音乐界的独特之声</font></h1><h3><font id="y8mlg" size="5"><b style="">引言</b></font></h3><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;在当代音乐界，Billie Eilish以其独特的音乐风格和鲜明的个性脱颖而出，成为备受瞩目的年轻艺术家之一。本文将详细介绍Billie Eilish的音乐生涯、个人背景、音乐风格、社会影响力等方面，以展现这位年轻艺术家的非凡才华和深远影响。</font></p><h4><b style=""><font size="5">个人背景</font></b></h4><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish，全名Billie Eilish Pirate Baird O''Connell，于2001年12月18日出生于美国加利福尼亚州洛杉矶。她的父母帕特里克·奥康奈尔和玛吉·贝尔德都是演员，家庭艺术氛围浓厚。她有一个亲密的哥哥菲尼亚斯·奥康奈尔，两人经常合作创作音乐，菲尼亚斯在她的音乐生涯中扮演了重要角色。</font></p><h4><font size="5">音乐生涯起步</font></h4><div><h3><b id="ll5pi"><font size="5">个人照片</font></b></h3></div><div>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/upload/DwzpGg/1741686339553_.jpg" contenteditable="false" width="417.89" height="508.81"/></div><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐生涯始于2015年，当时她与哥哥将原创歌曲《Ocean Eyes》上传至网络，该曲迅速获得了广泛关注，并在全美达到了破百万的白金销量。这一成功为她打开了音乐界的大门，2016年，她签约环球音乐旗下的新视镜唱片公司，并将《Ocean Eyes》进行全球发行，进一步扩大了她的影响力。</font></p><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;此后，Billie Eilish不断推出新的音乐作品。2017年，她发行了个人首张EP《Don''t Smile at Me》，在Spotify上播放量高达18亿次。2019年，她的首张个人录音室专辑《When We All Fall Asleep, Where Do We Go?》正式发行，该专辑从创作到录制都在洛杉矶的家中完成，风格独特且充满了暗黑、神秘的氛围。专辑内的单曲《Bad Guy》获得了公告牌百强单曲榜冠军，她也因此成为首个登顶该榜单的00后歌手。</font></p><h4><font size="5">音乐风格与成就</font></h4><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐风格独树一帜，融合了流行、摇滚、电子等多种元素，营造出独特的氛围。她的歌词直白而深刻，反映了年轻人的真实情感，如《Bad Guy》的节奏强烈，歌词充满个性；而《Everything I Wanted》则表达了对成名的思考与内心的挣扎。</font></p><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;在音乐奖项方面，Billie Eilish取得了令人瞩目的成就。她凭借专辑《When We All Fall Asleep, Where Do We Go?》荣获了第62届格莱美奖的多个奖项，包括年度专辑、最佳流行演唱专辑奖等。此后，她的歌曲《Everything I Wanted》和《No Time to Die》也分别获得了第63届格莱美奖的年度制作奖和最佳影视原创歌曲奖。此外，她还凭借《No Time to Die》荣获了第94届奥斯卡金像奖最佳原创歌曲奖。截至2025年，她已经获得了2项奥斯卡金像奖和9项格莱美奖，成为最年轻包揽格莱美奖四个通类奖项的艺人。</font></p><h4><font size="5">社会影响力与公益活动</font></h4><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;除了音乐上的成就，Billie Eilish还以其鲜明的个性和对社会的关注而著称。她经常穿着超大码和宽松的衣服，这一时尚选择引发了关于身体积极态度和时尚界性别规范的讨论。此外，她还积极利用自己的平台关注心理健康、身体形象等话题，为年轻人发声。</font></p><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;在公益活动方面，Billie Eilish也积极参与。例如，在2020年的“Together at Home”特别慈善音乐会上，她与哥哥一同演唱了歌曲《Sunny》，为抗击疫情贡献了自己的力量。</font></p><h4><font size="5">结论</font></h4><p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;综上所述，Billie Eilish以其独特的音乐风格、出色的创作才华和鲜明的个性，在全球音乐界和年轻人群体中拥有广泛的影响力。她的音乐作品不仅触动了无数人的心灵，还引发了对社会重要话题的关注和讨论。作为一位年轻而充满活力的艺术家，Billie Eilish的未来无疑充满了无限可能。我们期待她在未来的音乐道路上继续创造更多的辉煌成就，为音乐界注入更多的新鲜血液和活力。</font></p>', N'2025-03-11 17:47:14.517', N'Billie Eilish：音乐界的独特之声', N'0')
+GO
+
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'5', N'ozf', N'3', N'1', N'根据我院人才及学科发展需要，现面向社会招聘医疗人才若干名，具体如下：一、岗位需求二、基本条件及要求1.遵守中华人民共和国宪法和法律；2.具有良好的品行；3.无治安、刑事处罚记录；4.具有岗位所需要的专业、技能和资格；5.具有正常履行岗位职责的身体条件。三、报名方式有意应聘者可将个人简历及其相关证件发送至邮箱bh2038119@126.com，邮件主题请注明“岗位名称+专业+姓名”，每人只可申报1个岗位，经医院人事科初审后通知面试。四、资格审查&nbsp;&nbsp;&nbsp; 医院根据招聘条件及要求，对应聘者简历进行资格审查，择优筛选后发出面试通知。资格审查不合格的人员不纳入招聘对象。资格审查贯穿于招聘工作的全过程，凡发现应聘人员与招聘岗位所要求的资格条件不符的，作弊或作假等问题，将取消应聘或聘用资格。五、福利待遇1、按照广西壮族自治区机关事业单位工资标准发放工资福利待遇。2、符合《北海市引育卫生健康领域优秀人才实施办法》相关条件的卫生健康人才，可申请办理人才引进手续，并享受安家补贴等优惠政策，具体待遇面议。六、其他说明应聘者对提供的信息和材料的真实性负责，凡提供虚假信息的一经查实，取消聘用资格。七、联系方式地址：广西北海市海城区新建路1号联系人：邹老师联系电话：0779-2038119', N'<p><font size="4">根据我院人才及学科发展需要，现面向社会招聘医疗人才若干名，具体如下：</font></p><p><font size="4">一、岗位需求</font></p><p><font size="4"><img src="https://www.bhszyyy.com/Upload/banner/1741309846.png"/></font></p><p><font size="4">二、基本条件及要求</font></p><p><font size="4">1.遵守中华人民共和国宪法和法律；</font></p><p><font size="4">2.具有良好的品行；</font></p><p><font size="4">3.无治安、刑事处罚记录；</font></p><p><font size="4">4.具有岗位所需要的专业、技能和资格；</font></p><p><font size="4">5.具有正常履行岗位职责的身体条件。</font></p><p><font size="4">三、报名方式</font></p><p><font size="4">有意应聘者可将个人简历及其相关证件发送至邮箱bh2038119@126.com，邮件主题请注明“岗位名称+专业+姓名”，每人只可申报1个岗位，经医院人事科初审后通知面试。</font></p><p><font size="4">四、资格审查</font></p><p><font size="4">&nbsp;&nbsp;&nbsp; 医院根据招聘条件及要求，对应聘者简历进行资格审查，择优筛选后发出面试通知。资格审查不合格的人员不纳入招聘对象。</font></p><p><font size="4">资格审查贯穿于招聘工作的全过程，凡发现应聘人员与招聘岗位所要求的资格条件不符的，作弊或作假等问题，将取消应聘或聘用资格。</font></p><p><font size="4">五、福利待遇</font></p><p><font size="4">1、按照广西壮族自治区机关事业单位工资标准发放工资福利待遇。</font></p><p><font size="4">2、符合《北海市引育卫生健康领域优秀人才实施办法》相关条件的卫生健康人才，可申请办理人才引进手续，并享受安家补贴等优惠政策，具体待遇面议。</font></p><p><font size="4">六、其他说明</font></p><p><font size="4">应聘者对提供的信息和材料的真实性负责，凡提供虚假信息的一经查实，取消聘用资格。</font></p><p><font size="4">七、联系方式</font></p><p><font size="4">地址：广西北海市海城区新建路1号</font></p><p><font size="4">联系人：邹老师</font></p><p><font size="4">联系电话：0779-2038119</font></p><p><font size="4"><br/></font></p>', N'2025-03-12 19:28:19.133', N'北海市中医医院2025年人才招聘需求', N'0')
+GO
+
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'6', N'deepseek', N'3', N'1', N'2023年成立的人工智能基础技术研究有限公司杭州深度求索人工智能基础技术研究有限公司成立于2023年07月17日，注册地位于浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室，法定代表人为裴湉。 [2]公司名称杭州深度求索人工智能基础技术研究有限公司外文名Hangzhou Deepseek Artificial Intelligence Basic Technology Research Co., Ltd所属行业研究和试验发展 [2]成立时间2023年7月17日 [2]法定代表人裴湉 [2]总部地点浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室经营范围工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流公司类型其他有限责任公司统一社会信用代码    91330105MACPN4X08Y 发展历程2024年6月，杭州深度求索人工智能基础技术研究有限公司应用于文本生成场景的PSAI内容深度合成类算法备案通过，主要功能是应用于文本生成场景，根据用户输入的文本信息，生成符合用户需求的文本内容，备案号为330105747635301240017号。 [1]2025年2月，DeepSeek关联公司杭州深度求索人工智能基础技术研究有限公司发生工商变更，裴湉由执行董事兼总经理改任董事、经理，新增王贤祖为财务负责人，同时经营范围新增互联网信息服务。 [5]公司业务一般项目：工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；软件开发；计算机系统服务；信息系统集成服务；人工智能应用软件开发；信息技术咨询服务；电子产品销售；通讯设备销售；仪器仪表销售；数据处理服务；互联网数据服务；计算机软硬件及辅助设备零售；人工智能硬件销售；专业设计服务（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。 [2]企业事件2025年2月消息，新加坡当局否认了关于中国杭州深度求索人工智能基础技术研究有限公司可能通过新加坡购买先进的英伟达芯片，以规避美国对其向亚洲大国销售芯片的限制的说法。 [3]', N'<p>2023年成立的人工智能基础技术研究有限公司</p><p><a></a></p><p>杭州深度求索人工智能基础技术研究有限公司成立于2023年07月17日，注册地位于浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室，法定代表人为裴湉。<sup> [2]<em></em></sup></p><dl><dt>公司名称</dt><dd>杭州深度求索人工智能基础技术研究有限公司</dd><dt>外文名</dt><dd>Hangzhou Deepseek Artificial Intelligence Basic Technology Research Co., Ltd</dd><dt>所属行业</dt><dd>研究和试验发展<sup> [2]<em></em></sup></dd><dt>成立时间</dt><dd>2023年7月17日<sup> [2]<em></em></sup></dd><dt>法定代表人</dt><dd>裴湉<sup> [2]<em></em></sup></dd></dl><dl><dt>总部地点</dt><dd>浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室</dd><dt>经营范围</dt><dd>工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流</dd><dt>公司类型</dt><dd>其他有限责任公司</dd><dt>统一社会信用代码</dt><dd>    91330105MACPN4X08Y </dd></dl><p><a></a><a></a></p><h2>发展历程</h2><span></span><p>2024年6月，杭州深度求索人工智能基础技术研究有限公司应用于文本生成场景的PSAI内容深度合成类算法备案通过，主要功能是应用于文本生成场景，根据用户输入的文本信息，生成符合用户需求的文本内容，备案号为330105747635301240017号。<sup> [1]<em></em></sup></p><p>2025年2月，DeepSeek关联公司杭州深度求索人工智能基础技术研究有限公司发生工商变更，<a href="https://baike.baidu.com/item/%E8%A3%B4%E6%B9%89/65353406?fromModule=lemma_inlink" target="_blank">裴湉</a>由执行董事兼总经理改任董事、经理，新增<a href="https://baike.baidu.com/item/%E7%8E%8B%E8%B4%A4%E7%A5%96/65406390?fromModule=lemma_inlink" target="_blank">王贤祖</a>为财务负责人，同时经营范围新增互联网信息服务。<sup> [5]<em></em></sup></p><p><a></a><a></a></p><h2>公司业务</h2><span></span><p>一般项目：工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；软件开发；计算机系统服务；信息系统集成服务；<a href="https://baike.baidu.com/item/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/9180?fromModule=lemma_inlink" target="_blank">人工智能</a>应用软件开发；信息技术咨询服务；电子产品销售；通讯设备销售；仪器仪表销售；数据处理服务；互联网数据服务；计算机软硬件及辅助设备零售；人工智能硬件销售；专业设计服务（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。<sup> [2]<em></em></sup></p><p><a></a><a></a></p><h2>企业事件</h2><span></span><p>2025年2月消息，新加坡当局否认了关于中国杭州深度求索人工智能基础技术研究有限公司可能通过新加坡购买先进的英伟达芯片，以规避美国对其向亚洲大国销售芯片的限制的说法。<sup> [3]<em></em></sup></p><p><a></a><a></a></p><li><p><a href="https://baike.baidu.com/item/%E6%9D%AD%E5%B7%9E%E6%B7%B1%E5%BA%A6%E6%B1%82%E7%B4%A2%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/64541110?fromModule=lemma_inlink#sup-5"><br/></a></p></li>', N'2025-03-12 20:48:51.573', N'杭州深度求索人工智能基础技术研究有限公司', N'0')
+GO
+
+SET IDENTITY_INSERT [dbo].[DWZPGGK] OFF
 GO
 
 
@@ -7213,6 +7412,79 @@ INSERT INTO [dbo].[FLDMK] ([FLDM], [FLMC], [FLMS]) VALUES (N'5400', N'周末双�
 GO
 
 SET IDENTITY_INSERT [dbo].[FLDMK] OFF
+GO
+
+
+-- ----------------------------
+-- Table structure for FPWTBQK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[FPWTBQK]') AND type IN ('U'))
+	DROP TABLE [dbo].[FPWTBQK]
+GO
+
+CREATE TABLE [dbo].[FPWTBQK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [WTID] int NOT NULL,
+  [BQNR] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL
+)
+GO
+
+ALTER TABLE [dbo].[FPWTBQK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'标签记录ID',
+'SCHEMA', N'dbo',
+'TABLE', N'FPWTBQK',
+'COLUMN', N'ID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'问题ID，对应MSFPWTK.ID',
+'SCHEMA', N'dbo',
+'TABLE', N'FPWTBQK',
+'COLUMN', N'WTID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'标签内容',
+'SCHEMA', N'dbo',
+'TABLE', N'FPWTBQK',
+'COLUMN', N'BQNR'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'复盘问题标签库',
+'SCHEMA', N'dbo',
+'TABLE', N'FPWTBQK'
+GO
+
+
+-- ----------------------------
+-- Records of [FPWTBQK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[FPWTBQK] ON
+GO
+
+INSERT INTO [dbo].[FPWTBQK] ([ID], [WTID], [BQNR]) VALUES (N'1', N'1', N'特斯拉')
+GO
+
+INSERT INTO [dbo].[FPWTBQK] ([ID], [WTID], [BQNR]) VALUES (N'2', N'2', N'马斯克')
+GO
+
+INSERT INTO [dbo].[FPWTBQK] ([ID], [WTID], [BQNR]) VALUES (N'3', N'1', N'认同感')
+GO
+
+INSERT INTO [dbo].[FPWTBQK] ([ID], [WTID], [BQNR]) VALUES (N'4', N'2', N'美国')
+GO
+
+INSERT INTO [dbo].[FPWTBQK] ([ID], [WTID], [BQNR]) VALUES (N'5', N'2', N'面试')
+GO
+
+INSERT INTO [dbo].[FPWTBQK] ([ID], [WTID], [BQNR]) VALUES (N'6', N'2', N'特斯拉')
+GO
+
+SET IDENTITY_INSERT [dbo].[FPWTBQK] OFF
 GO
 
 
@@ -8316,6 +8588,211 @@ GO
 
 
 -- ----------------------------
+-- Table structure for GZJLK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[GZJLK]') AND type IN ('U'))
+	DROP TABLE [dbo].[GZJLK]
+GO
+
+CREATE TABLE [dbo].[GZJLK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [STUID] int NOT NULL,
+  [TJSJ] datetime DEFAULT (getdate()) NOT NULL,
+  [DWMC] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [GWMC] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [KSSJ] datetime NULL,
+  [JSSJ] datetime NULL,
+  [JLMS] nvarchar(500) COLLATE Chinese_PRC_CI_AS NULL,
+  [QYDM] int DEFAULT ((1)) NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[GZJLK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学生ID',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK',
+'COLUMN', N'STUID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'添加时间',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK',
+'COLUMN', N'TJSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'岗位名称',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK',
+'COLUMN', N'GWMC'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'开始时间',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK',
+'COLUMN', N'KSSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'结束时间',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK',
+'COLUMN', N'JSSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'经历描述',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK',
+'COLUMN', N'JLMS'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'启用代码',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK',
+'COLUMN', N'QYDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'工作经历库',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLK'
+GO
+
+
+-- ----------------------------
+-- Records of [GZJLK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[GZJLK] ON
+GO
+
+INSERT INTO [dbo].[GZJLK] ([ID], [STUID], [TJSJ], [DWMC], [GWMC], [KSSJ], [JSSJ], [JLMS], [QYDM]) VALUES (N'8', N'1211', N'2025-03-10 10:28:53.390', N'卫宁', N'实施工程师', N'2025-03-10 08:00:00.000', N'2025-03-29 08:00:00.000', N'实施工程师', N'1')
+GO
+
+INSERT INTO [dbo].[GZJLK] ([ID], [STUID], [TJSJ], [DWMC], [GWMC], [KSSJ], [JSSJ], [JLMS], [QYDM]) VALUES (N'9', N'1218', N'2025-03-10 10:43:17.923', N'卫宁健康', N'实施工程师', N'2025-03-10 08:00:00.000', N'2025-03-27 08:00:00.000', N'哈哈哈', N'1')
+GO
+
+INSERT INTO [dbo].[GZJLK] ([ID], [STUID], [TJSJ], [DWMC], [GWMC], [KSSJ], [JSSJ], [JLMS], [QYDM]) VALUES (N'11', N'1218', N'2025-03-10 12:23:32.250', N'东软', N'运维工程师', N'2025-03-17 08:00:00.000', N'2025-03-31 08:00:00.000', N'傻逼工程师', N'1')
+GO
+
+INSERT INTO [dbo].[GZJLK] ([ID], [STUID], [TJSJ], [DWMC], [GWMC], [KSSJ], [JSSJ], [JLMS], [QYDM]) VALUES (N'12', N'1215', N'2025-03-10 13:23:39.050', N'广西胸科医院', N'网络工程师', N'2025-03-12 08:00:00.000', N'2025-03-28 08:00:00.000', N'快乐每一天', N'1')
+GO
+
+INSERT INTO [dbo].[GZJLK] ([ID], [STUID], [TJSJ], [DWMC], [GWMC], [KSSJ], [JSSJ], [JLMS], [QYDM]) VALUES (N'13', N'1237', N'2025-03-12 12:03:57.347', N'麻栗坡县中医医院', N'信息科网络工程师', N'2025-03-12 08:00:00.000', N'2025-03-27 08:00:00.000', N'当牛马', N'1')
+GO
+
+INSERT INTO [dbo].[GZJLK] ([ID], [STUID], [TJSJ], [DWMC], [GWMC], [KSSJ], [JSSJ], [JLMS], [QYDM]) VALUES (N'14', N'1237', N'2025-03-12 12:04:28.547', N'麻栗坡县人民医院', N'中医科门诊医生', N'2025-03-12 08:00:00.000', N'2025-03-26 08:00:00.000', N'当医生', N'1')
+GO
+
+INSERT INTO [dbo].[GZJLK] ([ID], [STUID], [TJSJ], [DWMC], [GWMC], [KSSJ], [JSSJ], [JLMS], [QYDM]) VALUES (N'15', N'1239', N'2025-03-12 21:25:19.813', N'广西中医药大学', N'财务处学生助理', N'2025-03-12 08:00:00.000', N'2025-03-29 08:00:00.000', N'学生助理', N'1')
+GO
+
+SET IDENTITY_INSERT [dbo].[GZJLK] OFF
+GO
+
+
+-- ----------------------------
+-- Table structure for GZJLSXK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[GZJLSXK]') AND type IN ('U'))
+	DROP TABLE [dbo].[GZJLSXK]
+GO
+
+CREATE TABLE [dbo].[GZJLSXK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [GZJLSX] nvarchar(500) COLLATE Chinese_PRC_CI_AS NULL,
+  [CJSJ] datetime DEFAULT (getdate()) NOT NULL,
+  [GZJLDM] int NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[GZJLSXK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'工作经历事项',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLSXK',
+'COLUMN', N'GZJLSX'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'创建时间',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLSXK',
+'COLUMN', N'CJSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'工作经历代码',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLSXK',
+'COLUMN', N'GZJLDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'工作经历事项库',
+'SCHEMA', N'dbo',
+'TABLE', N'GZJLSXK'
+GO
+
+
+-- ----------------------------
+-- Records of [GZJLSXK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[GZJLSXK] ON
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'1', N'负责系统调试', N'2025-03-10 11:09:25.000', N'9')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'2', N'当牛吗', N'2025-03-10 11:29:21.233', N'9')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'3', N'和女主管谈恋爱', N'2025-03-10 11:58:49.133', N'9')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'7', N'1. 基础设施部署与维护', N'2025-03-10 12:51:03.370', N'11')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'8', N'2. 自动化运维项目', N'2025-03-10 12:51:13.100', N'11')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'9', N'3. 高可用性与灾备方案', N'2025-03-10 12:51:20.537', N'11')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'10', N'4. 监控、日志和性能调优', N'2025-03-10 12:51:28.443', N'11')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'11', N'检查服务器', N'2025-03-10 13:23:47.150', N'12')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'12', N'1、负责吃屎', N'2025-03-10 21:02:13.423', N'8')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'13', N'2、负责吃屎2', N'2025-03-10 21:02:19.043', N'8')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'14', N'负责王志安的日常', N'2025-03-11 18:55:32.470', N'8')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'15', N'帮助老师工作', N'2025-03-12 21:25:49.030', N'15')
+GO
+
+INSERT INTO [dbo].[GZJLSXK] ([ID], [GZJLSX], [CJSJ], [GZJLDM]) VALUES (N'16', N'端茶倒水', N'2025-03-12 21:25:57.907', N'15')
+GO
+
+SET IDENTITY_INSERT [dbo].[GZJLSXK] OFF
+GO
+
+
+-- ----------------------------
 -- Table structure for JSBJDYK
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[JSBJDYK]') AND type IN ('U'))
@@ -8622,6 +9099,9 @@ GO
 INSERT INTO [dbo].[JSDMK] ([ID], [JSMC], [SEX], [DLZH], [DLMM], [QYDM]) VALUES (N'2007', N'郁丹明', N'女', N'ydm123', N'123', N'1')
 GO
 
+INSERT INTO [dbo].[JSDMK] ([ID], [JSMC], [SEX], [DLZH], [DLMM], [QYDM]) VALUES (N'2008', N'null', N'男', N'null', N'null', N'1')
+GO
+
 SET IDENTITY_INSERT [dbo].[JSDMK] OFF
 GO
 
@@ -8685,19 +9165,19 @@ GO
 SET IDENTITY_INSERT [dbo].[JYHJK] ON
 GO
 
-INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'1', N'/img/upload/1738833762607_.jpg', N'15', N'2025-02-06 17:22:43.060')
+INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'1027', N'/img/upload/1740730538633_.png', N'15', N'2025-02-28 16:15:38.640')
 GO
 
-INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'2', N'/img/upload/1738833763013_.jpg', N'15', N'2025-02-06 17:22:43.063')
+INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'1028', N'/img/upload/1741530886353_.jpg', N'36', N'2025-03-09 22:34:46.770')
 GO
 
 INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'3', N'/img/upload/1739096132689_.png', N'30', N'2025-02-09 18:15:32.837')
 GO
 
-INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'4', N'/img/upload/1739099390248_.png', N'31', N'2025-02-09 19:09:50.430')
+INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'1029', N'/img/upload/1741530886761_.jpg', N'36', N'2025-03-09 22:34:46.770')
 GO
 
-INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'5', N'/img/upload/1739099390392_.png', N'31', N'2025-02-09 19:09:50.433')
+INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'1030', N'/img/upload/1741530886764_.jpg', N'36', N'2025-03-09 22:34:46.770')
 GO
 
 INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'18', N'/img/upload/1739369111659_.jpg', N'34', N'2025-02-12 22:05:11.700')
@@ -8709,10 +9189,10 @@ GO
 INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'20', N'/img/upload/1739369259337_.jpg', N'33', N'2025-02-12 22:07:39.370')
 GO
 
-INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'21', N'/img/upload/1739682412884_.jpeg', N'17', N'2025-02-16 13:06:52.893')
+INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'1031', N'/img/upload/1741778661890_.webp', N'37', N'2025-03-12 19:24:22.043')
 GO
 
-INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'22', N'/img/upload/1739682412889_.jpg', N'17', N'2025-02-16 13:06:52.893')
+INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'1032', N'/img/upload/1741778661992_.webp', N'37', N'2025-03-12 19:24:22.047')
 GO
 
 INSERT INTO [dbo].[JYHJK] ([ID], [IMGURL], [GWDM], [TJSJ]) VALUES (N'23', N'/img/upload/1739791089371_.jpg', N'35', N'2025-02-17 19:18:09.503')
@@ -8963,7 +9443,12 @@ CREATE TABLE [dbo].[MSDMK] (
   [QYDM] int DEFAULT ((1)) NOT NULL,
   [QRDM] int DEFAULT ((0)) NOT NULL,
   [MSDD] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
-  [MSLS] int DEFAULT ((1)) NOT NULL
+  [MSLS] int DEFAULT ((1)) NOT NULL,
+  [ISJJ] int DEFAULT ((0)) NOT NULL,
+  [MSKSSJ] datetime SPARSE NULL,
+  [MSPJ] int NULL,
+  [HRZJ] nvarchar(500) COLLATE Chinese_PRC_CI_AS NULL,
+  [JGLRSJ] datetime NULL
 )
 GO
 
@@ -9069,9 +9554,288 @@ EXEC sp_addextendedproperty
 GO
 
 EXEC sp_addextendedproperty
+'MS_Description', N'学生是否拒绝了面试',
+'SCHEMA', N'dbo',
+'TABLE', N'MSDMK',
+'COLUMN', N'ISJJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试开始时间',
+'SCHEMA', N'dbo',
+'TABLE', N'MSDMK',
+'COLUMN', N'MSKSSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试评价',
+'SCHEMA', N'dbo',
+'TABLE', N'MSDMK',
+'COLUMN', N'MSPJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'HR总结内容',
+'SCHEMA', N'dbo',
+'TABLE', N'MSDMK',
+'COLUMN', N'HRZJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试结果录入时间',
+'SCHEMA', N'dbo',
+'TABLE', N'MSDMK',
+'COLUMN', N'JGLRSJ'
+GO
+
+EXEC sp_addextendedproperty
 'MS_Description', N'面试代码库',
 'SCHEMA', N'dbo',
 'TABLE', N'MSDMK'
+GO
+
+
+-- ----------------------------
+-- Records of [MSDMK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[MSDMK] ON
+GO
+
+INSERT INTO [dbo].[MSDMK] ([MSDM], [XSDM], [DWDM], [GWDM], [MSSJ], [MSZT], [MSJG], [FQZ], [FQZSFDM], [FQSJ], [QYDM], [QRDM], [MSDD], [MSLS], [ISJJ], [MSKSSJ], [MSPJ], [HRZJ], [JGLRSJ]) VALUES (N'1', N'1211', N'58', N'34', N'2025-03-10 11:00:00.000', N'4', N'100', N'msk', N'3', N'2025-03-09 22:21:03.630', N'1', N'1', N'麻栗坡', N'1', N'0', N'2025-03-09 22:21:20.720', N'70', N'录用', N'2025-03-09 22:21:33.000')
+GO
+
+INSERT INTO [dbo].[MSDMK] ([MSDM], [XSDM], [DWDM], [GWDM], [MSSJ], [MSZT], [MSJG], [FQZ], [FQZSFDM], [FQSJ], [QYDM], [QRDM], [MSDD], [MSLS], [ISJJ], [MSKSSJ], [MSPJ], [HRZJ], [JGLRSJ]) VALUES (N'2', N'1218', N'58', N'36', N'2025-03-11 10:00:00.000', N'4', N'101', N'msk', N'3', N'2025-03-10 11:17:37.333', N'1', N'1', N'教学楼1楼', N'1', N'0', N'2025-03-10 20:22:59.507', N'30', N'你没有达到我的标准！', N'2025-03-10 20:23:21.000')
+GO
+
+INSERT INTO [dbo].[MSDMK] ([MSDM], [XSDM], [DWDM], [GWDM], [MSSJ], [MSZT], [MSJG], [FQZ], [FQZSFDM], [FQSJ], [QYDM], [QRDM], [MSDD], [MSLS], [ISJJ], [MSKSSJ], [MSPJ], [HRZJ], [JGLRSJ]) VALUES (N'3', N'1239', N'60', N'37', N'2025-03-13 00:00:00.000', N'2', NULL, N'ozf', N'3', N'2025-03-12 19:49:38.880', N'1', N'1', N'北海市中医院', N'1', N'0', NULL, NULL, NULL, NULL)
+GO
+
+SET IDENTITY_INSERT [dbo].[MSDMK] OFF
+GO
+
+
+-- ----------------------------
+-- Table structure for MSFPK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[MSFPK]') AND type IN ('U'))
+	DROP TABLE [dbo].[MSFPK]
+GO
+
+CREATE TABLE [dbo].[MSFPK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [STUID] int NOT NULL,
+  [GWDM] int NOT NULL,
+  [GWMC] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [QYDM] int DEFAULT ((1)) NOT NULL,
+  [MSDM] int NULL,
+  [NDPJ] int DEFAULT ((-1)) NULL,
+  [MSXS] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [ZTFS] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [MSSJ] datetime NULL,
+  [FPSJ] datetime DEFAULT (getdate()) NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[MSFPK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学生代码',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'STUID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'岗位代码',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'GWDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'岗位名称',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'GWMC'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'启用代码',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'QYDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试代码',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'MSDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'难度评级',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'NDPJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试形式：现场面试、视频面试、电话面试',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'MSXS'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'整体反思',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'ZTFS'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试时间',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'MSSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'复盘时间',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK',
+'COLUMN', N'FPSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试复盘库',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPK'
+GO
+
+
+-- ----------------------------
+-- Records of [MSFPK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[MSFPK] ON
+GO
+
+INSERT INTO [dbo].[MSFPK] ([ID], [STUID], [GWDM], [GWMC], [QYDM], [MSDM], [NDPJ], [MSXS], [ZTFS], [MSSJ], [FPSJ]) VALUES (N'1', N'1218', N'36', N'AI算法工程师', N'1', N'2', N'5', N'现场', N'1. 认同马斯克的核心特质，但不盲从
+✅ 优化点： 强调他在创新、执行力、愿景方面的优势，但同时也要展现你的独立思考能力。
+🚀 改进示例：
+“我很敬佩马斯克的创新思维、执行力以及对极限的挑战精神。他总能颠覆传统，创造新的行业格局，这点让我深受启发。但我也认为，每个人的管理风格和决策方式都需要结合实际情况，并不是所有模式都适用于所有企业。”
+
+2. 适度提及争议点，展现成熟思维
+✅ 优化点： 面试官可能在测试你是否有独立判断能力，可以提及他的管理风格及其影响。
+⚖ 改进示例：
+“他的管理方式非常严格，特别是对效率和目标的极致追求，这对推动公司高速发展起到了关键作用。当然，这种风格也意味着更高的压力和挑战，但我认为，每个人都可以从中学习到如何高效地实现目标。”
+
+3. 结合个人思考，体现自身价值观
+✅ 优化点： 结合自己的价值观，说明你如何看待领导力，并表达你能适应特斯拉的工作文化。
+💡 改进示例：
+“我欣赏他的愿景和执行力，并且认同特斯拉‘以目标为导向’的文化。我相信，在高速发展的企业中，适应挑战、不断提升自我，是成长的重要途径。”
+
+总结：
+最终，你的回答要展现 敬佩+理性分析+个人思考，这样既能体现你对公司的认同，也能展现你独立思考的能力，让面试官对你的判断力和适应性更有信心。', N'2025-03-11 10:00:00.000', N'2025-03-10 11:27:52.240')
+GO
+
+SET IDENTITY_INSERT [dbo].[MSFPK] OFF
+GO
+
+
+-- ----------------------------
+-- Table structure for MSFPWTK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[MSFPWTK]') AND type IN ('U'))
+	DROP TABLE [dbo].[MSFPWTK]
+GO
+
+CREATE TABLE [dbo].[MSFPWTK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [WTMS] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [WDHD] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [GJHD] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [ZWPF] int DEFAULT ((-1)) NULL,
+  [LRSJ] datetime DEFAULT (getdate()) NOT NULL,
+  [FPDM] int NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[MSFPWTK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'问题描述',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPWTK',
+'COLUMN', N'WTMS'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'我的回答',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPWTK',
+'COLUMN', N'WDHD'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'改进回答',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPWTK',
+'COLUMN', N'GJHD'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'自我评分，-1表示没评分',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPWTK',
+'COLUMN', N'ZWPF'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'问题的录入时间',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPWTK',
+'COLUMN', N'LRSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'复盘代码: 对应MSFPK.ID',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPWTK',
+'COLUMN', N'FPDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'面试复盘问题库：对应MSFPK的问题',
+'SCHEMA', N'dbo',
+'TABLE', N'MSFPWTK'
+GO
+
+
+-- ----------------------------
+-- Records of [MSFPWTK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[MSFPWTK] ON
+GO
+
+INSERT INTO [dbo].[MSFPWTK] ([ID], [WTMS], [WDHD], [GJHD], [ZWPF], [LRSJ], [FPDM]) VALUES (N'1', N'为啥要面试特拉斯？', N'不知道', N'“我之所以想加入特斯拉，是因为这家公司不仅仅是一家汽车制造商，更是全球科技变革的引领者。特斯拉在电动车、能源存储、自动驾驶等领域持续突破技术边界，始终站在行业最前沿。我对新能源和智能科技充满热情，希望能在特斯拉这样充满创新精神的环境中发挥所长，推动技术进步，为可持续未来贡献力量。  
+
+此外，特斯拉的‘第一性原理’思维方式和极致执行力深深吸引了我。在这里，传统的思维模式被打破，每个问题都被回归到本质，找到最优解。我希望在这样的环境中挑战自我，锻炼解决复杂问题的能力。特斯拉的高速成长和全球化布局也让我看到无限的职业发展可能，我渴望加入一支充满才华和激情的团队，共同迎接行业挑战。  
+
+从个人能力来看，我的专业背景与这个岗位的需求高度匹配，同时我具备强烈的学习能力和适应能力。我不仅关注行业发展趋势，也善于解决实际问题。我相信，加入特斯拉后，我能够迅速融入团队，在推动公司目标实现的同时，不断成长，实现个人价值。  
+
+总的来说，我选择特斯拉，不仅是因为它是行业领导者，更因为它代表着科技的未来，我希望能成为其中一员，为这场变革贡献自己的力量。”', N'90', N'2025-03-10 11:27:52.500', N'1')
+GO
+
+INSERT INTO [dbo].[MSFPWTK] ([ID], [WTMS], [WDHD], [GJHD], [ZWPF], [LRSJ], [FPDM]) VALUES (N'2', N'你认通同马斯克吗', N'不认同', N'我非常敬佩马斯克的创新精神和执行力，他的第一性原理思维、对技术的极致追求以及推动人类进步的愿景，都让我深受启发。他不仅成功颠覆了汽车行业，还在航天、能源、AI等多个领域带来了变革，展现出非凡的领导力和前瞻性思维。”
+
+“当然，作为一名企业家和领导者，他的管理风格也有争议，比如对高强度工作的推崇以及对细节的极致要求。但正是这种风格，才让特斯拉、SpaceX等公司在竞争激烈的市场中保持领先。我认为，认同他的思维方式并不意味着要完全复制，而是要学习他独特的创新精神和对目标的执着，同时结合自身情况做出适合的判断。', N'10', N'2025-03-10 11:27:52.573', N'1')
+GO
+
+SET IDENTITY_INSERT [dbo].[MSFPWTK] OFF
 GO
 
 
@@ -9585,7 +10349,22 @@ GO
 SET IDENTITY_INSERT [dbo].[TDJLK] ON
 GO
 
-INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR], [ISMS]) VALUES (N'1', N'1237', N'6', N'2025-02-23 12:37:30.420', N'1', N'1', N'起去球器起球器琪琪', N'52', N'1', N'安排面试面试', N'2', N'2025-02-23 12:37:51.643', N'billie', N'安排面试', N'1')
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR], [ISMS]) VALUES (N'1', N'1211', N'34', N'2025-03-09 22:20:26.893', N'1', N'1', N'你这个傻逼vi！', N'26', N'1', N'安排面试！', N'2', N'2025-03-09 22:20:45.050', N'msk', N'安排面试', N'1')
+GO
+
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR], [ISMS]) VALUES (N'2', N'1218', N'36', N'2025-03-10 11:14:21.930', N'1', N'1', N'我是AI大师', N'33', N'1', N'安排面试了', N'2', N'2025-03-10 11:17:05.570', N'msk', N'安排面试', N'1')
+GO
+
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR], [ISMS]) VALUES (N'3', N'1237', N'36', N'2025-03-10 20:59:07.867', N'1', N'1', N'你啊哈哦', N'52', N'1', N'加油！加油！加油！加油！加油！加油！', N'2', N'2025-03-10 21:00:15.200', N'msk', N'安排面试', N'0')
+GO
+
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR], [ISMS]) VALUES (N'4', N'1211', N'36', N'2025-03-10 21:01:46.010', N'1', N'1', N'给个机会！', N'26', N'1', N'鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你', N'2', N'2025-03-10 21:03:59.973', N'msk', N'安排面试', N'0')
+GO
+
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR], [ISMS]) VALUES (N'5', N'1215', N'36', N'2025-03-10 21:03:37.343', N'1', N'1', N'鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你', N'30', N'1', N'鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你', N'2', N'2025-03-10 21:05:12.310', N'msk', N'安排面试', N'0')
+GO
+
+INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR], [JLDM], [HYDM], [HYNR], [TDJG], [HYSJ], [DWYH], [TDJGNR], [ISMS]) VALUES (N'6', N'1239', N'37', N'2025-03-12 19:39:30.687', N'1', N'1', N'你好啊发哥！', N'54', N'1', N'好的！收到了', N'2', N'2025-03-12 19:49:17.027', N'ozf', N'安排面试', N'1')
 GO
 
 SET IDENTITY_INSERT [dbo].[TDJLK] OFF
@@ -9672,6 +10451,148 @@ GO
 
 
 -- ----------------------------
+-- Table structure for XMCGK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[XMCGK]') AND type IN ('U'))
+	DROP TABLE [dbo].[XMCGK]
+GO
+
+CREATE TABLE [dbo].[XMCGK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [XMMC] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [XMNR] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [STUID] int NOT NULL,
+  [QYDM] int DEFAULT ((1)) NOT NULL,
+  [CJSJ] datetime DEFAULT (getdate()) NOT NULL,
+  [XMLX] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL
+)
+GO
+
+ALTER TABLE [dbo].[XMCGK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'项目名称',
+'SCHEMA', N'dbo',
+'TABLE', N'XMCGK',
+'COLUMN', N'XMMC'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'项目名称',
+'SCHEMA', N'dbo',
+'TABLE', N'XMCGK',
+'COLUMN', N'XMNR'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学生ID',
+'SCHEMA', N'dbo',
+'TABLE', N'XMCGK',
+'COLUMN', N'STUID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'创建时间',
+'SCHEMA', N'dbo',
+'TABLE', N'XMCGK',
+'COLUMN', N'CJSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'项目类型',
+'SCHEMA', N'dbo',
+'TABLE', N'XMCGK',
+'COLUMN', N'XMLX'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'项目成果库',
+'SCHEMA', N'dbo',
+'TABLE', N'XMCGK'
+GO
+
+
+-- ----------------------------
+-- Table structure for XSCJDK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[XSCJDK]') AND type IN ('U'))
+	DROP TABLE [dbo].[XSCJDK]
+GO
+
+CREATE TABLE [dbo].[XSCJDK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [STUID] int NOT NULL,
+  [KCMC] nvarchar(50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+  [KCXZ] nchar(10) COLLATE Chinese_PRC_CI_AS NULL,
+  [XF] float(53) NOT NULL,
+  [JD] float(53) NULL,
+  [CJXZ] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [KCCJ] float(53) NULL,
+  [SKJS] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL
+)
+GO
+
+ALTER TABLE [dbo].[XSCJDK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'课程名称',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK',
+'COLUMN', N'KCMC'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'课程性质',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK',
+'COLUMN', N'KCXZ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学分',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK',
+'COLUMN', N'XF'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'绩点',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK',
+'COLUMN', N'JD'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'成绩性质',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK',
+'COLUMN', N'CJXZ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'课程成绩',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK',
+'COLUMN', N'KCCJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'授课教师',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK',
+'COLUMN', N'SKJS'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学生成绩单库',
+'SCHEMA', N'dbo',
+'TABLE', N'XSCJDK'
+GO
+
+
+-- ----------------------------
 -- Table structure for XSZPMBK
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[XSZPMBK]') AND type IN ('U'))
@@ -9714,6 +10635,145 @@ EXEC sp_addextendedproperty
 'MS_Description', N'学生照片模版库',
 'SCHEMA', N'dbo',
 'TABLE', N'XSZPMBK'
+GO
+
+
+-- ----------------------------
+-- Table structure for XSZSK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[XSZSK]') AND type IN ('U'))
+	DROP TABLE [dbo].[XSZSK]
+GO
+
+CREATE TABLE [dbo].[XSZSK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [ZSMC] nvarchar(50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+  [ZSKM] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [ZSCJ] float(53) NULL,
+  [ZSYXQ] datetime NULL,
+  [BFJG] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [ZSFJ] nvarchar(500) COLLATE Chinese_PRC_CI_AS NULL,
+  [ZSZP] nvarchar(500) COLLATE Chinese_PRC_CI_AS NULL,
+  [BFSJ] datetime NULL,
+  [QYDM] int DEFAULT ((1)) NOT NULL,
+  [STUID] int NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[XSZSK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'编号',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'ID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证书名称',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'ZSMC'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证书科目',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'ZSKM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证书成绩',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'ZSCJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证书有效期',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'ZSYXQ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'颁发机构',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'BFJG'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证书附件，文件地址URL',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'ZSFJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证书照片',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'ZSZP'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'颁发时间',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'BFSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学生ID',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK',
+'COLUMN', N'STUID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学生证书库',
+'SCHEMA', N'dbo',
+'TABLE', N'XSZSK'
+GO
+
+
+-- ----------------------------
+-- Records of [XSZSK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[XSZSK] ON
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'1', N'英语四级', N'英语四级', N'425.000000000000000', N'2025-03-12 08:00:00.000', N'英语四级官方', N'', NULL, N'2025-02-04 23:26:43.000', N'1', N'1239')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'2', N'计算机二级证书', N'计算机二级', N'99.000000000000000', N'2025-03-12 08:00:00.000', N'教育部考试中心', NULL, NULL, N'2025-03-26 00:00:00.000', N'0', N'1239')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'3', N'英语四级', N'英语四级考试', N'455.000000000000000', N'2025-03-13 08:00:00.000', N'英语官方', NULL, NULL, N'2029-12-29 00:00:00.000', N'0', N'1218')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'4', N'英语6级', N'英语6级考试', N'677.000000000000000', N'2025-03-31 08:00:00.000', N'英语官方', NULL, NULL, N'2025-03-13 00:28:10.000', N'0', N'1218')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'5', N'软考高级', N'计算机考试', N'777.000000000000000', N'2025-03-31 08:00:00.000', N'国家计算机网络', N'http://localhost:83/img/upload//img/upload//attachments/1741797026952_2025届毕业生就业创业补贴未申请名单.xlsx', N'http://localhost:83/img/upload//img/upload//photos/1741797026888_微信图片_20250106140514.jpg', N'2025-03-13 00:30:15.000', N'0', N'1218')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'6', N'教师资格证', N'教师资格证考试', N'100.000000000000000', N'2020-01-01 08:00:00.000', N'教师资格证官方', N'/img/upload//attachments/1741797506965_2025届毕业生就业创业补贴未申请名单.xlsx', N'/img/upload//photos/1741797506935_微信图片_20250106140514.jpg', N'2029-01-01 00:00:00.000', N'0', N'1218')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'7', N'普通话1级', N'普通话考试', N'123.000000000000000', N'2025-03-01 08:00:00.000', N'普通话官方', N'/img/upload/XSZSK/attachments/1741797642176_2025届毕业生就业创业补贴未申请名单.xlsx', N'/img/upload/XSZSK/photos/1741797642169_微信图片_20250227185834.jpg', N'2029-01-01 00:00:00.000', N'0', N'1218')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'8', N'SCI证书', N'SCI论文', N'123.000000000000000', N'2025-03-01 08:00:00.000', N'SCI官方', N'/img/upload/XSZSK/attachments/1741797773393_2025届毕业生就业创业补贴未申请名单.xlsx', N'/img/upload/XSZSK/photos/1741797773387_1638290826.jpg', N'2025-03-31 00:00:00.000', N'0', N'1218')
+GO
+
+INSERT INTO [dbo].[XSZSK] ([ID], [ZSMC], [ZSKM], [ZSCJ], [ZSYXQ], [BFJG], [ZSFJ], [ZSZP], [BFSJ], [QYDM], [STUID]) VALUES (N'9', N'国家奖学金', N'国家奖学金', N'0.000000000000000', N'2020-01-01 08:00:00.000', N'国家教育局', N'/img/upload/XSZSK/attachments/1741798665507_国家奖学金证明.pdf', N'/img/upload/XSZSK/photos/1741798665483_155487134aee2e8a27ef8996a4099acf.jpeg', N'2025-03-13 00:57:20.000', N'1', N'1218')
+GO
+
+SET IDENTITY_INSERT [dbo].[XSZSK] OFF
 GO
 
 
@@ -9950,7 +11010,7 @@ EXEC sp_addextendedproperty
 GO
 
 EXEC sp_addextendedproperty
-'MS_Description', N'动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果 5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 9 单位用户取消面试',
+'MS_Description', N'动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果 5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 9 单位用户取消面试 10学生确认面试',
 'SCHEMA', N'dbo',
 'TABLE', N'XXDMK',
 'COLUMN', N'DZLX'
@@ -10004,19 +11064,88 @@ GO
 SET IDENTITY_INSERT [dbo].[XXDMK] ON
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'1', N'20213260024', N'学生投递了岗位', N'2025-02-23 12:37:30.427', N'billie', N'0', N'6', N'4', N'3', N'学生投递岗位:“产品设计师”', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'1', N'20213260035', N'学生投递了岗位', N'2025-03-09 22:20:26.900', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“特斯拉销售代表”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'2', N'billie', N'单位确认了投递', N'2025-02-23 12:37:43.723', N'20213260024', N'0', N'1', N'3', N'4', N'单位收到了您的 "产品设计师" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'2', N'msk', N'单位确认了投递', N'2025-03-09 22:20:37.413', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "特斯拉销售代表" 职位投递', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'3', N'billie', N'单位回应了投递', N'2025-02-23 12:37:51.643', N'20213260024', N'0', N'2', N'3', N'4', N'安排面试面试', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'3', N'msk', N'单位回应了投递', N'2025-03-09 22:20:45.050', N'20213260035', N'0', N'2', N'3', N'4', N'安排面试！', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'4', N'billie', N'单位安排了面试', N'2025-02-23 12:38:35.167', N'20213260024', N'0', N'3', N'3', N'4', N'已经安排面试:产品设计师,面试时间：2025-02-24 18:00:00,面试地点:麻栗坡', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'4', N'msk', N'单位安排了面试', N'2025-03-09 22:21:03.630', N'20213260035', N'0', N'3', N'3', N'4', N'已经安排面试:特斯拉销售代表,面试时间：2025-03-10 11:00:00,面试地点:麻栗坡', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'5', N'billie', N'单位取消了面试', N'2025-02-23 12:48:21.107', N'20213260024', N'0', N'9', N'3', N'4', N'取消了面试:产品设计师,面试时间：2025-02-24 18:00:00,面试地点:麻栗坡', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'5', N'20213260035', N'学生确认了面试', N'2025-03-09 22:21:08.083', N'msk', N'0', N'10', N'4', N'3', N'学生:苏晨聪,确认了面试:“特斯拉销售代表”', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'6', N'msk', N'单位开始了面试', N'2025-03-09 22:21:20.733', N'20213260035', N'0', N'1', N'3', N'4', N'面试信息:特斯拉销售代表,面试时间：2025-03-10 11:00:00,面试地点:麻栗坡', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'7', N'msk', N'单位发布了面试结果', N'2025-03-09 22:21:33.550', N'20213260035', N'0', N'4', N'3', N'4', N'面试结果:录用,录入时间：2025-03-09 22:21:33', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'8', N'20213260026', N'学生投递了岗位', N'2025-03-10 11:14:21.940', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'9', N'msk', N'单位确认了投递', N'2025-03-10 11:16:54.453', N'20213260026', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'10', N'msk', N'单位回应了投递', N'2025-03-10 11:17:05.570', N'20213260026', N'0', N'2', N'3', N'4', N'安排面试了', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'11', N'msk', N'单位安排了面试', N'2025-03-10 11:17:37.337', N'20213260026', N'0', N'3', N'3', N'4', N'已经安排面试:AI算法工程师,面试时间：2025-03-11 10:00:00,面试地点:教学楼1楼', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'12', N'20213260026', N'学生确认了面试', N'2025-03-10 11:17:51.447', N'msk', N'0', N'10', N'4', N'3', N'学生:蒙思敏,确认了面试:“AI算法工程师”', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'13', N'msk', N'单位开始了面试', N'2025-03-10 20:22:59.550', N'20213260026', N'0', N'1', N'3', N'4', N'面试开始，面试信息:AI算法工程师,面试时间：2025-03-11 10:00:00,面试地点:教学楼1楼', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'14', N'msk', N'单位发布了面试结果', N'2025-03-10 20:23:21.107', N'20213260026', N'0', N'4', N'3', N'4', N'面试结果:不录用,录入时间：2025-03-10 20:23:21', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'15', N'20213260024', N'学生投递了岗位', N'2025-03-10 20:59:07.873', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'16', N'msk', N'单位确认了投递', N'2025-03-10 21:00:04.360', N'20213260024', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'17', N'msk', N'单位回应了投递', N'2025-03-10 21:00:15.210', N'20213260024', N'0', N'2', N'3', N'4', N'加油！加油！加油！加油！加油！加油！', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'18', N'20213260035', N'学生投递了岗位', N'2025-03-10 21:01:46.183', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'19', N'20213260023', N'学生投递了岗位', N'2025-03-10 21:03:37.500', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'20', N'msk', N'单位确认了投递', N'2025-03-10 21:03:53.653', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'21', N'msk', N'单位回应了投递', N'2025-03-10 21:04:00.137', N'20213260035', N'0', N'2', N'3', N'4', N'鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'22', N'msk', N'单位确认了投递', N'2025-03-10 21:05:06.637', N'20213260023', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'23', N'msk', N'单位回应了投递', N'2025-03-10 21:05:12.443', N'20213260023', N'0', N'2', N'3', N'4', N'鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'24', N'20213260027', N'学生投递了岗位', N'2025-03-12 19:39:30.787', N'ozf', N'0', N'6', N'4', N'3', N'学生投递岗位:“信息科工作人员”', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'25', N'ozf', N'单位确认了投递', N'2025-03-12 19:49:03.053', N'20213260027', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'26', N'ozf', N'单位回应了投递', N'2025-03-12 19:49:17.037', N'20213260027', N'0', N'2', N'3', N'4', N'好的！收到了', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'27', N'ozf', N'单位安排了面试', N'2025-03-12 19:49:38.897', N'20213260027', N'0', N'3', N'3', N'4', N'已经安排面试:信息科工作人员,面试时间：2025-03-13 00:00:00,面试地点:北海市中医院', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'28', N'20213260027', N'学生确认了面试', N'2025-03-12 19:49:55.440', N'ozf', N'0', N'10', N'4', N'3', N'学生:李思思,确认了面试:“信息科工作人员”', N'0', NULL)
 GO
 
 SET IDENTITY_INSERT [dbo].[XXDMK] OFF
@@ -10668,6 +11797,46 @@ GO
 
 
 -- ----------------------------
+-- Procedure structure for usp_StuGet_MsfpDaTa
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_StuGet_MsfpDaTa]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_StuGet_MsfpDaTa]
+GO
+
+CREATE PROCEDURE [dbo].[usp_StuGet_MsfpDaTa]  
+	  @YHM NVARCHAR(50)
+AS  
+BEGIN  
+    /*  
+        作用：学生获取面试复盘数据，
+        时间：2025年3月8日  
+    */  
+
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;  
+	 select 
+	 a.*,
+	 b.FBZ AS MSHR,--面试HR
+	 c.YHXM AS HRXM, --HR姓名
+	 d.MSDD  --面试地点
+	 from MSFPK a
+	 left join DATA_GWDMK b on a.GWDM=b.ID
+	 left join DWYHK c  on b.FBZ=c.YHM
+	 left join MSDMK d on a.MSDM=d.MSDM
+	 where STUID =(select ID from DATA_STUDENT where YHM=@YHM) and  b.FBZYHSFDM=3;-- 暂时只提供单位发布的岗位
+	 
+	 
+	 select * from MSFPWTK where FPDM in (select ID from MSFPK where STUID =(select ID from DATA_STUDENT where YHM=@YHM));
+
+	 select * from FPWTBQK where WTID in  
+	 (select ID from MSFPWTK where FPDM in 
+		(select ID from MSFPK where STUID =
+			(select ID from DATA_STUDENT where YHM=@YHM)))
+END
+GO
+
+
+-- ----------------------------
 -- Procedure structure for usp_GetDwyhData
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetDwyhData]') AND type IN ('P', 'PC', 'RF', 'X'))
@@ -10687,6 +11856,206 @@ BEGIN
  select a.*,(select count(*) from DATA_GWDMK where FBZ=@YHM and FBZYHSFDM=3 and QYDM=1) GWFBSL,b.* from DWYHK a 
 left join DATA_DWDMK b on a.SSDW=b.DWDM
 where a.YHM=@YHM
+END
+GO
+
+
+-- ----------------------------
+-- Procedure structure for usp_GetStuGzjlData
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetStuGzjlData]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_GetStuGzjlData]
+GO
+
+CREATE PROCEDURE [dbo].[usp_GetStuGzjlData]  
+	  @YHM NVARCHAR(50)
+AS  
+BEGIN  
+    /*  
+        作用：  通过学生用户名获取学生 工作经历数据
+        时间：2025年3月10日  
+    */  
+
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;  
+
+	select a.*,
+	b.XSXM,
+	b.XSXB,
+	b.SSBJ,
+	b.ZYDM,
+	b.SFZH,
+	b.ZZMM,
+	b.SSNJ,
+	b.JYZT,
+	b.XSZP,
+	b.FZJS
+	--exec LuodengTable 'DATA_STUDENT'
+	from GZJLK a
+	left join DATA_STUDENT b on a.STUID=b.ID
+	where b.YHM=@YHM
+
+	--- 获取工作经历事项
+	select a.* from GZJLSXK a
+	left join GZJLK b on a.GZJLDM=b.ID
+	left join DATA_STUDENT c on b.STUID=c.ID
+	where c.YHM=@YHM
+
+END
+GO
+
+
+-- ----------------------------
+-- Procedure structure for usp_AllUserGetGongGaoData
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_AllUserGetGongGaoData]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_AllUserGetGongGaoData]
+GO
+
+CREATE PROCEDURE [dbo].[usp_AllUserGetGongGaoData]  
+	 @YHSFDM int,-- 用户身份代码
+	 @YHM NVARCHAR(50),-- 用户名
+	 @QYDM int ,--1 只获取启用的，0 只获取不启用的 ，-1获取全部 
+	 @JUSTONE int, -- 1 只获取一条，0 获取多一条
+	 @GGID int  -- 公告ID，当@JUSTONE为1时才会用到
+AS  
+BEGIN  
+    /*  
+        作用：获取招聘公告信息： DWZPGGK，
+        时间：2025年3月11日  
+		管理员也可以发布招聘公告
+		教师也可以发布公告
+    */  
+	--select * from DWZPGGK
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;  
+	--select * from YHSFDMK
+	if @JUSTONE=1
+			select a.*,
+					CASE a.FBZSFDM
+					 WHEN 1 THEN  d.MC --管理员
+					 WHEN 2 THEN  c.JSMC -- 教师
+					 WHEN 3 THEN b.YHXM-- 单位
+				   END AS FBZXM,--发布者姓名
+				   	CASE a.FBZSFDM
+					 WHEN 1 THEN  '管理员' --管理员
+					 WHEN 2 THEN  '教师' -- 教师
+					 WHEN 3 THEN 'HR'-- 单位
+				   END AS FBZSF --发布者身份
+				from DWZPGGK a 
+						left join DWYHK b on a.FBZ=b.YHM
+						left join JSDMK c on a.FBZ=c.DLZH
+						left join GLYDMK d on a.FBZ=d.DLZH
+						where a.ID=@GGID
+	else
+		begin
+			if @YHSFDM=1 or @YHSFDM =2  or @YHSFDM =4--管理员 --教师 -- 学生
+		begin 
+			if @QYDM=1 
+				select a.*,
+					CASE a.FBZSFDM
+					 WHEN 1 THEN  d.MC --管理员
+					 WHEN 2 THEN  c.JSMC -- 教师
+					 WHEN 3 THEN b.YHXM-- 单位
+				   END AS FBZXM ,--发布者姓名
+				   	CASE a.FBZSFDM
+					 WHEN 1 THEN  '管理员' --管理员
+					 WHEN 2 THEN  '教师' -- 教师
+					 WHEN 3 THEN 'HR'-- 单位
+				   END AS FBZSF --发布者身份
+				from DWZPGGK a 
+						left join DWYHK b on a.FBZ=b.YHM
+						left join JSDMK c on a.FBZ=c.DLZH
+						left join GLYDMK d on a.FBZ=d.DLZH
+						where a.QYDM=1
+			if @QYDM=0
+				select a.*,
+					CASE a.FBZSFDM
+					 WHEN 1 THEN  d.MC --管理员
+					 WHEN 2 THEN  c.JSMC -- 教师
+					 WHEN 3 THEN b.YHXM-- 单位
+				   END AS FBZXM ,--发布者姓名
+				   	CASE a.FBZSFDM
+					 WHEN 1 THEN  '管理员' --管理员
+					 WHEN 2 THEN  '教师' -- 教师
+					 WHEN 3 THEN 'HR'-- 单位
+				   END AS FBZSF --发布者身份
+				from DWZPGGK a 
+						left join DWYHK b on a.FBZ=b.YHM
+						left join JSDMK c on a.FBZ=c.DLZH
+						left join GLYDMK d on a.FBZ=d.DLZH
+						where a.QYDM=0
+			if @QYDM=-1
+				select a.*,
+					CASE a.FBZSFDM
+					 WHEN 1 THEN  d.MC --管理员
+					 WHEN 2 THEN  c.JSMC -- 教师
+					 WHEN 3 THEN b.YHXM-- 单位
+				   END AS FBZXM ,--发布者姓名
+				   	CASE a.FBZSFDM
+					 WHEN 1 THEN  '管理员' --管理员
+					 WHEN 2 THEN  '教师' -- 教师
+					 WHEN 3 THEN 'HR'-- 单位
+				   END AS FBZSF --发布者身份
+				from DWZPGGK a 
+						left join DWYHK b on a.FBZ=b.YHM
+						left join JSDMK c on a.FBZ=c.DLZH
+						left join GLYDMK d on a.FBZ=d.DLZH
+	end
+			if @YHSFDM=3  --单位
+		begin 
+			if @QYDM=1 
+				select a.*,
+					CASE a.FBZSFDM
+					 WHEN 1 THEN  d.MC --管理员
+					 WHEN 2 THEN  c.JSMC -- 教师
+					 WHEN 3 THEN b.YHXM-- 单位
+				   END AS FBZXM ,--发布者姓名
+				   	CASE a.FBZSFDM
+					 WHEN 1 THEN  '管理员' --管理员
+					 WHEN 2 THEN  '教师' -- 教师
+					 WHEN 3 THEN 'HR'-- 单位
+				   END AS FBZSF --发布者身份
+				from DWZPGGK a 
+						left join DWYHK b on a.FBZ=b.YHM
+						left join JSDMK c on a.FBZ=c.DLZH
+						left join GLYDMK d on a.FBZ=d.DLZH
+						where a.QYDM=1 and a.FBZ=@YHM
+			if @QYDM=0
+				select a.*,
+					CASE a.FBZSFDM
+					 WHEN 1 THEN  d.MC --管理员
+					 WHEN 2 THEN  c.JSMC -- 教师
+					 WHEN 3 THEN b.YHXM-- 单位
+				   END AS FBZXM ,--发布者姓名
+				   	CASE a.FBZSFDM
+					 WHEN 1 THEN  '管理员' --管理员
+					 WHEN 2 THEN  '教师' -- 教师
+					 WHEN 3 THEN 'HR'-- 单位
+				   END AS FBZSF --发布者身份
+				from DWZPGGK a 
+						left join DWYHK b on a.FBZ=b.YHM
+						left join JSDMK c on a.FBZ=c.DLZH
+						left join GLYDMK d on a.FBZ=d.DLZH
+						where a.QYDM=0 and a.FBZ=@YHM
+			if @QYDM=-1
+				select a.*,
+					CASE a.FBZSFDM
+					 WHEN 1 THEN  d.MC --管理员
+					 WHEN 2 THEN  c.JSMC -- 教师
+					 WHEN 3 THEN b.YHXM-- 单位
+				   END AS FBZXM ,--发布者姓名
+				   	CASE a.FBZSFDM
+					 WHEN 1 THEN  '管理员' --管理员
+					 WHEN 2 THEN  '教师' -- 教师
+					 WHEN 3 THEN 'HR'-- 单位
+				   END AS FBZSF --发布者身份
+				from DWZPGGK a 
+						left join DWYHK b on a.FBZ=b.YHM
+						left join JSDMK c on a.FBZ=c.DLZH
+						left join GLYDMK d on a.FBZ=d.DLZH where a.FBZ=@YHM
+	end
+		end
 END
 GO
 
@@ -10713,6 +12082,40 @@ BEGIN
 	 TRUNCATE TABLE XXDMK;-- 消息库
 	 TRUNCATE TABLE TDJLK;-- 投递记录
 	 TRUNCATE TABLE MSDMK --面试记录
+	 TRUNCATE TABLE MSFPK -- 面试复盘库
+		TRUNCATE TABLE FPWTBQK -- 复盘问题标签库
+		TRUNCATE TABLE MSFPWTK --面试复盘问题库
+END
+GO
+
+
+-- ----------------------------
+-- Procedure structure for usp_GetStudentXSZSK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetStudentXSZSK]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_GetStudentXSZSK]
+GO
+
+CREATE PROCEDURE [dbo].[usp_GetStudentXSZSK]  
+	@QYDM int,-- 1获取启用，0 获取未启用，2获取全部
+	@ISGETALL int, --1 获取全部学生的，0 获取指定学生的
+	@STUID int --当@ISGETALL为0 时该参数用于获取指定学生的证书
+AS  
+BEGIN  
+    /*  
+        作用：获取学生证书
+        时间：2025年2月14日  
+	 
+    */  
+	select a.*,
+	b.XSXM,b.XSZP,b.XSXH,b.XSXB,
+	c.BJMC,b.BJMC,d.ZYMC,d.ZYLB
+	from XSZSK a 
+	left join DATA_STUDENT b on a.STUID=b.ID
+	left join BJDMK c on b.SSBJ=c.ID
+	left join ZYDMK d on c.ZYDM=d.ID
+	where b.ID=@STUID
+
 END
 GO
 
@@ -11233,27 +12636,32 @@ BEGIN
 		BEGIN 
 		  -- 获取触发者用户身份代码、接收者身份代码
 		  select @CFZSFDM=CFZSFDM,@JSZSFDM=JSZSFDM from XXDMK
-		  select 
-			a.CFZ,
-			 case a.CFZSFDM 
-				when 3 then c.YHXM -- 触发者是单位
-				when 4 then b.XSXM -- 触发者是学生
-			end as CFZXM, --姓名
-			a.CFZXW,
-			a.JSZ,
-			case a.JSZSFDM 
-				when 3 then c.YHXM -- 接收者是单位
-				when 4 then b.XSXM -- 接收者是学生
-			end as JSZXM, --姓名	
-			DZNR,-- 动作内容
-			YDBZ,
-			DZLX,
-			CFSJ
-			from XXDMK a
-			 left join DATA_STUDENT b on a.CFZ=b.YHM or a.JSZ=b.YHM
-			 left join DWYHK c on a.CFZ=c.YHM  or a.JSZ=b.YHM  --使用left join 匹配，匹配不到也能显示出该XXDMK的信息
-			where CFZ=@YHM or JSZ =@YHM or QBBZ=1 
-			order by a.CFSJ desc
+		  
+			SELECT   
+				a.CFZ,  
+				CASE a.CFZSFDM   
+					WHEN 3 THEN c.YHXM -- 触发者是单位  
+					WHEN 4 THEN b.XSXM -- 触发者是学生  
+				END AS CFZXM, -- 姓名  
+				a.CFZXW,  
+				CASE a.CFZSFDM
+					WHEN 3 THEN c.YHZP -- 触发者是单位  
+					WHEN 4 THEN b.XSZP -- 触发者是学生  
+				END AS YHZP, -- 照片
+				a.JSZ,  
+				CASE a.JSZSFDM   
+					WHEN 3 THEN c.YHXM -- 接收者是单位  
+					WHEN 4 THEN b.XSXM -- 接收者是学生  
+				END AS JSZXM, -- 姓名    
+				a.DZNR, -- 动作内容  
+				a.YDBZ,  
+				a.DZLX,  
+				a.CFSJ  
+			FROM XXDMK a  
+			LEFT JOIN DATA_STUDENT b ON a.CFZ = b.YHM OR a.JSZ = b.YHM  
+			LEFT JOIN DWYHK c ON a.CFZ = c.YHM OR a.JSZ = c.YHM  -- 这里改正为 c.YHM  
+			WHERE a.CFZ = @YHM OR a.JSZ = @YHM OR a.QBBZ = 1   
+			ORDER BY a.CFSJ DESC;
 		END
 	ELSE 
 	  BEGIN
@@ -11385,7 +12793,7 @@ BEGIN
 			a.GWDM,--岗业代码
 			a.MSSJ,--	面试时间
 			a.MSZT,--面试状态：1单位已安排（待学生确认），2学生已确认，3开始面试（面试中，待单位用户关闭）4 面试关闭（待录入结果） 5已录入结果 
-			a.MSJG,--面试结果,MSJGDMK.ID
+			--a.MSJG,--面试结果,MSJGDMK.ID
 			a.FQZ,--发起者用户名
 			CASE FQZSFDM  
 				WHEN 1 THEN e.MC  -- 管理员
@@ -11400,13 +12808,17 @@ BEGIN
 			d.GWMC,-- 岗位名称
 			d.TDSM, -- 投递说明
 			h.GSMC,
-			d.DWMC
+			d.DWMC,
+			j.MSJG,
+			a.MSPJ,
+			a.HRZJ
 			from MSDMK a
 				left join DATA_STUDENT b on a.XSDM=b.ID
 				left join DWYHK c on a.FQZ=c.YHM
 				left join DATA_DWDMK h on a.DWDM=h.DWDM
 				left join DATA_GWDMK d on a.GWDM=d.ID
 				left join GLYDMK e on a.FQZ=e.DLZH -- 可能是管理员发布的岗位，用于获取发布者姓名
+				left join MSJGDMK j on j.ID=a.MSJG
 		-- 不考虑老师发布岗位的情况
 		end
 	else if  @UserRole=3 --单位用户
@@ -11419,7 +12831,7 @@ BEGIN
 			a.GWDM,--岗业代码
 			a.MSSJ,--	面试时间
 			a.MSZT,--面试状态：1单位已安排（待学生确认），2学生已确认，3开始面试（面试中，待单位用户关闭）4 面试关闭（待录入结果） 5已录入结果 
-			a.MSJG,--面试结果,MSJGDMK.ID
+		--	a.MSJG,--面试结果,MSJGDMK.ID
 			a.FQZ,--发起者用户名
 			 c.YHXM FQZXM,  -- 发起者姓名
 			a.FQZSFDM,--发起者身份代码
@@ -11443,13 +12855,17 @@ BEGIN
 			b.XSZP,
 			b.FZJS,
 			f.JSMC FZJSMC,
-			b.MZ
+			b.MZ,
+			a.MSPJ,
+			a.HRZJ,
+			j.MSJG
 			from MSDMK a
 				left join DATA_STUDENT b on a.XSDM=b.ID
 				left join DWYHK c on a.FQZ=c.YHM
 				left join JSDMK f on b.FZJS=f.ID
 				left join DATA_DWDMK h on a.DWDM=h.DWDM
 				left join DATA_GWDMK d on a.GWDM=d.ID
+				left join MSJGDMK j on j.ID=a.MSJG
 			where a.FQZ=@YHM
 		-- 不考虑老师发布岗位的情况
 		end
@@ -11532,6 +12948,61 @@ GO
 
 
 -- ----------------------------
+-- Procedure structure for usp_StuGetWaitMsData
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_StuGetWaitMsData]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_StuGetWaitMsData]
+GO
+
+CREATE PROCEDURE [dbo].[usp_StuGetWaitMsData]  
+	@YHM NVARCHAR(50)-- 用户名
+AS  
+BEGIN  
+    /*  
+        作用：学生用户获取待确认的面试
+        时间：2025年2月14日  
+		获取方式：从MSDMK: QYDM=1, QRDM=0,MSZT=1（默认值就是1）
+    */  
+	--exec LuodengTable 'MSDMK'
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;
+			select 
+			a.MSDM,--面试代码
+			a.XSDM,--学生代码
+			a.DWDM,--单位代码
+			a.GWDM,--岗业代码
+			a.MSSJ,--	面试时间
+			a.MSZT,--面试状态：1单位已安排（待学生确认），2学生已确认，3开始面试（面试中，待单位用户关闭）4 面试关闭（待录入结果） 5已录入结果 
+			a.MSJG,--面试结果,MSJGDMK.ID
+			a.FQZ,--发起者用户名
+			CASE FQZSFDM  
+				WHEN 1 THEN e.MC  -- 管理员
+				WHEN 3 THEN c.YHXM  -- 单位用户
+				ELSE 'get out name！'  
+			END AS FQZXM,  -- 发起者姓名
+			a.FQZSFDM,--发起者身份代码
+			a.FQSJ,--发起时间，默认(getdate())
+			a.QYDM,--启用代码
+			a.QRDM,--确认代码，即学生是否确认了面试
+			a.MSDD,--面试地点
+			d.GWMC,-- 岗位名称
+			d.TDSM, -- 投递说明
+			h.GSMC,-- 公司名称
+			d.DWMC, -- 单位名称
+			d.GZDD, -- 工作地点
+			h.LOGO --单位logo
+			from MSDMK a
+				left join DATA_STUDENT b on a.XSDM=b.ID
+				left join DWYHK c on a.FQZ=c.YHM
+				left join DATA_DWDMK h on a.DWDM=h.DWDM
+				left join DATA_GWDMK d on a.GWDM=d.ID
+				left join GLYDMK e on a.FQZ=e.DLZH -- 可能是管理员发布的岗位，用于获取发布者姓名
+			where a.XSDM=(select ID from DATA_STUDENT where YHM=@YHM) and a.QRDM=0 and a.QYDM=1
+END
+GO
+
+
+-- ----------------------------
 -- Procedure structure for LuodengClearCF
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[LuodengClearCF]') AND type IN ('P', 'PC', 'RF', 'X'))
@@ -11556,6 +13027,140 @@ BEGIN
 
     -- 执行动态 SQL  
     EXEC sp_executesql @SQL  
+END
+GO
+
+
+-- ----------------------------
+-- Procedure structure for usp_GetMsData_StuAndDw
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetMsData_StuAndDw]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_GetMsData_StuAndDw]
+GO
+
+CREATE PROCEDURE [dbo].[usp_GetMsData_StuAndDw]  
+	@TYPE INT,
+	@YHM NVARCHAR(50)-- 学生用户名
+AS  
+BEGIN  
+    /*  
+        作用：学生用户获取待确认的面试
+        时间：2025年2月14日  
+		获取方式：从MSDMK: QYDM=1, QRDM=0,MSZT=1（默认值就是1）
+    */  
+	--exec LuodengTable 'MSDMK'
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;
+	IF @TYPE=0  --只获取待确认的面试 学生
+		BEGIN 
+			select 
+			a.MSDM,--面试代码
+			a.XSDM,--学生代码
+			a.DWDM,--单位代码
+			a.GWDM,--岗业代码
+			a.MSSJ,--	面试时间
+			a.MSZT,--面试状态：1单位已安排（待学生确认），2学生已确认，3开始面试（面试中，待单位用户关闭）4 面试关闭（待录入结果） 5已录入结果 
+			a.MSJG,--面试结果,MSJGDMK.ID
+			a.FQZ,--发起者用户名
+			CASE FQZSFDM  
+				WHEN 1 THEN e.MC  -- 管理员
+				WHEN 3 THEN c.YHXM  -- 单位用户
+				ELSE 'get out name！'  
+			END AS FQZXM,  -- 发起者姓名
+			a.FQZSFDM,--发起者身份代码
+			a.FQSJ,--发起时间，默认(getdate())
+			a.QYDM,--启用代码
+			a.QRDM,--确认代码，即学生是否确认了面试
+			a.MSDD,--面试地点
+			d.GWMC,-- 岗位名称
+			d.TDSM, -- 投递说明
+			h.GSMC,-- 公司名称
+			d.DWMC, -- 单位名称
+			d.GZDD, -- 工作地点
+			h.LOGO --单位logo
+			from MSDMK a
+				left join DATA_STUDENT b on a.XSDM=b.ID
+				left join DWYHK c on a.FQZ=c.YHM
+				left join DATA_DWDMK h on a.DWDM=h.DWDM
+				left join DATA_GWDMK d on a.GWDM=d.ID
+				left join GLYDMK e on a.FQZ=e.DLZH -- 可能是管理员发布的岗位，用于获取发布者姓名
+			where a.XSDM=(select ID from DATA_STUDENT where YHM=@YHM) and a.QRDM=0 and a.QYDM=1
+		END
+	IF @TYPE=1 -- 单位获取待开始的面试 MSZT=2  
+		BEGIN
+			select 
+			a.MSDM,--面试代码
+			a.XSDM,--学生代码
+			a.DWDM,--单位代码
+			a.GWDM,--岗业代码
+			a.MSSJ,--	面试时间
+			a.MSZT,--面试状态：1单位已安排（待学生确认），2学生已确认，3开始面试（面试中，待单位用户关闭）4 面试关闭（待录入结果） 5已录入结果 
+			a.MSJG,--面试结果,MSJGDMK.ID
+			a.FQZ,--发起者用户名
+			CASE FQZSFDM  
+				WHEN 1 THEN e.MC  -- 管理员
+				WHEN 3 THEN c.YHXM  -- 单位用户
+				ELSE 'get out name！'  
+			END AS FQZXM,  -- 发起者姓名
+			a.FQZSFDM,--发起者身份代码
+			a.FQSJ,--发起时间，默认(getdate())
+			a.QYDM,--启用代码
+			a.QRDM,--确认代码，即学生是否确认了面试
+			a.MSDD,--面试地点
+			d.GWMC,-- 岗位名称
+			d.TDSM, -- 投递说明
+			h.GSMC,-- 公司名称
+			d.DWMC, -- 单位名称
+			d.GZDD, -- 工作地点
+			h.LOGO --单位logo
+			from MSDMK a
+				left join DATA_STUDENT b on a.XSDM=b.ID
+				left join DWYHK c on a.FQZ=c.YHM
+				left join DATA_DWDMK h on a.DWDM=h.DWDM
+				left join DATA_GWDMK d on a.GWDM=d.ID
+				left join GLYDMK e on a.FQZ=e.DLZH -- 可能是管理员发布的岗位，用于获取发布者姓名
+			where   a.QRDM=1 and a.QYDM=1 and a.MSZT=2 --学生已确认，待开始面试
+		END
+	IF @TYPE=3 --学生获取所有与其相关的面试数据 
+		BEGIN
+			select 
+			a.MSDM,--面试代码
+			a.XSDM,--学生代码
+			a.DWDM,--单位代码
+			a.GWDM,--岗业代码
+			a.MSSJ,--	面试时间
+			a.MSZT,--面试状态：1单位已安排（待学生确认），2学生已确认，3开始面试（面试中，待单位用户关闭）4 面试关闭（待录入结果） 5已录入结果 
+			a.MSJG,--面试结果,MSJGDMK.ID
+			a.FQZ,--发起者用户名
+			CASE FQZSFDM  
+				WHEN 1 THEN e.MC  -- 管理员
+				WHEN 3 THEN c.YHXM  -- 单位用户
+				ELSE 'get out name！'  
+			END AS FQZXM,  -- 发起者姓名
+			a.FQZSFDM,--发起者身份代码
+			a.FQSJ,--发起时间，默认(getdate())
+			a.QYDM,--启用代码
+			a.QRDM,--确认代码，即学生是否确认了面试
+			a.MSDD,--面试地点
+			d.GWMC,-- 岗位名称
+			d.TDSM, -- 投递说明
+			h.GSMC,-- 公司名称
+			d.DWMC, -- 单位名称
+			d.GZDD, -- 工作地点
+			h.LOGO --单位logo
+			from MSDMK a
+				left join DATA_STUDENT b on a.XSDM=b.ID
+				left join DWYHK c on a.FQZ=c.YHM
+				left join DATA_DWDMK h on a.DWDM=h.DWDM
+				left join DATA_GWDMK d on a.GWDM=d.ID
+				left join GLYDMK e on a.FQZ=e.DLZH -- 可能是管理员发布的岗位，用于获取发布者姓名
+			where a.XSDM=(select ID from DATA_STUDENT where YHM=@YHM) and  a.QYDM=1 
+				order by a.MSZT asc
+		END
+	IF @TYPE=4
+		BEGIN
+			return
+		END
 END
 GO
 
@@ -11661,6 +13266,15 @@ GO
 
 
 -- ----------------------------
+-- Primary Key structure for table DWZPGGK
+-- ----------------------------
+ALTER TABLE [dbo].[DWZPGGK] ADD CONSTRAINT [PK_DWZPGGK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
 -- Primary Key structure for table FLDMK
 -- ----------------------------
 ALTER TABLE [dbo].[FLDMK] ADD CONSTRAINT [PK_FLDMK] PRIMARY KEY CLUSTERED ([FLDM])
@@ -11670,9 +13284,55 @@ GO
 
 
 -- ----------------------------
+-- Primary Key structure for table FPWTBQK
+-- ----------------------------
+ALTER TABLE [dbo].[FPWTBQK] ADD CONSTRAINT [PK_FPWTBQK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
 -- Primary Key structure for table GWFLK
 -- ----------------------------
 ALTER TABLE [dbo].[GWFLK] ADD CONSTRAINT [PK_GWFLK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Triggers structure for table GZJLK
+-- ----------------------------
+CREATE TRIGGER [dbo].[trg_AfterDelete_Gzjlk]
+ON [dbo].[GZJLK]
+WITH EXECUTE AS CALLER
+FOR DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+	/*
+	删除不用的工作经历事项
+	*/
+
+	delete from GZJLSXK where GZJLDM=(select ID from DELETED)
+END;
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table GZJLK
+-- ----------------------------
+ALTER TABLE [dbo].[GZJLK] ADD CONSTRAINT [PK_GZJLK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table GZJLSXK
+-- ----------------------------
+ALTER TABLE [dbo].[GZJLSXK] ADD CONSTRAINT [PK_GZJLSXK] PRIMARY KEY CLUSTERED ([ID])
 WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
 ON [PRIMARY]
 GO
@@ -11753,79 +13413,205 @@ BEGIN
 	-- 如果是草稿更新就插入到消息对列
 	DECLARE @OldQydm int --旧的启用代码
 	DECLARE @NewQydm int -- 新的启用代码   ，注意系统不可以由启用变成不启用，只能删除！
+	DECLARE @NewQrdm int -- 新的确认代码
+	DECLARE @OldQrdm int --旧的确认代码
+	DECLARE @OldMszt int -- 旧的面试状态代码
+	DECLARE @NewMszt int --新的面试状态代码
+	DECLARE @OldMSPJ NVARCHAR(500) --旧的面试评价
+	DECLARE @NewMSPJ NVARCHAR(500) --新的面试评价
+	DECLARE @OldMSJG int --旧的面试结果 
+	DECLARE @NewMSJG int-- 新的面试结果
+
+	DECLARE @OldHRZJ nvarchar(500)-- 旧的HR总结
+	declare @NewHRZJ nvarchar(500)--新的HR总结
+	declare @JGLRSJ datetime --结果录入时间
+
 	-- 所以判断新旧值是否相等即可判断为是否是发布了草稿
-	select @OldQydm= QYDM from  deleted
-	select @NewQydm=QYDM from inserted
+	select @OldQydm= QYDM, @OldQrdm=QRDM,@OldMszt=MSZT ,@OldMSPJ=MSPJ,@OldMSJG=MSJG,@OldHRZJ=HRZJ from  deleted
+	select @NewQydm=QYDM,@NewQrdm=QRDM,@NewMszt=MSZT,@NewMSPJ=MSPJ,@NewMSJG=MSJG,@NewHRZJ=HRZJ,@JGLRSJ=JGLRSJ from inserted
 
 
-	IF @OldQydm=@NewQydm  -- 没有
+	
+	--select * from MSDMK
+
+	IF (@OldMSJG IS NULL AND @NewMSJG IS NOT NULL) 
+   OR (@OldMSJG IS NOT NULL AND @NewMSJG IS NOT NULL AND @OldMSJG <> @NewMSJG) --- or @OldMSPJ !=@NewMSPJ or @OldHRZJ !=@NewHRZJ  --单位用户发布面试结果
+		Begin
+		INSERT INTO XXDMK (CFZ,  --触发者
+											CFZXW,--触发者行为
+											--CFSJ,-- 消息产生时间
+											JSZ,--接收者
+											--QBBZ,--全部标志：即全部用户都可收到
+											DZLX,--动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果
+											--5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 
+											CFZSFDM,--触发者身份代码
+											JSZSFDM,--接收者身份代码
+											DZNR--动作内容
+											--YDBZ,--已读标志
+											--YDSJ--已读时间
+											)  
+											SELECT  
+											a.FQZ AS CFZ,-- 面试发起者
+											'单位发布了面试结果' AS CFZXW,--触发者行为
+											b.YHM AS JSZ,-- 学生用户名，接收者用户名
+											4 as DZLX,
+											a.FQZSFDM as CFZSFDM,
+											4 as JSZSFDM,
+											'面试结果:'+(select MSJG from MSJGDMK where ID=@NewMSJG)+',录入时间：'+ CONVERT(VARCHAR,@JGLRSJ, 120)
+											FROM inserted a 
+											left join DATA_STUDENT b on a.XSDM=b.ID
+											left join DATA_GWDMK c on a.GWDM=c.ID;  -- 使用 `inserted` 伪表获取新插入的记录
+			UPDATE MSDMK SET MSZT=4 WHERE MSDM= (select MSDM from deleted)
+			END
+	else
 		begin
-			IF @OldQydm=@NewQydm and @OldQydm=0  --用户只是更新草稿信息，不做处理
-				BEGIN 
-					 RETURN
-				end
-		
-			ELSE IF  @OldQydm=@NewQydm and @OldQydm=1 -- 用户更新了正式发布的面试信息
-					BEGIN
-						INSERT INTO XXDMK (CFZ,  --触发者
-									CFZXW,--触发者行为
-									--CFSJ,-- 消息产生时间
-									JSZ,--接收者
-									--QBBZ,--全部标志：即全部用户都可收到
-									DZLX,--动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果
-									--5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 
-									CFZSFDM,--触发者身份代码
-									JSZSFDM,--接收者身份代码
-									DZNR--动作内容
-									--YDBZ,--已读标志
-									--YDSJ--已读时间
-									)  
+	-- 注意，qydm和QRDM在任何场景都不会同时发生改变
+	IF @OldQrdm!=@NewQrdm and @OldQrdm=0 and @NewQrdm=1 --此为学生确认了，面试触发的
+		Begin 
+			INSERT INTO XXDMK (CFZ,CFZXW,JSZ,DZLX, CFZSFDM,JSZSFDM,DZNR)  
 									SELECT  
-									a.FQZ AS CFZ,-- 面试发起者
-									'单位更新了面试信息' AS CFZXW,--触发者行为
-									b.YHM AS JSZ,-- 学生用户名，接收者用户名
-									8 as DZLX,
-									a.FQZSFDM as CFZSFDM,
-									4 as JSZSFDM,
-									'面试信息更新:'+c.GWMC+',面试时间：'+ CONVERT(VARCHAR, a.MSSJ, 120) + ',面试地点:'+a.MSDD as DZNR
+									 b.YHM  AS CFZ,-- 学生确认面试 触发
+									'学生确认了面试' AS CFZXW,--触发者行为
+									a.FQZ AS JSZ,-- 单位用户名，接收者用户名
+									10 as DZLX,-- 学生确认为10
+									4 as CFZSFDM, --触发者学生 4
+									3 as JSZSFDM,-- 接收者 单位
+									'学生:'+b.XSXM+',确认了面试:“'+c.GWMC +'”' as DZNR
 									FROM inserted a 
 									left join DATA_STUDENT b on a.XSDM=b.ID
-									left join DATA_GWDMK c on a.GWDM=c.ID;  -- 使用 `inserted` 伪表获取新插入的记录  
-					END 
+									left join DATA_GWDMK c on a.GWDM=c.ID;  -- 使用 `inserted` 伪表获取新插入的记录 
+									
+	  -- 学生确认面试，面试状态MSZT设置为 2
+	  update MSDMK set MSZT=2 where MSDM= (select MSDM from deleted)
 		end
-	ELSE IF @OldQydm <> @NewQydm and @OldQydm=0 and   @NewQydm=1 -- 用户启用了草稿，正式发布
-				BEGIN
-					INSERT INTO XXDMK (CFZ,  --触发者
-								CFZXW,--触发者行为
-								--CFSJ,-- 消息产生时间
-								JSZ,--接收者
-								--QBBZ,--全部标志：即全部用户都可收到
-								DZLX,--动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试 
-								--4 单位用户录入结果 5学生预览岗位 6 学生投递 7 新增系统请求 
-								CFZSFDM,--触发者身份代码
-								JSZSFDM,--接收者身份代码
-								DZNR--动作内容
-								--YDBZ,--已读标志
-								--YDSJ--已读时间
-								)  
-								SELECT  
-								a.FQZ AS CFZ,-- 面试发起者
-								'单位安排了面试' AS CFZXW,--触发者行为
-								b.YHM AS JSZ,-- 学生用户名，接收者用户名
-								3 as DZLX,
-								a.FQZSFDM as CFZSFDM,
-								4 as JSZSFDM,
-								'已经安排面试:'+c.GWMC+',面试时间：'+ CONVERT(VARCHAR, a.MSSJ, 120) + ',面试地点:'+a.MSDD as DZNR
-
-								FROM inserted a 
-								left join DATA_STUDENT b on a.XSDM=b.ID
-								left join DATA_GWDMK c on a.GWDM=c.ID
-								;  -- 使用 `inserted` 伪表获取新插入的记录  
-				END
-			ELSE 
+	else
+		begin 
+			IF @OldQydm=@NewQydm  -- 没有更新Qydm，也就是单位并没有改变是否草稿
 				begin
-					RETURN;
-				END
+					IF @OldQydm=@NewQydm and @OldQydm=0  --用户只是更新草稿信息，不做处理
+						BEGIN 
+							 RETURN
+						end
+		
+					ELSE IF  @OldQydm=@NewQydm and @OldQydm=1
+						 begin
+							IF @NewMszt=@OldMszt -- 用户更新了正式发布的面试信息,面试状态没有改变
+									INSERT INTO XXDMK (CFZ,  --触发者
+											CFZXW,--触发者行为
+											--CFSJ,-- 消息产生时间
+											JSZ,--接收者
+											--QBBZ,--全部标志：即全部用户都可收到
+											DZLX,--动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果
+											--5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 
+											CFZSFDM,--触发者身份代码
+											JSZSFDM,--接收者身份代码
+											DZNR--动作内容
+											--YDBZ,--已读标志
+											--YDSJ--已读时间
+											)  
+											SELECT  
+											a.FQZ AS CFZ,-- 面试发起者
+											'单位更新了面试信息' AS CFZXW,--触发者行为
+											b.YHM AS JSZ,-- 学生用户名，接收者用户名
+											8 as DZLX,
+											a.FQZSFDM as CFZSFDM,
+											4 as JSZSFDM,
+											'面试信息更新:'+c.GWMC+',面试时间：'+ CONVERT(VARCHAR, a.MSSJ, 120) + ',面试地点:'+a.MSDD as DZNR
+											FROM inserted a 
+											left join DATA_STUDENT b on a.XSDM=b.ID
+											left join DATA_GWDMK c on a.GWDM=c.ID;  -- 使用 `inserted` 伪表获取新插入的记录
+							IF @NewMszt!=@OldMszt
+								BEGIN
+									 IF @OldMszt=2 and @NewMszt=3 -- 面试中，此时是单位开始了面试
+										INSERT INTO XXDMK (CFZ,  --触发者
+											CFZXW,--触发者行为
+											--CFSJ,-- 消息产生时间
+											JSZ,--接收者
+											--QBBZ,--全部标志：即全部用户都可收到
+											DZLX,--动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果
+											--5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 
+											CFZSFDM,--触发者身份代码
+											JSZSFDM,--接收者身份代码
+											DZNR--动作内容
+											--YDBZ,--已读标志
+											--YDSJ--已读时间
+											)  
+											SELECT  
+											a.FQZ AS CFZ,-- 面试发起者
+											'单位开始了面试' AS CFZXW,--触发者行为
+											b.YHM AS JSZ,-- 学生用户名，接收者用户名
+											1 as DZLX,
+											a.FQZSFDM as CFZSFDM,
+											4 as JSZSFDM,
+											'面试开始，面试信息:'+c.GWMC+',面试时间：'+ CONVERT(VARCHAR, a.MSSJ, 120) + ',面试地点:'+a.MSDD as DZNR
+											FROM inserted a 
+											left join DATA_STUDENT b on a.XSDM=b.ID
+											left join DATA_GWDMK c on a.GWDM=c.ID;  -- 
+									ELSE IF @OldMszt=3 and @NewMszt=4  -- 单位用户录入了面试结果
+											RETURN
+									ELSE IF @OldMszt=4 and @NewMszt=5 -- 单位关闭了面试；归档
+										INSERT INTO XXDMK (CFZ,  --触发者
+											CFZXW,--触发者行为
+											--CFSJ,-- 消息产生时间
+											JSZ,--接收者
+											--QBBZ,--全部标志：即全部用户都可收到
+											DZLX,--动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果
+											--5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 
+											CFZSFDM,--触发者身份代码
+											JSZSFDM,--接收者身份代码
+											DZNR--动作内容
+											--YDBZ,--已读标志
+											--YDSJ--已读时间
+											)  
+											SELECT  
+											a.FQZ AS CFZ,-- 面试发起者
+											'面试已关闭' AS CFZXW,--触发者行为
+											b.YHM AS JSZ,-- 学生用户名，接收者用户名
+											8 as DZLX,
+											a.FQZSFDM as CFZSFDM,
+											4 as JSZSFDM,
+											'面试:'+c.GWMC+',面试时间：'+ CONVERT(VARCHAR, a.MSSJ, 120) + ',面试地点:'+a.MSDD as DZNR
+											FROM inserted a 
+											left join DATA_STUDENT b on a.XSDM=b.ID
+											left join DATA_GWDMK c on a.GWDM=c.ID;  -- 使用 `inserted` 伪表获取新插入的记录 
+								END 
+								end
+				end
+			ELSE IF @OldQydm <> @NewQydm and @OldQydm=0 and   @NewQydm=1 -- 用户启用了草稿，正式发布
+						BEGIN
+							INSERT INTO XXDMK (CFZ,  --触发者
+										CFZXW,--触发者行为
+										--CFSJ,-- 消息产生时间
+										JSZ,--接收者
+										--QBBZ,--全部标志：即全部用户都可收到
+										DZLX,--动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试 
+										--4 单位用户录入结果 5学生预览岗位 6 学生投递 7 新增系统请求 
+										CFZSFDM,--触发者身份代码
+										JSZSFDM,--接收者身份代码
+										DZNR--动作内容
+										--YDBZ,--已读标志
+										--YDSJ--已读时间
+										)  
+										SELECT  
+										a.FQZ AS CFZ,-- 面试发起者
+										'单位安排了面试' AS CFZXW,--触发者行为
+										b.YHM AS JSZ,-- 学生用户名，接收者用户名
+										3 as DZLX,
+										a.FQZSFDM as CFZSFDM,
+										4 as JSZSFDM,
+										'已经安排面试，同学请尽快确认:'+c.GWMC+',面试时间：'+ CONVERT(VARCHAR, a.MSSJ, 120) + ',面试地点:'+a.MSDD as DZNR
+
+										FROM inserted a 
+										left join DATA_STUDENT b on a.XSDM=b.ID
+										left join DATA_GWDMK c on a.GWDM=c.ID
+										;  -- 使用 `inserted` 伪表获取新插入的记录  
+						END
+					ELSE 
+						begin
+							RETURN;
+						END
+		end
+	end
 END;
 GO
 
@@ -11891,6 +13677,24 @@ GO
 
 
 -- ----------------------------
+-- Primary Key structure for table MSFPK
+-- ----------------------------
+ALTER TABLE [dbo].[MSFPK] ADD CONSTRAINT [PK_MSFPK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table MSFPWTK
+-- ----------------------------
+ALTER TABLE [dbo].[MSFPWTK] ADD CONSTRAINT [PK_MSFPWTK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
 -- Primary Key structure for table MSSQK
 -- ----------------------------
 ALTER TABLE [dbo].[MSSQK] ADD CONSTRAINT [PK_MSSQK] PRIMARY KEY CLUSTERED ([SQID])
@@ -11931,6 +13735,8 @@ BEGIN
 	DECLARE @GWMC NVARCHAR(100)
 	/*
 		此触发器为INSERT 即学生投递简历
+		1向XXDMK插入新消息
+		2 更新DATA_GWDMK的投递次数+1
 
 	   从 inserted 表获取新插入行的值  :
 		STUID 学生ID
@@ -11961,6 +13767,9 @@ BEGIN
 	INSERT INTO XXDMK(CFZ,CFZXW,JSZ,DZLX,DZNR,CFZSFDM,JSZSFDM) 
 	 values((select YHM from DATA_STUDENT where ID=@STUID),
 	          '学生投递了岗位',@GWFBZ,6,'学生投递岗位:“'+@GWMC+'”',4,@FBZSFDM)
+			 
+			  -- exec LuodengTable 'DATA_GWDMK'
+	UPDATE DATA_GWDMK SET  TDCS= TDCS +  1 WHERE ID=@GWDM;
 END;
 GO
 
@@ -12079,6 +13888,33 @@ GO
 -- Primary Key structure for table XLTTK
 -- ----------------------------
 ALTER TABLE [dbo].[XLTTK] ADD CONSTRAINT [PK__xlttk__3213E83F0F1C9186] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table XMCGK
+-- ----------------------------
+ALTER TABLE [dbo].[XMCGK] ADD CONSTRAINT [PK_XMCGK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table XSCJDK
+-- ----------------------------
+ALTER TABLE [dbo].[XSCJDK] ADD CONSTRAINT [PK_XSCJDK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table XSZSK
+-- ----------------------------
+ALTER TABLE [dbo].[XSZSK] ADD CONSTRAINT [PK_XSZSK] PRIMARY KEY CLUSTERED ([ID])
 WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
 ON [PRIMARY]
 GO
