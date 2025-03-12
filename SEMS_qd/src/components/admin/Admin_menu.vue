@@ -80,7 +80,7 @@
               </router-link>
             </li>
             <li class="hover:bg-blue-50 rounded">
-              <router-link to="/admin/stats/graduates">
+              <router-link to="/admin/zpgggl">
                 <a class="flex items-center p-2 text-gray-700">
                   公告栏管理
                 </a>

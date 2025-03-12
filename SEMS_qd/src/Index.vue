@@ -1,40 +1,9 @@
 <template>
   <div class="next-gen-container">
-    <header class="glass-header">
-      <public-menu class="modern-nav"></public-menu>
-      <div class="hero-banner">
-        <h1 class="dynamic-text">开启你的职业未来</h1>
-        <div class="search-bar">
-          <input type="text" placeholder="搜索职位或企业...">
-          <button class="search-btn">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </header>
+    <public-menu class="modern-nav"></public-menu>
 
     <main class="fluid-layout">
-      <!-- 新增的快速信息栏 -->
-<!--      <section class="quick-info-bar">-->
-<!--        <div class="info-card recent-jobs">-->
-<!--          <h3><i class="fas fa-briefcase"></i> 最近岗位</h3>-->
-<!--          <div class="job-grid">-->
-<!--            <div v-for="(job, index) in recentJobs" :key="index" class="job-card">-->
-<!--              <div class="company-logo">-->
-<!--                <img :src="job.logo" alt="公司logo">-->
-<!--              </div>-->
-<!--              <div class="job-details">-->
-<!--                <h4>{{ job.title }}</h4>-->
-<!--                <p class="company-name">{{ job.company }}</p>-->
-<!--                <div class="job-meta">-->
-<!--                  <span class="salary">{{ job.salary }}</span>-->
-<!--                  <span class="location">{{ job.location }}</span>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </section>-->
+
       <!-- 功能卡片区 -->
       <div class="container-fluid" style="padding: 39px 76px;">
         <section  class="row">
@@ -82,72 +51,8 @@
       </div>
 
 
-      <!-- 内容分区 -->
-      <section class="content-sections">
-<!--        &lt;!&ndash; 宣讲会时间轴 &ndash;&gt;
-        <div class="card event-timeline">
-          <h2 class="section-title"><i class="fas fa-calendar-star"></i> 近期宣讲会</h2>
-          <div class="timeline-container">
-            <div
-                v-for="(event, index) in events"
-                :key="index"
-                class="timeline-item"
-                :class="{'highlight': event.highlight}"
-            >
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h4>{{ event.title }}</h4>
-                <div class="event-meta">
-                  <span class="event-type" :class="event.type">{{ event.type }}</span>
-                  <span class="event-time">{{ event.time }}</span>
-                  <span class="event-location">{{ event.location }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>-->
-
-        <!-- 实时资讯 -->
-        <div class="card live-feed">
-          <h2 class="section-title"><i class="fas fa-bolt"></i> 招聘快讯</h2>
-          <div class="feed-container">
-            <div
-                v-for="(news, index) in newsList"
-                :key="index"
-                class="feed-item"
-                :style="`--delay: ${index * 0.1}s`"
-            >
-              <div class="feed-badge">{{ news.tag }}</div>
-              <div class="feed-content">
-                <h5>{{ news.title }}</h5>
-                <div class="feed-meta">
-                  <span>{{ news.company }}</span>
-                  <span>{{ news.deadline }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
-    <!-- 浮动操作按钮 -->
-    <div class="fab-container">
-      <button class="fab-main">
-        <i class="fas fa-comment-dots"></i>
-      </button>
-      <div class="fab-actions">
-        <button class="fab-action">
-          <i class="fas fa-file-alt"></i>
-        </button>
-        <button class="fab-action">
-          <i class="fas fa-video"></i>
-        </button>
-        <button class="fab-action">
-          <i class="fas fa-calendar-check"></i>
-        </button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -213,46 +118,7 @@ export default {
           salary: "15-25K",
           location: "深圳",
           logo: "https://logo.clearbit.com/tencent.com"
-        },
-        {
-          title: "数据分析师",
-          company: "阿里巴巴",
-          salary: "18-30K",
-          location: "杭州",
-          logo: "https://logo.clearbit.com/alibaba.com"
-        },
-        {
-          title: "移动开发工程师",
-          company: "字节跳动",
-          salary: "20-35K",
-          location: "北京",
-          logo: "https://logo.clearbit.com/bytedance.com"
-        },
-        {
-          title: "数据分析师",
-          company: "阿里巴巴",
-          salary: "18-30K",
-          location: "杭州",
-          logo: "https://logo.clearbit.com/alibaba.com"
-        }, {
-          title: "数据分析师",
-          company: "阿里巴巴",
-          salary: "18-30K",
-          location: "杭州",
-          logo: "https://logo.clearbit.com/alibaba.com"
-        }, {
-          title: "数据分析师",
-          company: "阿里巴巴",
-          salary: "18-30K",
-          location: "杭州",
-          logo: "https://logo.clearbit.com/alibaba.com"
-        }, {
-          title: "数据分析师",
-          company: "阿里巴巴",
-          salary: "18-30K",
-          location: "杭州",
-          logo: "https://logo.clearbit.com/alibaba.com"
-        },
+        }
       ]
     }
   }

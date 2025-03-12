@@ -566,7 +566,6 @@ export default {
         }
       })
     },
-
     showHistory() {
       this.$router.push({name: 'StudentMsfpDetailView'})
     }

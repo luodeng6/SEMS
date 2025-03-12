@@ -46,7 +46,38 @@
               </a>
             </router-link>
           </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/stu/xmcg">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-trophy mr-2"></i>
 
+                项目成果
+              </a>
+            </router-link>
+          </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/stu/zsgl">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-award mr-2"></i> 证书和奖项
+              </a>
+            </router-link>
+          </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/stu/xmcg">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-clipboard-list mr-2"></i> 成绩单
+
+              </a>
+            </router-link>
+          </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/stu/ggjl">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-user-tie mr-2"></i>
+                工作经历
+              </a>
+            </router-link>
+          </li>
 
           <li @click="toggleStatsMenuXiaoYuanOpen" class="hover:bg-blue-50 rounded cursor-pointer">
             <a class="flex items-center p-2 text-gray-700">

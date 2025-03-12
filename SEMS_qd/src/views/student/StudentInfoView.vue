@@ -5,7 +5,7 @@
       <StudentMenu/>
     </div>
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
-      <el-card style="margin-bottom: 10px">
+      <el-card style="margin-bottom: 10px" shadow="never">
         <header class="flex justify-between items-center mb-6">
           <div>
             <h1 class="text-3xl font-bold text-gray-800">个人就业信息</h1>
@@ -27,36 +27,37 @@
           </div>
         </header>
       </el-card>
-      <div class="profile-container">
-        <!-- 头部照片和个人信息 -->
-        <div class="profile-header">
-          <div class="photo-container">
-            <img
-                :src="studentData.xszp"
-                alt="个人照片"
-                class="profile-photo"
-                @click="handlePhotoClick">
-            <input
-                type="file"
-                ref="photoInput"
-                @change="updatePhoto"
-                style="display: none;">
-          </div>
-          <div class="personal-info">
-            <h1 class="name">{{ studentData.xsxm }}</h1>
-            <h2 class="position">{{ personalInfo.position }}</h2>
-            <div class="contact-info">
-              <p><i class="el-icon-message"></i> {{ personalInfo.email }}</p>
-              <p><i class="el-icon-phone"></i> {{ personalInfo.phone }}</p>
-              <p><i class="el-icon-location-outline"></i> {{ personalInfo.location }}</p>
+      <!-- 主要内容区域 -->
+      <el-card shadow="never" style="padding: 27px !important;">
+      <div class="content-wrapper">
+        <div style="    width: 588px;">
+          <!-- 头部照片和个人信息 -->
+          <div class="profile-header">
+            <div class="photo-container">
+              <img
+                  :src="studentData.xszp"
+                  alt="个人照片"
+                  class="profile-photo"
+                  @click="handlePhotoClick">
+              <input
+                  type="file"
+                  ref="photoInput"
+                  @change="updatePhoto"
+                  style="display: none;">
+            </div>
+            <div class="personal-info">
+              <h1 class="name">{{ studentData.xsxm }}</h1>
+              <h2 class="position">{{ personalInfo.position }}</h2>
+              <div class="contact-info">
+                <p><i class="el-icon-message"></i> {{ personalInfo.email }}</p>
+                <p><i class="el-icon-phone"></i> {{ personalInfo.phone }}</p>
+                <p><i class="el-icon-location-outline"></i> {{ personalInfo.location }}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- 主要内容区域 -->
-        <div class="content-wrapper">
           <!-- 左侧列 -->
-          <div class="left-column">
+          <div>
             <section-box title="教育背景">
               <div
                   v-for="(edu, index) in education"
@@ -82,25 +83,36 @@
               </div>
             </section-box>
           </div>
-
+        </div>
           <!-- 右侧列 -->
-          <div class="right-column">
+          <div >
             <section-box title="工作经历">
               <div
                   v-for="(exp, index) in workExperience"
                   :key="index"
                   class="experience-item"
+                  style="padding: 10px 0; border-bottom: 1px solid #eaeaea;"
               >
-                <div class="exp-header">
-                  <h3>{{ exp.company }}</h3>
-                  <span class="duration">{{ exp.duration }}</span>
+                <div class="exp-header" style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <h3 class="company-name" style="font-size: 1.4em; font-weight: bold; color: #333; margin: 0;">
+                    {{ exp.company }}
+                  </h3>
+                  <span class="duration" style="font-size: 0.85em; color: #999; margin-left: 10px;">
+        {{ exp.duration }}
+      </span>
                 </div>
-                <p class="position">{{ exp.position }}</p>
-                <ul class="responsibilities">
-                  <li v-for="(item, i) in exp.responsibilities" :key="i">{{ item }}</li>
+                <p class="position" style="font-size: 1em; color: #666; margin: 5px 0;">
+                  {{ exp.position }}
+                </p>
+                <ul class="responsibilities" style="list-style: disc; padding-left: 18px; margin: 0;">
+                  <li v-for="(item, i) in exp.responsibilities" :key="i" style="margin-bottom: 3px;">
+                    {{ item }}
+                  </li>
                 </ul>
               </div>
             </section-box>
+
+
 
             <section-box title="项目成果">
               <div
@@ -123,7 +135,8 @@
             </section-box>
           </div>
         </div>
-      </div>
+      </el-card>
+
 
     </main>
   </div>
@@ -173,8 +186,8 @@ export default {
         { name: 'Webpack', color: '#8dd6f9' }
       ],
       workExperience: [
-        {
-          company: '某科技公司',
+        /*{
+          company: '深度求索',
           position: '前端开发工程师',
           duration: '2019-至今',
           responsibilities: [
@@ -183,9 +196,25 @@ export default {
             '优化前端性能，首屏加载时间减少40%',
             '带领3人前端团队完成多个重大项目'
           ]
-        }
+        },
+        {
+          company: '阿里巴巴',
+          position: '前端开发工程师',
+          duration: '2019-至今',
+          responsibilities: [
+            '负责公司核心产品的前端架构设计和开发',
+            '主导Vue技术栈迁移和组件库建设',
+            '优化前端性能，首屏加载时间减少40%',
+            '带领3人前端团队完成多个重大项目'
+          ]
+        }*/
       ],
       projects: [
+        {
+          name: '企业级管理系统',
+          description: '基于Vue+ElementUI的中后台管理系统，包含20+功能模块',
+          technologies: ['Vue2', 'Vuex', 'ElementUI', 'ECharts']
+        },
         {
           name: '企业级管理系统',
           description: '基于Vue+ElementUI的中后台管理系统，包含20+功能模块',
@@ -213,6 +242,7 @@ export default {
           console.log(this.UserInfo);
           // this.loadData(this.UserInfo.username);
           this.loadData(); // 获取学生信息
+          this.getGzjlData(); // 获取工作经历数据
         }
       }).catch(error => {
         EventBus.$emit('show-auth-popup');
@@ -220,6 +250,101 @@ export default {
         setTimeout(() => {
           this.$router.push({name: 'DwLoginView'});
         }, 1000);
+      });
+    },
+    // 获取工作经历数据
+    async getGzjlData() {
+      this.loading = true;
+      try {
+        /* [
+           {
+             "ID": 1,
+             "STUID": 1214,
+             "TJSJ": "2025-03-09T17:00:35.260+00:00",
+             "DWMC": "11",
+             "GWMC": "11",
+             "KSSJ": "2025-03-11T00:00:00.000+00:00",
+             "JSSJ": "2025-03-21T00:00:00.000+00:00",
+             "JLMS": "11",
+             "QYDM": 1,
+             "XSXM": "李家辉",
+             "XSXB": "男",
+             "SSBJ": 1292,
+             "ZYDM": 1085,
+             "SFZH": "450703200302201551",
+             "ZZMM": "共青团员",
+             "SSNJ": "2021",
+             "JYZT": 1000,
+             "XSZP": "/img/upload/Userpofile/20213260030_1740397262501_.jpeg",
+             "FZJS": 0
+           }
+         ]*/
+        this.workExperiences=[];
+        const response = await axios.get('/gzjlk/getAllGzjlk?YHM=' + this.UserInfo.username);
+        if (!response.data.result) {
+          this.confirmGetData();
+        } else {
+          console.log(response.data.data);
+          let ResultData = response.data.data.gzjlk;
+          this.allgzjlsxk=response.data.data.gzjlsxk;
+          let ItemData,responsibilities = [];
+       /* [
+            {
+              company: '深度求索',
+              position: '前端开发工程师',
+              duration: '2019-至今',
+              responsibilities: [
+                '负责公司核心产品的前端架构设计和开发',
+                '主导Vue技术栈迁移和组件库建设',
+                '优化前端性能，首屏加载时间减少40%',
+                '带领3人前端团队完成多个重大项目'
+              ]
+            },
+          ]*/
+          for (let i = 0; i < ResultData.length; i++) {
+            ItemData = {};
+            responsibilities = [];
+            //ItemData.ID = ResultData[i].ID;
+            //ItemData.STUID = ResultData[i].STUID;
+
+            ItemData.company = ResultData[i].DWMC;
+            ItemData.position = ResultData[i].GWMC;
+           // ItemData.KSSJ = ResultData[i].KSSJ;
+            ItemData.duration = '2019-至今';
+          let filterData=  this.allgzjlsxk.filter(item=>item.GZJLDM===ResultData[i].ID);
+           /* "ID": 1,
+                "GZJLSX": "负责系统调试",
+                "CJSJ": "2025-03-10T03:09:25.000+00:00",
+                "GZJLDM": 9*/
+            for (let j = 0; j < filterData.length; j++){
+              responsibilities.push(filterData[j].GZJLSX);
+            }
+            ItemData.responsibilities = responsibilities;
+
+            ItemData.JLMS = ResultData[i].JLMS;//经历描述
+            this.workExperience.push(ItemData);
+            console.log( this.workExperience);
+          }
+          this.loading = false;
+        }
+      } catch (error) {
+        console.error('获取工作经历数据失败:', error);
+        this.confirmGetData();
+      }
+    },
+    confirmGetData(msg) {
+      $.confirm({
+        title: '提示',
+        content: '获取工作经历数据失败：' + msg,
+        type: 'red', // 错误提示用红色
+        buttons: {
+          重试: {
+            btnClass: 'btn-red',
+            action: () => {
+              this.getGzjlData();
+            }
+          }
+        }
       });
     },
     // 获取学生信息
@@ -314,6 +439,11 @@ export default {
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
 }
+
+.el-card_body, .el-main {
+  padding: 27px !important;
+}
+
 
 /* 其他详细样式... */
 </style>

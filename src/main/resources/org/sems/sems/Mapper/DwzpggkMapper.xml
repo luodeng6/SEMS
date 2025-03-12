@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DwzpggkMapper">
+
+
+
+    <insert id="insertDwzpggk" parameterType="org.sems.sems.entity.Dwzpggk">
+        INSERT INTO DWZPGGK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="fbz != null">FBZ,</if>
+            <if test="fbzsfdm != null">FBZSFDM,</if>
+            <if test="qydm != null">QYDM,</if>
+            <if test="ggnr != null">GGNR,</if>
+            <if test="ggnrhtml != null">GGNRHTML,</if>
+            <if test="cjsj != null">CJSJ,</if>
+            <if test="ggbt != null">GGBT,</if>
+            <if test="lll != null">LLL,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="fbz != null">#{fbz},</if>
+            <if test="fbzsfdm != null">#{fbzsfdm},</if>
+            <if test="qydm != null">#{qydm},</if>
+            <if test="ggnr != null">#{ggnr},</if>
+            <if test="ggnrhtml != null">#{ggnrhtml},</if>
+            <if test="cjsj != null">#{cjsj},</if>
+            <if test="ggbt != null">#{ggbt},</if>
+            <if test="lll != null">#{lll},</if>
+        </trim>
+    </insert>
+
+
+    <update id="updateDwzpggk" parameterType="map">
+        update DWZPGGK
+        <set>
+            <if test="fbz != null">fbz = #{fbz},</if>
+            <if test="fbzsfdm != null">fbzsfdm = #{fbzsfdm},</if>
+            <if test="qydm != null">qydm = #{qydm},</if>
+            <if test="ggnr != null">ggnr = #{ggnr},</if>
+            <if test="ggnrhtml != null">ggnrhtml = #{ggnrhtml},</if>
+            <if test="cjsj != null">cjsj = #{cjsj},</if>
+            <if test="ggbt != null">ggbt = #{ggbt},</if>
+            <if test="lll != null">lll = #{lll},</if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
+

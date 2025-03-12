@@ -85,14 +85,14 @@
 
                   <div class="section">
                     <label class="section-label">我的回答</label>
-                    <p class="section-text highlight-box">{{ question.answer || "未填写" }}</p>
+                    <p class="section-text highlight-box" >{{ question.answer || "未填写" }}</p>
                   </div>
 
                   <el-divider class="divider" />
 
                   <div class="section">
                     <label class="section-label">优化建议</label>
-                    <p class="section-text improvement-text">{{ question.improvement || "未优化" }}</p>
+                    <p class="section-text improvement-text" v-html="question.improvement? question.improvement.replace(/\n/g, '<br>') : '暂无改进建议'"></p>
                   </div>
                 </div>
 

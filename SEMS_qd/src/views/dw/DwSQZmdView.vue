@@ -16,7 +16,7 @@
                 <el-button type="primary" icon="el-icon-plus" >发布新职位</el-button>
               </div>
             </header>-->
-      <header style="background-color: steelblue;" padding="20px;">
+      <header padding="20px;" style="background-color: steelblue;">
         <div class="  mx-auto px-4">
           <div class="flex justify-between items-center h-16" style="margin-bottom: 27px;">
             <!-- 左侧品牌和导航 -->
@@ -24,23 +24,23 @@
               <!-- 品牌Logo -->
               <div class="flex items-center">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2"/>
                 </svg>
                 <span class="ml-2 text-xl font-bold text-white">招聘中心</span>
               </div>
 
               <!-- 导航菜单 -->
               <nav class="hidden md:flex items-center space-x-6">
-                <a href="#" class="text-gray-200 hover:text-white flex items-center transition-colors">
+                <a class="text-gray-200 hover:text-white flex items-center transition-colors" href="#">
                   <i class="el-icon-s-home mr-1"></i>
                   首页
                 </a>
-                <a href="#" class="text-gray-200 hover:text-white flex items-center transition-colors">
+                <a class="text-gray-200 hover:text-white flex items-center transition-colors" href="#">
                   <i class="el-icon-s-management mr-1"></i>
                   职位管理
                 </a>
-                <a href="#" class="text-gray-200 hover:text-white flex items-center transition-colors">
+                <a class="text-gray-200 hover:text-white flex items-center transition-colors" href="#">
                   <i class="el-icon-user mr-1"></i>
                   候选人
                 </a>
@@ -59,8 +59,8 @@
               <el-dropdown trigger="click">
                 <div class="flex items-center cursor-pointer">
                   <el-avatar
-                      src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
                       class="border-2 border-white"
+                      src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
                   ></el-avatar>
                   <span class="ml-2 text-gray-200 hover:text-white">{{ UserInfo.name }}</span>
                   <i class="el-icon-arrow-down el-icon--right text-gray-200"></i>
@@ -80,8 +80,8 @@
 
               <!-- 发布按钮 -->
               <el-button
-                  type="text"
-                  icon="el-icon-plus">
+                  icon="el-icon-plus"
+                  type="text">
                 发布职位
               </el-button>
             </div>
@@ -93,7 +93,7 @@
       <!-- 顶部header为统计板块 -->
       <el-row :gutter="20" class="stats-panel mb-4">
         <el-col :span="6">
-          <el-card shadow="hover" class="stats-card primary">
+          <el-card class="stats-card primary" shadow="hover">
             <div class="flex items-center">
               <i class="el-icon-document stats-icon"></i>
               <div class="ml-3">
@@ -104,7 +104,7 @@
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="hover" class="stats-card warning">
+          <el-card class="stats-card warning" shadow="hover">
             <div class="flex items-center">
               <i class="el-icon-time stats-icon"></i>
               <div class="ml-3">
@@ -115,7 +115,7 @@
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="hover" class="stats-card success">
+          <el-card class="stats-card success" shadow="hover">
             <div class="flex items-center">
               <i class="el-icon-check stats-icon"></i>
               <div class="ml-3">
@@ -126,7 +126,7 @@
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="hover" class="stats-card info">
+          <el-card class="stats-card info" shadow="hover">
             <div class="flex items-center">
               <i class="el-icon-files stats-icon"></i>
               <div class="ml-3">
@@ -141,21 +141,21 @@
 
       <div class="app-container">
         <!-- 搜索筛选区域 -->
-        <el-card shadow="never" class="search-card">
+        <el-card class="search-card" shadow="never">
           <el-form :inline="true" :model="searchForm">
             <el-form-item label="学生姓名">
-              <el-input v-model="searchForm.xsxm" placeholder="请输入姓名" clearable></el-input>
+              <el-input v-model="searchForm.xsxm" clearable placeholder="请输入姓名"></el-input>
             </el-form-item>
             <el-form-item label="学号">
-              <el-input v-model="searchForm.xsxh" placeholder="请输入学号" clearable></el-input>
+              <el-input v-model="searchForm.xsxh" clearable placeholder="请输入学号"></el-input>
             </el-form-item>
             <el-form-item label="投递时间">
               <el-date-picker
                   v-model="searchForm.timeRange"
-                  type="daterange"
+                  end-placeholder="结束日期"
                   range-separator="至"
                   start-placeholder="开始日期"
-                  end-placeholder="结束日期">
+                  type="daterange">
               </el-date-picker>
             </el-form-item>
             <el-form-item>
@@ -166,16 +166,18 @@
         </el-card>
 
         <!-- 数据表格 -->
-        <el-card shadow="never" class="table-card">
+        <el-card class="table-card" shadow="never">
           <el-table
+              v-loading="loading"
               :data="tableData"
-              stripe
+              :row-class-name="tableRowClassName"
               border
               highlight-current-row
-              @current-change="handleSelectionChange"
+              stripe
               style="width: 100%"
-              :row-class-name="tableRowClassName"
-              v-loading="loading">
+              @current-change="handleSelectionChange"
+              @row-dblclick="lookStudentInfo"
+              >
             <el-table-column type="expand">
               <template #default="{row}">
                 <div class="expand-content">
@@ -186,37 +188,37 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column prop="ID" label="序号" width="80" sortable></el-table-column>
-            <el-table-column prop="GWMC" label="岗位名称" width="180"></el-table-column>
+            <el-table-column label="序号" prop="ID" sortable width="80"></el-table-column>
+            <el-table-column label="岗位名称" prop="GWMC" width="180"></el-table-column>
             <!--  单击学生姓名：查看学生信息-->
-            <el-table-column prop="XSXM" label="姓名" @click="ShowStudentInfo(scope.row)" width="120"></el-table-column>
+            <el-table-column label="姓名" prop="XSXM" width="120" @click="ShowStudentInfo(scope.row)"></el-table-column>
             <!-- 图片列 -->
-            <el-table-column label="图片" width="120" align="center">
+            <el-table-column align="center" label="图片" width="120">
               <template #default="{ row }">
                 <el-image
-                    style="width: 80px; height: 100px"
-                    :src="row.XSZP"
                     :preview-src-list="[row.XSZP]"
-                    fit="cover">
+                    :src="row.XSZP"
+                    fit="cover"
+                    style="width: 80px; height: 100px">
                 </el-image>
               </template>
             </el-table-column>
-            <el-table-column prop="XSXH" label="学号" width="150"></el-table-column>
-            <el-table-column prop="BJMC" label="班级" width="200"></el-table-column>
-            <el-table-column prop="GSMC" label="公司名称" width="200"></el-table-column>
-            <el-table-column prop="TDSJ" label="投递时间" width="180" sortable>
+            <el-table-column label="学号" prop="XSXH" width="150"></el-table-column>
+            <el-table-column label="班级" prop="BJMC" width="200"></el-table-column>
+            <el-table-column label="公司名称" prop="GSMC" width="200"></el-table-column>
+            <el-table-column label="投递时间" prop="TDSJ" sortable width="180">
               <template #default="{row}">
                 {{ formatDate(row.TDSJ) }}
               </template>
             </el-table-column>
 
-            <el-table-column v-show="HYDM === 1" prop="HYSJ" label="回应时间" width="180" sortable>
+            <el-table-column v-show="HYDM === 1" label="回应时间" prop="HYSJ" sortable width="180">
               <template #default="{row}">
                 {{ formatDate(row.HYSJ) }}
               </template>
             </el-table-column>
 
-            <el-table-column label="确认状态" width="120" fixed="left">
+            <el-table-column fixed="left" label="确认状态" width="120">
               <template #default="{row}">
                 <el-tag :type="row.QRDM === 1 ? 'success' : 'warning'">
                   {{ row.QRDM === 1 ? '已确认' : '待确认' }}
@@ -230,34 +232,34 @@
                 </el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="操作" width="200" fixed="right">
+            <el-table-column fixed="right" label="操作" width="200">
               <template #default="{row}">
                 <el-button size="mini" style="position: relative;left: 8px;" @click="handleDetail(row)"><i
                     class="el-icon-view"></i>>投递详情
                 </el-button>
                 <el-button size="mini" @click="ShowJobDetail(row)"><i class="el-icon-edit"></i>>岗位详情</el-button>
                 <el-button
+                    v-show="row.QRDM === 0"
                     size="mini"
-                    @click="handleConfirm(row)"
-                    v-show="row.QRDM === 0">
+                    @click="handleConfirm(row)">
                   <i class="el-icon-delete"></i>
                   投递确认
                 </el-button>
 
                 <el-button
+                    v-show="row.HYDM === 0&&row.QRDM === 1"
                     size="mini"
                     type="danger"
-                    @click="handleResponse(row)"
-                    v-show="row.HYDM === 0&&row.QRDM === 1">
+                    @click="handleResponse(row)">
                   <i class="el-icon-delete"></i>
                   回应
                 </el-button>
 
                 <el-button
+                    v-show="row.HYDM === 1&&row.QRDM === 1"
                     size="mini"
                     type="success"
-                    @click="lookResponse(row)"
-                    v-show="row.HYDM === 1&&row.QRDM === 1">
+                    @click="lookResponse(row)">
                   <i class="el-icon-delete"></i>
                   查看回应
                 </el-button>
@@ -267,18 +269,18 @@
 
           <!-- 分页 -->
           <el-pagination
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
               :current-page="pagination.current"
-              :page-sizes="[4, 5, 6, 7, 8, 9, 10]"
               :page-size="pagination.size"
+              :page-sizes="[4, 5, 6, 7, 8, 9, 10]"
+              :total="pagination.total"
               layout="total, sizes, prev, pager, next, jumper"
-              :total="pagination.total">
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange">
           </el-pagination>
         </el-card>
 
         <!-- 详情对话框 -->
-        <el-dialog title="投递详情" :visible.sync="detailVisible" width="900px">
+        <el-dialog :visible.sync="detailVisible" title="投递详情" width="900px">
           <el-descriptions :column="2" border>
             <el-descriptions-item label="学生姓名">{{ currentRow.XSXM }}</el-descriptions-item>
             <el-descriptions-item label="学号">{{ currentRow.XSXH }}</el-descriptions-item>
@@ -288,21 +290,21 @@
             <el-descriptions-item label="学历">{{ currentRow.XLMC }}</el-descriptions-item>
             <el-descriptions-item label="岗位名称">{{ currentRow.GWMC }}</el-descriptions-item>
             <el-descriptions-item label="公司名称">{{ currentRow.GSMC }}</el-descriptions-item>
-            <el-descriptions-item label="投递时间" :span="2">
+            <el-descriptions-item :span="2" label="投递时间">
               {{ formatDate(currentRow.TDSJ) }}
             </el-descriptions-item>
-            <el-descriptions-item label="留言内容" :span="2">
+            <el-descriptions-item :span="2" label="留言内容">
               {{ currentRow.LYNR || '无' }}
             </el-descriptions-item>
           </el-descriptions>
-          <div style="margin-top: 20px;" v-show="isShowTDQR">
+          <div v-show="isShowTDQR" style="margin-top: 20px;">
             <el-button type="success" @click="DwConfirm(currentRow)">确认</el-button>
             <el-button type="default" @click="detailVisible = false">关闭</el-button>
           </div>
         </el-dialog>
-        <el-dialog title=回应对话框 :visible.sync="isShowResponse" width="900px">
-          <el-form ref="responseForm" :model="responseForm" label-width="100px" label-position="top"
-                   :rules="responseFormRules">
+        <el-dialog :visible.sync="isShowResponse" title=回应对话框 width="900px">
+          <el-form ref="responseForm" :model="responseForm" :rules="responseFormRules" label-position="top"
+                   label-width="100px">
             <!--            0 不录用，2 安排面试  3 录用 4 待定-->
             <el-form-item label="投递结果" prop="hyjg">
               <el-select v-model="responseForm.hyjg">
@@ -314,7 +316,7 @@
               </el-select>
             </el-form-item>
             <el-form-item label="回应内容" prop="hynr">
-              <el-input type="textarea" rows="9" v-model="responseForm.hynr" placeholder="请输入回应内容"></el-input>
+              <el-input v-model="responseForm.hynr" placeholder="请输入回应内容" rows="9" type="textarea"></el-input>
             </el-form-item>
           </el-form>
           <div style="margin-top: 20px;">
@@ -323,8 +325,8 @@
             <el-button type="danger" @click="isShowResponse = false">取消</el-button>
           </div>
         </el-dialog>
-<!--        回应详情对话框-->
-        <el-dialog title="查看回应" :visible.sync="isShowLookResponse" width="900px">
+        <!--        回应详情对话框-->
+        <el-dialog :visible.sync="isShowLookResponse" title="查看回应" width="900px">
           <el-descriptions :column="2" border>
             <el-descriptions-item label="学生姓名">{{ currentRow.XSXM }}</el-descriptions-item>
             <el-descriptions-item label="学号">{{ currentRow.XSXH }}</el-descriptions-item>
@@ -334,16 +336,16 @@
             <el-descriptions-item label="学历">{{ currentRow.XLMC }}</el-descriptions-item>
             <el-descriptions-item label="岗位名称">{{ currentRow.GWMC }}</el-descriptions-item>
             <el-descriptions-item label="公司名称">{{ currentRow.GSMC }}</el-descriptions-item>
-            <el-descriptions-item label="投递时间" :span="2">
+            <el-descriptions-item :span="2" label="投递时间">
               {{ formatDate(currentRow.TDSJ) }}
             </el-descriptions-item>
-            <el-descriptions-item label="回应时间" :span="2">
+            <el-descriptions-item :span="2" label="回应时间">
               {{ formatDate(currentRow.HYSJ) }}
             </el-descriptions-item>
-            <el-descriptions-item label="投递结果" :span="2">
-              {{getTdjg(currentRow.TDJG)}}
+            <el-descriptions-item :span="2" label="投递结果">
+              {{ getTdjg(currentRow.TDJG) }}
             </el-descriptions-item>
-            <el-descriptions-item label="回应内容" :span="2">
+            <el-descriptions-item :span="2" label="回应内容">
               {{ currentRow.HYNR }}
             </el-descriptions-item>
           </el-descriptions>
@@ -403,11 +405,11 @@ export default {
         timeRange: []
       },
       tableData: [],
-      getTdjg(JGDM){
-       /* 0	不录用
-        1	录用
-        2	安排面试
-        3	待定*/
+      getTdjg(JGDM) {
+        /* 0	不录用
+         1	录用
+         2	安排面试
+         3	待定*/
         // 使用switch语句来判断
         switch (JGDM) {
           case 1:
@@ -443,6 +445,13 @@ export default {
     this.getLoginUserInfo()
   },
   methods: {
+    lookStudentInfo(row){
+      console.log(row);
+
+      // 查看岗位详情逻辑
+      console.log("跳转到岗位详情页面");
+      this.$router.push({path: '/dw/studentInfo', query: {id: row.STUID}})
+    },
     handleResponseSubmit(row) {
       console.log(row);
       // 验证表单
@@ -460,7 +469,7 @@ export default {
           axios.post('/tdjlk/Huiying', ResponseForm).then(res => {
             if (res.data.result) {
               this.$message.success('回应成功');
-              this.isShowResponse=false;
+              this.isShowResponse = false;
               // 刷新数据
               this.loadData();
             } else {
@@ -494,27 +503,23 @@ export default {
       this.responseForm.dwyh = this.UserInfo.username;
       this.responseForm.hynr = '';
     },
-
-
-// 处理选中行
+    // 处理选中行
     handleSelectionChange(val) {
       console.log(val);
-    }
-    ,
-// 查看学生信息
+    },
+    // 查看学生信息
     ShowStudentInfo(row) {
       console.log("跳转到学生信息页面:");
       console.log(row);
-    }
-    ,
-// 查看岗位详情
+    },
+    // 查看岗位详情
     ShowJobDetail(row) {
       console.log("跳转到岗位详情页面");
       console.log(row.GWDM);
       this.$router.push({path: '/dw/jobDetail', query: {id: row.GWDM}})
     }
     ,
-// 投递确认
+    // 投递确认
     handleConfirm(row) {
       this.currentRow = row;
       this.isShowTDQR = true;
@@ -587,7 +592,7 @@ export default {
       this.detailVisible = true
     },
     // 查看回应详情
-    lookResponse(row){
+    lookResponse(row) {
       this.currentRow = row;
       this.isShowLookResponse = true;
     },

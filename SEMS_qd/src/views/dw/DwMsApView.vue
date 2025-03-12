@@ -4,9 +4,7 @@
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
       <header class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-semibold">面试管理</h1>
-        <div>
-          <el-button type="primary" icon="el-icon-plus" @click="openAddInterviewDialog">安排面试</el-button>
-        </div>
+
       </header>
 
       <div class="interview-management">
@@ -151,7 +149,14 @@
                   style="width: 300px; margin-left: 20px"></el-input>
             </div>
             <!--allInterviews-->
-            <el-table :data="FilteredMSdata" border height="500">
+            <el-table :data="FilteredMSdata" border height="700">
+              <el-table-column prop="MSJG" label="面试结果" width="80" fixed="left" align="center" >
+                <template #default="{ row }">
+                  <template v-if="row.MSJG">
+                    <el-tag :type="getMSJGType(row).color">{{ getMSJGType(row).text }}</el-tag>
+                  </template>
+                </template>
+              </el-table-column>
               <el-table-column prop="MSDM" label="面试代码" width="80"></el-table-column>
               <el-table-column prop="XSXM" label="学生姓名" width="100"></el-table-column>
               <el-table-column prop="XSZP" label="学生相片" width="110">
@@ -245,7 +250,6 @@
           </el-tab-pane>
           <!-- 面试日历 -->
           <el-tab-pane label="录入结果" name="calendar">
-
           </el-tab-pane>
         </el-tabs>
         <!-- 面试表单对话框-- 新增 -->
@@ -351,6 +355,33 @@
               <el-button type="primary" @click="saveEidtInterview">保存</el-button>
               </span>
         </el-dialog>
+          <!-- 开始录入结果对话框 -->
+        <el-dialog title="录入面试结果" :visible.sync="isEnterResultDialogVisible">
+          <el-form :model="ResultFormData" label-width="80px">
+              <el-form-item label="面试结果">
+                <el-select v-model="ResultFormData.MSJG" placeholder="选择面试结果">
+                  <el-option label="录用" value="100"></el-option>
+                  <el-option label="不录用" value="101"></el-option>
+                  <el-option label="待定" value="102"></el-option>
+                  <el-option label="多轮面试" value="103"></el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="面试评价">
+                <el-slider
+                    v-model="ResultFormData.MSPJ"
+                    :step="10"
+                    show-stops>
+                </el-slider>
+              </el-form-item>
+              <el-form-item label="面试总结">
+                <el-input type="textarea" rows="5" v-model="ResultFormData.HRZJ"></el-input>
+              </el-form-item>
+          </el-form>
+          <span slot="footer">
+               <el-button @click="isEnterResultDialogVisible = false">取消</el-button>
+              <el-button type="primary" @click="EnterInterviewResult">保存</el-button>
+          </span>
+        </el-dialog>
       </div>
     </main>
   </div>
@@ -366,6 +397,14 @@ export default {
   components: {DwMenu},
   data() {
     return {
+      // 选择的面试记录
+      selectedInterResultInterview: null,
+      ResultFormData:{
+        MSJG: '',
+        MSPJ: '',
+        HRZJ: '',
+      },
+      isEnterResultDialogVisible: false,
       // 面试管理查询条件
       searchKeywordMsgl: '',
       // 面试时间选择器配置
@@ -509,10 +548,35 @@ export default {
   },
   mounted() {
     this.getLoginUserInfo();
-    this.initCharts()
-    this.generateCalendar()
+    this.initCharts();
+    this.generateCalendar();
   },
   methods: {
+    // 录入面试结果
+    EnterInterviewResult(){
+      console.log(this.ResultFormData)
+      console.log(this.selectedInterResultInterview)
+      let formData = new FormData();
+      formData.append("jglrsj", new Date());
+      formData.append("msdm", this.selectedInterResultInterview.MSDM);
+      formData.append("msjg", this.ResultFormData.MSJG);
+      formData.append("mspj", this.ResultFormData.MSPJ);
+      formData.append("hrzj", this.ResultFormData.HRZJ);
+
+
+      axios.post("/msdmk/updateInterview", formData).then((response) => {
+        if (response.data.result) {
+          this.$message.success('录入面试结果成功');
+          this.isEnterResultDialogVisible = false;
+          this.getInterviews();
+        } else {
+            this.$message.error('录入面试结果失败:' + response.data.msg);
+        }
+      }).catch((error) => {
+        console.error('录入面试结果失败:', error);
+        this.$message.error('录入面试结果失败:' + error.message);
+      });
+    },
     handleSwitchChange(newval){
       if (newval){
         this.EditformData.QYDM = 0;
@@ -733,6 +797,10 @@ export default {
       this.FormDataAddMS.GWDM = tdjlData.GWDM;
       console.log(this.FormDataAddMS);
     },
+    InterviewResult(row){
+      this.selectedInterResultInterview = row;
+      this.isEnterResultDialogVisible = true;
+    },
     // 用户选择新增方式修改时触发
     changeAddType(newVal) {
       console.log(newVal)
@@ -823,6 +891,18 @@ export default {
         console.error('获取面试数据失败,网络错误！', error);
         this.$message.error('获取面试数据失败:' + error.message);
       });
+    },
+    getMSJGType(row) {
+      if (!row.MSJG) return null; // 为空时不显示
+
+      const statusMap = {
+        录用: { color: "success", text: "通过" },
+        不录用: { color: "danger", text: "未通过" },
+        待定: { color: "warning", text: "待定" },
+        多轮面试: { color: "info", text: "多轮面试" },
+      };
+
+      return statusMap[row.MSJG] || { color: "info", text: "未知" };
     },
     // 初始化图表
     initCharts() {

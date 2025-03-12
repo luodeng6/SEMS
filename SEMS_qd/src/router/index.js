@@ -273,12 +273,12 @@ const routes = [
         name: 'AdminXtgg',
         component: () => import('@/views/admin/Admin_Xtgg.vue'),
         meta: {style: '管理员', title: '管理员-系统公告'}
-    },{
+    }, {
         path: '/stu/jyzd',
         name: 'StudentJyzdView',
         component: () => import('@/views/student/StudentJyzdView.vue'),
         meta: {style: '学生', title: '学生-就业指导'}
-    },{
+    }, {
         // 面试复盘
         path: '/stu/msfp',
         name: 'DwJyzdView',
@@ -298,7 +298,7 @@ const routes = [
         name: 'DwDwXXGLView',
         component: () => import('@/views/dw/DwDwXXGLView.vue'),
         meta: {style: '单位', title: '单位-单位信息管理'}
-    },{
+    }, {
         // 单位用户信息管理
         path: '/dw/dwjobs',
         name: 'StudentDwjobsView',
@@ -323,6 +323,58 @@ const routes = [
         name: 'StudentMsfpDetailView',
         component: () => import('@/views/student/StudentMsfpDetailView.vue'),
         meta: {style: '学生', title: '学生-历史面试复盘'}
+    }, {
+        // 学生工作经历管理
+        path: '/stu/ggjl',
+        name: 'StudentGgjlView',
+        component: () => import('@/views/student/StudentGzjlView.vue'),
+        meta: {style: '学生', title: '学生-工作经历管理'}
+    },
+    {
+        path: '/stu/xmcg',
+        name: "StudentXmcgView",
+        component: () => import('@/views/student/StudentXmcgView.vue'),
+        meta: {style: '学生', title: '学生-项目成果管理'}
+    }, {
+        path: '/dw/zpgggl',
+        name: "DwZpggglView",
+        component: () => import('@/views/dw/DwZpGgglView.vue'),
+        meta: {style: '单位', title: '单位-招聘公告管理'}
+    }, {
+        path: "/dw/ggzs",
+        name: "DwGgZsView",
+        component: () => import('@/views/dw/DwGgzsView.vue'),
+        meta: {style: '单位', title: '单位-公告展示'}
+    },
+    {
+        path: "/admin/zpgggl",
+        name:"AdminZpggView",
+        component: () => import('@/views/admin/AdminZpggView.vue'),
+        meta: {style: '管理员', title: '管理员-招聘公告管理'}
+    },
+    {
+        path: "/dw/studentInfo",
+        name: "DwStudentInfoView",
+        component: () => import('@/views/dw/DwStudentInfoView.vue'),
+        meta: {style: '单位', title: '单位-学生主页'}
+    },
+    {
+        path:"/stu/zsgl",
+        name:"StudentZSGLview",
+        component: () => import('@/views/student/StudentZSGLview.vue'),
+        meta: {style: '学生', title: '学生-证书管理'}
+    },
+    {
+        path: "/dw/dwjs",
+        name: "DwDwJsView",
+        component: () => import('@/views/dw/DwDwJsView.vue'),
+        meta: {style: '单位', title: '单位-单位简介'}
+    },
+    {
+        path: "/stu/StudentDwInfoDetailView",
+        name: "StudentDwInfoDetailView",
+        component: () => import('@/views/student/StudentDwInfoDetailView.vue'),
+        meta: {style: '学生', title: '学生-单位信息详情'}
     }
 ]
 

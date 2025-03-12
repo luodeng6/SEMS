@@ -2,7 +2,7 @@
   <div class="content">
     <dw-menu/>
     <main class="ml-64 flex-1 p-6 bg-gray-100 min-h-screen">
-      <el-card style="margin-bottom: 10px">
+      <el-card style="margin-bottom: 10px" shadow="never">
         <header class="flex justify-between items-center mb-6">
           <div>
             <h1 class="text-3xl font-bold text-gray-800">岗位管理中心</h1>
@@ -27,7 +27,7 @@
       </el-card>
       <el-row :gutter="20" class="mb-6">
         <el-col :span="8">
-          <el-card class="stat-card hover-effect">
+          <el-card class="stat-card " shadow="never">
             <div class="flex justify-between items-center">
               <div>
                 <div class="text-gray-500 text-sm">总申请数</div>
@@ -43,7 +43,7 @@
           </el-card>
         </el-col>
         <el-col :span="8">
-          <el-card class="stat-card hover-effect">
+          <el-card class="stat-card " shadow="never">
             <div class="flex justify-between items-center">
               <div>
                 <div class="text-gray-500 text-sm">热门岗位 TOP3</div>
@@ -60,7 +60,7 @@
           </el-card>
         </el-col>
         <el-col :span="8">
-          <el-card class="stat-card hover-effect">
+          <el-card class="stat-card" shadow="never">
             <div class="flex justify-between items-center h-full">
               <div>
                 <div class="text-gray-500 text-sm">平均处理时效</div>
@@ -74,7 +74,7 @@
       </el-row>
 
       <!-- 岗位管理表格 -->
-      <el-card class="main-table">
+      <el-card class="main-table" shadow="never">
         <template #header>
           <div class="flex justify-between items-center">
             <div class="flex items-center space-x-4">
@@ -190,7 +190,7 @@
               background
               layout="total, sizes, prev, pager, next"
               :total="total"
-              :page-sizes="[ 5, 8,10 , 13]"
+              :page-sizes="[ 4, 5, 8,10 , 13]"
               :current-page.sync="currentPage"
               :page-size.sync="pageSize"
               @current-change="handleCurrentChange"
@@ -231,7 +231,7 @@ export default {
       selectedPosition: null,
       drawerVisible: false,
       currentPage: 1,
-      pageSize: 8, // 更新每页显示条数为 5
+      pageSize: 4, // 更新每页显示条数为 5
       total: 0,
       paginatedData: [],
       statusOptions: [
@@ -301,12 +301,23 @@ export default {
     eiditGw() {
       // 获取当前行数据
       if (this.currentJobSelectRow === null) {
-        //使用 Jquery confirm 弹窗提示
-        this.$confirm('请选择需要编辑的岗位！', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        })
+        $.confirm({
+          title: '提示',
+          content: '请选择需要编辑的岗位！',
+          type: 'orange', // warning 样式
+          buttons: {
+            确定: {
+              btnClass: 'btn-orange',
+              action:  ()=> {
+                console.log("用户点击了确定");
+                // 这里可以执行编辑操作
+              }
+            },
+            取消:  ()=> {
+              console.log("用户点击了取消");
+            }
+          }
+        });
       } else {
         console.log("跳转到编辑岗位页面");
         console.log(this.currentJobSelectRow.id);
@@ -483,5 +494,7 @@ export default {
   @apply border-b-0 bg-gray-50;
 }
 
-
+.mb-6 {
+  margin-bottom: 0.5rem !important;
+}
 </style>

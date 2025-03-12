@@ -1,5 +1,6 @@
 package org.sems.sems.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -70,6 +71,19 @@ public class Msdmk implements Serializable {
      * 面试地点
      */
     private String msdd;
+    /**
+     * 面试评价
+     */
+    private Integer mspj;
+    /**
+     * HR总结内容
+     */
+    private String hrzj;
+    /**
+     * 结果录入时间
+     */
+
+    private Date jglrsj;
 
 }
 

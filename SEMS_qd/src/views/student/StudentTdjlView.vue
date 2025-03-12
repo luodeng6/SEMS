@@ -90,6 +90,7 @@
               style="width: 100%"
               :row-class-name="tableRowClassName"
               @sort-change="handleSortChange"
+              @row-dblclick="handleRowDblclick">
               v-loading="loading">
             <el-table-column type="expand">
               <template #default="{row}">
@@ -244,6 +245,11 @@ export default {
     this.getLoginUserInfo()
   },
   methods: {
+    // 双击查看单位详情
+    handleRowDblclick(row) {
+      console.log(row);
+     this.$router.push({path: '/stu/StudentDwInfoDetailView', query: {dwUserName: row.DWYH, title: '我的投递记录', from: '/stu/tdjl'}})
+    },
     // 删除投递记录
     deleteTdjl(row) {
       this.$confirm('确定删除该投递记录吗？', '提示', {

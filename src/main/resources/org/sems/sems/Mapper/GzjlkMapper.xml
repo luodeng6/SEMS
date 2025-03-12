@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.GzjlkMapper">
+
+    <insert id="insertGZJLK">
+        INSERT INTO GZJLK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuid != null"> STUID, </if>
+            <if test="tjsj != null"> TJSJ, </if>
+            <if test="dwmc != null"> DWMC, </if>
+            <if test="gwmc != null"> GWMC, </if>
+            <if test="kssj != null"> KSSJ, </if>
+            <if test="jssj != null"> JSSJ, </if>
+            <if test="jlms != null"> JLMS, </if>
+            <if test="qydm != null"> QYDM, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuid != null"> #{stuid}, </if>
+            <if test="tjsj != null"> #{tjsj}, </if>
+            <if test="dwmc != null"> #{dwmc}, </if>
+            <if test="gwmc != null"> #{gwmc}, </if>
+            <if test="kssj != null"> #{kssj}, </if>
+            <if test="jssj != null"> #{jssj}, </if>
+            <if test="jlms != null"> #{jlms}, </if>
+            <if test="qydm != null"> #{qydm}, </if>
+        </trim>
+    </insert>
+
+
+    <update id="updateGZJLK" parameterType="map">
+        UPDATE GZJLK
+        <set>
+            <if test="stuid != null"> STUID = #{stuid}, </if>
+            <if test="tjsj != null"> TJSJ = #{tjsj}, </if>
+            <if test="dwmc != null"> DWMC = #{dwmc}, </if>
+            <if test="gwmc != null"> GWMC = #{gwmc}, </if>
+            <if test="kssj != null"> KSSJ = #{kssj}, </if>
+            <if test="jssj != null"> JSSJ = #{jssj}, </if>
+            <if test="jlms != null"> JLMS = #{jlms}, </if>
+            <if test="qydm != null"> QYDM = #{qydm}, </if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+</mapper>
+

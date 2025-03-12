@@ -26,6 +26,7 @@
     "element-ui": "^2.15.14",
     "jquery": "^3.7.1",
     "jquery-confirm": "^3.3.4",
+    "moment": "^2.30.1",
     "popper.js": "^1.16.1",
     "postcss": "^8.4.49",
     "quill": "^2.0.3",

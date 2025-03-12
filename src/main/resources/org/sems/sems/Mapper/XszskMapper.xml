@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.XszskMapper">
+
+
+    <!-- 动态插入 -->
+    <insert id="insertXszsk" parameterType="org.sems.sems.entity.Xszsk" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO XSZSK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zsmc != null">ZSMC,</if>
+            <if test="zskm != null">ZSKM,</if>
+            <if test="zscj != null">ZSCJ,</if>
+            <if test="zsyxq != null">ZSYXQ,</if>
+            <if test="bfjg != null">BFJG,</if>
+            <if test="zsfj != null">ZSFJ,</if>
+            <if test="zszp != null">ZSZP,</if>
+            <if test="bfsj != null">BFSJ,</if>
+            <if test="qydm != null">QYDM,</if>
+            <if test="stuid != null">STUID,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="zsmc != null">#{zsmc},</if>
+            <if test="zskm != null">#{zskm},</if>
+            <if test="zscj != null">#{zscj},</if>
+            <if test="zsyxq != null">#{zsyxq},</if>
+            <if test="bfjg != null">#{bfjg},</if>
+            <if test="zsfj != null">#{zsfj},</if>
+            <if test="zszp != null">#{zszp},</if>
+            <if test="bfsj != null">#{bfsj},</if>
+            <if test="qydm != null">#{qydm},</if>
+            <if test="stuid != null">#{stuid},</if>
+        </trim>
+    </insert>
+
+    <!-- 动态更新 -->
+    <update id="updateXszsk" parameterType="org.sems.sems.entity.Xszsk">
+        UPDATE XSZSK
+        <set>
+            <if test="zsmc != null">ZSMC = #{zsmc},</if>
+            <if test="zskm != null">ZSKM = #{zskm},</if>
+            <if test="zscj != null">ZSCJ = #{zscj},</if>
+            <if test="zsyxq != null">ZSYXQ = #{zsyxq},</if>
+            <if test="bfjg != null">BFJG = #{bfjg},</if>
+            <if test="zsfj != null">ZSFJ = #{zsfj},</if>
+            <if test="zszp != null">ZSZP = #{zszp},</if>
+            <if test="bfsj != null">BFSJ = #{bfsj},</if>
+            <if test="qydm != null">QYDM = #{qydm},</if>
+            <if test="stuid != null">STUID = #{stuid},</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+</mapper>
+

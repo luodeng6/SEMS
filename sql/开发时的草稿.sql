@@ -19,13 +19,18 @@ exec usp_getXxdmkData 3,'msk'
 select * from tdjlk where stuid = 1226 and gwdm =4
 select * from 
 
-
+select * from MSFPK
+select * from FPWTBQK
+select * from MSFPWTK
+-- 获取面试场次
+exec usp_GetMsData_StuAndDw 3,'20213260024'
+exec usp_AllUserGetGongGaoData 3,'msk',-1,0,-1
 
 update DATA_GWDMK set FBZ='billie' , FBZYHSFDM=3 where FBZYHSFDM=1
 
 exec LuoDeng_getAlltableInfo
-exec LuodengTable 'MSDMK'
-
+exec LuodengTable 'XSZSK'
+select* from  DWZPGGK
 
 -- 获取某岗位对应的 环境
 select * from JYHJK order by TJSJ desc
@@ -61,12 +66,30 @@ exec LuodengTable 'DATA_XSJLK'--学生简历库
 exec LuodengTable 'TDJGK'
 exec LuodengTable 'XXDMK'
 exec LuodengTable 'MSSQK'
+exec LuodengTable 'MSFPK'
+exec LuodengTable 'MSFPWTK'--面试复盘问题库：对应MSFPK的问题
+exec LuodengTable 'FPWTBQK'--复盘问题标签库
+exec LuodengTable 'GZJLK' -- 工作经历库
+exec LuodengTable 'DATA_DWDMK'
+exec LuodengTable 'XSZSK'
+select * from XSZSK
+select * from MSJGDMK
+
+exec [usp_StuGet_MsfpDaTa] '20213260024'
+
+select * from MSFPK
+select * from FPWTBQK
+select * from MSFPWTK
+
 select * from DATA_DWDMK where DWMC like '%特斯拉%'
 update DWYHK set MM=1
-
+select *from MSJGDMK
  select * from TDJGK
 select * from DATA_DWDMK
 select * from DWYHK
+
+exec usp_getMsData 3,'msk'
+
 
 select b.XSXM,a.* from MSDMK a left join DATA_STUDENT b on a.XSDM=b.ID
 
@@ -77,7 +100,7 @@ exec LuodengTable 'XXDMK'
 SELECT   
    *
 from XXDMK
-
+select * from MSDMK
 -- 新建一个草稿表
 select *  into MSCGDMK  from MSDMK 
 

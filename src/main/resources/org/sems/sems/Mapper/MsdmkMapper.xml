@@ -34,6 +34,7 @@
         </trim>
         )
     </insert>
+
     <update id="updateMsdmk">
         UPDATE MSDMK
         <set>
@@ -47,7 +48,10 @@
             <if test="fqzsfdm != null">FQZSFDM = #{fqzsfdm},</if>
             <if test="fqsj != null">FQSJ = #{fqsj},</if>
             <if test="qydm != null">QYDM = #{qydm},</if>
+            <if test="mspj != null">MSPJ = #{mspj},</if>
+            <if test="hrzj != null">HRZJ = #{hrzj},</if>
             <if test="qrdm != null">QRDM = #{qrdm},</if>
+            <if test="jglrsj != null">JGLRSJ = #{jglrsj},</if>
             <if test="msdd != null">MSDD = #{msdd},</if>
         </set>
         WHERE MSDM = #{msdm};
