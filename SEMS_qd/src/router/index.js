@@ -8,7 +8,7 @@ import {ServerIP} from "@/SystemConfig";
 
 Vue.use(VueRouter)
 
-// 页面类型分为：管理员、学生、教师、单位、public   ；对应为meta.style，所有用户都能访问public页面,即：style表示只能哪种用户可以访问
+// 页面类型分为：管理员、学生、老师、单位、public   ；对应为meta.style，所有用户都能访问public页面,即：style表示只能哪种用户可以访问
 // canRunUser: 表示访问时检查是否登录，如果登录，canRunUser属性值必须与登录用户的角色一致，才会触发跳转，
 // runTo: 表示登录成功后跳转的页面
 
@@ -54,7 +54,7 @@ const routes = [
         meta: {style: '管理员'} // 需要认证的路由
     },
     {
-        //·教师管理·
+        //·老师管理·
         path: '/admin/teacher',
         name: 'AdminTeacher',
         component: () => import('@/views/admin/Admin_teacher.vue'),
@@ -119,18 +119,18 @@ const routes = [
         meta: {style: '学生'}
     },
     {
-        // 教师登录页面
+        // 老师登录页面
         path: '/teacher/login',
         name: 'TeacherLoginView',
         component: () => import('@/views/teacher/TeacherLoginView.vue'),
-        meta: {style: 'public', canRunUser: "教师", runTo: "TeacherIndexView"}
+        meta: {style: 'public', canRunUser: "老师", runTo: "TeacherIndexView"}
     },
     {
-        // 教师首页
+        // 老师首页
         path: '/teacher/index',
         name: 'TeacherIndexView',
         component: () => import('@/views/teacher/TeacherIndexView.vue'),
-        meta: {style: '教师'}
+        meta: {style: '老师', title: '老师-首页'}
     },
     {
         // 单位登录
@@ -375,7 +375,26 @@ const routes = [
         name: "StudentDwInfoDetailView",
         component: () => import('@/views/student/StudentDwInfoDetailView.vue'),
         meta: {style: '学生', title: '学生-单位信息详情'}
+    },
+    {
+        path: "/public/jobDetail",
+        name: "PublicJobDetailView",
+        component: () => import('@/views/publicView/PublicJobDetailView.vue'),
+        meta: {style: 'public', title: '岗位详情'}
+    },
+    {
+        path: "/stu/cjdgl",
+        name:"StudentCjdglView",
+        component: () => import('@/views/student/StudentCjdglView.vue'),
+        meta: {style: '学生', title: '学生-成绩单管理'}
+    },
+    {
+        path: "/teacher/Xscjdgl",
+        name:"TeacherXscjdView",
+        component: () => import('@/views/teacher/TeacherXscjdView.vue'),
+        meta: {style: '老师', title: '老师-成绩单管理'}
     }
+
 ]
 
 
@@ -432,8 +451,6 @@ router.beforeEach((to, from, next) => {
     //  routes.map(route => route.path);
     /* console.log("所有路由path:");
      console.log(paths);*/
-
-
     if (!paths.includes(to.path)) {
         window.location.href = ServerIP + '/page/page2/404.html'; // 跳转到静态的 404.html 页面
         return;
@@ -449,7 +466,10 @@ router.beforeEach((to, from, next) => {
                 //用户已经登录，且可以跳转
                 if (response.data.result && response.data.role === to.meta.canRunUser) {
                     console.log("-----用户已经登录，且可以跳转")
-                    next({name: to.meta.runTo})
+                    next({
+                        name: to.meta.runTo,
+                        params: { from: 'index' }  // Add your parameters here
+                    })
                 } else {
                     // 用户一登录，且不能跳转
                     console.log("-----用户访问public页面,不跳转")
@@ -481,6 +501,12 @@ router.beforeEach((to, from, next) => {
                         console.log("----- 单位未登录，跳转到单位登录页面")
                         // 其他角色未登录，跳转到单位登录页面
                         next({name: 'DwLoginView'});
+                    }else if (to.meta.style === '老师'){
+                        console.log("----- 老师未登录，跳转到老师登录页面")
+                        // 其他角色未登录，跳转到老师登录页面
+                        next({name: 'TeacherLoginView'});
+                    } else {
+                        console.log("----- 未知角色未登录!!!!!!!!!!!!!!!!")
                     }
                 }
             }

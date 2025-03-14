@@ -49,8 +49,8 @@ public class JsdmkController {
             teacherMap.put("BJLIST", bjdmkList);
             teacherListWithClasses.add(teacherMap); // 添加到新的列表中
 
-            System.out.println("教师 " + jsdmk.getJsmc() + " 对应的班级列表：");
-            System.out.println(bjdmkList);
+            //System.out.println("教师 " + jsdmk.getJsmc() + " 对应的班级列表：");
+          //  System.out.println(bjdmkList);
         }
 
         result.put("data", teacherListWithClasses); // 返回带班级列表的教师信息

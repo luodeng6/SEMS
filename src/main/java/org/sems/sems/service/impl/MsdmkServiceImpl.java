@@ -24,7 +24,6 @@ public class MsdmkServiceImpl implements MsdmkService {
      */
     @Override
     public Map<String, Object> getWaitApms(String yhm) {
-
         Map<String, Object> resultMap = new HashMap<>();
         try {
             // 处理获取投递简历列表逻辑

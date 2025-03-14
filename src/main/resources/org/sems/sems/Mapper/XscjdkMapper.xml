@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.XscjdkMapper">
+    <insert id="insertXscjdk" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO Xscjdk
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">stuid,</if>
+            <if test="kcmc != null">kcmc,</if>
+            <if test="kcxz != null">kcxz,</if>
+            <if test="xf != null">xf,</if>
+            <if test="jd != null">jd,</if>
+            <if test="cjxz != null">cjxz,</if>
+            <if test="kccj != null">kccj,</if>
+            <if test="skjs != null">skjs,</if>
+            <if test="qydm != null">qydm,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">#{stuid},</if>
+            <if test="kcmc != null">#{kcmc},</if>
+            <if test="kcxz != null">#{kcxz},</if>
+            <if test="xf != null">#{xf},</if>
+            <if test="jd != null">#{jd},</if>
+            <if test="cjxz != null">#{cjxz},</if>
+            <if test="kccj != null">#{kccj},</if>
+            <if test="skjs != null">#{skjs},</if>
+            <if test="qydm != null">#{qydm},</if>
+        </trim>
+    </insert>
+
+
+    <update id="updateXscjdk">
+        UPDATE Xscjdk
+        <set>
+            <if test="stuid != null">STUID = #{stuid},</if>
+            <if test="kcmc != null">KCMC = #{kcmc},</if>
+            <if test="kcxz != null">KCXZ = #{kcxz},</if>
+            <if test="xf != null">XF = #{xf},</if>
+            <if test="jd != null">JD = #{jd},</if>
+            <if test="cjxz != null">CJXZ = #{cjxz},</if>
+            <if test="kccj != null">KCCJ = #{kccj},</if>
+            <if test="skjs != null">SKJS = #{skjs},</if>
+            <if test="qydm != null">QYDM = #{qydm},</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+
+   <!-- <select id="selectXscjdk" resultType="Xscjdk">
+        SELECT * FROM Xscjdk
+        <where>
+            <if test="id != null">AND ID = #{id}</if>
+            <if test="stuid != null">AND STUID = #{stuid}</if>
+            <if test="kcmc != null">AND KCMC LIKE CONCAT('%', #{kcmc}, '%')</if>
+            <if test="kcxz != null">AND KCXZ = #{kcxz}</if>
+            <if test="xf != null">AND XF = #{xf}</if>
+            <if test="jd != null">AND JD = #{jd}</if>
+            <if test="cjxz != null">AND CJXZ = #{cjxz}</if>
+            <if test="kccj != null">AND KCCJ = #{kccj}</if>
+            <if test="skjs != null">AND SKJS LIKE CONCAT('%', #{skjs}, '%')</if>
+            <if test="qydm != null">AND QYDM = #{qydm}</if>
+        </where>
+    </select>-->
+
+</mapper>
+

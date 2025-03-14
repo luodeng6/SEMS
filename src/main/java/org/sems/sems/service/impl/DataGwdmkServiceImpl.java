@@ -6,6 +6,7 @@ import org.sems.sems.entity.DataGwdmk;
 import org.sems.sems.service.DataGwdmkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -299,6 +300,46 @@ public class DataGwdmkServiceImpl implements DataGwdmkService {
             return result;
         }
     }
+
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+
+    /**
+     * 统一接口获取岗位信息
+     *
+     * @param IsJustOne
+     * @param gwdm
+     * @param QYDM
+     * @param IsByFBZ
+     * @param FBZ
+     * @param SXBZ
+     */
+    @Override
+    public Map<String, Object> getGwdmkDataToInterface(int IsJustOne, int gwdm, int QYDM, int IsByFBZ, String FBZ, int SXBZ) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            // 调用存储过程
+            List<Map<String, Object>> resultList = new ArrayList<>();
+
+            resultList = jdbcTemplate.queryForList(
+                    "{call usp_GetJobData(?,?,?,?,?,?)}", IsJustOne, gwdm, QYDM, IsByFBZ, FBZ, SXBZ);
+            resultMap.put("data", resultList);
+            resultMap.put("code", 200);
+            resultMap.put("msg", "success");
+            resultMap.put("result", true);
+            return resultMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+
 
     /**
      * 更新岗位信息

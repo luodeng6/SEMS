@@ -69,17 +69,30 @@ public interface DataGwdmkService {
     Map<String, Object> getGwdmById(Integer id);
 
     /**
-     *  根据发布者用户名获取岗位信息
+     * 根据发布者用户名获取岗位信息
+     *
      * @param fbzyhm
      * @return
      */
     Map<String, Object> getDataGwdmkByFbz(String fbzyhm);
 
     /**
-    *
-    * 上传岗位图片
-    * @param files
-    * @return Map<String, Object>
-    * */
+     * 上传岗位图片
+     *
+     * @param files
+     * @return Map<String, Object>
+     */
     Map<String, Object> uploadGangWeiHuanJingImg(MultipartFile[] files);
+
+    /**
+     * 统一接口获取岗位信息
+     */
+    Map<String, Object> getGwdmkDataToInterface(
+            int IsJustOne,//是否只是获取一条
+            int gwdm,// 当@IsJustOne为1时，此参数才有用
+            int QYDM,// 1时只获取启用的，0 只获取未启用的，2 获取全部
+            int IsByFBZ,// 是否通过发布者获取
+            String FBZ, // 发布者  ，@IsByFBZ为1时有效
+            int SXBZ   //实习标志，1只获取实习，0 只获取正式岗位，2全部
+    );
 }

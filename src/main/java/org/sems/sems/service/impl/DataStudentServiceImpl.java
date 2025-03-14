@@ -318,14 +318,13 @@ public class DataStudentServiceImpl implements DataStudentService {
         List<Map<String, Object>> DataList = jdbcTemplate.queryForList(
                 "{call usp_GetAllStudentData(?, ?)}", session.getAttribute("username"), session.getAttribute("role"));
         //  "{call usp_GetAllStudentData(?, ?)}", "lls", "老师");
-        System.out.println("执行usp_GetAllStudentData存储过程结果:");
-        System.out.println(DataList);
+      //  System.out.println("执行usp_GetAllStudentData存储过程结果:");
+    //    System.out.println(DataList);
         Map<String, Object> resultMap = new HashMap<>();
         // 获取第一个   错误返回：[{"ISERROR":1,"MSG":"错误内容}]
-
         if (DataList.isEmpty() || DataList.get(0).get("ISERROR") == null) {
-            System.out.println("行，我给你数据：");
-            System.out.println(DataList);
+           // System.out.println("行，我给你数据：");
+          //  System.out.println(DataList);
             resultMap.put("code", 200);
             resultMap.put("msg", "success");
             resultMap.put("result", true);

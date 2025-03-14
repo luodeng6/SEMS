@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: "publicMenu",
+  name: "publicMenu1",
   data() {
     return {
       isNavbarOpen: false,

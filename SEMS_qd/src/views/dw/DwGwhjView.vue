@@ -382,9 +382,9 @@ export default {
     this.timer = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.imgList.length;
     }, this.interval);
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 5000);
+
+
+
   },
   methods: {
 
@@ -475,8 +475,10 @@ export default {
           * */
           this.JyhjkTableData = response.data.data;
           this.total = this.filteredPositions.length; // 设置总数
+          this.isLoading = false;
         } else {
           this.$message.error("获取就业环境管理表数据失败：后台错误！");
+          this.isLoading = false;
         }
       }).catch(error => {
         console.log(error);

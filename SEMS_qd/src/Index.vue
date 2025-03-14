@@ -1,468 +1,641 @@
 <template>
-  <div class="next-gen-container">
-    <public-menu class="modern-nav"></public-menu>
+  <div class="home-container">
+    <PublicMenu2></PublicMenu2>
 
-    <main class="fluid-layout">
-
-      <!-- 功能卡片区 -->
-      <div class="container-fluid" style="padding: 39px 76px;">
-        <section  class="row">
-          <div class="col-md-3">
-            <div class="card quick-actions">
-              <div class="action-grid">
-                <router-link
-                    v-for="(action, index) in quickActions"
-                    :key="index"
-                    :to="action.path"
-                    class="action-card"
-                    :style="`--hue: ${index * 60}`"
-                >
-                  <i :class="action.icon"></i>
-                  <span>{{ action.title }}</span>
-                </router-link>
+    <!-- 登录入口 -->
+    <section class="login-section">
+      <div class="container">
+        <h3 class="section-title"><i class="el-icon-key"></i> 用户登录入口</h3>
+        <el-row :gutter="30" class="login-grid">
+          <router-link v-for="(entry, index) in loginTypes" :key="index" :to="entry.url">
+            <el-col
+                :md="6"
+                :sm="6"
+                :xs="12">
+              <div
+                  :class="`type-${entry.type}`"
+                  class="login-card"
+                  @click="handleLogin(entry.type)"
+              >
+                <div class="card-icon">
+                  <i :class="entry.icon"></i>
+                </div>
+                <h4>{{ entry.title }}</h4>
+                <div class="hover-mask"></div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="card">
-              <div class="carousel-content">
-                <img src="http://localhost:83/img.png" alt="职业发展">
-                <div class="carousel-overlay">
-                  <h3>2024届名企招聘季</h3>
-                  <p>500+优质岗位火热进行中</p>
+            </el-col>
+          </router-link>
+        </el-row>
+      </div>
+    </section>
+
+    <!-- 公告区域 -->
+    <section class="notice-section">
+      <div class="container">
+        <el-row :gutter="30">
+          <el-col :md="12">
+            <div class="enhanced-card recruit-notice">
+              <div class="card-header">
+                <i class="el-icon-mic"></i>
+                <h3>招聘公告</h3>
+                <el-tag size="small" type="danger">实时更新</el-tag>
+              </div>
+              <div class="card-body">
+                <div
+                    v-for="(notice, index) in notices"
+                    :key="index"
+                    class="notice-item"
+                >
+                  <!--                  {
+                  "ID": 2,
+                  "FBZ": "luo",
+                  "FBZSFDM": 3,
+                  "QYDM": 1,
+                  "GGNR": "",
+                  "GGNRHTML": "",
+                  "CJSJ": "2025-03-11T05:53:31.640+00:00",
+                  "GGBT": "学院乒乓球室改造工程成交公告",
+                  "LLL": 0,
+                  "FBZXM": "罗邓卫宁招聘",
+                  "FBZSF": "HR"
+                  },-->
+                  <div class="notice-main" style="cursor: pointer;" @click="handleNotice(notice)">
+                    <el-tag size="mini" type="danger">NEW</el-tag>
+                    <span class="notice-title">{{ truncateText(notice.GGBT, 25) }}</span>
+                  </div>
+                  <div class="notice-extra">
+                    <span class="notice-date">{{ formatDate(notice.CJSJ) }}</span>
+                    <el-button size="mini" type="text">详情</el-button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="info-card announcements">
-              <h3><i class="fas fa-bullhorn"></i> 最新公告</h3>
-              <ul class="announcement-list">
-                <li v-for="(announcement, index) in announcements" :key="index">
-                  <span class="announcement-date">{{ announcement.date }}</span>
-                  <span class="announcement-title">{{ announcement.title }}</span>
-                  <i class="fas fa-external-link-alt"></i>
-                </li>
-              </ul>
+          </el-col>
+
+          <el-col :md="12">
+            <div class="enhanced-card system-notice">
+              <div class="card-header">
+                <i class="el-icon-message"></i>
+                <h3>系统公告</h3>
+                <el-tag size="small" type="success">最新动态</el-tag>
+              </div>
+              <div class="card-body">
+                <div
+                    v-for="(notice, index) in systemNotices"
+                    :key="'system'+index"
+                    class="notice-item"
+                >
+
+                  <div class="notice-main">
+                    <el-tag size="mini" type="success">UPD</el-tag>
+                    <span class="notice-title" style="cursor: pointer;">{{ truncateText(notice.GGBT, 4) }}</span>
+                  </div>
+                  <div class="notice-extra">
+                    <span class="notice-date">{{ formatDate(notice.CJSJ) }}</span>
+                    <el-button size="mini" type="text">查看</el-button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-
-        </section>
+          </el-col>
+        </el-row>
       </div>
+    </section>
 
+    <!-- 额外信息：最近发布岗位 & 紧凑招聘会 -->
+    <section class="extra-info-section">
+      <div class="container">
+        <el-row :gutter="30">
+          <!-- 最近发布的岗位 -->
+          <el-col :md="12">
+            <div class="enhanced-card recent-jobs-card">
+              <div class="card-header">
+                <i class="el-icon-s-order"></i>
+                <h3>最近发布的岗位</h3>
+                <el-button size="small" type="primary">查看更多</el-button>
+              </div>
+              <div class="card-body">
+                <div v-for="(job, index) in DATAGWDMK" :key="index" class="job-item">
+                  <h4 class="job-title">{{ job.gwmc }}</h4>
+                  <div class="job-details">
+                    <span><i class="el-icon-office-building"></i> {{ DATADWDMK.find(dw=>dw.dwdm===job.dwdm).gsmc }}</span>
+                    <span><i class="el-icon-location"></i> {{ job.gzdd }}</span>
+                    <span><i class="el-icon-time"></i> {{ formatDate(job.fbsj) }}</span>
+                  </div>
+                  <el-button @click="handleJobDetail(job.id)" size="mini" type="text">详情</el-button>
+                </div>
+              </div>
+            </div>
+          </el-col>
 
-    </main>
+          <!-- 紧凑招聘会信息 -->
+          <el-col :md="12">
+            <div class="enhanced-card compact-jobfair-card">
+              <div class="card-header">
+                <i class="el-icon-s-opportunity"></i>
+                <h3>近期招聘会</h3>
+                <el-button size="small" type="primary">查看更多</el-button>
+              </div>
+              <div class="card-body">
+                <div
+                    v-for="(fair, index) in jobFairs"
+                    :key="index"
+                    class="compact-jobfair-item"
+                >
+                  <h4>{{ fair.name }}</h4>
+                  <div class="fair-meta">
+                    <span><i class="el-icon-time"></i> {{ fair.time }}</span>
+                    <span><i class="el-icon-location"></i> {{ fair.location }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </section>
+
+    <!-- 固定漂浮消息框 -->
+    <div class="fixed-message-box" v-show="accountMessages.length">
+      <div class="message-icon">
+        <i class="el-icon-message"></i>
+        <span v-if="accountMessages.length" class="badge">{{ accountMessages.length }}</span>
+      </div>
+      <div class="message-list">
+        <ul>
+          <!--          CFSJ
+                    :
+                    "2025-03-10T13:04:00.137+00:00"
+                    CFZ
+                    :
+                    "msk"
+                    CFZXM
+                    :
+                    "Elon Reeve Musk"
+                    CFZXW
+                    :
+                    "单位回应了投递"
+                    DZLX
+                    :
+                    2
+                    DZNR
+                    :
+                    "鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你"
+                    JSZ
+                    :
+                    "20213260035"
+                    JSZXM
+                    :
+                    "苏晨聪"
+                    YDBZ
+                    :
+                    0
+                    YHZP
+                    :
+                    "/img/upload/Userpofile/msk_1740146313143_.jpeg"-->
+          <li v-for="(msg, index) in accountMessages" :key="index">
+            <div class="msg-title">{{ msg.CFZXW }}</div>
+            <div class="msg-content">{{ msg.DZNR }}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
   </div>
 </template>
 
 <script>
-import publicMenu from "@/components/public/public_menu.vue";
+import axios from "axios";
+import {EventBus} from "@/event-bus";
+import PublicMenu from "@/components/public/public_menu.vue";
+import PublicMenu2 from "@/components/public/PublicMenu.vue";
 
 export default {
-  components: {
-    publicMenu
-  },
+  components: {PublicMenu2, PublicMenu},
   data() {
     return {
-      quickActions: [
-        { title: '校园招聘', icon: 'fas fa-building', path: '#' },
-        { title: '简历中心', icon: 'fas fa-file-signature', path: '#' },
-        { title: '面试预约', icon: 'fas fa-handshake', path: '#' },
-        { title: '职业测评', icon: 'fas fa-chart-line', path: '#' },
-        { title: '单位入口', icon: 'fas fa-door-open', path: '/dw/login' },
-        { title: '学生登录', icon: 'fas fa-user-graduate', path: '/stu/Login' }
-      ],
-      events: [
-        {
-          title: '腾讯科技2024校园宣讲会',
-          type: '线上',
-          time: '9月15日 14:00',
-          location: '腾讯会议 #123456',
-          highlight: true
-        },
-        // 其他活动数据...
-      ],
-      newsList: [
-        {
-          title: '阿里巴巴秋招正式启动',
-          tag: '热门',
-          company: '阿里巴巴集团',
-          deadline: '截止10月31日'
-        },
-        // 其他资讯数据...
-      ],
-      user: {
-        name: "张三",
-        role: "学生",
-        avatar: "https://source.unsplash.com/100x100/?portrait"
+      UserInfo: {
+        id: '',
+        name: '',
+        role: '',
+        username: '',
       },
-      announcements: [
+      loginTypes: [
+        {type: 'student', title: '学生登录', icon: 'el-icon-user-solid', url: "/stu/Login"},
+        {type: 'teacher', title: '教师登录', icon: 'el-icon-s-custom', url: '/teacher/login'},
+        {type: 'admin', title: '管理员登录', icon: 'el-icon-s-tools', url: '/Login'},
+        {type: 'hr', title: '企业HR登录', icon: 'el-icon-office-building', url: "/dw/login"}
+      ],
+      notices: [],
+
+      jobFairs: [
         {
-          date: "09-01",
-          title: "2024秋季校园招聘会通知"
-        },
-        {
-          date: "08-28",
-          title: "就业协议书电子签署系统上线"
-        },
-        {
-          date: "08-25",
-          title: "职业指导讲座时间调整通知"
+          name: 'IT行业专场招聘会',
+          time: '2023-09-20 09:00',
+          location: '学校体育馆',
+          companies: ['腾讯', '阿里云', '字节跳动'],
+          cover: 'https://dummyimage.com/400x200/409EFF/fff&text=IT招聘会',
+          countdown: '剩余5天'
         }
       ],
-      recentJobs: [
-        {
-          title: "前端开发工程师",
-          company: "腾讯科技",
-          salary: "15-25K",
-          location: "深圳",
-          logo: "https://logo.clearbit.com/tencent.com"
-        }
-      ]
+      DATAGWDMK: [],
+      DATADWDMK: [],
+      accountMessages: []
     }
+  },
+  computed: {},
+  mounted() {
+    this.getLoginUserInfo();
+    this.getRecruitmentNotices();
+    this.getAllJob();
+    this.getAllDwInfo();
+  },
+  methods: {
+    getAllDwInfo() {
+      axios.get("/dw/getAllDw").then((response) => {
+        if (response.data.result) {
+          console.log("获取单位信息成功！")
+          this.DATADWDMK = response.data.data;
+          console.log(this.DATADWDMK);
+        } else {
+          this.$message.error("获取单位信息失败！，后台错误")
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.$message.error("获取单位信息失败，网络错误")
+      })
+    },
+    handleJobDetail(gwdm){
+      console.log(gwdm);
+      this.$router.push({path: '/public/jobDetail', query: {id: gwdm}})
+    },
+    truncateText(text, maxLength) {
+      if (text.length > maxLength) {
+        return text.slice(0, maxLength) + '...';
+      }
+      return text;
+    },
+    formatDate(dateStr) {
+      return dateStr ? new Date(dateStr).toLocaleDateString() : '-';
+    },
+    getLoginUserInfo() {
+      axios.get('/user/checkSession').then(response => {
+        if (!response.data.result) {
+          return;
+        } else {
+          this.UserInfo.name = response.data.name;
+          this.UserInfo.role = response.data.role;
+          this.UserInfo.username = response.data.username;
+          this.getXxdmk();
+          console.log(this.UserInfo);
+        }
+      }).catch(error => {
+        EventBus.$emit('show-auth-popup');
+        console.error('获取用户信息失败,网络错误！', error);
+      });
+    },
+    // 获取用户未读消息
+    getXxdmk() {
+      axios.get(`/xxdmk/getXxdmk?YHM=${this.UserInfo.username}&YHSFDM=4`).then(response => {
+        if (response.data.result) {
+          // 不看自己发起的消息
+          this.accountMessages = response.data.data.filter(message => message.CFZ !== this.UserInfo.username);
+          console.log(this.accountMessages);
+        } else {
+          console.error('获取消息信息失败,网络错误：' + response.data.msg);
+          this.$message.error('获取消息信息失败:' + response.data.msg);
+        }
+      }).catch(error => {
+        console.error('获取消息信息失败,网络错误！', error);
+        this.$message.error('获取消息信息失败:' + error.message);
+      });
+    },
+    // 获取招聘公告
+    getRecruitmentNotices() {
+      axios.get(`/dwzpggk/getdwzpggk?YFSFDM=4&YHM=null&QYDM=1`).then(res => {
+        if (res.data.result) {
+          // 只获取前3条公告
+          this.notices = res.data.data.slice(0, 3);
+          //this.notices = res.data.data;
+        } else {
+          this.$message.error(res.data.msg);
+        }
+      }).catch(error => {
+        console.error('获取公告列表失败,网络错误！', error);
+        this.$message.error('获取公告列表失败,网络错误！');
+      });
+    },
+
+    handleLogin(type) {
+      // this.$message.info(`跳转到${this.loginTypes.find(t => t.type === type).title}页面`)
+      //this.$router.replace(this.loginTypes.find(t => t.type === type).url)
+
+    },
+    handleNotice(notice) {
+      console.log(notice);
+      this.$router.push({path: '/public/gonggaoDetail', query: {id: notice.ID}})
+    },
+    // 获取所有岗位数据
+    getAllJob() {
+      this.loading = true; // 开始加载
+      axios.get("/dataGwdmk/getGwdmkDataByisQy?isQy=1").then(res => {
+        this.loading = false; // 结束加载
+        if (res.data.result) {
+          this.DATAGWDMK = res.data.data;
+          console.log("获取岗位数据成功:");
+          this.DATAGWDMK= this.DATAGWDMK.sort((a, b) => b.id - a.id).slice(0, 3);
+
+          console.log(this.DATAGWDMK);
+        } else {
+          console.log("获取岗位数据失败：后台数据库错误！");
+        }
+      }).catch(err => {
+        this.loading = false; // 结束加载
+        console.log(err);
+      });
+    },
   }
 }
 </script>
 
 <style scoped>
-.next-gen-container {
-  --primary-hue: 220;
-  --glass-bg: hsla(var(--primary-hue), 100%, 98%, 0.9);
-  --text-primary: hsl(var(--primary-hue), 76%, 35%);
-  --gradient-1: linear-gradient(145deg,
-  hsl(var(--primary-hue), 100%, 92%) 0%,
-  hsl(260, 90%, 92%) 100%);
-  --shadow-sm: 0 4px 12px hsla(var(--primary-hue), 50%, 20%, 0.08);
+/* 整体背景 */
+.home-container {
+  background: #f8f9fa;
 }
 
-/* 玻璃质感头部 */
-.glass-header {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  padding-bottom: 120px;
-}
-
-.hero-banner {
-  text-align: center;
-  padding: 4rem 1rem 8rem;
-  background: var(--gradient-1);
-  clip-path: ellipse(100% 80% at 50% 20%);
-}
-
-.dynamic-text {
-  font-size: 3.5rem;
-  background: linear-gradient(45deg,
-  hsl(250, 80%, 50%),
-  hsl(220, 90%, 55%));
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-bottom: 2rem;
-}
-
-.search-bar {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  border-radius: 50px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-
-.search-bar input {
-  flex: 1;
-  padding: 1.5rem 2rem;
-  border: none;
-  font-size: 1.1rem;
-}
-
-.search-btn {
-  width: 80px;
-  background: var(--text-primary);
+/* 顶部导航 */
+.main-header {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
   color: white;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
+  padding: 1rem 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-.search-btn:hover {
-  background: hsl(var(--primary-hue), 80%, 45%);
-}
-
-/* 仪表盘布局 */
-.dashboard-grid {
-  display: grid;
-  gap: 2rem;
-  margin-top: -8px;
-  padding: 0 2rem;
-  grid-template-columns: 1fr 400px;
-}
-
-.main-carousel {
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-}
-
-.carousel-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  color: white;
-}
-
-.quick-actions {
-  background: white;
-  border-radius: 20px;
-  padding: 1.5rem;
-  height: 100%;
-}
-
-.action-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  height: 100%;
-}
-
-.action-card {
-  padding: 1.5rem;
-  border-radius: 15px;
-  background: hsl(var(--hue), 90%, 96%);
-  color: hsl(var(--hue), 80%, 40%);
-  text-align: center;
-  transition: all 0.3s;
-}
-
-.action-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px hsla(var(--hue), 50%, 50%, 0.1);
-}
-
-/* 时间轴设计 */
-.event-timeline {
-  margin: 2rem;
-  padding: 2rem;
-  background: white;
-  border-radius: 20px;
-}
-
-.timeline-container {
-  position: relative;
-  padding-left: 40px;
-}
-
-.timeline-item {
-  padding: 1.5rem 0;
-  position: relative;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -28px;
-  top: 24px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--text-primary);
-  border: 3px solid white;
-  box-shadow: 0 0 0 4px hsl(var(--primary-hue), 90%, 90%);
-}
-
-.timeline-item.highlight .timeline-marker {
-  background: #ff6b6b;
-  box-shadow: 0 0 0 4px #ffe3e3;
-}
-
-/* 悬浮按钮系统 */
-.fab-container {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-}
-
-.fab-main {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--text-primary);
-  color: white;
-  border: none;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s;
-}
-
-.fab-main:hover {
-  transform: scale(1.1) rotate(90deg);
-}
-
-@media (max-width: 1200px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dynamic-text {
-    font-size: 2.5rem;
-  }
-}
-
-/* 新增样式 */
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
 }
 
-.user-profile {
+.university-brand {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: rgba(255,255,255,0.9);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid white;
+.logo {
+  border-radius: 8px;
 }
 
-.user-info {
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.brand-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.header-nav {
   display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.username {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.user-role {
-  font-size: 0.8em;
-  color: #666;
-}
-
-.quick-info-bar {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
   gap: 2rem;
-  margin: 2rem;
 }
 
-.info-card {
+.nav-item {
+  color: white !important;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.nav-item:hover {
+  color: #a0cfff !important;
+}
+
+/* 登录区域 */
+.login-section {
+  padding: 2rem 0;
   background: white;
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
+  margin: 20px 0;
+  border-radius: 8px;
+  /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);*/
 }
 
-.announcement-list li {
-  display: flex;
-  align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-  transition: all 0.2s;
+.login-grid {
+  margin-top: 1.5rem;
 }
 
-.announcement-list li:hover {
-  background: #f8f9fa;
-  transform: translateX(5px);
-}
-
-.announcement-date {
-  width: 60px;
-  color: var(--text-primary);
-  font-weight: 500;
-}
-
-.announcement-title {
-  flex: 1;
-  margin: 0 1rem;
-}
-
-.job-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.job-card {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 15px;
-  background: #f8f9fa;
-  transition: all 0.3s;
-}
-
-.job-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.company-logo {
-  width: 50px;
-  height: 50px;
+.login-card {
+  position: relative;
+  background: white;
   border-radius: 12px;
+  padding: 2rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
   overflow: hidden;
-  margin-right: 1rem;
+  border: 1px solid #eee;
 }
 
-.company-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.login-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.login-card.type-student {
+  border-top: 4px solid #409EFF;
+}
+
+.login-card.type-teacher {
+  border-top: 4px solid #67C23A;
+}
+
+.login-card.type-admin {
+  border-top: 4px solid #909399;
+}
+
+.login-card.type-hr {
+  border-top: 4px solid #E6A23C;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: #409EFF;
+  margin-bottom: 1rem;
+  transition: 0.3s;
+}
+
+.login-card:hover .card-icon {
+  transform: scale(1.1);
+}
+
+/* 公告卡片 */
+.enhanced-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.notice-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.notice-item:last-child {
+  border-bottom: none;
+}
+
+/* 额外信息区域 */
+.extra-info-section {
+  margin: 20px 0;
+}
+
+.recent-jobs-card .job-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-jobs-card .job-item:last-child {
+  border-bottom: none;
+}
+
+.job-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .job-details {
-  flex: 1;
-}
-
-.company-name {
+  font-size: 0.9rem;
   color: #666;
-  font-size: 0.9em;
-}
-
-.job-meta {
   display: flex;
   gap: 1rem;
-  margin-top: 0.5rem;
-  font-size: 0.9em;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 }
 
-.salary {
-  color: #e91e63;
-  font-weight: 500;
+.compact-jobfair-card .compact-jobfair-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.location {
-  color: #2196f3;
+.compact-jobfair-card .compact-jobfair-item:last-child {
+  border-bottom: none;
 }
 
+.fair-meta {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  gap: 1rem;
+}
+
+/* 固定漂浮消息框 */
+.fixed-message-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.fixed-message-box .message-icon {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #409EFF;
+  color: #fff;
+}
+
+.fixed-message-box .badge {
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+.fixed-message-box .message-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.fixed-message-box:hover .message-list {
+  max-height: 300px;
+  padding: 10px;
+}
+
+.fixed-message-box .message-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fixed-message-box .message-list li {
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.fixed-message-box .message-list li:last-child {
+  border-bottom: none;
+}
+
+.fixed-message-box .msg-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.fixed-message-box .msg-content {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.notice-main:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* 响应式调整 */
 @media (max-width: 768px) {
-  .quick-info-bar {
-    grid-template-columns: 1fr;
-  }
-
   .header-content {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
+    gap: 1rem;
   }
 
-  .user-profile {
-    margin-top: 1rem;
+  .login-card {
+    margin-bottom: 1rem;
   }
+}
+
+
+.enhanced-card{
+  box-shadow: 0 0px 0px !important ;
+
 }
 </style>

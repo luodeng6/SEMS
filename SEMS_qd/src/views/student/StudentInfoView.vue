@@ -76,8 +76,7 @@
                     v-for="(skill, index) in skills"
                     :key="index"
                     class="skill-tag"
-                    :style="{ backgroundColor: skill.color }"
-                >
+                    :style="{ backgroundColor: skill.color }">
                   {{ skill.name }}
                 </div>
               </div>

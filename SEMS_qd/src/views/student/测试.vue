@@ -172,7 +172,7 @@ export default {
   name: 'StudentInfo',
   components: { DwMenu },
   data() {
-    return {
+    return {1
       form: {
         ID: '2023001',
         XSXH: '20230001',

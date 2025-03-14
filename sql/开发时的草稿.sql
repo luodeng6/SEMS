@@ -17,7 +17,9 @@ select * from XXDMK
 Select QYDM,* from DATA_STUDENT
 exec usp_getXxdmkData 3,'msk'
 select * from tdjlk where stuid = 1226 and gwdm =4
-select * from 
+select * from XSCJDK
+exec LuodengTable 'XSCJDK'
+select * from DATA_GWDMK
 
 select * from MSFPK
 select * from FPWTBQK
@@ -72,8 +74,14 @@ exec LuodengTable 'FPWTBQK'--复盘问题标签库
 exec LuodengTable 'GZJLK' -- 工作经历库
 exec LuodengTable 'DATA_DWDMK'
 exec LuodengTable 'XSZSK'
+exec LuodengTable ''
+
+
 select * from XSZSK
 select * from MSJGDMK
+
+select * from XSZSK
+
 
 exec [usp_StuGet_MsfpDaTa] '20213260024'
 

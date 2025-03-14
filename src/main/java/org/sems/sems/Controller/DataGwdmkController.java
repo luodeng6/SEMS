@@ -24,12 +24,37 @@ public class DataGwdmkController {
 
     // 获取岗位信息,根据是否启用
     @GetMapping("/getGwdmkDataByisQy")
-    public Map<String, Object> getGwdmkDataByisQy(Integer isQy) {return dataGwdmkService.getDataGwdmkByisQy(isQy);}
+    public Map<String, Object> getGwdmkDataByisQy(Integer isQy) {
+        return dataGwdmkService.getDataGwdmkByisQy(isQy);
+    }
 
     // 通过发布者获取岗位信息
     @GetMapping("/getGwdmkDataByFbz")
     public Map<String, Object> getGwdmkDataByFbz(String fbzyhm) {
         return dataGwdmkService.getDataGwdmkByFbz(fbzyhm);
+    }
+
+    // 统一接口获取岗位信息
+    @GetMapping("/getGwdmkDataToInterface")
+    public Map<String, Object> getGwdmkDataToInterface( @RequestParam(defaultValue = "0")int IsJustOne,//是否只是获取一条
+                                                       @RequestParam(defaultValue = "-1") int gwdm,// 当@IsJustOne为1时，此参数才有用
+                                                       @RequestParam(defaultValue = "2") int QYDM,// 1时只获取启用的，0 只获取未启用的，2 获取全部
+                                                       @RequestParam(defaultValue = "0")    int IsByFBZ,// 是否通过发布者获取
+                                                       @RequestParam(defaultValue = "null")    String FBZ, // 发布者  ，@IsByFBZ为1时有效
+                                                       @RequestParam(defaultValue = "2") int SXBZ   //实习标志，1只获取实习，0 只获取正式岗位，2全部
+    ) {
+        if (IsJustOne == 1) {
+            System.out.println(111);
+            IsByFBZ = 0;
+            FBZ = "";
+            SXBZ = 2;
+            QYDM = 2;
+        } else if (IsByFBZ == 1) {
+            IsJustOne = 0;
+            gwdm = -1;
+        }
+
+        return dataGwdmkService.getGwdmkDataToInterface(IsJustOne, gwdm, QYDM, IsByFBZ, FBZ, SXBZ);
     }
 
     // 停用岗位信息

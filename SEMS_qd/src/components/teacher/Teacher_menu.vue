@@ -2,7 +2,7 @@
   <div>
     <aside class="w-64 bg-white shadow-md h-screen fixed left-0 top-0 overflow-y-auto">
       <div class="p-5 border-b">
-        <h2 class="text-xl font-bold text-blue-600" style="font-size: 16px">就业信息系统(学生端)</h2>
+        <h2 class="text-xl font-bold text-blue-600" style="font-size: 16px">就业信息系统(Teacher)</h2>
       </div>
       <nav class="p-4">
         <ul class="space-y-2">
@@ -18,7 +18,7 @@
             <router-link to="/stu/xsjl">
               <a class="flex items-center p-2 text-gray-700">
                 <i class="fas fa-users mr-2"></i>
-                个人简历
+                学生管理
               </a>
             </router-link>
           </li>
@@ -26,11 +26,45 @@
             <router-link to="/admin/job">
               <a class="flex items-center p-2 text-gray-700">
                 <i class="fas fa-briefcase mr-2"></i>
-                个人信息
+                就业辅导
+              </a>
+            </router-link>
+          </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/teacher/Xscjdgl">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-briefcase mr-2"></i>
+                学生成绩
               </a>
             </router-link>
           </li>
 
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/admin/job">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-briefcase mr-2"></i>
+                招聘会
+              </a>
+            </router-link>
+          </li>
+
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/admin/job">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-briefcase mr-2"></i>
+                招聘公告
+              </a>
+            </router-link>
+          </li>
+
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/admin/job">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-briefcase mr-2"></i>
+                岗位推荐
+              </a>
+            </router-link>
+          </li>
 
           <li @click="toggleStatsMenuXiaoYuanOpen" class="hover:bg-blue-50 rounded cursor-pointer">
             <a class="flex items-center p-2 text-gray-700">
@@ -43,7 +77,7 @@
             <li class="hover:bg-blue-50 rounded">
               <router-link to="/stu/job">
                 <a class="flex items-center p-2 text-gray-700">
-                  实习岗位
+                  学生岗位
                 </a>
               </router-link>
             </li>

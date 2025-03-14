@@ -216,8 +216,8 @@ export default {
       message: '',
       visible: false,
       isStatsMenuQiTaOpen: true, // 控制统计分析子菜单的展开状态
-      isStatsMenuXiaoYuanOpen: false,// 控制校园信息管理子菜单的展开状态
-      isStatsMenuXiTongOpen: false // 控制系统设置子菜单的展开状态
+      isStatsMenuXiaoYuanOpen: true,// 控制校园信息管理子菜单的展开状态
+      isStatsMenuXiTongOpen: true // 控制系统设置子菜单的展开状态
     }
   },
   methods: {

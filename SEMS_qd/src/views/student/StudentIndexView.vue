@@ -333,6 +333,8 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$route.params.from);
+
     this.getLoginUserInfo();
   },
   methods: {
@@ -351,8 +353,17 @@ export default {
           this.UserInfo.name = response.data.name;
           this.UserInfo.role = response.data.role;
           this.UserInfo.username = response.data.username;
+          if (this.$route.params.from === 'login'){
+            this.$notify({
+              title: '温馨提示',
+              message: '欢迎回来 ： '+ this.UserInfo.name + '！',
+              type: 'success',
+              position: 'top-left'
+            });
+          }
           this.getXxdm();
           console.log(this.UserInfo);
+
         }
       }).catch(error => {
         EventBus.$emit('show-auth-popup');
@@ -380,7 +391,7 @@ export default {
             this.messages = response.data.data;
             // 不看自己发起的消息
             this.messages = this.messages.filter(message => message.CFZ !== this.UserInfo.username);
-
+            this.showMessage();
         }else{
           console.error('获取消息信息失败,网络错误：'+ response.data.msg);
           this.$message.error('获取消息信息失败:'+response.data.msg);
@@ -389,6 +400,35 @@ export default {
         console.error('获取消息信息失败,网络错误！', error);
         this.$message.error('获取消息信息失败:'+error.message);
       });
+    },
+
+    showMessage() {
+      // 如果是登录进来就显示提示消息
+      if (this.$route.params.from === 'login'){
+        // 遍历系统消息
+        let offset = 0;
+        for ( let i = 0; i < this.messages.length; i++){
+          console.log(this.messages[i])
+          if (this.messages[i].YDBZ === 0){
+
+            this.$notify({
+              title: '新消息',
+              message: `
+    <div style="display: flex; align-items: center;">
+      <img src="${this.messages[i].YHZP}" alt="用户头像" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+      <span>${this.messages[i].DZNR}</span>
+    </div>
+  `,  dangerouslyUseHTMLString: true,
+              type: 'warning',
+              position: 'top-right',
+              offset: offset,
+            });
+            offset+=100
+          }
+        }
+
+
+      }
     },
     navigateTo(announcementId) {
       console.log(`Navigating to ${announcementId}`);

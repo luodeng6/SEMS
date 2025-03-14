@@ -63,7 +63,7 @@
             </router-link>
           </li>
           <li class="hover:bg-blue-50 rounded">
-            <router-link to="/stu/xmcg">
+            <router-link to="/stu/cjdgl">
               <a class="flex items-center p-2 text-gray-700">
                 <i class="fas fa-clipboard-list mr-2"></i> 成绩单
 

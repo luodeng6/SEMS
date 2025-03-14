@@ -69,9 +69,6 @@ export default {
         ServerIP + '/img.png',
         // 'http://localhost:83/img_1.png',
         ServerIP + '/1.png',
-        'http://172.18.2.104:18040/static/img/001.550bc1c3.png',
-        'http://172.18.2.104:18040/static/img/002.54397cf9.png',
-        'http://172.18.2.104:18040/static/img/003.6ab30b51.png'
       ],
       currentBackgroundIndex: 0,
     }
@@ -88,13 +85,13 @@ export default {
           DataForm.append('username', this.form.username);
           DataForm.append('password', this.form.password);
 
-          const response = await axios.post('/user/StuLogin', DataForm);
+          const response = await axios.post('/user/login', DataForm);
           console.log(response.data)
           if (response.data.result === 1 || response.data.result) {
             console.log('登录成功')
             await this.loginState(response.data.Msg, '登录成功')
             // 登录成功，重定向到管理页面
-            await this.$router.push({name: 'StudentIndexView'});
+            await this.$router.push({name: 'TeacherIndexView'});
           } else {
             console.log('登录失败')
             this.loginState(false, response.data.Msg);
