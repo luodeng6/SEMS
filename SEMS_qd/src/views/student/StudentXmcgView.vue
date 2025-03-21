@@ -5,184 +5,394 @@
     </div>
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
       <header class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl font-semibold">项目成果管理</h2>
-        <el-button type="success" @click="handleAdd">新增项目</el-button>
+        <div class="flex gap-4">
+          <el-input
+              v-model="searchKeyword"
+              clearable
+              placeholder="搜索项目名称"
+              style="width: 240px"
+          />
+          <el-select
+              v-model="selectedType"
+              clearable
+              placeholder="项目类型"
+          >
+            <el-option
+                v-for="item in typeOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+            />
+          </el-select>
+        </div>
+        <el-button type="default" size="mini" @click="handleAdd">新增项目</el-button>
       </header>
-      <!-- 项目成果表格 -->
-      <el-table :data="projectList" border class="w-full">
-        <el-table-column prop="XMMC" label="项目名称" width="200"></el-table-column>
-        <el-table-column prop="XMLX" label="项目类型" width="150">
-          <template slot-scope="scope">
-            {{ formatProjectType(scope.row.XMLX) }}
+
+      <!-- 表格数据使用分页后的数据 -->
+      <el-table v-loading="loading" :data="paginatedProjects" border
+                class="w-full"
+                element-loading-background="rgba(255, 255, 255, 0.8)"
+                element-loading-spinner="el-icon-loading"
+                element-loading-text="加载中...">
+        <el-table-column align="center" label="ID" prop="ID" width="80"/>
+        <el-table-column label="姓名" min-width="140" prop="XSXM"/>
+        <el-table-column label="项目名称" min-width="180" prop="XMMC"/>
+        <el-table-column label="项目内容" min-width="240" prop="XMNR">
+          <template #default="{row}">
+            {{ row.XMNR.slice(0, 20) + '...' }}
           </template>
         </el-table-column>
-        <el-table-column prop="XMNR" label="项目内容" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="CJSJ" label="创建时间" :formatter="formatDate" width="150"></el-table-column>
-        <el-table-column prop="QYDM" label="状态" width="100">
-          <template slot-scope="scope">
-            <el-tag :type="scope.row.QYDM === '1' ? 'success' : 'danger'">
-              {{ scope.row.QYDM === '1' ? '启用' : '停用' }}
-            </el-tag>
+        <el-table-column label="类型" prop="XMLX" width="120">
+          <template #default="{row}">
+            <el-tag :type="typeTagMap[row.XMLX]">{{ row.XMLX }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="150">
+        <el-table-column label="录入时间" prop="CJSJ" width="180">
+          <template #default="{row}">
+            <span>{{ formatDate(row.CJSJ) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="附件" width="100">
           <template slot-scope="scope">
-            <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
-            <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+            <el-link v-if="scope.row.XMFJ" :href="ServerIP()+scope.row.XMFJ" target="_blank" type="primary">查看</el-link>
+            <div v-else style="color: red;font-size: 14px;text-align: left;">暂无附件</div>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" fixed="right" label="操作" width="160">
+          <template #default="{row}">
+            <el-button size="mini" type="default" @click="uploadFjFile(row)">上传附件</el-button><br/>
+            <el-button size="mini" @click="handleEdit(row)">编辑</el-button><br/>
+            <el-button size="mini" type="danger" @click="handleDelete(row.ID)">删除</el-button><br/>
           </template>
         </el-table-column>
       </el-table>
-      <!-- 项目编辑对话框 -->
-      <el-dialog :title="editMode ? '编辑项目' : '新增项目'" :visible.sync="dialogVisible" width="700px">
-        <el-form :model="formModel" label-width="100px">
-          <el-form-item label="项目名称" required>
-            <el-input v-model="formModel.XMMC" placeholder="请输入项目名称"></el-input>
+
+      <!-- 分页组件 -->
+      <el-pagination
+          :current-page="currentPage"
+          :page-size="pageSize"
+          :total="filteredProjects.length"
+          background
+          layout="prev, pager, next, jumper"
+          style="margin-top: 20px; text-align: right;"
+          @current-change="handlePageChange"
+      ></el-pagination>
+
+      <!-- 新增/编辑对话框 -->
+      <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="600px">
+        <el-form ref="form" :model="formData" :rules="rules" label-width="100px">
+          <el-form-item label="项目名称" prop="XMMC">
+            <el-input v-model="formData.XMMC" placeholder="请输入项目名称"/>
           </el-form-item>
-          <el-form-item label="项目类型" required>
-            <el-select v-model="formModel.XMLX" placeholder="请选择项目类型">
+          <el-form-item label="项目内容" prop="XMNR">
+            <el-input
+                v-model="formData.XMNR"
+                :rows="4"
+                placeholder="请输入项目内容"
+                type="textarea"
+            />
+          </el-form-item>
+
+
+          <el-form-item label="项目类型" prop="XMLX">
+            <el-select v-model="formData.XMLX" placeholder="请选择">
               <el-option
-                  v-for="item in projectTypes"
+                  v-for="item in typeOptions"
                   :key="item.value"
                   :label="item.label"
-                  :value="item.value">
-              </el-option>
+                  :value="item.value"
+              />
             </el-select>
           </el-form-item>
-          <el-form-item label="项目内容" required>
-            <el-input
-                type="textarea"
-                :rows="4"
-                v-model="formModel.XMNR"
-                placeholder="请输入项目详细内容及成果">
-            </el-input>
-          </el-form-item>
-          <el-form-item label="状态">
-            <el-switch
-                v-model="formModel.QYDM"
-                active-value="1"
-                inactive-value="0"
-                active-text="启用"
-                inactive-text="停用">
-            </el-switch>
-          </el-form-item>
         </el-form>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="handleSubmit">确 定</el-button>
+        <span slot="footer">
+
+          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button type="primary" @click="submitForm">确认</el-button>
         </span>
       </el-dialog>
+      <el-dialog :visible.sync="isShowZsFjDialog" title="上传证书附件" width="600px">
+
+        <el-upload
+            :auto-upload="false"
+            :before-upload="beforeUpload"
+            :limit="1"
+            :on-change="handZsFjChange"
+        >
+          <el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">支持各种文件，大小不超过10MB</div>
+        </el-upload>
+        <span slot="footer">
+              <el-button type="primary" @click="uploadZsFj2Server">上传</el-button>
+              <el-button @click="resetForm">重置</el-button>
+            </span>
+      </el-dialog>
+
     </main>
   </div>
 </template>
 
 <script>
 import StudentMenu from "@/components/student/Student_menu.vue";
+import axios from "axios";
+import {EventBus} from "@/event-bus";
+import {ServerIP} from "@/SystemConfig";
 
 export default {
-  name: 'StudentXmcgView',
-  components: { StudentMenu },
+  name: 'StudentProject',
+  components: {StudentMenu},
   data() {
     return {
-      projectList: [],       // 项目数据列表
-      dialogVisible: false, // 对话框显示
-      editMode: false,      // 编辑模式
-      projectTypes: [       // 项目类型选项
-        { value: '1', label: '科研项目' },
-        { value: '2', label: '竞赛项目' },
-        { value: '3', label: '社会实践' },
-        { value: '4', label: '课程设计' }
+      uploadID:null,
+      isShowZsFjDialog: false,
+      CGFJFile: null,// 上传的附件
+      loading: false,
+      UserInfo: {
+        id: '',
+        name: '',
+        role: '',
+        username: '',
+      },
+      searchKeyword: '',
+      selectedType: '',
+      projects: [],
+      dialogVisible: false,
+      dialogType: 'add',
+      formData: {
+        XMMC: '',
+        XMNR: '',
+        XMLX: ''
+      },
+      typeOptions: [
+        {value: '科研', label: '科研项目'},
+        {value: '竞赛', label: '学科竞赛'},
+        {value: '实践', label: '社会实践'}
       ],
-      formModel: {
-        ID: '',
-        XMMC: '',
-        XMNR: '',
-        XMLX: '',
-        QYDM: '1',
-        STUID: '123' // 实际应从登录信息获取
-      }
-    };
+      typeTagMap: {
+        '科研': 'success',
+        '竞赛': 'warning',
+        '实践': 'info'
+      },
+      rules: {
+        XMMC: [{required: true, message: '请输入项目名称', trigger: 'blur'}],
+        XMNR: [{required: true, message: '请输入项目内容', trigger: 'blur'}],
+        XMLX: [{required: true, message: '请选择项目类型', trigger: 'change'}]
+      },
+      // 分页相关数据
+      currentPage: 1,
+      pageSize: 10
+    }
   },
-  methods: {
-    // 日期格式化
-    formatDate(row, column, cellValue) {
-      return cellValue ? this.$moment(cellValue).format('YYYY-MM-DD') : '-';
-    },
-
-    // 项目类型格式化
-    formatProjectType(type) {
-      const item = this.projectTypes.find(t => t.value === type);
-      return item ? item.label : '未知类型';
-    },
-
-    // 新增项目
-    handleAdd() {
-      this.editMode = false;
-      this.formModel = {
-        ID: '',
-        XMMC: '',
-        XMNR: '',
-        XMLX: '',
-        QYDM: '1',
-        STUID: '123'
-      };
-      this.dialogVisible = true;
-    },
-
-    // 编辑项目
-    handleEdit(row) {
-      this.editMode = true;
-      this.formModel = { ...row };
-      this.dialogVisible = true;
-    },
-
-    // 删除项目
-    handleDelete(row) {
-      this.$confirm('确定要删除该项目吗？', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.projectList = this.projectList.filter(item => item.ID !== row.ID);
+  computed: {
+    // 筛选条件下的数据
+    filteredProjects() {
+      return this.projects.filter(item => {
+        const matchKeyword = item.XMMC.includes(this.searchKeyword) ||
+            item.XMNR.includes(this.searchKeyword);
+        const matchType = this.selectedType ? item.XMLX === this.selectedType : true;
+        return matchKeyword && matchType;
       });
     },
-
-    // 提交表单
-    handleSubmit() {
-      // 这里应添加表单验证
-      if (!this.formModel.XMMC || !this.formModel.XMNR || !this.formModel.XMLX) {
-        this.$message.error('请填写完整信息');
-        return;
+    // 分页后的数据
+    paginatedProjects() {
+      const start = (this.currentPage - 1) * this.pageSize;
+      return this.filteredProjects.slice(start, start + this.pageSize);
+    },
+    dialogTitle() {
+      return this.dialogType === 'add' ? '新增项目' : '编辑项目';
+    }
+  },
+  watch: {
+    // 当搜索或筛选条件变化时重置到第一页
+    searchKeyword() {
+      this.currentPage = 1;
+    },
+    selectedType() {
+      this.currentPage = 1;
+    }
+  },
+  created() {
+    this.getLoginUserInfo();
+    /*  // 初始化模拟数据
+      this.projects = Array.from({ length: 50 }, (_, i) => ({
+        ID: i + 1,
+        XMMC: `项目${i + 1}`,
+        XMNR: `项目${i + 1}的详细描述内容...`,
+        XMLX: this.typeOptions[i % 3].value,
+        CJSJ: new Date().toLocaleString(),
+        STUID: `202300${i + 1}`,
+        QYDM: `A0${(i % 3) + 1}`
+      }));*/
+  },
+  methods: {
+    ServerIP() {
+      return ServerIP
+    },
+    uploadZsFj2Server(){
+      console.log(this.uploadID);
+      console.log(this.CGFJFile);
+      let dataForm = new FormData();
+      dataForm.append('id', this.uploadID);
+      dataForm.append('cgfj', this.CGFJFile);
+      axios.post("/xmcgk/uploadFile",dataForm).then(response => {
+        if (response.data.result) {
+          this.$message.success('上传成功');
+          this.isShowZsFjDialog = false;
+          } else {
+          this.$message.error('上传失败:' + response.data.msg);
+          }
+      }).catch(error => {
+        console.log(error);
+        this.$message.error('上传失败:'+error.message);
+      });
+    },
+    handZsFjChange(file) {
+      this.CGFJFile = file.raw;
+    },
+    beforeUpload(file) {
+      const isLt10M = file.size / 1024 / 1024 < 10
+      if (!isLt10M) {
+        this.$message.error('上传文件大小不能超过 10MB!')
       }
+      return isLt10M
+    },
+    // 上传附件
+    uploadFjFile(row) {
+      console.log(row);
+      this.uploadID = row.ID;
+      this.isShowZsFjDialog = true;
+    },
+    // 获取学生信息
+    getStudentDataByUsername(yhm) {
+      axios.get(`/student/getStudentByUsernameOrId?usernameOrId=${yhm}&type=username`).then(response => {
+        if (response.data.result) {
+          this.UserInfo.id = response.data.data.id;
+          this.getProjectDATA();
+        } else {
+          this.$message.error("获取学生信息失败:" + response.data.msg);
+        }
+      }).catch(error => {
+        console.log(error);
+        this.$message.error("获取学生信息失败，网络错误！");
+      });
+    },
+    async getLoginUserInfo() {
+      try {
+        this.loading = true;
+        const response = await axios.get('/user/checkSession');
+        if (!response.data.result) {
+          this.handleAuthFailure(response.data.msg);
+        } else {
+          this.UserInfo = {
+            name: response.data.name,
+            role: response.data.role,
+            username: response.data.username
+          };
+          this.getStudentDataByUsername(this.UserInfo.username);
 
-      if (this.editMode) {
-        // 更新逻辑
-        const index = this.projectList.findIndex(item => item.ID === this.formModel.ID);
-        this.projectList.splice(index, 1, {
-          ...this.formModel,
-          CJSJ: new Date().toISOString() // 更新修改时间
-        });
-      } else {
-        // 新增逻辑
-        this.projectList.push({
-          ...this.formModel,
-          ID: Date.now(),
-          CJSJ: new Date().toISOString()
-        });
+        }
+      } catch (error) {
+        console.error('获取用户信息失败，网络错误！', error);
+        this.handleAuthFailure();
       }
-      this.dialogVisible = false;
+    },
+    handleAuthFailure() {
+      EventBus.$emit('show-auth-popup');
+      setTimeout(() => {
+        this.$router.push({name: 'StudentLoginView'});
+      }, 1000);
+    },
+    // 学生获取项目数据
+    getProjectDATA() {
+      axios.get("/xmcgk/getXmcgk?QYDM=2&ISGETALL=1&STUID=" + this.UserInfo.id).then(response => {
+        if (response.data.result) {
+          this.projects = response.data.data;
+          this.loading = false;
+        } else {
+          this.$message.error("获取项目数据失败:" + response.data.msg);
+        }
+      }).catch(error => {
+        console.log(error);
+        this.$message.error("获取项目数据失败，网络错误！");
+      });
+    },
+    handleAdd() {
+      this.dialogType = 'add';
+      this.formData = {XMMC: '', XMNR: '', XMLX: ''};
+      this.dialogVisible = true;
+      this.$nextTick(() => {
+        this.$refs.form.clearValidate();
+      });
+    },
+    handleEdit(row) {
+      this.dialogType = 'edit';
+      this.formData = {...row};
+      this.dialogVisible = true;
+    },
+    formatDate(dateStr) {
+      return dateStr ? new Date(dateStr).toLocaleString() : '-'
+    },
+    handleDelete(id) {
+      this.$confirm('确认删除该项目？', '提示', {
+        type: 'warning'
+      }).then(() => {
+        this.projects = this.projects.filter(item => item.ID !== id);
+        this.$message.success('删除成功');
+      });
+    },
+    submitForm() {
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          if (this.dialogType === 'add') {
+            this.projects.unshift({
+              ...this.formData,
+              ID: this.projects.length + 1,
+              CJSJ: new Date().toLocaleString(),
+              STUID: `202300${this.projects.length + 1}`,
+              QYDM: `A0${(this.projects.length % 3) + 1}`
+            });
+            console.log(this.formData);
+            let dataForm = new FormData();
+            dataForm.append('xmmc', this.formData.XMMC);
+            dataForm.append('xmnr', this.formData.XMNR);
+            dataForm.append('xmlx', this.formData.XMLX);
+            dataForm.append('stuid', this.UserInfo.id);
+            axios.post("/xmcgk/InsertXmcgk", dataForm).then(response => {
+              if (response.data.result) {
+                this.$message.success('新增成功');
+              } else {
+                this.$message.error('新增失败:' + response.data.msg);
+              }
+            }).catch(error => {
+              console.log(error);
+              this.$message.error('新增失败，网络错误！');
+            });
+
+
+          } else {
+            const index = this.projects.findIndex(item => item.ID === this.formData.ID);
+            this.projects.splice(index, 1, this.formData);
+          }
+          this.dialogVisible = false;
+          this.$message.success('操作成功');
+        }
+      });
+    },
+    // 分页页码变化的处理函数
+    handlePageChange(newPage) {
+      this.currentPage = newPage;
     }
   }
-};
+}
 </script>
 
 <style scoped>
-.el-form-item__content {
-  line-height: 40px;
-}
-.el-select {
-  width: 100%;
-}
-.el-textarea__inner {
-  resize: vertical;
+/*.el-table {
+  margin-top: 20px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+}*/
+
+.el-tag {
+  margin: 2px;
 }
 </style>

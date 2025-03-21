@@ -166,11 +166,11 @@ public class DwzpggkServiceImpl implements DwzpggkService {
         try {
             // 处理获取待确认面试列表逻辑
             List<Map<String, Object>> resultList = new ArrayList<>();
-            System.out.println("YHSFDM:" + YHSFDM);
+          /*  System.out.println("YHSFDM:" + YHSFDM);
             System.out.println("YHM:" + YHM);
             System.out.println("QYDM:" + QYDM);
             System.out.println("JUSTONE:" + JUSTONE);
-            System.out.println("GGID:" + GGID);
+            System.out.println("GGID:" + GGID);*/
 
             resultList = jdbcTemplate.queryForList(
                     "{call usp_AllUserGetGongGaoData(?,?,?,?,?)}", YHSFDM, YHM, QYDM, JUSTONE , GGID);

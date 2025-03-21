@@ -17,9 +17,16 @@ select * from XXDMK
 Select QYDM,* from DATA_STUDENT
 exec usp_getXxdmkData 3,'msk'
 select * from tdjlk where stuid = 1226 and gwdm =4
-select * from XSCJDK
-exec LuodengTable 'XSCJDK'
-select * from DATA_GWDMK
+select * from dhjlk
+exec LuodengTable 'TDJLK'
+select * from DHJLK where (FROMYHM='20213260035' and FROMYHSFDM=4) or  (TOYHM='20213260035' and TOYHSFDM=4)
+
+INSERT INTO dhjlk (fromyhm, toyhm, fromyhsfdm, toyhsfdm, nr) VALUES
+('msk', '20213260035', 3, 4, '测试消息11'),
+('msk', '20213260035', 3,4, '测试消息12')
+
+ exec usp_GetUserData 'ozf',3
+--exec usp_GetDhjl '20213260035',4,3,'msk'
 
 select * from MSFPK
 select * from FPWTBQK
@@ -31,9 +38,18 @@ exec usp_AllUserGetGongGaoData 3,'msk',-1,0,-1
 update DATA_GWDMK set FBZ='billie' , FBZYHSFDM=3 where FBZYHSFDM=1
 
 exec LuoDeng_getAlltableInfo
-exec LuodengTable 'XSZSK'
-select* from  DWZPGGK
 
+
+exec LuodengTable 'GZJLK'
+
+
+exec usp_AllUserGetGongGaoData 4,'null',1,0,-1
+
+
+
+select * from DWZPGGK
+ select * from XTGGK
+  TRUNCATE TABLE XTGGK
 -- 获取某岗位对应的 环境
 select * from JYHJK order by TJSJ desc
 select * from DATA_GWDMK where ID=34
@@ -74,36 +90,37 @@ exec LuodengTable 'FPWTBQK'--复盘问题标签库
 exec LuodengTable 'GZJLK' -- 工作经历库
 exec LuodengTable 'DATA_DWDMK'
 exec LuodengTable 'XSZSK'
-exec LuodengTable ''
+exec LuodengTable 'XSCJDK'
+exec LuodengTable 'DHJLK'
+
+exec usp_GetAllStudentData'lls', '老师'
+ 
 
 
-select * from XSZSK
+select * from YHSFDMK
+select * from JSDMK
+select * from XSZSK 
 select * from MSJGDMK
-
 select * from XSZSK
-
-
 exec [usp_StuGet_MsfpDaTa] '20213260024'
-
 select * from MSFPK
 select * from FPWTBQK
 select * from MSFPWTK
-
 select * from DATA_DWDMK where DWMC like '%特斯拉%'
 update DWYHK set MM=1
 select *from MSJGDMK
  select * from TDJGK
 select * from DATA_DWDMK
-select * from DWYHK
+delete from XSCJDK where STUID=1224
 
 exec usp_getMsData 3,'msk'
-
+select * from DATA_STUDENT where ID=1224
 
 select b.XSXM,a.* from MSDMK a left join DATA_STUDENT b on a.XSDM=b.ID
 
 select a.GWMC,* from MSDMK b left join DATA_GWDMK a on a.ID=b.GWDM
 select * from TDJLK
-exec LuodengTable 'XXDMK'
+exec LuodengTable 'XTGGK'
 --查看系统消息
 SELECT   
    *

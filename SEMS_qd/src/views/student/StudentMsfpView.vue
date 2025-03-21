@@ -159,8 +159,8 @@
 
               <el-form-item label="知识点">
                 <el-tag
-                    v-for="tag in question.tags"
-                    :key="tag"
+                    v-for="(tag,index) in question.tags"
+                    :key="index"
                     closable
                     class="mr-2"
                     @close="removeTag(index, tag)"

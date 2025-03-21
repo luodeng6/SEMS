@@ -12,9 +12,9 @@
             <!-- 通知按钮和弹窗 -->
             <el-popover
                 placement="bottom-end"
-                width="400"
+                popper-class="notification-popover"
                 trigger="click"
-                popper-class="notification-popover">
+                width="400">
               <div class="notification-container">
                 <div class="message-list">
                   <div
@@ -23,23 +23,23 @@
                       class="message-card"
                       @click="markAsRead(message)"
                   >
-<!--                 "CFZ": "20213260024",
-                    "CFZXM": "陈兴远",
-                    "CFZXW": "学生确认了面试",
-                    "JSZ": "msk",
-                    "JSZXM": "Elon Reeve Musk",
-                    "DZNR": "学生:陈兴远,确认了面试:“特斯拉销售代表”",
-                    "YDBZ": 0,
-                    "DZLX": 10,
-                    "CFSJ": "2025-02-28T06:44:33.453+00:00"
-                    },-->
+                    <!--                 "CFZ": "20213260024",
+                                        "CFZXM": "陈兴远",
+                                        "CFZXW": "学生确认了面试",
+                                        "JSZ": "msk",
+                                        "JSZXM": "Elon Reeve Musk",
+                                        "DZNR": "学生:陈兴远,确认了面试:“特斯拉销售代表”",
+                                        "YDBZ": 0,
+                                        "DZLX": 10,
+                                        "CFSJ": "2025-02-28T06:44:33.453+00:00"
+                                        },-->
 
                     <!-- 用户头像 -->
                     <el-avatar :size="40" :src="message.YHZP" class="mr-3"></el-avatar>
                     <div class="message-content">
                       <div class="message-header">
                         <span class="sender">{{ message.CFZXM }}</span>
-                        <span class="time">{{formatDate(message.CFSJ)  }}</span>
+                        <span class="time">{{ formatDate(message.CFSJ) }}</span>
                       </div>
                       <p>{{ message.DZNR }}</p>
                     </div>
@@ -53,38 +53,39 @@
                     :current-page.sync="currentPage"
                     :page-size="pageSize"
                     :total="messages.length"
-                    layout="prev, pager, next"
                     class="pagination"
+                    layout="prev, pager, next"
                     @current-change="handlePageChange"
                 />
               </div>
               <!-- 触发按钮 -->
               <button slot="reference" class="hover:text-slate-600 relative" style="margin-right: 10px;color: black;">
                 <i class="el-icon-bell text-xl"></i>
-                <span v-show="(messages.filter(message => message.YDBZ===0).length)!== 0" class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                <span v-show="(messages.filter(message => message.YDBZ===0).length)!== 0"
+                      class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
               </button>
             </el-popover>
 
             <el-badge :value="12" class="item" style="margin-right: 20px;">
-              <el-button size="small" plain>待处理面试</el-button>
+              <el-button plain size="small">待处理面试</el-button>
             </el-badge>
-            <el-badge is-dot class="item" style="margin-right: 20px;color: #0d0d0d;">新消息</el-badge>
-            <el-badge is-dot class="item" style="margin-right: 20px;">
+            <el-badge class="item" is-dot style="margin-right: 20px;color: #0d0d0d;">新消息</el-badge>
+            <el-badge class="item" is-dot style="margin-right: 20px;">
               <el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
             </el-badge>
 
 
-            <img src="@/assets/avatar.png" alt="用户头像" class="avatar animated-avatar"/>
+            <img alt="用户头像" class="avatar animated-avatar" src="@/assets/avatar.png"/>
             <span class="text-dark"> 用户: {{ UserInfo.name }}</span>
-            <el-dropdown trigger="click" style="margin-left: 10px;">
+            <el-dropdown style="margin-left: 10px;" trigger="click">
               <span class="el-dropdown-link text-dark">点我查看<i
                   class="el-icon-caret-bottom el-icon--right"></i></span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item class="clearfix">评论
-                  <el-badge class="mark" :value="12"/>
+                  <el-badge :value="12" class="mark"/>
                 </el-dropdown-item>
                 <el-dropdown-item class="clearfix">回复
-                  <el-badge class="mark" :value="3"/>
+                  <el-badge :value="3" class="mark"/>
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
@@ -113,19 +114,6 @@
 
       <div class="row" style="margin-top: 20px">
         <div class="col-md-4">
-          <!--          <div class="notifications">
-                      <h2 class="text-highlight">通知公告</h2>
-                      <div class="notification-list">
-                        <div v-for="(notification, index) in announcements" :key="index" class="notification-item">
-                          <div class="notification-header">
-                            <span class="notification-date">{{ notification.date }}</span>
-                            <span class="notification-title">{{ notification.title }}</span>
-                          </div>
-                          <p class="notification-content">{{ notification.content }}</p>
-                        </div>
-                      </div>
-                    </div>-->
-
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
             <el-tab-pane label="最新公告" name="first">
 
@@ -135,63 +123,95 @@
                                   </div>-->
                 <div class="announcement-list">
 
-                  <div class="announcement-item" v-if="index <4" v-for="(item, index) in announcements" :key="index">
+                  <div v-for="(item, index) in announcements" :key="index"
+                       class="announcement-item" @click="navigateTo(item)">
                     <div class="announcement-content">
                       <div style="display: flex;    justify-content: space-between;">
-                        <h3 class="announcement-title">{{ index + 1 + '.' + item.title }}</h3>
+                        <h3 class="announcement-title">{{ index + 1 + '.' + GGBTRETURN(item.GGBT) }}</h3>
                         <div class="announcement-meta" style="position: relative; right: 5px;">
-                          <span class="announcement-publisher">{{ item.publisher }}</span>
-                          <span class="announcement-date">{{ item.date }}</span>
+                          <span class="announcement-publisher">{{ item.FBZXM }}</span>
+                          <span class="announcement-date">{{ formatDate(item.CJSJ) }}</span>
                         </div>
                       </div>
 
-                      <p class="announcement-description">
-                        此次评估旨在获取学生们对课程及实习教育质量的反馈,你的意见至关重要。</p>
+                      <p class="announcement-description"> {{ stripHtml(item.GGNR).slice(0, 30) + '...' }}</p>
                     </div>
                   </div>
                 </div>
               </div>
               <el-alert
-                  title="重要提示"
-                  type="warning"
                   description="请认真填写反馈问卷，你的每一个建议都将帮助我们改进教学质量。"
-                  show-icon>
+                  show-icon
+                  title="重要提示"
+                  type="warning">
               </el-alert>
 
             </el-tab-pane>
             <el-tab-pane label="就业日历" name="second">
-              <el-calendar v-model="value" ></el-calendar>
+              <el-calendar v-model="value"></el-calendar>
             </el-tab-pane>
-            <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-            <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="面试动态" name="third">
+
+              <el-card v-for="(item, index) in interviewList" :key="index" class="interview-card"
+                       shadow="hover">
+                <div slot="header" class="clearfix">
+                  <span class="position-name">{{ item.GWMC }}</span>
+                  <el-tag size="mini" type="info">{{ item.GSMC }}</el-tag>
+                </div>
+
+                <div class="interview-info">
+                  <div class="info-item">
+                    <i class="el-icon-alarm-clock"></i>
+                    面试时间：{{ formatDate(item.MSSJ) }}
+                  </div>
+                  <div class="info-item">
+                    <i class="el-icon-location-outline"></i>
+                    面试地点：{{ item.MSDD || '待确认' }}
+                  </div>
+                  <div class="info-item">
+                    <i class="el-icon-user"></i>
+                    面试官：{{ item.FQZXM || '暂未分配' }}
+                  </div>
+                  <el-divider></el-divider>
+                  <div class="status-wrapper">
+                    <el-tag
+                        :type="getMsStatus(item).type"
+                        effect="dark"
+                    >
+                      {{ getMsStatus(item).text }}
+                    </el-tag>
+                    <div class="operation-btns">
+                      <el-button plain size="mini" type="primary">查看详情</el-button>
+                      <el-button plain size="mini" type="danger">取消面试</el-button>
+                    </div>
+                  </div>
+                </div>
+              </el-card>
+
+
+            </el-tab-pane>
+            <el-tab-pane label="待处理" name="fourth">定时任务补偿</el-tab-pane>
           </el-tabs>
 
-
         </div>
-
-        <!--        <div class="col-md-3">
-                  <div class="calendar-container">
-                    <el-calendar v-model="value"></el-calendar>
-                  </div>
-                </div>-->
 
         <div class="col-md-5">
           <div class="job-list">
             <h2 class="text-highlight">最新职位</h2>
-            <div class="job-item" v-for="(job, index) in jobs" :key="index">
+            <div v-for="(job, index) in jobs" :key="index" class="job-item">
               <div class="job-header">
-                <h3 class="job-title">{{ job.title }}</h3>
+                <h3 class="job-title">{{ job.GWMC }}</h3>
                 <div class="job-meta">
-                  <span class="job-company">{{ job.company }}</span>
-                  <span class="job-location">{{ job.location }}</span>
+                  <span class="job-company">{{ job.GSMC }}</span>
+                  <!--                  <span class="job-location">{{ job.GZDD }}</span>-->
                 </div>
               </div>
               <div class="job-body">
-                <p class="job-description">{{ job.description }}</p>
+                <p class="job-description">{{ job.GWMS.slice(0, 30) + '...' }}</p>
               </div>
               <div class="job-footer">
-                <span class="job-date">{{ job.date }}</span>
-                <el-button type="text" size="mini" @click="navigateTo(job.id)">查看详情</el-button>
+                <span class="job-date">{{ formatDate(job.FBSJ) }}</span>
+                <el-button size="mini" type="text" @click="lookJobDetail(job.ID)">查看详情</el-button>
               </div>
             </div>
           </div>
@@ -204,8 +224,8 @@
               <span class="font-weight-bold">{{ UserInfo.name }}</span> 的就业信息
             </h2>
             <el-table :data="systemInfo" style="width: 100%">
-              <el-table-column prop="parameter" label="参数"/>
-              <el-table-column prop="value" label="值"/>
+              <el-table-column label="参数" prop="parameter"/>
+              <el-table-column label="值" prop="value"/>
             </el-table>
           </div>
         </div>
@@ -229,6 +249,43 @@ export default {
   name: "StudentIndexView",
   data() {
     return {
+      // 确认代码为0，qydm为1 就是待确认
+      statusConfig: {
+        pending: {type: 'warning', text: '待确认'},
+        confirmed: {type: 'success', text: '已确认'},
+        canceled: {type: 'info', text: '已取消'}
+      },
+      interviewList: [
+        {
+          position: '前端开发工程师',
+          company: 'XX科技有限公司',
+          time: '2024-03-15 14:30',
+          location: '北京市海淀区XX大厦8层',
+          interviewer: '王经理',
+          status: '待确认'
+        },
+        {
+          position: 'Java高级工程师',
+          company: 'YY互联网集团',
+          time: '2024-03-16 10:00',
+          location: '',
+          interviewer: '',
+          status: '已安排'
+        },
+        {
+          position: '产品经理',
+          company: 'ZZ数字科技',
+          time: '2024-03-17 15:00',
+          location: '上海市浦东新区XX中心',
+          interviewer: '李总监',
+          status: '已结束'
+        }
+      ],
+      statusType: {
+        '待确认': 'warning',
+        '已安排': 'success',
+        '已结束': 'info'
+      },
       UserInfo: {
         id: '',
         name: '',
@@ -246,32 +303,7 @@ export default {
           text: '有任务'
         }
       ],
-      jobs: [
-        {
-          id: 1,
-          title: '前端开发工程师',
-          company: '腾讯科技',
-          location: '深圳',
-          description: '负责公司网站和移动应用的前端开发工作',
-          date: '2023-04-01'
-        },
-        {
-          id: 2,
-          title: '产品经理',
-          company: '阿里巴巴',
-          location: '杭州',
-          description: '负责公司新产品的策划和推广工作',
-          date: '2023-04-05'
-        },
-        {
-          id: 3,
-          title: 'Java 开发工程师',
-          company: '字节跳动',
-          location: '北京',
-          description: '负责公司后端服务的开发和维护',
-          date: '2023-04-10'
-        }
-      ],
+      jobs: [],
       value: new Date(),
       systemInfo: [
         {parameter: '年龄', value: '20'},
@@ -281,48 +313,7 @@ export default {
         {parameter: '学历', value: '本科'},
         {parameter: '专业', value: '计算机科学与技术'},
       ],
-      announcements: [
-        {
-          date: '12-23 2024',
-          title: '关于开展2025届毕业生就业服务工作情况调研的通知',
-          content: '为全面了解2025届毕业生的就业意向和需求，调整就业服务工作的方向和内容，学校将于近期开展相关调研。'
-        },
-        {
-          date: '11-19 2024',
-          title: '关于2023届毕业生培养质量评估的通知',
-          content: '此次评估旨在获取学生们对课程及实习教育质量的反馈，你的意见至关重要。'
-        },
-        {
-          date: '11-13 2024',
-          title: '关于举办甘肃省卫生健康人才能进专场招聘会的公告',
-          content: '为深入实施人才能进战略，改善严峻的人才能结构问题，学校将于下月举办相关招聘会。'
-        },
-        {
-          date: '11-05 2024',
-          title: '招企业就业支持开办“觉醒领军能力”访企拓岗促就业主题党日活动',
-          content: '通过主题党日活动推进访企工作，邀请企业走进校园进行招聘活动。'
-        },
-        {
-          date: '09-29 2024',
-          title: '关于2025届普通高校毕业生就业招聘季系列活动',
-          content: '通过国策引导，创新就业服务，尽最大努力帮助毕业生、求职者实现就业。'
-        },
-        {
-          date: '05-05 2024',
-          title: '关于开展我校2016-2018届毕业生培养质量评估',
-          content: '为了了解学校2016-2018届毕业生培养质量以及用人单位对毕业生的评价，学校特组织开展评估活动。'
-        },
-        {
-          date: '04-25 2023',
-          title: '关于西南医科大学2022届毕业生护理评估的公告',
-          content: '请各位毕业生积极参与，反馈，你的建议至关重要。'
-        },
-        {
-          date: '11-23 2023',
-          title: '关于西南药科大学2023届毕业生的选拔面谈会议的公告',
-          content: '关于2022届毕业生工作落实情况，我们希望您能参加会议。'
-        }
-      ]
+      announcements: []
     }
   },
   computed: {
@@ -336,10 +327,97 @@ export default {
     console.log(this.$route.params.from);
 
     this.getLoginUserInfo();
+    this.getRecruitmentNotices();
+    this.getJobData();
+
   },
   methods: {
+    lookJobDetail(gwdm) {
+      this.$router.push({path: '/public/jobDetail', query: {id: gwdm}})
+    },
+    getMsStatus(row) {
+      if (row.QYDM === 0) {
+        console.log("已取消");
+        return this.statusConfig['canceled']; // 已取消
+      } else if (row.QRDM === 1) {
+        console.log("已确认");
+        return this.statusConfig['confirmed']; // 已确认
+      } else if (row.QRDM === 0 && row.QYDM === 1) {
+        console.log("待确认");
+        return this.statusConfig['pending'];// 待确认
+      } else {
+        console.log("未知状态");
+      }
+    },
+    // 新方法获取面试列表
+    getInterviews() {
+      axios.get("/msdmk/getInterviewsMainIdea?Type=3&yhm=" + this.UserInfo.username).then(response => {
+        if (response.data.result) {
+          this.interviewList = response.data.data;
+          console.log(this.interviewList);
+        } else {
+          this.$message.error("获取面试数据失败:" + response.data.msg);
+        }
+      }).catch(error => {
+        console.error("获取面试列表失败！", error);
+        this.$message.error("获取面试数据失败：" + error.message);
+      });
+    },
+    getJobData() {
+      axios.get("/dataGwdmk/getGwdmkDataToInterface?IsJustOne=0&gwdm=0&QYDM=1&IsByFBZ=0&FBZ=null&SXBZ=2").then(res => {
+        if (res.data.result) {
+          this.jobs = res.data.data;
+          // 重新根据发布时间排序
+          this.jobs.sort((a, b) => new Date(b.FBSJ) - new Date(a.FBSJ));
+          this.jobs = this.jobs.slice(0, 5);
+        } else {
+          console.error('获取职位信息失败,网络错误：' + res.data.msg);
+          this.$message.error('获取职位信息失败:' + res.data.msg);
+        }
+      }).catch(error => {
+        console.error('获取职位信息失败,网络错误！', error);
+        this.$message.error('获取职位信息失败:' + error.message);
+      });
+    },
+    GGBTRETURN(GGBT) {
+      if (!GGBT) return ''; // 处理空值情况
+
+      // 统计英文字母的数量
+      const englishCount = (GGBT.match(/[a-zA-Z]/g) || []).length;
+
+      // 确定截取长度（超过5个英文字符取30，否则取15）
+      const maxLength = englishCount > 5 ? 30 : 15;
+
+      // 如果字符串长度小于 maxLength，直接返回，不加 "..."
+      return GGBT.length <= maxLength ? GGBT : GGBT.slice(0, maxLength) + '...';
+    },
+    stripHtml(html) {
+      let doc = new DOMParser().parseFromString(html, 'text/html');
+      return doc.body.textContent || "";
+    },
+    // 获取招聘公告
+    getRecruitmentNotices() {
+      axios.get(`/dwzpggk/getdwzpggk?YFSFDM=4&YHM=null&QYDM=1`).then(res => {
+        if (res.data.result) {
+          this.announcements = res.data.data.slice(0, 31);
+        } else {
+          this.$message.error(res.data.msg);
+        }
+      }).catch(error => {
+        console.error('获取公告列表失败,网络错误！', error);
+        this.$message.error('获取公告列表失败,网络错误！');
+      });
+    },
     formatDate(dateStr) {
-      return dateStr ? new Date(dateStr).toLocaleString() : '-'
+      return dateStr
+          ? new Date(dateStr).toLocaleString(undefined, {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+          })
+          : '-';
     },
     getLoginUserInfo() {
       axios.get('/user/checkSession').then(response => {
@@ -353,10 +431,11 @@ export default {
           this.UserInfo.name = response.data.name;
           this.UserInfo.role = response.data.role;
           this.UserInfo.username = response.data.username;
-          if (this.$route.params.from === 'login'){
+          this.getInterviews();
+          if (this.$route.params.from === 'login') {
             this.$notify({
               title: '温馨提示',
-              message: '欢迎回来 ： '+ this.UserInfo.name + '！',
+              message: '欢迎回来 ： ' + this.UserInfo.name + '！',
               type: 'success',
               position: 'top-left'
             });
@@ -373,57 +452,45 @@ export default {
         }, 1000);
       });
     },
-    getXxdm(){
-      /*{
-      "CFZ": "20213260024",
-          "CFZXM": "陈兴远",
-          "CFZXW": "学生确认了面试",
-          "JSZ": "msk",
-          "JSZXM": "Elon Reeve Musk",
-          "DZNR": "学生:陈兴远,确认了面试:“特斯拉销售代表”",
-          "YDBZ": 0,
-          "DZLX": 10,
-          "CFSJ": "2025-02-28T06:44:33.453+00:00"
-    },*/
-
+    getXxdm() {
       axios.get(`/xxdmk/getXxdmk?YHM=${this.UserInfo.username}&YHSFDM=4`).then(response => {
-        if (response.data.result){
-            this.messages = response.data.data;
-            // 不看自己发起的消息
-            this.messages = this.messages.filter(message => message.CFZ !== this.UserInfo.username);
-            this.showMessage();
-        }else{
-          console.error('获取消息信息失败,网络错误：'+ response.data.msg);
-          this.$message.error('获取消息信息失败:'+response.data.msg);
+        if (response.data.result) {
+          this.messages = response.data.data;
+          // 不看自己发起的消息
+          this.messages = this.messages.filter(message => message.CFZ !== this.UserInfo.username);
+          this.showMessage();
+        } else {
+          console.error('获取消息信息失败,网络错误：' + response.data.msg);
+          this.$message.error('获取消息信息失败:' + response.data.msg);
         }
       }).catch(error => {
         console.error('获取消息信息失败,网络错误！', error);
-        this.$message.error('获取消息信息失败:'+error.message);
+        this.$message.error('获取消息信息失败:' + error.message);
       });
     },
-
     showMessage() {
       // 如果是登录进来就显示提示消息
-      if (this.$route.params.from === 'login'){
+      if (this.$route.params.from === 'login') {
         // 遍历系统消息
         let offset = 0;
-        for ( let i = 0; i < this.messages.length; i++){
+        for (let i = 0; i < this.messages.length; i++) {
           console.log(this.messages[i])
-          if (this.messages[i].YDBZ === 0){
+          if (this.messages[i].YDBZ === 0) {
 
             this.$notify({
               title: '新消息',
               message: `
-    <div style="display: flex; align-items: center;">
-      <img src="${this.messages[i].YHZP}" alt="用户头像" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-      <span>${this.messages[i].DZNR}</span>
-    </div>
-  `,  dangerouslyUseHTMLString: true,
+                      <div style="display: flex; align-items: center;">
+                        <img src="${this.messages[i].YHZP}" alt="用户头像" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                        <span>${this.messages[i].DZNR}</span>
+                      </div>
+                    `,
+              dangerouslyUseHTMLString: true,
               type: 'warning',
               position: 'top-right',
               offset: offset,
             });
-            offset+=100
+            offset += 100
           }
         }
 
@@ -431,7 +498,8 @@ export default {
       }
     },
     navigateTo(announcementId) {
-      console.log(`Navigating to ${announcementId}`);
+      console.log(announcementId);
+      this.$router.push({path: '/public/gonggaoDetail', query: {id: announcementId.ID}})
     },
     handleClick(tab, event) {
       console.log("你点击了标签")
@@ -442,16 +510,54 @@ export default {
 </script>
 
 <style scoped>
+.interview-card {
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.interview-card:hover {
+  transform: translateY(-5px);
+}
+
+.position-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.info-item {
+  margin: 8px 0;
+  color: #666;
+}
+
+.status-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.operation-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.el-divider {
+  margin: 12px 0;
+}
+
+
 .notification-container {
   max-height: 400px;
   overflow-y: auto;
   padding: 10px;
 }
+
 .message-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .message-card {
   position: relative;
   display: flex;
@@ -459,16 +565,19 @@ export default {
   padding: 10px;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
+
 .message-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
 .message-content {
   flex: 1;
 }
+
 .message-header {
   display: flex;
   justify-content: space-between;
@@ -476,18 +585,22 @@ export default {
   font-size: 0.9em;
   color: #909399;
 }
+
 .sender {
   font-weight: bold;
   color: #303133;
 }
+
 .time {
   color: #909399;
 }
+
 .message-content p {
   margin: 0;
   font-size: 1em;
   color: #606266;
 }
+
 .unread-dot {
   position: absolute;
   top: 10px;
@@ -497,18 +610,22 @@ export default {
   background-color: red;
   border-radius: 50%;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
+
 .el-pager li {
   border-radius: 4px;
   transition: background-color 0.2s;
 }
+
 .el-pager li:hover {
   background-color: #ecf5ff;
 }
+
 .el-pager li.active {
   background-color: #409eff;
   color: #fff;
@@ -523,7 +640,7 @@ export default {
 
 .job-item {
   background-color: #ffffff; /* 职位项背景颜色 */
-/*  //border: 1px solid #e0e0e0; !* 边框颜色 *!*/
+  /*  //border: 1px solid #e0e0e0; !* 边框颜色 *!*/
   border-radius: 5px; /* 圆角 */
   margin-bottom: 15px; /* 职位项之间的间距 */
   padding: 15px; /* 内边距 */
@@ -532,7 +649,7 @@ export default {
 
 .job-item:hover {
   transform: translateY(-2px); /* 悬停时的效果 */
-  background-color:aliceblue ;
+  background-color: aliceblue;
   cursor: pointer;
 }
 
@@ -543,7 +660,7 @@ export default {
 }
 
 .job-title {
-  font-size: 1.5em; /* 职位标题字体大小 */
+  font-size: 17px; /* 职位标题字体大小 */
   color: #333; /* 字体颜色 */
   margin: 0; /* 去掉默认外边距 */
 }
@@ -558,7 +675,7 @@ export default {
 }
 
 .job-description {
-  font-size: 1em; /* 描述字体大小 */
+  font-size: 13px; /* 描述字体大小 */
   color: #555; /* 描述字体颜色 */
 }
 
@@ -584,6 +701,7 @@ export default {
 .el-button:hover {
   background-color: #0056b3; /* 悬停时的背景颜色 */
 }
+
 .p-6 {
   padding: 0.5rem !important;
 }
@@ -789,11 +907,10 @@ h1, h2 {
   padding: 16px 0;
   cursor: pointer;
 }
+
 .announcement-item:hover {
   background-color: aliceblue;
 }
-
-
 
 
 .announcement-item:last-child {

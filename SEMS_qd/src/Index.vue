@@ -81,17 +81,17 @@
               </div>
               <div class="card-body">
                 <div
-                    v-for="(notice, index) in systemNotices"
+                    v-for="(xtgg, index) in XTGGK"
                     :key="'system'+index"
                     class="notice-item"
                 >
 
-                  <div class="notice-main">
+                  <div class="notice-main" @click="handleXtgG(xtgg)">
                     <el-tag size="mini" type="success">UPD</el-tag>
-                    <span class="notice-title" style="cursor: pointer;">{{ truncateText(notice.GGBT, 4) }}</span>
+                    <span class="notice-title" style="cursor: pointer;">{{ truncateText(xtgg.GGBT, 30) }}</span>
                   </div>
                   <div class="notice-extra">
-                    <span class="notice-date">{{ formatDate(notice.CJSJ) }}</span>
+                    <span class="notice-date">{{ formatDate(xtgg.CJSJ) }}</span>
                     <el-button size="mini" type="text">查看</el-button>
                   </div>
                 </div>
@@ -220,6 +220,7 @@ export default {
         role: '',
         username: '',
       },
+      XTGGK: [],
       loginTypes: [
         {type: 'student', title: '学生登录', icon: 'el-icon-user-solid', url: "/stu/Login"},
         {type: 'teacher', title: '教师登录', icon: 'el-icon-s-custom', url: '/teacher/login'},
@@ -249,6 +250,7 @@ export default {
     this.getRecruitmentNotices();
     this.getAllJob();
     this.getAllDwInfo();
+    this.getGongGaoList();
   },
   methods: {
     getAllDwInfo() {
@@ -274,6 +276,10 @@ export default {
         return text.slice(0, maxLength) + '...';
       }
       return text;
+    },
+    handleXtgG(xtgg){
+      console.log(xtgg);
+      this.$router.push({path: '/public/PublicXtggView', query: {id: xtgg.ID}})
     },
     formatDate(dateStr) {
       return dateStr ? new Date(dateStr).toLocaleDateString() : '-';
@@ -335,6 +341,21 @@ export default {
       console.log(notice);
       this.$router.push({path: '/public/gonggaoDetail', query: {id: notice.ID}})
     },
+    // 加载系统公告列表
+    getGongGaoList() {
+      /* Integer QYDM, Integer JUSTONE, Integer GGID*/
+      axios.get(`/xtggk/getXtggk?QYDM=1&JUSTONE=-1&GGID=-1`).then(res => {
+        if (res.data.result) {
+          this.XTGGK = res.data.data;
+        } else {
+          this.$message.error(res.data.msg);
+        }
+      }).catch(error => {
+        console.error('获取公告列表失败,网络错误！', error);
+        this.$message.error('获取公告列表失败,网络错误！');
+      });
+    },
+
     // 获取所有岗位数据
     getAllJob() {
       this.loading = true; // 开始加载

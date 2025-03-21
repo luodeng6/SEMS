@@ -36,7 +36,7 @@
               <div>
                 <el-button @click="showJobDetail" plain><i class="fa fa-filter"></i>岗位详情</el-button>
                 <el-button @click="refreshData" plain><i class="fa fa-refresh"></i>刷新</el-button>
-                <el-button @click="showMyProcess" plain><i class="fa fa-plus"></i>我的流程</el-button>
+                <el-button @click="addLxr" plain><i class="fa fa-plus"></i>对话</el-button>
                 <el-button @click="TdjobButtonClick" plain><i class="fa fa-plus"></i>投递职位</el-button>
               </div>
             </div>
@@ -316,13 +316,13 @@ export default {
       for (let i = 0; i < this.TDDATA.length; i++) {
         if (this.TDDATA[i].GWDM === gwdm) {
           if (this.TDDATA[i].QYDM === 1) {
-            console.log("已投递");
-            console.log(this.TDDATA[i]);
+            /*console.log("已投递");
+            console.log(this.TDDATA[i]);*/
             return 1; // 还未撤销
           } else if (this.TDDATA[i].QYDM === 0) {
             hasWithdrawal = true;
-            console.log("存在投递记录:");
-            console.log(this.TDDATA[i]);
+           /* console.log("存在投递记录:");
+            console.log(this.TDDATA[i]);*/
           }
           hasDelivery = true; // 存在投递记录
         }
@@ -423,8 +423,28 @@ export default {
     //刷新数据
     refreshData() {
     },
-    // 展示我的流程
-    showMyProcess() {
+    // 添加联系人
+    addLxr() {
+      console.log(this.currentJobSelectRow);
+      let postData = new FormData();
+      postData.append("yhm",this.UserInfo.username );// 本人
+      postData.append("lyyhm", this.currentJobSelectRow.fbz);// 联系人姓名
+      postData.append("yhsfdm", 4); // 学生
+      postData.append("lyyhsfdm", 3);//单位
+     axios.post("/sstx/addLxr", postData).then(response => {
+        if (response.data.result) {
+          this.$message.success("添加联系人成功！");
+          console.log(response.data.data);
+          // 跳转到实时聊天界面
+          this.$router.push({name: 'StudentXxlView', params: {lyyhm: response.data.data.lyyhm,id: response.data.data.id}});
+        } else {
+          this.$message.error("添加联系人失败：" + response.data.msg);
+        }
+      }).catch(error => {
+        console.log(error);
+        this.$message.error("添加联系人失败：" + error.msg);
+      });
+
     },
     // 获取学生信息
     getStudentDataByUsername(yhm) {
@@ -701,7 +721,6 @@ export default {
         this.$router.push({path: '/stu/jobDetail', query: {id: this.currentJobSelectRow.id}})
       }
     },
-
     ShowJobDetail(row) {
       console.log("跳转到岗位详情页面");
       console.log(row.id);

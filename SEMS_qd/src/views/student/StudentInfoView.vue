@@ -12,9 +12,9 @@
             <p class="text-sm text-gray-500 mt-1">就业方向、职位信息、岗位发布、岗位管理</p>
           </div>
           <div class="flex items-center space-x-4">
-            <el-button type="text" icon="el-icon-plus"  >查看</el-button>
-            <el-button type="text" icon="el-icon-edit"  >编辑岗位</el-button>
-            <el-button type="text" icon="el-icon-search"  >查看岗位详情</el-button>
+            <el-button type="text" icon="el-icon-plus"  >我的工作经历</el-button>
+            <el-button type="text" icon="el-icon-edit"  >我的项目成果</el-button>
+            <el-button type="text" icon="el-icon-search"  >我的成绩单</el-button>
             <el-dropdown trigger="click">
               <el-button icon="el-icon-download"></el-button>
               <template #dropdown>

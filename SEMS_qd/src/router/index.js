@@ -6,6 +6,7 @@ import index from "@/Index.vue";
 
 import {ServerIP} from "@/SystemConfig";
 
+
 Vue.use(VueRouter)
 
 // 页面类型分为：管理员、学生、老师、单位、public   ；对应为meta.style，所有用户都能访问public页面,即：style表示只能哪种用户可以访问
@@ -306,13 +307,6 @@ const routes = [
         meta: {style: '学生', title: '学生-单位岗位'}
     },
     {
-        //公共网站-公告栏
-        path: '/public/ggbar',
-        name: 'PublicGgbar',
-        component: () => import('@/views/publicView/PublicGongGaoView.vue'),
-        meta: {style: 'public', title: '公告栏'}
-    },
-    {
         path: '/public/gonggaoDetail',
         name: 'PublicGongGaoDetail',
         component: () => import('@/views/publicView/PublicGongGaoDetailView.vue'),
@@ -393,6 +387,28 @@ const routes = [
         name:"TeacherXscjdView",
         component: () => import('@/views/teacher/TeacherXscjdView.vue'),
         meta: {style: '老师', title: '老师-成绩单管理'}
+    },
+
+    {
+        path: "/admin/ggzs",
+        name: "AdminXtggdetailView",
+        component: () => import('@/views/admin/AdminXtggdetailView.vue'),
+        meta: {style: '管理员', title: '管理员-公告展示'}
+
+    },
+    {
+        path: "/public/PublicXtggView"
+        , name: "PublicXtggView"
+        , component: () => import('@/views/publicView/PublicXtggView.vue')
+        , meta: {style: 'public', title: '系统公告'}
+
+    },
+    {
+        path: "/public/StudentXxlView"
+        , name: "StudentXxlView"
+        , component: () => import('@/views/student/StudentXxlView.vue')
+        , meta: {style: '学生', title: '消息栏'}
+
     }
 
 ]
@@ -406,7 +422,83 @@ const router = new VueRouter({
 
 // 在 router/index.js 或相似的文件中
 import {EventBus} from '@/event-bus';
-// 路由守卫
+
+
+router.beforeEach((to, from, next) => {
+    if(to.path=="/"){
+        console.log("这是首页，不做任何操作");
+        return next();
+    }
+
+    if (to.path === from.path && to.fullPath === from.fullPath) {
+        console.warn("⚠️ 已经在当前页面，无需跳转:", to.fullPath);
+        return;
+    }
+
+
+    axios.get('/user/checkSession')
+        .then(response => {
+            console.log("登录状态：", response.data);
+            let paths = [];
+            // 提取所有 routes 的 path 并存入数组 paths
+            for (let i = 0; i < routes.length; i++) {
+                paths.push(routes[i].path);
+            }
+
+            if (!paths.includes(to.path)) {
+                window.location.href = ServerIP + '/page/page2/404.html'; // 跳转到静态的 404.html 页面
+                return;
+            }
+
+            if (to.meta.style === "public") {
+                console.log("----- 访问类型为 public");
+
+                if (response.data.result && response.data.role === to.meta.canRunUser) {
+                    console.log("----- 用户已登录，可以跳转");
+                    next({ name: to.meta.runTo, params: { from: 'index' } });
+                } else {
+                    console.log("----- 用户访问 public 页面，不跳转");
+                    next();
+                }
+                return; // ✅ 防止多次执行
+            }
+
+            if (response.data.result) {
+                if (to.meta.style !== response.data.role) {
+                    console.log("----- 用户已登录，但无权限访问");
+                    next({ name: 'index' });
+                } else {
+                    console.log("----- 用户已登录，且可以访问");
+                    next();
+                }
+                return; // ✅ 防止多次执行
+            }
+
+            // 用户未登录
+            const redirectMap = {
+                '学生': 'StudentLoginView',
+                '管理员': 'Login',
+                '单位': 'DwLoginView',
+                '老师': 'TeacherLoginView',
+            };
+
+            if (redirectMap[to.meta.style]) {
+                console.log(`----- ${to.meta.style} 未登录，跳转到 ${redirectMap[to.meta.style]}`);
+                next({ name: redirectMap[to.meta.style] });
+            } else {
+                console.warn("----- 未知角色，回到首页");
+                next({ name: 'index' });
+            }
+        })
+        .catch(error => {
+            console.error('❌ 路由守卫检查会话失败', error);
+            EventBus.$emit('show-auth-popup');
+            next({ name: 'index' });
+        });
+});
+
+
+/*// 路由守卫
 router.beforeEach((to, from, next) => {
     console.log('路由守卫检查会话开始:');
     console.log("这是要去的页面to:");
@@ -422,109 +514,71 @@ router.beforeEach((to, from, next) => {
         paths.push(routes[i].path);
     }
 
-    /*   let paths = [
-           "/",
-           "/Login",
-           "/admin/index",
-           "/admin/stu",
-           "/admin/job",
-           "/admin/teacher",
-           "/admin/jcsj",
-           "/admin/dwgl",
-           "/admin/Zph",
-           "/admin/xsjl",
-           "/stu/Login",
-           "/stu/index",
-           "/stu/xsjl",
-           "/stu/job",
-           "/stu/jobDetail",
-           "/teacher/login",
-           "/teacher/index",
-           "/dw/login",
-           "/dw/index",
-           "/dw/job",
-           "/dw/csJob",
-           "/dw/AI",
-           "/dw/addJob"
-       ]*/
-
-    //  routes.map(route => route.path);
-    /* console.log("所有路由path:");
-     console.log(paths);*/
     if (!paths.includes(to.path)) {
         window.location.href = ServerIP + '/page/page2/404.html'; // 跳转到静态的 404.html 页面
         return;
     }
 
-    // 这里使用Axios检测Session状态
     axios.get('/user/checkSession').then(response => {
-            console.log("登录状态：")
-            console.log(response.data)
+        console.log("登录状态：", response.data);
 
-            if (to.meta.style === "public") {
-                console.log("-----访问类型为public")
-                //用户已经登录，且可以跳转
-                if (response.data.result && response.data.role === to.meta.canRunUser) {
-                    console.log("-----用户已经登录，且可以跳转")
-                    next({
-                        name: to.meta.runTo,
-                        params: { from: 'index' }  // Add your parameters here
-                    })
-                } else {
-                    // 用户一登录，且不能跳转
-                    console.log("-----用户访问public页面,不跳转")
-                    next();
-                }
+        if (to.meta.style === "public") {
+            console.log("-----访问类型为public");
+
+            if (response.data.result && response.data.role === to.meta.canRunUser) {
+                console.log("-----用户已经登录，且可以跳转");
+                return next({ name: to.meta.runTo, params: { from: 'index' } }); // 🔹 这里 return，防止 next() 被多次调用
             } else {
-                // 用户已经登录
-                if (response.data.result) {
-                    if (to.meta.style !== response.data.role) {
-                        console.log("----- 用户已经登录，但不能访问此页面")
-                        // 用户已经登录，但不能访问此页面
-                        next({name: 'index'});
-                    } else {
-                        console.log("-----  用户已经登录，且可以访问此页面")
-                        // 用户已经登录，且可以访问此页面
-                        next();
-                    }
-                } else {
-                    // 用户未登录，都是无法访问
-                    if (to.meta.style === '学生') {
-                        console.log("----- 学生未登录，跳转到学生登录页面")
-                        // 学生未登录，跳转到学生登录页面
-                        next({name: 'StudentLoginView'});
-                    } else if (to.meta.style === '管理员') {
-                        console.log("----- 管理员未登录，跳转到管理员登录页面")
-                        // 其他角色未登录，跳转到管理员登录页面
-                        next({name: 'Login'});
-                    } else if (to.meta.style === '单位') {
-                        console.log("----- 单位未登录，跳转到单位登录页面")
-                        // 其他角色未登录，跳转到单位登录页面
-                        next({name: 'DwLoginView'});
-                    }else if (to.meta.style === '老师'){
-                        console.log("----- 老师未登录，跳转到老师登录页面")
-                        // 其他角色未登录，跳转到老师登录页面
-                        next({name: 'TeacherLoginView'});
-                    } else {
-                        console.log("----- 未知角色未登录!!!!!!!!!!!!!!!!")
-                    }
-                }
+                console.log("-----用户访问public页面,不跳转");
+                return next(); // 🔹 这里也 return
             }
-
-            // 设置当前页面的title
-            document.title = to.meta.title === undefined ? '学生就业管理系统' : to.meta.title;
-
         }
-    ).catch(error => {
-        // 触发弹窗显示事件/ 触发主组件的弹窗显示
+
+        if (response.data.result) {
+            if (to.meta.style !== response.data.role) {
+                console.log("----- 用户已经登录，但不能访问此页面");
+                return next({ name: 'index' }); // 🔹 return，防止后面继续执行
+            } else {
+                console.log("-----  用户已经登录，且可以访问此页面");
+                return next();
+            }
+        }
+
+        // 用户未登录
+        switch (to.meta.style) {
+            case '学生':
+                console.log("----- 学生未登录，跳转到学生登录页面");
+                return next({ name: 'StudentLoginView' });
+
+            case '管理员':
+                console.log("----- 管理员未登录，跳转到管理员登录页面");
+                return next({ name: 'Login' });
+
+            case '单位':
+                console.log("----- 单位未登录，跳转到单位登录页面");
+                return next({ name: 'DwLoginView' });
+
+            case '老师':
+                console.log("----- 老师未登录，跳转到老师登录页面");
+                return next({ name: 'TeacherLoginView' });
+
+            default:
+                console.log("----- 未知角色未登录!!!!!!!!!!!!!!!!");
+                return next({ name: 'index' });
+        }
+
+        // 设置当前页面标题
+        document.title = to.meta.title || '学生就业管理系统';
+
+    }).catch(error => {
+        // 触发弹窗事件
         EventBus.$emit('show-auth-popup');
-        next({name: 'index'}); // 检查失败，回到首页
-        setTimeout(() => {
-            console.error('路由守卫检查会话失败', error);
-        }, 1000);
+        console.error('路由守卫检查会话失败', error);
+
+        return next({ name: 'index' }); // 🔹 return，确保 next() 只执行一次
     });
-})
-;
+
+});*/
 
 
 export default router

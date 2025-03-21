@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.XmcgkMapper">
+    <insert id="insertXmcgk" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO XMCGK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xmmc != null"> XMMC, </if>
+            <if test="xmnr != null"> XMNR, </if>
+            <if test="stuid != null"> STUID, </if>
+            <if test="qydm != null"> QYDM, </if>
+            <if test="cjsj != null"> CJSJ, </if>
+            <if test="xmlx != null"> XMLX, </if>
+            <if test="xmfj != null"> XMFJ, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xmmc != null"> #{xmmc}, </if>
+            <if test="xmnr != null"> #{xmnr}, </if>
+            <if test="stuid != null"> #{stuid}, </if>
+            <if test="qydm != null"> #{qydm}, </if>
+            <if test="cjsj != null"> #{cjsj}, </if>
+            <if test="xmlx != null"> #{xmlx}, </if>
+            <if test="xmfj != null"> #{xmfj}, </if>
+        </trim>
+    </insert>
+
+    <update id="updateXmcgk">
+        UPDATE XMCGK
+        <set>
+            <if test="xmmc != null"> XMMC = #{xmmc}, </if>
+            <if test="xmnr != null"> XMNR = #{xmnr}, </if>
+            <if test="stuid != null"> STUID = #{stuid}, </if>
+            <if test="qydm != null"> QYDM = #{qydm}, </if>
+            <if test="cjsj != null"> CJSJ = #{cjsj}, </if>
+            <if test="xmlx != null"> XMLX = #{xmlx}, </if>
+            <if test="xmfj != null"> XMFJ = #{xmfj}, </if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+</mapper>
+

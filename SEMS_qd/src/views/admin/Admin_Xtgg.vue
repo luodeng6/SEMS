@@ -92,12 +92,10 @@
                 <div>
                   <h5 class="card-title">公告设置</h5>
                   <el-form :model="form" label-width="80px">
-                    <el-form-item label="发布者">
-                      <el-input v-model="form.FBZ" placeholder="请输入发布者"></el-input>
+                    <el-form-item label="公告类型">
+                      <el-input v-model="form.GGLX" placeholder="请输入公告类型"></el-input>
                     </el-form-item>
-                    <el-form-item label="身份">
-                      <el-input v-model="form.FBZSF" placeholder="请输入身份"></el-input>
-                    </el-form-item>
+
                     <el-form-item label="创建时间">
                       <el-date-picker
                           v-model="form.CJSJ"
@@ -106,9 +104,7 @@
                           style="width: 100%"
                       ></el-date-picker>
                     </el-form-item>
-                    <el-form-item label="浏览量">
-                      <el-input v-model="form.LLL" placeholder="请输入浏览量"></el-input>
-                    </el-form-item>
+
                     <el-form-item label="立即发布">
                       <el-switch
                           v-model="form.QYDM"
@@ -167,7 +163,8 @@ export default {
         GGBT: '',
         GGNR: '',
         GGNRHTML: '',
-        QYDM: 1
+        QYDM: 1,
+        GGLX: '',
       },
       // 用户信息
       UserInfo: {
@@ -197,7 +194,7 @@ export default {
   methods: {
     handleRowDblClick(row){
       console.log(row);
-      this.$router.push({path: '/dw/ggzs', query: {id: row.ID}})
+      this.$router.push({path: '/admin/ggzs', query: {id: row.ID}})
     },
     formatDate(dateStr) {
       return dateStr ? new Date(dateStr).toLocaleString() : '-'
@@ -228,7 +225,8 @@ export default {
     },
     // 加载公告列表
     getGongGaoList() {
-      axios.get(`/dwzpggk/getdwzpggk?YFSFDM=3&YHM=${this.UserInfo.username}&QYDM=-1`).then(res => {
+     /* Integer QYDM, Integer JUSTONE, Integer GGID*/
+      axios.get(`/xtggk/getXtggk?QYDM=-1&JUSTONE=-1&GGID=-1`).then(res => {
         if (res.data.result) {
           this.tableData = res.data.data;
           this.isLoading=false;
@@ -423,7 +421,7 @@ export default {
             dataForm.append('fbz', this.UserInfo.username);
             dataForm.append("fbzsfdm",3);//单位用户
             dataForm.append('ggnrhtml', this.form.GGNRHTML);
-            axios.post("/dwzpggk/updatedwzpggk", dataForm).then(res => {
+            axios.post("/xtggk/updateXtggk", dataForm).then(res => {
               if (res.data.result) {
                 this.$message.success('修改成功');
                 this.getGongGaoList();
@@ -470,9 +468,10 @@ export default {
             dataForm.append('ggbt', this.form.GGBT);
             dataForm.append('ggnr', this.form.GGNR);
             dataForm.append('fbz', this.UserInfo.username);
-            dataForm.append("fbzsfdm",3);//单位用户
+            dataForm.append("fbzsfdm",1);
             dataForm.append('ggnrhtml', this.form.GGNRHTML);
-            axios.post("/dwzpggk/adddwzpggk", dataForm).then(res => {
+            dataForm.append("gglx",this.form.GGLX);
+            axios.post("/xtggk/insertXtggk", dataForm).then(res => {
               if (res.data.result) {
                 this.$message.success('发布成功');
                 this.getGongGaoList();
@@ -597,9 +596,7 @@ export default {
     },
 
     handleTabChange(tab) {
-      /*     if (tab.name === 'publish' && !this.isEditMode) {
-             this.resetForm();
-           }*/
+
     }
   }
 }

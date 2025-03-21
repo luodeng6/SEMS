@@ -40,11 +40,11 @@ public class DwzpggkController {
     // 公告查询接口
     @GetMapping("/getdwzpggk")
     public Map<String, Object> getDwZpggk(Integer YFSFDM, String YHM, Integer QYDM,Integer JUSTONE ,Integer GGID) {
-        System.out.println("YFSFDM:"+YFSFDM);
+        /*System.out.println("YFSFDM:"+YFSFDM);
         System.out.println("YHM:"+YHM);
         System.out.println("QYDM:"+QYDM);
         System.out.println("JUSTONE:"+JUSTONE);
-        System.out.println("GGID:"+GGID);
+        System.out.println("GGID:"+GGID);*/
 
         // 设定默认值
         if (JUSTONE == null){

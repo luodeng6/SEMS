@@ -1,6 +1,9 @@
 <template>
   <div>
     <public-menu2></public-menu2>
+
+
+
     <!-- 公告主体 -->
     <el-card class="!border-none" shadow="never">
       <el-page-header @back="goBack" style="margin-bottom: 100px;" content="详情页面">
@@ -10,7 +13,7 @@
       <div class="border-b pb-4 mb-6">
         <h1 class="text-3xl font-bold text-gray-800 mb-2">{{ detail.GGBT }}</h1>
         <div class="flex items-center text-sm text-gray-500 space-x-4">
-          <span>发布者：{{ detail.FBZXM }}</span>
+          <span>发布者：{{ detail.FBZ }}</span>
           <span>发布时间：{{ formatTime(detail.CJSJ) }}</span>
           <el-tag size="mini" type="info">浏览 {{ detail.LLL }}</el-tag>
         </div>
@@ -62,7 +65,7 @@ export default {
       let formData = new FormData();
       formData.append("id", this.detail.ID);
       formData.append("lll", this.detail.LLL);
-      axios.post("/dwzpggk/updatedwzpggk", formData).then(res => {
+      axios.post("/xtggk/updateXtggk", formData).then(res => {
         if (!res.data.result) {
           this.$message.error(res.data.msg);
         }
@@ -78,10 +81,10 @@ export default {
       return dayjs(time).format('YYYY-MM-DD HH:mm');
     },
     loadMockData() {
-      axios.get(`/dwzpggk/getdwzpggk?YFSFDM=4&YHM=null&QYDM=1&JUSTONE=1&GGID=${this.$route.query.id}`).then(res => {
+      axios.get(`/xtggk/getXtggk?QYDM=1&JUSTONE=1&GGID=${this.$route.query.id}`).then(res => {
         if (res.data.result) {
           this.detail = res.data.data[0];
-          this.upLLL();
+          this.upLLL();// 更新浏览量
         } else {
           this.$message.error(res.data.msg);
         }

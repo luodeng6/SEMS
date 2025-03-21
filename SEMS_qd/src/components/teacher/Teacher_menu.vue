@@ -197,26 +197,39 @@ export default {
       this.$router.push({name: 'Login'});
     },
     LoginOutOK() {
-      this.$confirm('确认退出登录吗？', '确认信息', {
-        distinguishCancelAndClose: true,
-        confirmButtonText: '确定退出',
-        cancelButtonText: '取消'
-      }).then(() => {
-        axios.get("/user/logout").then((response) => {
-          if (response.data.result) {
-            this.$router.push({name: 'StudentLoginView'});
-          } else {
-            this.title = '错误';
-            this.message = '退出登录失败，请稍后再试';
-            this.visible = true;
+      $.confirm({
+        title: '提示',
+        content: '确认退出登录吗！',
+        type: 'orange', // warning 样式
+        buttons: {
+          确定: {
+            btnClass: 'btn-orange',
+            action:  ()=> {
+              axios.get("/user/logout").then((response) => {
+                if (response.data.result) {
+                  this.$router.push({name: 'TeacherLoginView'});
+                } else {
+                  this.title = '错误';
+                  this.message = '退出登录失败，请稍后再试';
+                  this.visible = true;
+                }
+              }).catch((error) => {
+                console.log(error);
+                this.title = '错误';
+                this.message = '退出登录失败，请稍后再试';
+                this.visible = true;
+              });
+            }
+          },
+          取消:  ()=> {
+
           }
-        }).catch((error) => {
-          console.log(error);
-          this.title = '错误';
-          this.message = '退出登录失败，请稍后再试';
-          this.visible = true;
-        });
-      }).catch(action => {});
+        }
+      });
+
+
+
+
     }
   }
 }

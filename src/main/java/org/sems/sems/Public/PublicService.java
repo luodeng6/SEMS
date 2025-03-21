@@ -8,6 +8,8 @@ public interface PublicService {
     //获取用户信息接口
    /* List<Map<String, Object>> getUser(int userRole, int state);*/
 
+    //获取用户信息
+    Map<String, Object> getUserData(String YHM,int YHSFDM);
 
 
     List<List<Map<String, Object>>> get_data_from_CCGC(String SQLTEXT);

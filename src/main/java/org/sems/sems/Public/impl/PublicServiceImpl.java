@@ -68,6 +68,33 @@ public class PublicServiceImpl implements PublicService {
     }
 
 
+    /**
+     *  获取用户信息
+     * @param YHM
+     * @param YHSFDM
+     * @return Map<String, Object>
+     */
+    @Override
+    public Map<String, Object> getUserData(String YHM, int YHSFDM) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            List<Map<String, Object>> resultList = new ArrayList<>();
+            resultList = jdbcTemplate.queryForList(
+                    "{call usp_GetUserData(?,?)}", YHM,YHSFDM);
+            resultMap.put("data", resultList.get(0));
+            resultMap.put("code", 200);
+            resultMap.put("msg", "success");
+            resultMap.put("result", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+
     @Qualifier("conversionService")
 
 

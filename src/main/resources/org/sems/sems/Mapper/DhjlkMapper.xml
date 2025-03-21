@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DhjlkMapper">
+
+    <insert id="insertDhjlk" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dhjlk
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="fromyhm != null">fromyhm,</if>
+            <if test="toyhm != null">toyhm,</if>
+            <if test="fromyhsfdm != null">fromyhsfdm,</if>
+            <if test="toyhsfdm != null">toyhsfdm,</if>
+            <if test="qydm != null">qydm,</if>
+            <if test="isqf != null">isqf,</if>
+            <if test="ydbz != null">ydbz,</if>
+            <if test="sendtime != null">sendtime,</if>
+            <if test="nr != null">nr,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="fromyhm != null">#{fromyhm},</if>
+            <if test="toyhm != null">#{toyhm},</if>
+            <if test="fromyhsfdm != null">#{fromyhsfdm},</if>
+            <if test="toyhsfdm != null">#{toyhsfdm},</if>
+            <if test="qydm != null">#{qydm},</if>
+            <if test="isqf != null">#{isqf},</if>
+            <if test="ydbz != null">#{ydbz},</if>
+            <if test="sendtime != null">#{sendtime},</if>
+            <if test="nr != null">#{nr},</if>
+        </trim>
+    </insert>
+
+    <update id="updateDhjlk" parameterType="map">
+        UPDATE dhjlk
+        <set>
+            <if test="fromyhm != null">fromyhm = #{fromyhm},</if>
+            <if test="toyhm != null">toyhm = #{toyhm},</if>
+            <if test="fromyhsfdm != null">fromyhsfdm = #{fromyhsfdm},</if>
+            <if test="toyhsfdm != null">toyhsfdm = #{toyhsfdm},</if>
+            <if test="qydm != null">qydm = #{qydm},</if>
+            <if test="isqf != null">isqf = #{isqf},</if>
+            <if test="ydbz != null">ydbz = #{ydbz},</if>
+            <if test="sendtime != null">sendtime = #{sendtime},</if>
+            <if test="nr != null">nr = #{nr},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>
+

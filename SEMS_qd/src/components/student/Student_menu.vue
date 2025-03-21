@@ -78,6 +78,14 @@
               </a>
             </router-link>
           </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/public/StudentXxlView">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-user-graduate mr-2"></i>
+                消息栏
+              </a>
+            </router-link>
+          </li>
 
           <li @click="toggleStatsMenuXiaoYuanOpen" class="hover:bg-blue-50 rounded cursor-pointer">
             <a class="flex items-center p-2 text-gray-700">
@@ -244,7 +252,7 @@ export default {
       visible: false,
       isStatsMenuQiTaOpen: true, // 控制统计分析子菜单的展开状态
       isStatsMenuXiaoYuanOpen: true, // 控制校园信息管理子菜单的展开状态
-      isStatsMenuJyFuOpen: false,// 控制就业辅助子菜单的展开状态
+      isStatsMenuJyFuOpen: true,// 控制就业辅助子菜单的展开状态
     }
   },
   methods: {
@@ -282,27 +290,39 @@ export default {
       this.$router.push({name: 'Login'});
     },
     LoginOutOK() {
-      this.$confirm('确认退出登录吗？', '确认信息', {
-        distinguishCancelAndClose: true,
-        confirmButtonText: '确定退出',
-        cancelButtonText: '取消'
-      }).then(() => {
-        axios.get("/user/logout").then((response) => {
-          if (response.data.result) {
-            this.$router.push({name: 'StudentLoginView'});
-          } else {
-            this.title = '错误';
-            this.message = '退出登录失败，请稍后再试';
-            this.visible = true;
+      $.confirm({
+        title: '提示',
+        content: '确认退出登录吗！',
+        type: 'orange', // warning 样式
+        buttons: {
+          确定: {
+            btnClass: 'btn-orange',
+            action:  ()=> {
+              axios.get("/user/logout").then((response) => {
+                if (response.data.result) {
+                  this.$router.push({name: 'StudentLoginView'});
+                } else {
+                  this.title = '错误';
+                  this.message = '退出登录失败，请稍后再试';
+                  this.visible = true;
+                }
+              }).catch((error) => {
+                console.log(error);
+                this.title = '错误';
+                this.message = '退出登录失败，请稍后再试';
+                this.visible = true;
+              });
+            }
+          },
+          取消:  ()=> {
+
           }
-        }).catch((error) => {
-          console.log(error);
-          this.title = '错误';
-          this.message = '退出登录失败，请稍后再试';
-          this.visible = true;
-        });
-      }).catch(action => {
+        }
       });
+
+
+
+
     }
   }
 }

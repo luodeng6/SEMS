@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.XtggkMapper">
+
+    <insert id="insertXtggk" parameterType="org.sems.sems.entity.Xtggk" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO XTGGK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ggbt != null"> GGBT, </if>
+            <if test="ggnr != null"> GGNR, </if>
+            <if test="ggnrhtml != null"> GGNRHTML, </if>
+            <if test="qydm != null"> QYDM, </if>
+            <if test="cjsj != null"> CJSJ, </if>
+            <if test="fbz != null"> FBZ, </if>
+            <if test="fbzsfdm != null"> FBZSFDM, </if>
+            <if test="lll != null"> LLL, </if>
+            <if test="gglx != null"> GGLX, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ggbt != null"> #{ggbt}, </if>
+            <if test="ggnr != null"> #{ggnr}, </if>
+            <if test="ggnrhtml != null"> #{ggnrhtml}, </if>
+            <if test="qydm != null"> #{qydm}, </if>
+            <if test="cjsj != null"> #{cjsj}, </if>
+            <if test="fbz != null"> #{fbz}, </if>
+            <if test="fbzsfdm != null"> #{fbzsfdm}, </if>
+            <if test="lll != null"> #{lll}, </if>
+            <if test="gglx != null"> #{gglx}, </if>
+        </trim>
+    </insert>
+
+
+
+    <update id="updateXTGGK" parameterType="org.sems.sems.entity.Xtggk">
+        UPDATE XTGGK
+        <set>
+            <if test="ggbt != null"> GGBT = #{ggbt}, </if>
+            <if test="ggnr != null"> GGNR = #{ggnr}, </if>
+            <if test="ggnrhtml != null"> GGNRHTML = #{ggnrhtml}, </if>
+            <if test="qydm != null"> QYDM = #{qydm}, </if>
+            <if test="cjsj != null"> CJSJ = #{cjsj}, </if>
+            <if test="fbz != null"> FBZ = #{fbz}, </if>
+            <if test="fbzsfdm != null"> FBZSFDM = #{fbzsfdm}, </if>
+            <if test="lll != null"> LLL = #{lll}, </if>
+            <if test="gglx != null"> GGLX = #{gglx}, </if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+</mapper>
+
