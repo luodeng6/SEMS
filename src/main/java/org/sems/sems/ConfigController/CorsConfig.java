@@ -1,4 +1,4 @@
-package org.sems.sems.Controller;
+package org.sems.sems.ConfigController;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,18 +9,21 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 public class CorsConfig {
 
-    // 当前跨域请求最大有效时长。这里默认1天
+    // 当前跨域请求最大有效时长，默认1天
     private static final long MAX_AGE = 24 * 60 * 60;
 
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("*"); // 1 设置访问源地址
-        corsConfiguration.addAllowedHeader("*"); // 2 设置访问源请求头
-        corsConfiguration.addAllowedMethod("*"); // 3 设置访问源请求方法
+        // 允许携带凭证（Cookie等），注意此时不能使用 "*" 作为 allowed origin
+        corsConfiguration.setAllowCredentials(true);
+        // 指定允许的源为前端地址
+        corsConfiguration.addAllowedOrigin("http://localhost:8080");
+        corsConfiguration.addAllowedHeader("*");
+        corsConfiguration.addAllowedMethod("*");
         corsConfiguration.setMaxAge(MAX_AGE);
-        source.registerCorsConfiguration("/**", corsConfiguration); // 4 对接口配置跨域设置
+        source.registerCorsConfiguration("/**", corsConfiguration);
         return new CorsFilter(source);
     }
 }

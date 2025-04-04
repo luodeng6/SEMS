@@ -24,7 +24,7 @@
         <!-- 右侧聊天区域 -->
         <div class="chat-area">
           <header class="chat-header">
-            <h2>{{ activeContact ? activeContact.name : '请选择联系人' }}</h2>
+            <h2>{{ activeContact ? activeContact.name : '请选择联系人' }}-{{selectHrData.GSMC}}-{{selectHrData.ZW}}</h2>
           </header>
           <div ref="chatBody" class="chat-body">
             <template v-if="activeContact">
@@ -73,72 +73,50 @@ import axios from "axios";
 import { EventBus } from "@/event-bus";
 import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
+
 export default {
   name: 'StudentChat',
   components: { StudentMenu },
   data() {
     return {
-      // 当前登录用户信息
+      stompClient: null,
       currentUser: {
         id: '',
         username: '',
         name: '',
-        role: '',
+        roleCode: 4,
         avatar: 'https://i.pravatar.cc/150?img=3'
       },
-      // 联系人列表
       contacts: [],
-      // 当前选中的联系人
       activeContact: null,
-      // 新消息内容
+      selectHrData: null,
       newMessage: ""
     }
   },
   async created() {
     await this.initializeChat();
-
-    // 连接websocket:为啥要链接websocket呢？因为后端已经将消息推送到了websocket上，所以我们只需要订阅websocket就可以收到消息
-    if (this.stompClient && this.stompClient.ws.readyState === WebSocket.OPEN) {
-      console.log("WebSocket已连接!!!!");
-    } else {
-      console.log("WebSocket未连接，正在连接....");
-      this.connectWebSocket();
+    this.connectWebSocket();
+  },
+  destroyed() {
+    // 关闭WebSocket连接：作用是清除定时器，避免内存泄漏
+    if (this.stompClient) {
+      console.log('关闭WebSocket连接');
+      this.stompClient.disconnect();
     }
-
   },
   methods: {
-    /**
-     * 初始化聊天系统
-     */
+    // 初始化聊天系统
     async initializeChat() {
       try {
         await this.verifySession();
         await this.loadChatHistory();
+        this.autoSelectContact();
       } catch (error) {
-        console.error('聊天初始化失败:', error);
-        this.$message.error('聊天初始化失败');
+        this.handleError('聊天初始化失败', error);
       }
     },
-    connectWebSocket() {
-      const socket = new SockJS('http://localhost:83/chat');
-      this.stompClient = Stomp.over(socket);
 
-      // 连接服务器
-      this.stompClient.connect({}, frame => {
-        // 订阅消息
-        this.stompClient.subscribe('/topic/messages', message => {
-          console.log("接收到了消息！！！：");
-          /*console.log(JSON.parse(message.body));*/
-          let  responseData = JSON.parse(message.body);
-          console.log(responseData);
-        });
-        console.log("打印数据：");
-        console.log(this.messages);
-      });
-    },
-    /**
-     * 验证用户会话
-     */
+    // 验证会话
     async verifySession() {
       try {
         const response = await axios.get('/user/checkSession');
@@ -147,163 +125,184 @@ export default {
           this.redirectToLogin();
           return;
         }
+
         this.currentUser = {
           ...this.currentUser,
           ...response.data,
           username: response.data.username
         };
-        const studenInfoDataResponse = await axios.get(`/sstx/getUserInfo?yhm=${this.currentUser.username}&yhsfdm=4`);
-        this.currentUser.avatar = studenInfoDataResponse.data.data.YHZP;
+
+        const { data } = await axios.get(`/sstx/getUserInfo?yhm=${this.currentUser.username}&yhsfdm=4`);
+        this.currentUser.avatar = data.data.YHZP;
       } catch (error) {
-        console.error('会话验证失败:', error);
+        this.handleError('会话验证失败', error);
         this.redirectToLogin();
       }
     },
 
-    /**
-     * 加载聊天记录和联系人
-     */
+    // 加载聊天记录
     async loadChatHistory() {
       try {
-        const response = await axios.get(
-            `/sstx/getDhjlList?yhm=${this.currentUser.username}&yhsfdm=4`
-        );
+        const { data } = await axios.get(`/sstx/getDhjlList?yhm=${this.currentUser.username}&yhsfdm=4`);
+        if (!data.result) throw new Error(data.msg);
 
-        if (!response.data.result) {
-          throw new Error(response.data.msg);
+        const contactMap = new Map();
+        for (const msg of data.data) {
+          const isFromMe = msg.fromyhm === this.currentUser.username;
+          const contactKey = isFromMe ? msg.toyhm : msg.fromyhm;
+
+          if (!contactMap.has(contactKey)) {
+            const roleCode = isFromMe ? msg.toyhsfdm : msg.fromyhsfdm;
+            const info = await this.fetchUserInfo(contactKey, roleCode);
+
+            contactMap.set(contactKey, {
+              id: contactKey,
+              name: info.YHXM,
+              avatar: info.YHZP,
+              roleCode,
+              messages: []
+            });
+          }
+
+          contactMap.get(contactKey).messages.push({
+            sender: msg.fromyhm,
+            content: msg.nr,
+            timestamp: new Date(msg.sendtime)
+          });
         }
 
-        await this.processContacts(response.data.data);
+        this.contacts = Array.from(contactMap.values());
       } catch (error) {
-        console.error('加载聊天记录失败:', error);
-        this.$message.error('加载聊天记录失败');
+        this.handleError('加载聊天记录失败', error);
       }
     },
 
-    /**
-     * 处理联系人数据
-     * @param {Array} messages - 原始消息记录
-     */
-    async processContacts(messages) {
-      const contactMap = new Map();
+    // 连接WebSocket
+    connectWebSocket() {
+      const socket = new SockJS('http://localhost:83/chat');
+      this.stompClient = Stomp.over(socket);
 
-      for (const msg of messages) {
-        const isFromMe = msg.fromyhm === this.currentUser.username;
-        const contactUsername = isFromMe ? msg.toyhm : msg.fromyhm;
-        const contactRoleCode = isFromMe ? msg.toyhsfdm : msg.fromyhsfdm;
-
-        if (!contactMap.has(contactUsername)) {
-          try {
-            const contactInfo = await this.fetchContactInfo(
-                contactUsername,
-                contactRoleCode
-            );
-
-            contactMap.set(contactUsername, {
-              id: contactUsername,
-              name: contactInfo.ONEXM || '未知用户',
-              avatar: contactInfo.YHZP || 'default-avatar.jpg',
-              roleCode: contactRoleCode,
-              messages: []
-            });
-          } catch (error) {
-            console.error('联系人信息获取失败:', contactUsername, error);
-            continue;
+      this.stompClient.connect({}, () => {
+        this.stompClient.subscribe('/topic/messages', message => {
+          const msg = JSON.parse(message.body);
+          if (msg.toyhm === this.currentUser.username && msg.toyhsfdm === this.currentUser.roleCode) {
+            this.handleIncomingMessage(msg);
           }
-        }
-        console.log("msg：")
-        console.log(msg);
+        });
+      });
+    },
 
-        contactMap.get(contactUsername).messages.push({
+    // 处理接收消息
+    async handleIncomingMessage(msg) {
+      const existingContact = this.contacts.find(c => c.id === msg.fromyhm);
+
+      if (existingContact) {
+        existingContact.messages.push({
           sender: msg.fromyhm,
           content: msg.nr,
           timestamp: new Date(msg.sendtime)
         });
-      }
 
-      this.contacts = Array.from(contactMap.values());
-      this.autoSelectContact();
-    },
-
-    /**
-     * 获取联系人详细信息
-     * @param {string} username - 联系人用户名
-     * @param {number} roleCode - 角色代码
-     */
-    async fetchContactInfo(username, roleCode) {
-      try {
-        const response = await axios.get(
-            `/sstx/getUserInfo?yhm=${username}&yhsfdm=${roleCode}`
-        );
-
-        if (!response.data.result) {
-          throw new Error(response.data.msg);
+        if (this.activeContact?.id !== msg.fromyhm) {
+          this.showNotification(existingContact.name, msg.nr);
         }
-
-        return {
-          ONEXM: response.data.data.YHXM,
-          YHZP: response.data.data.YHZP
-        };
-      } catch (error) {
-        console.error('联系人信息获取失败:', error);
-        return {
-          ONEXM: `${username}（获取失败）`,
-          YHZP: 'default-avatar.jpg'
-        };
+      } else {
+        await this.createNewContact(msg);
       }
-    },
 
-    /**
-     * 自动选择第一个联系人
-     */
-    autoSelectContact() {
-      if (this.contacts.length > 0) {
-        console.log( this.contacts[0]);
-        this.activeContact = this.contacts[0];
-        this.$nextTick(this.scrollToBottom);
-      }
-    },
-
-    /**
-     * 选择联系人
-     */
-    selectContact(contact) {
-      this.activeContact = contact;
       this.scrollToBottom();
     },
 
-    /**
-     * 发送消息
-     */
-    async sendMessage() {
-      if (!this.activeContact || !this.newMessage.trim()) return;
-
+    // 创建新联系人
+    async createNewContact(msg) {
       try {
-        const newMsg = {
-          sender: this.currentUser.username,
-          content: this.newMessage.trim(),
-          timestamp: new Date()
+        const info = await this.fetchUserInfo(msg.fromyhm, msg.fromyhsfdm);
+        const newContact = {
+          id: msg.fromyhm,
+          name: info.YHXM,
+          avatar: info.YHZP,
+          roleCode: msg.fromyhsfdm,
+          messages: [{
+            sender: msg.fromyhm,
+            content: msg.nr,
+            timestamp: new Date(msg.sendtime)
+          }]
         };
 
-      /*  await axios.post('/sstx/sendMessage', {
-          fromyhm: this.currentUser.username,
-          toyhm: this.activeContact.id,
-          content: this.newMessage.trim(),
-          yhsfdm: 4
-        });*/
-
-        this.activeContact.messages.push(newMsg);
-        this.newMessage = "";
-        this.scrollToBottom();
+        this.contacts.push(newContact);
+        this.showNotification(newContact.name, msg.nr);
       } catch (error) {
-        console.error('消息发送失败:', error);
-        this.$message.error('消息发送失败');
+        this.handleError('创建联系人失败', error);
       }
     },
 
-    /**
-     * 滚动到底部
-     */
+    // 发送消息
+    async sendMessage() {
+      if (!this.activeContact || !this.newMessage.trim()) return;
+
+      const newMsg = {
+        fromyhm: this.currentUser.username,
+        toyhm: this.activeContact.id,
+        fromyhsfdm: 4,
+        toyhsfdm: this.activeContact.roleCode,
+        isqf: 0,
+        nr: this.newMessage.trim(),
+        sendtime: new Date().getTime()
+      };
+
+      // 本地立即显示
+      this.activeContact.messages.push({
+        sender: this.currentUser.username,
+        content: newMsg.nr,
+        timestamp: new Date()
+      });
+
+      this.newMessage = "";
+      this.scrollToBottom();
+
+      try {
+        this.stompClient.send("/app/chat", JSON.stringify(newMsg));
+      } catch (error) {
+        this.handleError('消息发送失败', error);
+        this.activeContact.messages.pop();
+      }
+    },
+
+    // 获取用户信息
+    async fetchUserInfo(username, roleCode) {
+      const { data } = await axios.get(`/sstx/getUserInfo?yhm=${username}&yhsfdm=${roleCode}`);
+      if (!data.result) throw new Error(data.msg);
+      return data.data;
+    },
+
+    // 自动选择第一个联系人
+    autoSelectContact() {
+      if (this.contacts.length > 0) {
+        this.selectContact(this.contacts[0]);
+      }
+    },
+
+    // 选择联系人
+    selectContact(contact) {
+      this.activeContact = contact;
+      this.loadHrInfo(contact.id, contact.roleCode);
+      this.scrollToBottom();
+    },
+
+    // 加载HR信息
+    async loadHrInfo(username, roleCode) {
+      try {
+        const info = await this.fetchUserInfo(username, roleCode);
+        this.selectHrData = {
+          GSMC: info.GSMC,
+          ZW: info.ZW
+        };
+      } catch (error) {
+        this.handleError('加载HR信息失败', error);
+      }
+    },
+
+    // 滚动到底部
     scrollToBottom() {
       this.$nextTick(() => {
         const container = this.$refs.chatBody;
@@ -313,9 +312,22 @@ export default {
       });
     },
 
-    /**
-     * 格式化时间显示
-     */
+    // 显示通知
+    showNotification(title, message) {
+      this.$notify.info({
+        title: `${title} 发来新消息`,
+        message,
+        duration: 5000
+      });
+    },
+
+    // 错误处理
+    handleError(context, error) {
+      console.error(`${context}:`, error);
+      this.$message.error(`${context}: ${error.message}`);
+    },
+
+    // 时间格式化
     formatTime(timestamp) {
       return new Date(timestamp).toLocaleTimeString('zh-CN', {
         hour: '2-digit',
@@ -323,6 +335,7 @@ export default {
       });
     },
 
+    // 跳转登录
     redirectToLogin() {
       setTimeout(() => {
         this.$router.push({ name: 'StudentLoginView' });

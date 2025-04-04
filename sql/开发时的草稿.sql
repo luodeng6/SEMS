@@ -40,7 +40,9 @@ update DATA_GWDMK set FBZ='billie' , FBZYHSFDM=3 where FBZYHSFDM=1
 exec LuoDeng_getAlltableInfo
 
 
-exec LuodengTable 'GZJLK'
+ exec usp_GetStudentXmcg 2,1,1237
+
+exec LuodengTable 'DHJLK'
 
 
 exec usp_AllUserGetGongGaoData 4,'null',1,0,-1
@@ -60,6 +62,20 @@ exec usp_Clear   -- 清库
 exec usp_GetDwyhData 'luo'
 exec sems.dbo.LuodengTable 'DWHYDMK'
 exec LuodengTable 'DATA_STUDENT' --学生代码库
+select * from DATA_STUDENT
+select * from XLTTK
+-- 更新班级
+UPDATE a
+SET a.SSBJ = b.ID
+FROM DATA_STUDENT a
+INNER JOIN BJDMK b ON a.BJMC = b.BJMC;
+
+
+
+delete from  DATA_STUDENT where BJMC != '2021级信息管理与信息系统'
+
+
+
 exec LuodengTable 'BJDMK' -- 班级代码库
 exec LuodengTable 'JSDMK'  -- 教师代码库
 exec LuodengTable 'SFDMK' --省份代码库
@@ -94,7 +110,38 @@ exec LuodengTable 'XSCJDK'
 exec LuodengTable 'DHJLK'
 
 exec usp_GetAllStudentData'lls', '老师'
- 
+ select * from JSBJDYK
+
+ SELECT   
+					a.[ID],  a.[XSXM],  a.[XSXB],  a.[BIRTH],  
+					DATEDIFF(YEAR, [BIRTH], GETDATE()) AS NL,  
+					a.[YHM],  c.ZYMC,  a.[SFZH],  a.[ZZMM],  a.[SSNJ],  
+					CASE a.[XZ]  
+						WHEN 1 THEN '一年制'  
+						WHEN 2 THEN '二年制'  
+						WHEN 3 THEN '三年制'  
+						WHEN 4 THEN '四年制'  
+						WHEN 5 THEN '五年制'  
+						WHEN 6 THEN '六年制'  
+						ELSE '暂未提供'  
+					END AS XZ,  
+					a.[MZ],  a.[XSXH],  a.[BJMC],a.SSBJ,a.BJMC,
+					b.XLMC,  d.JYZT,a.XSZP,a.FZJS,e.JSMC
+				FROM   
+					DATA_STUDENT a  
+				LEFT JOIN   
+					XLTTK b ON a.XLDM = b.ID  
+				LEFT JOIN   
+					ZYDMK c ON a.ZYDM = c.ID  
+				LEFT JOIN   
+					JYZTDMK d ON a.JYZT = d.ZTDM  
+				LEFT JOIN 
+					JSDMK e ON a.FZJS = e.ID  
+				where a.SSBJ in (select BJID from JSBJDYK where JSID=(select ID from JSDMK where YHM='lls'))
+				 --用于获取教师信息（姓名）
+				 SELECT * FROM  JSDMK
+select BJID from JSBJDYK where JSID=(select ID from JSDMK where YHM='lls')
+ exec getStudentDataNewInterface 3, 2, 'lls' 
 
 
 select * from YHSFDMK

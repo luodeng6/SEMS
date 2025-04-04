@@ -1,244 +1,242 @@
 <template>
   <div class="content">
-    <StudentMenu></StudentMenu>
+    <StudentMenu />
+    <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
+      <header class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-semibold text-gray-800">简历管理</h1>
+      </header>
 
-    <main class="ml-64 flex-1 p-6">
-
-      <el-tabs tab-position="left" style="height: 900px;">
-        <el-tab-pane label="我的简历">
-          <el-card class="box-card" shadow="hover">
-            <el-descriptions title="用户信息">
-              <el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
-              <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
-              <el-descriptions-item label="居住地">苏州市</el-descriptions-item>
-              <el-descriptions-item label="备注">
-                <el-tag size="small">学校</el-tag>
-              </el-descriptions-item>
-              <el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
-            </el-descriptions>
-          </el-card>
-
-          <el-card shadow="hover">
-            <el-table :data="tableData" style="width: 100%" max-height="760" @row-dblclick="previewResume">
-              <el-table-column prop="jldm" label="简历代码" width="150">
-              </el-table-column>
-              <el-table-column prop="xsid" label="学生ID" width="120">
-              </el-table-column>
-              <el-table-column prop="fbbz" label="发布标志" width="120">
-              </el-table-column>
-              <el-table-column prop="fbsj" label="发布时间" width="150">
-              </el-table-column>
-              <el-table-column prop="jlwb" label="简历文本" width="300">
-              </el-table-column>
-              <el-table-column prop="html" label="简历HTML内容" width="300">
-              </el-table-column>
-              <el-table-column prop="scxgtime" label="上次修改时间" width="150">
-              </el-table-column>
-              <el-table-column prop="jlfj" label="简历附件" width="200">
-              </el-table-column>
-            </el-table>
-          </el-card>
+      <el-tabs v-model="activeTab" type="card">
+        <!-- 管理标签页 -->
+        <el-tab-pane label="简历管理" name="manage">
+          <el-table
+              :data="resumes"
+              border
+              stripe
+              class="w-full"
+              @row-dblclick="previewResume"
+          >
+            <el-table-column prop="JLDM" label="简历代码" width="100"></el-table-column>
+            <el-table-column prop="JLMC" label="简历名称" width="150"></el-table-column>
+            <el-table-column prop="FBSJ" label="发布时间" width="180">
+              <template #default="{ row }">
+                {{ row.FBSJ | dateFormat }}
+              </template>
+            </el-table-column>
+            <el-table-column prop="FBBZ" label="状态" width="100">
+              <template #default="{ row }">
+                <el-tag :type="row.FBBZ === '1' ? 'success' : 'info'">
+                  {{ row.FBBZ === '1' ? '已发布' : '草稿' }}
+                </el-tag>
+              </template>
+            </el-table-column>
+            <!-- 附件上传在表格中完成 -->
+            <el-table-column label="附件" width="150">
+              <template #default="{ row }">
+                <el-upload
+                    class="upload-demo"
+                    action="/api/upload"
+                    :limit="1"
+                    :on-success="res => handleRowUploadSuccess(row, res)"
+                    :file-list="row.uploadList"
+                    list-type="text"
+                    auto-upload
+                >
+                  <el-button size="mini" type="primary">上传附件</el-button>
+                </el-upload>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" width="220">
+              <template #default="{ row }">
+                <el-button size="mini" @click="editResume(row)">编辑</el-button>
+                <el-button
+                    size="mini"
+                    :type="row.FBBZ === '1' ? 'danger' : 'success'"
+                    @click="togglePublish(row)"
+                >
+                  {{ row.FBBZ === '1' ? '取消发布' : '发布' }}
+                </el-button>
+              </template>
+            </el-table-column>
+          </el-table>
         </el-tab-pane>
-        <el-tab-pane label="新建简历">
-          <ResumeEditor/>
-        </el-tab-pane>
-        <el-tab-pane label="简历模版">
 
-        </el-tab-pane>
-        <el-tab-pane label="AI简历">
-          <JlAi></JlAi>
+        <!-- 编辑标签页 -->
+        <el-tab-pane label="简历编辑" name="edit">
+          <el-form ref="form" :model="form" :rules="rules" label-width="100px">
+            <el-form-item label="简历名称" prop="JLMC">
+              <el-input v-model="form.JLMC"></el-input>
+            </el-form-item>
+            <el-form-item label="简历内容">
+              <div ref="editor" class="editor-container"></div>
+            </el-form-item>
+            <el-form-item class="mt-6">
+              <el-button type="primary" @click="submitForm">保存</el-button>
+              <el-button @click="resetForm">重置</el-button>
+            </el-form-item>
+          </el-form>
         </el-tab-pane>
       </el-tabs>
 
-      <el-header>
-      </el-header>
-
-
-      <!--      <el-dialog :visible.sync="dialogVisible" title="编辑简历">
-              <div id="editor"></div>
-              <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="saveResume">保 存</el-button>
-              </span>
-            </el-dialog>-->
+      <!-- 简历预览对话框 -->
+      <el-dialog :visible.sync="previewVisible" title="简历预览" width="50%">
+        <div v-html="previewContent"></div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="previewVisible = false">关闭</el-button>
+        </span>
+      </el-dialog>
     </main>
   </div>
 </template>
 
 <script>
 import StudentMenu from "@/components/student/Student_menu.vue";
-// 引入 WangEditor
-import ResumeEditor from "@/components/student/ResumeEditor.vue";
-import JlAi from "@/components/student/JlAi.vue";
+import E from 'wangeditor';
+import dayjs from 'dayjs';
 
 export default {
-  components: {
-    JlAi,
-    StudentMenu,
-    ResumeEditor
-  },
-  name: "StudentJlView",
-  data() {
-    return {
-      tableData: [
-        {
-          jldm: 'JL001', // 简历代码
-          xsid: '1', // 学生ID
-          fbbz: 1, // 发布标志
-          fbsj: '2025-01-18', // 发布时间
-          jlwb: '简历文本示例', // 简历文本
-          html: '<p>简历HTML内容示例</p>', // 简历HTML内容
-          scxgtime: '2025-01-18 12:00', // 上次修改时间
-          jlfj: 'http://example.com/resume.pdf' // 简历附件
-        },
-        {
-          jldm: 'JL001', // 简历代码
-          xsid: '1', // 学生ID
-          fbbz: 1, // 发布标志
-          fbsj: '2025-01-18', // 发布时间
-          jlwb: '简历文本示例', // 简历文本
-          html: '<p>简历HTML内容示例</p>', // 简历HTML内容
-          scxgtime: '2025-01-18 12:00', // 上次修改时间
-          jlfj: 'http://example.com/resume.pdf' // 简历附件
-        },
-        {
-          jldm: 'JL001', // 简历代码
-          xsid: '1', // 学生ID
-          fbbz: 1, // 发布标志
-          fbsj: '2025-01-18', // 发布时间
-          jlwb: '简历文本示例', // 简历文本
-          html: '<p>简历HTML内容示例</p>', // 简历HTML内容
-          scxgtime: '2025-01-18 12:00', // 上次修改时间
-          jlfj: 'http://example.com/resume.pdf' // 简历附件
-        },
-        {
-          jldm: 'JL001', // 简历代码
-          xsid: '1', // 学生ID
-          fbbz: 1, // 发布标志
-          fbsj: '2025-01-18', // 发布时间
-          jlwb: '简历文本示例', // 简历文本
-          html: '<p>简历HTML内容示例</p>', // 简历HTML内容
-          scxgtime: '2025-01-18 12:00', // 上次修改时间
-          jlfj: 'http://example.com/resume.pdf' // 简历附件
-        },
-        {
-          jldm: 'JL001', // 简历代码
-          xsid: '1', // 学生ID
-          fbbz: 1, // 发布标志
-          fbsj: '2025-01-18', // 发布时间
-          jlwb: '简历文本示例', // 简历文本
-          html: '<p>简历HTML内容示例</p>', // 简历HTML内容
-          scxgtime: '2025-01-18 12:00', // 上次修改时间
-          jlfj: 'http://example.com/resume.pdf' // 简历附件
-        }
-        // 可以添加更多的简历数据...
-      ],
-      dialogVisible: false,
-      currentResumeIndex: null,
-      editor: null // WangEditor 实例
+  name: 'StudentResume',
+  components: { StudentMenu },
+  filters: {
+    dateFormat(val) {
+      return val ? dayjs(val).format('YYYY-MM-DD HH:mm') : '--';
     }
   },
-    methods: {
-      deleteRow(index, rows) {
-        rows.splice(index, 1);
-      },
-      addResume() {
-        this.currentResumeIndex = null; // 新增简历时，清空当前索引
-        this.dialogVisible = true;
-        this.initEditor();
-      },
-      initEditor() {
-        this.editor = new E('#editor');
-        this.editor.create();
-      },
-      saveResume() {
-        const content = this.editor.txt.html(); // 获取编辑器内容
-        const currentDate = new Date().toISOString().split('T')[0]; // 获取当前日期
-        if (this.currentResumeIndex !== null) {
-          // 更新已有简历
-          this.tableData[this.currentResumeIndex].html = content;
-          this.tableData[this.currentResumeIndex].scxgtime = currentDate; // 更新修改时间
-        } else {
-          // 新增简历
-          this.tableData.push({
-            jldm: `JL${this.tableData.length + 1}`, // 简历代码
-            xsid: '新用户ID', // 学生ID
-            fbbz: 0, // 发布标志，初始为未发布
-            fbsj: null, // 发布时间
-            jlwb: '新简历文本', // 简历文本
-            html: content, // 简历HTML内容
-            scxgtime: currentDate, // 上次修改时间
-            jlfj: null // 简历附件
-          });
+  data() {
+    return {
+      activeTab: 'manage',
+      // 模拟后端数据，初始化几条简历记录
+      resumes: [
+        {
+          JLDM: '001',
+          JLMC: '简历样本1',
+          FBSJ: new Date().toISOString(),
+          FBBZ: '0',
+          HTML: '<p>这是简历样本1的内容</p>',
+          uploadList: []
+        },
+        {
+          JLDM: '002',
+          JLMC: '简历样本2',
+          FBSJ: new Date().toISOString(),
+          FBBZ: '1',
+          HTML: '<p>这是简历样本2的内容</p>',
+          uploadList: []
         }
-        this.dialogVisible = false;
-        this.editor.destroy(); // 清理编辑器
+      ],
+      form: {
+        JLDM: null,
+        JLMC: '',
+        HTML: ''
       },
-      previewResume(row) {
-        // 预览功能实现
-        alert(`预览简历: ${row.jldm}\n内容: ${row.html}`);
+      rules: {
+        JLMC: [
+          { required: true, message: '请输入简历名称', trigger: 'blur' }
+        ]
       },
-      exportToWord() {
-        // 导出为 Word 文档的逻辑
-        alert('导出为 Word 文档功能尚未实现');
-      },
-      exportToPDF() {
-        // 导出为 PDF 文档的逻辑
-        alert('导出为 PDF 文档功能尚未实现');
-      }
-    },
+      editor: null,
+      previewVisible: false,
+      previewContent: ''
+    };
+  },
   mounted() {
-    //   this.initEditor();
+    this.initEditor();
+    // 此处也可以从后端加载数据
+    // this.loadResumes();
+  },
+  beforeDestroy() {
+    if (this.editor) {
+      this.editor.destroy();
+      this.editor = null;
+    }
+  },
+  methods: {
+    initEditor() {
+      this.editor = new E(this.$refs.editor);
+      this.editor.config.onchange = (html) => {
+        this.form.HTML = html;
+      };
+      this.editor.create();
+    },
+
+    // 模拟编辑操作：将行数据加载到编辑表单中
+    editResume(row) {
+      this.form = { ...row };
+      this.editor.txt.html(row.HTML);
+      this.activeTab = 'edit';
+    },
+
+    // 模拟表格中上传附件成功后，将附件地址更新到当前行数据中
+    handleRowUploadSuccess(row, res) {
+      // 假设返回结果中包含 url 字段
+      this.$set(row, 'JLFJ', res.url);
+      // 更新 fileList 信息
+      row.uploadList = [{ name: '附件', url: res.url }];
+      this.$message.success('附件上传成功');
+    },
+
+    // 保存编辑内容（模拟后端数据保存）
+    submitForm() {
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          // 若JLDM存在，说明是编辑，否则为新增
+          if (this.form.JLDM) {
+            const index = this.resumes.findIndex(item => item.JLDM === this.form.JLDM);
+            if (index !== -1) {
+              // 更新最后修改时间
+              this.form.FBSJ = new Date().toISOString();
+              this.$set(this.resumes, index, { ...this.form, uploadList: this.resumes[index].uploadList || [] });
+              this.$message.success('保存成功');
+            }
+          } else {
+            // 新增一条记录
+            this.form.JLDM = Date.now().toString();
+            this.form.FBSJ = new Date().toISOString();
+            this.form.FBBZ = '0';
+            this.resumes.push({ ...this.form, uploadList: [] });
+            this.$message.success('新增成功');
+          }
+          this.activeTab = 'manage';
+        }
+      });
+    },
+
+    resetForm() {
+      this.$refs.form.resetFields();
+      this.editor.txt.clear();
+    },
+
+    togglePublish(row) {
+      row.FBBZ = row.FBBZ === '1' ? '0' : '1';
+      this.$message.success('操作成功');
+    },
+
+    // 双击表格行时预览简历内容
+    previewResume(row) {
+      this.previewContent = row.HTML;
+      this.previewVisible = true;
+    }
+  },
+  computed: {
+    studentId() {
+      return this.$store.state.user.id;
+    }
   }
-}
+};
 </script>
 
 <style scoped>
-
-
-h1, h2 {
-  text-align: center;
-}
-
-
-button {
-  display: block;
-  width: 100%;
+.editor-container {
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
   padding: 10px;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  /* 设置编辑器高度 */
+  min-height: 300px;
 }
-
-button:hover {
-  background-color: #368d6a;
+.w-e-toolbar {
+  border-bottom: 1px solid #dcdfe6 !important;
 }
-
-
-
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.w-e-text-container {
+  height: 300px !important;
 }
-
-.content {
-  font-family: 'Arial', sans-serif;
-  background-color: #ffffff; /* 白色背景 */
-  margin: 0;
-  padding: 0;
-}
-
-.text {
-  font-size: 14px;
-}
-
-.item {
-  padding: 18px 0;
-}
-
-
 </style>

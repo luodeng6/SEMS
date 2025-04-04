@@ -28,6 +28,11 @@ public class StudentController {
         return dataStudentService.getStudentByIdentity();
     }
 
+    // 获取学生信息，最新接口
+    @RequestMapping(value = "/getStudentDataNewInterface", method = RequestMethod.GET)
+    public Map<String, Object> getStudentDataNewInterface(int YHSFDM,int QYDM,String YHM) {
+        return dataStudentService.getStudentDataNewInterface(YHSFDM, QYDM, YHM);
+    }
 
     // 获取学生信息，通过用户名或者id
     @GetMapping(value = "/getStudentByUsernameOrId")

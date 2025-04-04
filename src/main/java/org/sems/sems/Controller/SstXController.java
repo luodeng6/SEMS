@@ -1,6 +1,7 @@
 package org.sems.sems.Controller;
 
 import org.sems.sems.Public.PublicService;
+import org.sems.sems.entity.Dhjlk;
 import org.sems.sems.service.SstXService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,14 @@ public class SstXController {
     @GetMapping("/getUserInfo")
     public Map<String, Object> getUserInfo(String yhm,int yhsfdm) {
         return publicService.getUserData(yhm, yhsfdm);
+    }
+
+
+
+    // 新建对话
+    @PostMapping("/addNewlxr")
+    public Map<String, Object> addNewlxr(Dhjlk dhjlk) {
+        return sstXService.addNewlxr(dhjlk);
     }
 
 

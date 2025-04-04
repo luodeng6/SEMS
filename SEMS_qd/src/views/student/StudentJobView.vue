@@ -427,11 +427,25 @@ export default {
     addLxr() {
       console.log(this.currentJobSelectRow);
       let postData = new FormData();
-      postData.append("yhm",this.UserInfo.username );// 本人
-      postData.append("lyyhm", this.currentJobSelectRow.fbz);// 联系人姓名
-      postData.append("yhsfdm", 4); // 学生
-      postData.append("lyyhsfdm", 3);//单位
-     axios.post("/sstx/addLxr", postData).then(response => {
+      postData.append("fromyhm",this.UserInfo.username );// 本人
+      postData.append("toyhm", this.currentJobSelectRow.fbz);// 单位用户名
+      postData.append("fromyhsfdm", 4); // 学生
+      postData.append("toyhsfdm", 3);//单位
+      postData.append("nr", "HR您好，我对岗位：" + this.currentJobSelectRow.gwmc + ", 很感兴趣，希望继续对话。")
+
+      /*ID	编号
+      FROMYHM	发送者用户名
+      TOYHM	接受者用户名
+      FROMYHSFDM	发送者SFDM
+      TOYHSFDM	接收者身份代码
+      QYDM
+      ISQF	是否群发
+      YDBZ	已读标志
+      SENDTIME	发送时间
+      NR	内容*/
+
+      // 添加联系对话记录:"HR您好，我对岗位：很感兴趣，希望继续对话。"
+     axios.post("/sstx/addNewlxr", postData).then(response => {
         if (response.data.result) {
           this.$message.success("添加联系人成功！");
           console.log(response.data.data);

@@ -29,7 +29,10 @@ import jQuery from 'jquery';
 import 'jquery-confirm';
 import 'jquery-confirm/css/jquery-confirm.css'; // 引入 jQuery Confirm 的 CSS
 window.$ = window.jQuery = jQuery; // 将 jQuery 赋值给全局变量
+import WebSocketService from '@/utils/websocket'
 
+// 初始化WebSocket
+WebSocketService.connect()
 
 import VTooltip from 'v-tooltip';
 Vue.use(VTooltip);

@@ -1,5 +1,7 @@
 package org.sems.sems.service;
 
+import org.sems.sems.entity.Dhjlk;
+
 import java.util.Map;
 
 // 实时通讯服务接口
@@ -23,4 +25,11 @@ public interface SstXService {
      * @return 返回结果
      */
     Map<String, Object> getDhjlList(String yhm,int yhsfdm);
+    /**
+     * 新增联系人：初始化聊天记录
+     * @param dhjlk 联系人信息
+     * @return 返回结果
+     * @throws Exception
+     */
+    Map<String, Object> addNewlxr(Dhjlk dhjlk);
 }

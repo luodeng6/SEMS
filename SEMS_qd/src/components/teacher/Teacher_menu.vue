@@ -7,7 +7,7 @@
       <nav class="p-4">
         <ul class="space-y-2">
           <li class="hover:bg-blue-50 rounded">
-            <router-link to="/stu/index">
+            <router-link to="/teacher/login">
               <a class="flex items-center p-2 text-gray-700">
                 <i class="fas fa-home mr-2"></i>
                 首页总览
@@ -15,7 +15,7 @@
             </router-link>
           </li>
           <li class="hover:bg-blue-50 rounded">
-            <router-link to="/stu/xsjl">
+            <router-link to="/teacher/mystudents">
               <a class="flex items-center p-2 text-gray-700">
                 <i class="fas fa-users mr-2"></i>
                 学生管理
@@ -49,7 +49,7 @@
           </li>
 
           <li class="hover:bg-blue-50 rounded">
-            <router-link to="/admin/job">
+            <router-link to="/teacher/TeacherZpggView">
               <a class="flex items-center p-2 text-gray-700">
                 <i class="fas fa-briefcase mr-2"></i>
                 招聘公告
@@ -90,7 +90,6 @@
             </li>
 
           </ul>
-
 
 
           <li @click="toggleStatsMenu" class="hover:bg-blue-50 rounded cursor-pointer">

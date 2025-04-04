@@ -77,4 +77,12 @@ public interface DataStudentService {
      * @return Map<String, Object>
      */
     Map<String, Object> uploadStudentPhoto(MultipartFile file, String yhm);
+    /**
+     *  获取学生数据接口(新版)
+     * @param yhsfdm 学号范围
+     * @param qydm 启用代码 1 启用 0 停用，2获取全部
+     * @param yhm 用户名
+     * @return Map<String, Object>
+     */
+    Map<String, Object> getStudentDataNewInterface(int yhsfdm, int qydm, String yhm);
 }

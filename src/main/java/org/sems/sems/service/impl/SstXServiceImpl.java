@@ -1,6 +1,7 @@
 package org.sems.sems.service.impl;
 
 import org.sems.sems.Mapper.DhjlkMapper;
+import org.sems.sems.entity.Dhjlk;
 import org.sems.sems.service.SstXService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -69,6 +70,36 @@ public class SstXServiceImpl implements SstXService {
             resultMap.put("msg", "success");
             resultMap.put("result", true);
             resultMap.put("data",dhjlkMapper.getDhjlList(yhm,yhsfdm));
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+
+
+    /**
+     * 新增联系人：初始化聊天记录
+     * @param dhjlk 联系人信息
+     * @return 返回结果
+     */
+    @Override
+    public Map<String, Object> addNewlxr(Dhjlk dhjlk) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            if (dhjlkMapper.insertDhjlk(dhjlk) > 0){
+                resultMap.put("code", 200);
+                resultMap.put("msg", "success");
+                resultMap.put("result", true);
+                resultMap.put("data", dhjlk);
+            }else{
+                resultMap.put("code", 500);
+                resultMap.put("msg", "database error");
+                resultMap.put("result", false);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             resultMap.put("code", 500);

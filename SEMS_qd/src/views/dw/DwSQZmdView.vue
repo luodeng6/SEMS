@@ -24,8 +24,10 @@
               <!-- 品牌Logo -->
               <div class="flex items-center">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2"/>
+                  <path
+                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2"/>
                 </svg>
                 <span class="ml-2 text-xl font-bold text-white">招聘中心</span>
               </div>
@@ -177,7 +179,7 @@
               style="width: 100%"
               @current-change="handleSelectionChange"
               @row-dblclick="lookStudentInfo"
-              >
+          >
             <el-table-column type="expand">
               <template #default="{row}">
                 <div class="expand-content">
@@ -365,14 +367,17 @@
 
 <script>
 import axios from 'axios'
-import StudentMenu from "@/components/student/Student_menu.vue";
 import {EventBus} from "@/event-bus";
 import DwMenu from "@/components/dw/Dw_menu.vue";
+
+import SockJS from 'sockjs-client';
+import Stomp from 'webstomp-client';
 
 export default {
   components: {DwMenu},
   data() {
     return {
+      stompClient: null,
       isShowLookResponse: false,// 查看回应详情对话框是否显示
       responseFormRules: {
         hynr: [
@@ -437,6 +442,10 @@ export default {
 
   },
   mounted() {
+    this.connectWebSocket();
+    console.log(this.subscription)
+
+
     this.pagination = {
       current: 1,
       size: 4,
@@ -444,8 +453,28 @@ export default {
     }
     this.getLoginUserInfo()
   },
+  destroyed() {
+    // 关闭WebSocket连接：作用是清除定时器，避免内存泄漏
+    if (this.stompClient) {
+      console.log('关闭WebSocket连接');
+      this.stompClient.disconnect();
+    }
+  },
   methods: {
-    lookStudentInfo(row){
+    // 连接WebSocket
+    connectWebSocket() {
+      const socket = new SockJS('http://localhost:83/chat');
+      this.stompClient = Stomp.over(socket);
+
+      this.stompClient.connect({}, () => {
+        this.stompClient.subscribe('/topic/messages', message => {
+          const msg = JSON.parse(message.body);
+          console.log(msg);
+        });
+      });
+    },
+
+    lookStudentInfo(row) {
       console.log(row);
 
       // 查看岗位详情逻辑

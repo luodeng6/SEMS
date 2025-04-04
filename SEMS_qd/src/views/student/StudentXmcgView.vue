@@ -213,16 +213,7 @@ export default {
   },
   created() {
     this.getLoginUserInfo();
-    /*  // 初始化模拟数据
-      this.projects = Array.from({ length: 50 }, (_, i) => ({
-        ID: i + 1,
-        XMMC: `项目${i + 1}`,
-        XMNR: `项目${i + 1}的详细描述内容...`,
-        XMLX: this.typeOptions[i % 3].value,
-        CJSJ: new Date().toLocaleString(),
-        STUID: `202300${i + 1}`,
-        QYDM: `A0${(i % 3) + 1}`
-      }));*/
+
   },
   methods: {
     ServerIP() {
@@ -304,7 +295,7 @@ export default {
     },
     // 学生获取项目数据
     getProjectDATA() {
-      axios.get("/xmcgk/getXmcgk?QYDM=2&ISGETALL=1&STUID=" + this.UserInfo.id).then(response => {
+      axios.get("/xmcgk/getXmcgk?QYDM=2&ISGETALL=0&STUID=" + this.UserInfo.id).then(response => {
         if (response.data.result) {
           this.projects = response.data.data;
           this.loading = false;

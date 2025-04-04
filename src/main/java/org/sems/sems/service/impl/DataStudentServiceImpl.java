@@ -277,6 +277,37 @@ public class DataStudentServiceImpl implements DataStudentService {
         return result;
     }
 
+    /**
+     * 获取学生数据接口(新版)
+     *
+     * @param yhsfdm 学号范围
+     * @param qydm   启用代码 1 启用 0 停用，2获取全部
+     * @param yhm    用户名
+     * @return Map<String, Object>
+     */
+    @Override
+    public Map<String, Object> getStudentDataNewInterface(int yhsfdm, int qydm, String yhm) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            // 处理获取投递简历列表逻辑
+            List<Map<String, Object>> resultList = new ArrayList<>();
+            resultList = jdbcTemplate.queryForList(
+                    "{call getStudentDataNewInterface(?, ?, ?)}", yhsfdm, qydm, yhm);
+            resultMap.put("data", resultList);
+            resultMap.put("code", 200);
+            resultMap.put("msg", "success");
+            resultMap.put("result", true);
+            return resultMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+
 
     /**
      * 获取所有学生信息

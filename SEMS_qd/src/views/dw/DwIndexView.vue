@@ -302,10 +302,20 @@ export default {
     }
   },
   mounted() {
+    // 注册消息监听
+    this.$socket.subscribe(this.handleSocketMessage)
     this.getLoginUser();
     this.showTjtData();
+
+  },
+  beforeDestroy() {
+    // 组件销毁时取消监听
+    this.$socket.unsubscribe(this.handleSocketMessage)
   },
   methods: {
+    handleSocketMessage(msg) {
+      console.log( msg);
+    },
     getXxdm(){
       /*{
       "CFZ": "20213260024",

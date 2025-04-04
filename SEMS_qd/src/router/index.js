@@ -342,7 +342,7 @@ const routes = [
     },
     {
         path: "/admin/zpgggl",
-        name:"AdminZpggView",
+        name: "AdminZpggView",
         component: () => import('@/views/admin/AdminZpggView.vue'),
         meta: {style: '管理员', title: '管理员-招聘公告管理'}
     },
@@ -353,8 +353,8 @@ const routes = [
         meta: {style: '单位', title: '单位-学生主页'}
     },
     {
-        path:"/stu/zsgl",
-        name:"StudentZSGLview",
+        path: "/stu/zsgl",
+        name: "StudentZSGLview",
         component: () => import('@/views/student/StudentZSGLview.vue'),
         meta: {style: '学生', title: '学生-证书管理'}
     },
@@ -378,13 +378,13 @@ const routes = [
     },
     {
         path: "/stu/cjdgl",
-        name:"StudentCjdglView",
+        name: "StudentCjdglView",
         component: () => import('@/views/student/StudentCjdglView.vue'),
         meta: {style: '学生', title: '学生-成绩单管理'}
     },
     {
         path: "/teacher/Xscjdgl",
-        name:"TeacherXscjdView",
+        name: "TeacherXscjdView",
         component: () => import('@/views/teacher/TeacherXscjdView.vue'),
         meta: {style: '老师', title: '老师-成绩单管理'}
     },
@@ -408,7 +408,24 @@ const routes = [
         , name: "StudentXxlView"
         , component: () => import('@/views/student/StudentXxlView.vue')
         , meta: {style: '学生', title: '消息栏'}
-
+    },
+    {
+        path: "/teacher/mystudents"
+        , name: "TechaerMyStudentView"
+        , component: () => import('@/views/teacher/TechaerMyStudentView.vue')
+        , meta: {style: '老师', title: '学生管理'}
+    },
+    {
+        path: "/teacher/TeacherZpggView"
+        , name: "TeacherZpggView"
+        , component: () => import('@/views/teacher/TeacherZpggView.vue')
+        , meta: {style: '老师', title: '招聘公告管理'}
+    },
+    {
+        path: "/teacher/TeacherZpggDetailView"
+        , name: "TeacherZpggDetailView"
+        , component: () => import('@/views/teacher/TeacherZpggDetailView.vue')
+        , meta: {style: '老师', title: '公告详情'}
     }
 
 ]
@@ -425,7 +442,7 @@ import {EventBus} from '@/event-bus';
 
 
 router.beforeEach((to, from, next) => {
-    if(to.path=="/"){
+    if (to.path == "/") {
         console.log("这是首页，不做任何操作");
         return next();
     }
@@ -455,7 +472,7 @@ router.beforeEach((to, from, next) => {
 
                 if (response.data.result && response.data.role === to.meta.canRunUser) {
                     console.log("----- 用户已登录，可以跳转");
-                    next({ name: to.meta.runTo, params: { from: 'index' } });
+                    next({name: to.meta.runTo, params: {from: 'index'}});
                 } else {
                     console.log("----- 用户访问 public 页面，不跳转");
                     next();
@@ -466,7 +483,7 @@ router.beforeEach((to, from, next) => {
             if (response.data.result) {
                 if (to.meta.style !== response.data.role) {
                     console.log("----- 用户已登录，但无权限访问");
-                    next({ name: 'index' });
+                    next({name: 'index'});
                 } else {
                     console.log("----- 用户已登录，且可以访问");
                     next();
@@ -484,16 +501,16 @@ router.beforeEach((to, from, next) => {
 
             if (redirectMap[to.meta.style]) {
                 console.log(`----- ${to.meta.style} 未登录，跳转到 ${redirectMap[to.meta.style]}`);
-                next({ name: redirectMap[to.meta.style] });
+                next({name: redirectMap[to.meta.style]});
             } else {
                 console.warn("----- 未知角色，回到首页");
-                next({ name: 'index' });
+                next({name: 'index'});
             }
         })
         .catch(error => {
             console.error('❌ 路由守卫检查会话失败', error);
             EventBus.$emit('show-auth-popup');
-            next({ name: 'index' });
+            next({name: 'index'});
         });
 });
 
