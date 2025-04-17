@@ -241,7 +241,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import axios from 'axios';
 import {EventBus} from "@/event-bus";
 import StudentMenu from "@/components/student/Student_menu.vue";
-
+import {NOWIP} from "@/NOWIP"
 export default {
   components: {
     StudentMenu
@@ -325,11 +325,9 @@ export default {
   },
   mounted() {
     console.log(this.$route.params.from);
-
     this.getLoginUserInfo();
     this.getRecruitmentNotices();
     this.getJobData();
-
   },
   methods: {
     lookJobDetail(gwdm) {
@@ -337,16 +335,16 @@ export default {
     },
     getMsStatus(row) {
       if (row.QYDM === 0) {
-        console.log("已取消");
+       // console.log("已取消");
         return this.statusConfig['canceled']; // 已取消
       } else if (row.QRDM === 1) {
-        console.log("已确认");
+       // console.log("已确认");
         return this.statusConfig['confirmed']; // 已确认
       } else if (row.QRDM === 0 && row.QYDM === 1) {
-        console.log("待确认");
+       // console.log("待确认");
         return this.statusConfig['pending'];// 待确认
       } else {
-        console.log("未知状态");
+       // console.log("未知状态");
       }
     },
     // 新方法获取面试列表

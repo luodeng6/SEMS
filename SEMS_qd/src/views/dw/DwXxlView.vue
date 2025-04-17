@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div>
-      <StudentMenu></StudentMenu>
+      <dw-menu></dw-menu>
     </div>
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
       <div class="chat-wrapper">
@@ -68,15 +68,16 @@
 </template>
 
 <script>
-import StudentMenu from "@/components/student/Student_menu.vue";
+
 import axios from "axios";
 import { EventBus } from "@/event-bus";
 import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
 import {NOWIP} from '@/NOWIP'
+import DwMenu from "@/components/dw/Dw_menu.vue";
 export default {
   name: 'StudentChat',
-  components: { StudentMenu },
+  components: {DwMenu },
   data() {
     return {
       stompClient: null,
@@ -84,7 +85,7 @@ export default {
         id: '',
         username: '',
         name: '',
-        roleCode: 4,
+        roleCode: 3,
         avatar: 'https://i.pravatar.cc/150?img=3'
       },
       contacts: [],
@@ -132,7 +133,7 @@ export default {
           username: response.data.username
         };
 
-        const { data } = await axios.get(`/sstx/getUserInfo?yhm=${this.currentUser.username}&yhsfdm=4`);
+        const { data } = await axios.get(`/sstx/getUserInfo?yhm=${this.currentUser.username}&yhsfdm=3`);
         this.currentUser.avatar = data.data.YHZP;
       } catch (error) {
         this.handleError('会话验证失败', error);
@@ -143,7 +144,7 @@ export default {
     // 加载聊天记录
     async loadChatHistory() {
       try {
-        const { data } = await axios.get(`/sstx/getDhjlList?yhm=${this.currentUser.username}&yhsfdm=4`);
+        const { data } = await axios.get(`/sstx/getDhjlList?yhm=${this.currentUser.username}&yhsfdm=3`);
         if (!data.result) throw new Error(data.msg);
 
         const contactMap = new Map();

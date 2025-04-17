@@ -128,7 +128,28 @@
             </div>
           </el-col>
 
-          <!-- 紧凑招聘会信息 -->
+          <!-- 紧凑招聘会信息
+          "data": [
+                {
+                    "ID": 1,
+                    "ZPHBT": "卫宁招聘会",
+                    "DWDM": 1,
+                    "WZBZ": 1,
+                    "JBSJ": "2025-04-14T16:00:00.000+00:00",
+                    "DYGWDM": "实施、开发",
+                    "SZXX": "广西中医药大学",
+                    "JBDD": "教学楼1楼",
+                    "FBZ": "lls",
+                    "FBZSFDM": 2,
+                    "QYDM": 1,
+                    "ZY": "计算机专业类即可！",
+                    "YYRS": 100,
+                    "CJSJ": "2025-04-14T15:55:15.483+00:00",
+                    "FBZMC": "罗老湿",
+                    "DWMC": "卫宁健康科技集团有限公司",
+                    "GSMC": "卫宁健康科技集团有限公司"
+                },
+               -->
           <el-col :md="12">
             <div class="enhanced-card compact-jobfair-card">
               <div class="card-header">
@@ -138,14 +159,15 @@
               </div>
               <div class="card-body">
                 <div
-                    v-for="(fair, index) in jobFairs"
+                    v-for="(ZPH, index) in ZPHDATA"
                     :key="index"
                     class="compact-jobfair-item"
                 >
-                  <h4>{{ fair.name }}</h4>
+                  <h4>{{ ZPH.ZPHBT }}</h4>
                   <div class="fair-meta">
-                    <span><i class="el-icon-time"></i> {{ fair.time }}</span>
-                    <span><i class="el-icon-location"></i> {{ fair.location }}</span>
+                    <span><i class="el-icon-time"></i> {{formatDate2(ZPH.JBSJ) }}</span>
+                    <span><i class="el-icon-location"></i> {{ ZPH.JBDD }}</span>
+                    <span><i class="el-icon-user"></i> {{ ZPH.FBZMC }}</span>
                   </div>
                 </div>
               </div>
@@ -163,36 +185,6 @@
       </div>
       <div class="message-list">
         <ul>
-          <!--          CFSJ
-                    :
-                    "2025-03-10T13:04:00.137+00:00"
-                    CFZ
-                    :
-                    "msk"
-                    CFZXM
-                    :
-                    "Elon Reeve Musk"
-                    CFZXW
-                    :
-                    "单位回应了投递"
-                    DZLX
-                    :
-                    2
-                    DZNR
-                    :
-                    "鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你"
-                    JSZ
-                    :
-                    "20213260035"
-                    JSZXM
-                    :
-                    "苏晨聪"
-                    YDBZ
-                    :
-                    0
-                    YHZP
-                    :
-                    "/img/upload/Userpofile/msk_1740146313143_.jpeg"-->
           <li v-for="(msg, index) in accountMessages" :key="index">
             <div class="msg-title">{{ msg.CFZXW }}</div>
             <div class="msg-content">{{ msg.DZNR }}</div>
@@ -214,6 +206,7 @@ export default {
   components: {PublicMenu2, PublicMenu},
   data() {
     return {
+      ZPHDATA: [],//招聘会列表
       UserInfo: {
         id: '',
         name: '',
@@ -228,17 +221,6 @@ export default {
         {type: 'hr', title: '企业HR登录', icon: 'el-icon-office-building', url: "/dw/login"}
       ],
       notices: [],
-
-      jobFairs: [
-        {
-          name: 'IT行业专场招聘会',
-          time: '2023-09-20 09:00',
-          location: '学校体育馆',
-          companies: ['腾讯', '阿里云', '字节跳动'],
-          cover: 'https://dummyimage.com/400x200/409EFF/fff&text=IT招聘会',
-          countdown: '剩余5天'
-        }
-      ],
       DATAGWDMK: [],
       DATADWDMK: [],
       accountMessages: []
@@ -251,8 +233,20 @@ export default {
     this.getAllJob();
     this.getAllDwInfo();
     this.getGongGaoList();
+    this.fetchTableData();
   },
   methods: {
+    formatDate2(input) {
+      const date = new Date(input);
+
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1; // 月份从 0 开始
+      const day = date.getDate();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+
+      return `${year}-${month}-${day} ${hour}:${minute}`;
+    },
     getAllDwInfo() {
       axios.get("/dw/getAllDw").then((response) => {
         if (response.data.result) {
@@ -270,6 +264,61 @@ export default {
     handleJobDetail(gwdm){
       console.log(gwdm);
       this.$router.push({path: '/public/jobDetail', query: {id: gwdm}})
+    },
+    fetchTableData() {
+      this.isLoading = true;
+      axios.get("/datazphjlk/getDataZphjlk", {
+        params: {
+           QYDM:1,
+          ISJUSTONE:0,
+          ZPHID:-1,
+          ISJUSTONEYH:0,
+          YHM:-1,
+          YHSFDM:-1,
+          getBySHR:0,
+          SHR:-1,
+          SHRSFDM:-1
+        }
+      }).then(res => {
+        if (res.data.result) {
+          this.ZPHDATA = res.data.data;
+        } else {
+          $.confirm({
+            title: '提示',
+            content: '获取招聘会列表失败：' + res.data.msg,
+            type: 'red',
+            buttons: {
+              重试: {
+                btnClass: 'btn-orange',
+                action: () => {
+                  this.fetchTableData();
+                }
+              },
+              取消: () => {
+                this.$message('已取消操作');
+              }
+            }
+          });
+        }
+      }).catch(error => {
+        console.error("获取招聘会列表失败", error);
+        $.confirm({
+          title: '提示',
+          content: '获取招聘会列表失败：' + error.message,
+          type: 'red',
+          buttons: {
+            重试: {
+              btnClass: 'btn-orange',
+              action: () => {
+                this.fetchTableData();
+              }
+            },
+            取消: () => {
+              this.$message('已取消操作');
+            }
+          }
+        });
+      });
     },
     truncateText(text, maxLength) {
       if (text.length > maxLength) {

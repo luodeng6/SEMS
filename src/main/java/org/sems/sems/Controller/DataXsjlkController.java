@@ -18,4 +18,8 @@ public class DataXsjlkController {
     // 获取指定学生的简历信息--只获取发布的简历信息
     @GetMapping("/getStuResumeByStuId")
     public Map<String, Object> getStuResumeByStuId(int stuId) {return xsjlkService.getStuResumeByStuId(stuId);}
+
+
+    @GetMapping("/getXsjlDataAuto")
+    public Map<String, Object> getXsjlDataAuto(String YHM,int JLDM) {return xsjlkService.getXsjlDataAuto(YHM,JLDM);}
 }

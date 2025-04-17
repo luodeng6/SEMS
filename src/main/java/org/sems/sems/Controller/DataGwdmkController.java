@@ -53,7 +53,6 @@ public class DataGwdmkController {
             IsJustOne = 0;
             gwdm = -1;
         }
-
         return dataGwdmkService.getGwdmkDataToInterface(IsJustOne, gwdm, QYDM, IsByFBZ, FBZ, SXBZ);
     }
 

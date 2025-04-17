@@ -17,96 +17,6 @@
                   placeholder="搜索学生/岗位"
                   style="width: 300px; margin-left: 20px"></el-input>
             </div>
-            <!--            BJMC
-                        :
-                        "2021级信息管理与信息系统"
-                        DWYH
-                        :
-                        "msk"
-                        FBZ
-                        :
-                        "msk"
-                        FZJS
-                        :
-                        0
-                        GSMC
-                        :
-                        "特斯拉（Tesla）"
-                        GWDM
-                        :
-                        34
-                        GWMC
-                        :
-                        "特斯拉销售代表"
-                        HYDM
-                        :
-                        1
-                        HYNR
-                        :
-                        "为你安排了面试！"
-                        HYSJ
-                        :
-                        "2025-02-18T14:36:26.997+00:00"
-                        ID
-                        :
-                        1
-                        JLDM
-                        :
-                        1
-                        LYNR
-                        :
-                        "求求"
-                        QRDM
-                        :
-                        1
-                        QYDM
-                        :
-                        1
-                        SSBJ
-                        :
-                        1292
-                        SSNJ
-                        :
-                        "2021"
-                        STUID
-                        :
-                        1226
-                        TDJG
-                        :
-                        2
-                        TDJGNR
-                        :
-                        "安排面试"
-                        TDSJ
-                        :
-                        "2025-02-18T14:04:18.107+00:00"
-                        TDSM
-                        :
-                        "请通过特斯拉官网的招聘页面提交申请，面试将通过电话和面对面两种方式进行。"
-                        XLDM
-                        :
-                        6
-                        XLMC
-                        :
-                        "本科"
-                        XSXB
-                        :
-                        "1"
-                        XSXH
-                        :
-                        "20213260031"
-                        XSXM
-                        :
-                        "罗邓"
-                        XSZP
-                        :
-                        "/img/upload/Userpofile/1_1739720921987_.jpg"
-                        YHXM
-                        :
-                        "Elon Reeve Musk"
-                        ZZMM
-                        :
-                        "群众"-->
             <el-table :data="filteredInterviews" border height="500">
               <el-table-column prop="GWMC" label="岗位" width="180"></el-table-column>
               <el-table-column prop="TDSJ" label="时间" width="180">
@@ -127,11 +37,6 @@
               <el-table-column prop="XSXM" label="学生"></el-table-column>
               <el-table-column prop="BJMC" label="班级"></el-table-column>
               <el-table-column prop="BZRXM" label="班主任"></el-table-column>
-              <!--              <el-table-column prop="status" label="状态" width="120">
-                              <template slot-scope="{ row }">
-                                <el-tag :type="statusType[row.status]">{{ row.status }}</el-tag>
-                              </template>
-                            </el-table-column>-->
               <el-table-column label="操作" width="150">
                 <template slot-scope="{ row }">
 
@@ -255,7 +160,6 @@
         <!-- 面试表单对话框-- 新增 -->
         <el-dialog :title="formTitle" :visible.sync="isAddMsDialogVisible">
           <el-form :model="formData" label-width="80px">
-
             <div style="display: flex">
               <el-form-item label="新增方式">
                 <el-select @change="changeAddType" placeholder="可以选择新增方式：" v-model="AddMsForm.addType">

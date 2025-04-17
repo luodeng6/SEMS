@@ -3,7 +3,7 @@
     <div>
       <teacher_menu></teacher_menu>
     </div>
-    <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
+    <main >
       <header class="flex justify-between items-center mb-4">
 
       </header>

@@ -512,7 +512,6 @@ export default {
         console.log(err);
         this.$message.error("获取简历列表失败:" + err.msg);
       })
-
     },
     TouDiJl(row) {
       console.log("投递简历:")

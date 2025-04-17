@@ -262,7 +262,6 @@ export default {
             this.$message.error('获取数据失败：'+error.message);
         });
     },
-
     getXSGLData() {
       axios.get("/data/getAllStuGLData").then(response => {
         if (response.data.result) {

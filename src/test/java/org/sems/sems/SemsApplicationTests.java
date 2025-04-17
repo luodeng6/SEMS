@@ -7,6 +7,7 @@ import org.sems.sems.Mapper.*;
 import org.sems.sems.Public.PublicService;
 import org.sems.sems.service.DataStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.ConnectionCallback;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -55,11 +56,12 @@ class SemsApplicationTests {
 
     @Autowired
     private DataStudentMapper dataStudentMapper;
-
+    @Value("${nowip}")
+    private String nowip;
     //测试管理员更新学生信息
     @Test
     void contextLoads1() {
-
+        System.out.println(nowip);
     }
 
     @Autowired

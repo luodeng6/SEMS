@@ -317,7 +317,6 @@ export default {
       console.log(currentRow);
       this.selectJob=currentRow;
     },
-
     // 查看岗位详情
     lookJobDetail(){
       console.log("查看岗位详情:")
@@ -341,7 +340,6 @@ export default {
       }
 
     },
-
     // 单击新增单位按钮事件
     addUnit() {
       this.isEditing = false;

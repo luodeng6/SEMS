@@ -243,8 +243,6 @@ export default {
   methods: {
     // 获取面试信息
     getInterviewInfo() {
-
-
     },
     handleSearch() {
       // 实现搜索逻辑

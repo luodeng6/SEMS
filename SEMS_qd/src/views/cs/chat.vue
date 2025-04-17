@@ -19,6 +19,7 @@
 <script>
 import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
+import {NOWIP} from "@/NOWIP";
 
 export default {
   data() {
@@ -34,7 +35,7 @@ export default {
   },
   methods: {
     connectWebSocket() {
-      const socket = new SockJS('http://localhost:8080/chat');
+      const socket = new SockJS(`http://${NOWIP}:8080/chat`);
       this.stompClient = Stomp.over(socket);
 
       this.stompClient.connect({}, frame => {

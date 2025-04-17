@@ -426,8 +426,32 @@ const routes = [
         , name: "TeacherZpggDetailView"
         , component: () => import('@/views/teacher/TeacherZpggDetailView.vue')
         , meta: {style: '老师', title: '公告详情'}
+    },
+    {
+        path: "/teacher/TeacherZphView"
+        , name: "TeacherZphView"
+        , component: () => import('@/views/teacher/TeacherZphView.vue')
+        , meta: {style: '老师', title: '招聘会管理'}
+    },
+    {
+        path: "/dw/dwxxl"
+        , name: "DwXxlView"
+        , component: () => import('@/views/dw/DwXxlView.vue')
+        , meta: {style: '单位', title: '消息栏'}
+    },
+    {
+        path: "/dw/zphsq"
+        , name: "DwZphsqView"
+        , component: () => import('@/views/dw/DwZphsqView.vue')
+        , meta: {style: '单位', title: '招聘会申请'}
     }
-
+    ,
+    {
+        path: "/teacher/zphsh"
+        , name: "TeacherZphshView"
+        , component: () => import('@/views/teacher/TeacherZphshView.vue')
+        , meta: {style: '老师', title: '招聘会审核核对'}
+    }
 ]
 
 

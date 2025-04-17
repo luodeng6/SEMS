@@ -1,6 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
 //导入webpack
 const webpack = require('webpack');
+const NOWIP='localhost'
+
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -10,7 +12,7 @@ module.exports = defineConfig({
 
   /*配置代理 开发环境下可以！*/
   devServer: {
-    proxy:'http://localhost:83/' // 后端接口地
+    proxy:`http://localhost:83/` // 后端接口地
   },
 
   /*configureWebpack: {

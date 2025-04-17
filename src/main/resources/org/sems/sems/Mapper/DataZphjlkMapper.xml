@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DataZphjlkMapper">
+
+    <!-- 动态插入（ID自增） -->
+    <insert id="insertDataZphjlk" parameterType="org.sems.sems.entity.DataZphjlk" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO DATA_ZPHJLK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zphbt != null">ZPHBT,</if>
+            <if test="dwdm != null">DWDM,</if>
+            <if test="wzbz != null">WZBZ,</if>
+            <if test="jbsj != null">JBSJ,</if>
+            <if test="dygwdm != null">DYGWDM,</if>
+            <if test="szxx != null">SZXX,</if>
+            <if test="jbdd != null">JBDD,</if>
+            <if test="fbz != null">FBZ,</if>
+            <if test="fbzsfdm != null">FBZSFDM,</if>
+            <if test="qydm != null">QYDM,</if>
+            <if test="zy != null">ZY,</if>
+            <if test="yyrs != null">YYRS,</if>
+            <if test="shdm != null">SHDM,</if>
+            <if test="shryhm != null">SHRYHM,</if>
+            <if test="shrsfdm != null">SHRSFDM,</if>
+            <if test="shsj != null">SHSJ,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="zphbt != null">#{zphbt},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="wzbz != null">#{wzbz},</if>
+            <if test="jbsj != null">#{jbsj},</if>
+            <if test="dygwdm != null">#{dygwdm},</if>
+            <if test="szxx != null">#{szxx},</if>
+            <if test="jbdd != null">#{jbdd},</if>
+            <if test="fbz != null">#{fbz},</if>
+            <if test="fbzsfdm != null">#{fbzsfdm},</if>
+            <if test="qydm != null">#{qydm},</if>
+            <if test="zy != null">#{zy},</if>
+            <if test="yyrs != null">#{yyrs},</if>
+            <if test="shdm != null">#{shdm},</if>
+            <if test="shryhm != null">#{shryhm},</if>
+            <if test="shrsfdm != null">#{shrsfdm},</if>
+            <if test="shsj != null">#{shsj},</if>
+        </trim>
+    </insert>
+
+    <!-- 动态更新（根据ID） -->
+    <update id="updateDataZphjlk" parameterType="org.sems.sems.entity.DataZphjlk">
+        UPDATE DATA_ZPHJLK
+        <set>
+            <if test="zphbt != null">ZPHBT = #{zphbt},</if>
+            <if test="dwdm != null">DWDM = #{dwdm},</if>
+            <if test="wzbz != null">WZBZ = #{wzbz},</if>
+            <if test="jbsj != null">JBSJ = #{jbsj},</if>
+            <if test="dygwdm != null">DYGWDM = #{dygwdm},</if>
+            <if test="szxx != null">SZXX = #{szxx},</if>
+            <if test="jbdd != null">JBDD = #{jbdd},</if>
+            <if test="fbz != null">FBZ = #{fbz},</if>
+            <if test="fbzsfdm != null">FBZSFDM = #{fbzsfdm},</if>
+            <if test="qydm != null">QYDM = #{qydm},</if>
+            <if test="zy != null">ZY = #{zy},</if>
+            <if test="yyrs != null">YYRS = #{yyrs},</if>
+            <if test="shdm != null">SHDM = #{shdm},</if>
+            <if test="shryhm != null">SHRYHM = #{shryhm},</if>
+            <if test="shrsfdm != null">SHRSFDM = #{shrsfdm},</if>
+            <if test="shsj != null">SHSJ = #{shsj},</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+    <!--
+      根据 ID 删除
+    -->
+    <delete id="deleteDataZphjlk"
+            parameterType="java.lang.Long">
+        delete from DATA_ZPHJLK
+        where ID = #{id}
+    </delete>
+
+</mapper>

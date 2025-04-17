@@ -121,20 +121,6 @@ export default {
         this.loading = false;
       });
 
-      // 模拟数据加载
-     /* setTimeout(() => {
-        this.detail = {
-          ID: 1,
-          GGBT: '2023年校园招聘公告',
-          GGNRHTML: ``,
-          CJSJ: '2023-08-01 14:30:00',
-          LLL: 1234,
-          FBZ: '人力资源部',
-          FBZSFDM: 'RS-2023',
-          QYDM: 'ACTIVE'
-        };
-        this.loading = false;
-      }, 500);*/
     }
   }
 };

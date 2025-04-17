@@ -81,4 +81,9 @@ private DataDwdmkService dataDwdmkService;
         return dataDwdmkService.uploadDwLogo(file, dwdm);
     }
 
+
+    /*@GetMapping("/getDATADWDMKBYusp")
+    public Map<String, Object> getDATADWDMKBYusp(String usp) {
+        return dataDwdmkService.getDwDataByDwUserName(usp);
+    }*/
 }

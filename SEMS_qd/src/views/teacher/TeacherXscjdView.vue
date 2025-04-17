@@ -25,7 +25,12 @@
             </el-input>
             <el-button  style="margin-left: 10px;"  type="primary" size="mini" @click="exportData">导出</el-button>
           </div>
-          <el-table :data="paginatedList" style="width: 100%" border :v-loading="isLoading">
+          <el-table :data="paginatedList" style="width: 100%" border
+                    class="w-full rounded-lg overflow-hidden"
+                    element-loading-background="rgba(255, 255, 255, 0.8)"
+                    element-loading-spinner="el-icon-loading"
+                    element-loading-text="加载中..."
+                    :v-loading="isLoading">
             <el-table-column prop="ID" label="编号" width="80"></el-table-column>
             <el-table-column prop="KCCJ" label="评级" width="170">
               <template slot-scope="scope">

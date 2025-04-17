@@ -40,10 +40,18 @@
           </li>
 
           <li class="hover:bg-blue-50 rounded">
-            <router-link to="/admin/job">
+            <router-link to="/teacher/TeacherZphView">
               <a class="flex items-center p-2 text-gray-700">
-                <i class="fas fa-briefcase mr-2"></i>
+                <i class="fas fa-user-tie mr-2"></i>
                 招聘会
+              </a>
+            </router-link>
+          </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/teacher/zphsh">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-file-alt mr-2"></i>
+                招聘会审核
               </a>
             </router-link>
           </li>
@@ -130,6 +138,12 @@
               </router-link>
             </li>
           </ul>
+          <li class="hover:bg-blue-50 rounded" style="cursor: pointer">
+            <a @click="RedirectToHome" class="flex items-center p-2 text-gray-700" id="logout-button">
+              <i class="fas fa-home mr-2"></i>
+              返回首页
+            </a>
+          </li>
 
           <li class="hover:bg-blue-50 rounded" style="cursor: pointer">
             <a @click="LoginOutOK" class="flex items-center p-2 text-gray-700" id="logout-button">
@@ -170,6 +184,9 @@ export default {
   methods: {
     toggleStatsMenu() {
       this.isStatsMenuQiTaOpen = !this.isStatsMenuQiTaOpen; // 切换子菜单的展开状态
+    },
+    RedirectToHome() {
+      this.$router.push({name: 'index'});
     },
     toggleStatsMenuXiaoYuanOpen() {
       this.isStatsMenuXiaoYuanOpen = !this.isStatsMenuXiaoYuanOpen; // 切换子菜单的展开状态

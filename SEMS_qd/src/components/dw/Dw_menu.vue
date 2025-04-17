@@ -82,14 +82,21 @@
           </li>
 
           <li class="hover:bg-blue-50 rounded">
-            <router-link to="/dw/msap">
+            <router-link to="/dw/dwxxl">
               <a class="flex items-center p-2 text-gray-700">
                 <i class="fas fa-users mr-2"></i>
                 对话窗口
               </a>
             </router-link>
           </li>
-
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/dw/zphsq">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-calendar-check me-2"></i>
+                招聘会申请
+              </a>
+            </router-link>
+          </li>
           <li class="hover:bg-blue-50 rounded">
             <router-link to="/dw/zpgggl">
               <a class="flex items-center p-2 text-gray-700">

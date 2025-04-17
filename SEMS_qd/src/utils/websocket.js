@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
-
+import {NOWIP} from "@/NOWIP";
 const WebSocketService = new Vue({
     data() {
         return {
@@ -15,7 +15,7 @@ const WebSocketService = new Vue({
         connect() {
             if (this.connected) return
 
-            const socket = new SockJS('http://localhost:83/chat')
+            const socket = new SockJS(`http://${NOWIP}:83/chat`)
             this.stompClient = Stomp.over(socket)
 
             this.stompClient.connect({}, () => {

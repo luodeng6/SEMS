@@ -372,7 +372,7 @@ import DwMenu from "@/components/dw/Dw_menu.vue";
 
 import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
-
+import {NOWIP} from "@/NOWIP";
 export default {
   components: {DwMenu},
   data() {
@@ -463,7 +463,7 @@ export default {
   methods: {
     // 连接WebSocket
     connectWebSocket() {
-      const socket = new SockJS('http://localhost:83/chat');
+      const socket = new SockJS(`http://${NOWIP}:83/chat`);
       this.stompClient = Stomp.over(socket);
 
       this.stompClient.connect({}, () => {
@@ -625,22 +625,7 @@ export default {
       this.currentRow = row;
       this.isShowLookResponse = true;
     },
-    /*   loadData() {
-         // 这里应调用API接口
-         this.loading = true
-         axios.get("/tdjlk/getTdjlk?Style=1&YHM=&GWDM=1").then((response) => {
-           if (response.data.result) {
-             this.tableData = response.data.data
-             this.pagination.total = this.tableData.length
-           } else {
-             this.$message.error('加载失败，请重试!11')
-           }
-           this.loading = false
-         }).catch(() => {
-           this.loading = false
-           this.$message.error('加载失败，请重试!')
-         })
-       }*/
+
     loadData() {
       this.loading = true
       // 通过但我用户名 获取投递数据
@@ -677,12 +662,6 @@ export default {
     }
     ,
     tableRowClassName(row, rowIndex) {
-      /* if (rowIndex === 0) {
-         return 'warning-row';
-       } else if (rowIndex === 3) {
-         return 'success-row';
-       }
-       return '';*/
       return 'warning-row';
     }
   }
