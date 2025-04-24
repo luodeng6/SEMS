@@ -16,10 +16,10 @@
                     class="profile-photo"
                     @click="handlePhotoClick">
                 <input
-                    type="file"
                     ref="photoInput"
-                    @change="updatePhoto"
-                    style="display: none;">
+                    style="display: none;"
+                    type="file"
+                    @change="updatePhoto">
               </div>
               <div class="personal-info">
                 <h1 class="name">{{ studentData.xsxm }}</h1>
@@ -46,7 +46,7 @@
             </section-box>
 
             <!-- 专业证书 -->
-            <section-box title="专业证书" style="margin-top: 20px;">
+            <section-box style="margin-top: 20px;" title="专业证书">
               <div
                   v-for="(cert, index) in certificates"
                   :key="'cert'+index"
@@ -62,8 +62,8 @@
                   <span class="date">{{ cert.date }}</span>
                   <div class="cert-actions">
                     <el-button
-                        type="text"
                         size="mini"
+                        type="text"
                         @click="viewCertificate(cert)">
                       <i class="el-icon-document"></i> 查看
                     </el-button>
@@ -73,13 +73,13 @@
             </section-box>
 
             <!-- 技能专长 -->
-            <section-box title="技能专长" style="margin-top: 20px;">
+            <section-box style="margin-top: 20px;" title="技能专长">
               <div class="skills-container">
                 <div
                     v-for="(skill, index) in skills"
                     :key="index"
-                    class="skill-tag"
-                    :style="{ backgroundColor: skill.color }">
+                    :style="{ backgroundColor: skill.color }"
+                    class="skill-tag">
                   {{ skill.name }}
                 </div>
               </div>
@@ -114,14 +114,32 @@
               </div>
             </section-box>
 
-            <!-- 项目成果 -->
+            <!-- 项目成果
+                 {
+                  "ID": 4,
+                  "XMMC": "基于Springboot的高校就业信息系统",
+                  "XMNR": "近年来，我国高"
+                  "STUID": 1224,
+                  "QYDM": 1,
+                  "CJSJ": "2025-03-29T14:54:36.217+00:00",
+                  "XMLX": "科研",
+                  "XMFJ": "/img/upload/XMCGK/1743260102016_基于Springboot的高校就业信息系统.docx",
+                  "XSXM": "陈洁梅",
+                  "XSZP": "/img/upload/Userpofile/20213260021_1742207649940_.jpg",
+                  "XSXH": "20213260021",
+                  "XSXB": "女",
+                  "BJMC": "2021级信息管理与信息系统",
+                  "ZYMC": "信息管理与信息系统",
+                  "ZYLB": null
+              },
+             -->
             <section-box title="项目成果">
               <div
                   v-for="(project, index) in projects"
                   :key="index"
                   class="project-item">
-                <h3 class="project-title">{{ project.name }}</h3>
-                <p class="project-desc">{{ project.description }}</p>
+                <h3 class="project-title">{{ project.XMMC }}</h3>
+                <p class="project-desc">{{ project.XMNR }}</p>
                 <div class="tech-stack">
                   <span
                       v-for="(tech, i) in project.technologies"
@@ -134,16 +152,16 @@
             </section-box>
 
             <!-- 学业成绩 -->
-            <section-box title="学业成绩" style="margin-top: 20px;">
+            <section-box style="margin-top: 20px;" title="学业成绩">
               <div class="transcript-container">
                 <el-table
                     :data="transcripts"
                     border
-                    style="width: 100%"
-                    size="mini">
+                    size="mini"
+                    style="width: 100%">
                   <el-table-column
-                      prop="course"
                       label="课程名称"
+                      prop="course"
                       width="180">
                   </el-table-column>
                   <el-table-column
@@ -156,8 +174,8 @@
                     </template>
                   </el-table-column>
                   <el-table-column
-                      prop="credit"
                       label="学分"
+                      prop="credit"
                       width="80">
                   </el-table-column>
                   <el-table-column
@@ -246,6 +264,7 @@ export default {
         {name: 'Webpack', color: '#8dd6f9'}
       ],
       workExperience: [],
+      // 项目成果数据
       projects: [
         {
           name: '企业级管理系统',
@@ -298,10 +317,25 @@ export default {
   },
   created() {
 
-      this.getLoginUserInfo();
+    this.getLoginUserInfo();
 
   },
   methods: {
+    getProjectData() {
+      axios.get("/xmcgk/getXmcgk", {
+        params: {
+          QYDM: 1,
+          ISGETALL: 0,
+          STUID: this.UserInfo.id
+        }
+      }).then(response => {
+        console.log(response.data);
+        this.projects = response.data.data;
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+
     // 新增证书查看方法
     viewCertificate(cert) {
       window.open(cert.docUrl, '_blank')
@@ -325,8 +359,7 @@ export default {
           this.UserInfo.name = response.data.name;
           this.UserInfo.role = response.data.role;
           this.UserInfo.username = response.data.username;
-          console.log(this.UserInfo);
-          // this.loadData(this.UserInfo.username);
+
           this.getStudentDataByUsername(this.UserInfo.username); // 获取学生信息
         }
       }).catch(error => {
@@ -417,14 +450,15 @@ export default {
         if (response.data.result) {
           this.UserInfo.id = response.data.data.id;
           console.log(this.UserInfo);
-          this.stuid=this.UserInfo.id;
+          this.stuid = this.UserInfo.id;
           this.loadData(response.data.data.id);// 获取学生信息
+          this.getProjectData();// 获取项目成果
         } else {
           this.$message.error("获取学生信息失败:" + response.data.msg);
         }
       }).catch(error => {
         console.log(error);
-        this.$message.error("获取学生信息失败:"+error.message);
+        this.$message.error("获取学生信息失败:" + error.message);
       });
     },
 

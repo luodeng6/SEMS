@@ -1,6 +1,8 @@
 package org.sems.sems.service.impl;
 
+import org.sems.sems.Mapper.XmcgbqkMapper;
 import org.sems.sems.Mapper.XmcgkMapper;
+import org.sems.sems.entity.Xmcgbqk;
 import org.sems.sems.entity.Xmcgk;
 import org.sems.sems.entity.Xszsk;
 import org.sems.sems.service.XmcgkService;
@@ -90,16 +92,14 @@ public class XmcgkServiceImpl implements XmcgkService {
      *                    1 获取启用的，0 获取不启用的 ，-1获取全部
      * @param STUID 学生ID
      * @return
+     * @QYDM int,-- 1获取启用，0 获取未启用，2获取全部
+     * 	    @ISGETALL int, --1 获取全部学生的，0 获取指定学生的
+     *    @STUID int --当@ISGETALL为0 时该参数用于获取指定学生
      */
     @Override
     public Map<String, Object> getXmcgk(int QYDM, int ISGETALL, int STUID) {
         Map<String, Object> resultMap = new HashMap<>();
         try {
-            /*
-                 @QYDM int ,--1 只获取启用的，0 只获取不启用的 ，-1获取全部
-                 @JUSTONE int, -- 1 只获取一条，0 获取多一条
-                 @GGID int  -- 公告ID，当@JUSTONE为1时才会用到
-            * */
             List<Map<String, Object>> resultList = new ArrayList<>();
             resultList = jdbcTemplate.queryForList(
                     "{call usp_GetStudentXmcg(?,?,?)}", QYDM, ISGETALL, STUID);
@@ -120,7 +120,7 @@ public class XmcgkServiceImpl implements XmcgkService {
     /**
      * 上传附件
      *
-     * @param id   项目ID
+     * @param id  项目ID
      * @param cgfj 附件文件
      * @return 上传结果
      */
@@ -152,15 +152,42 @@ public class XmcgkServiceImpl implements XmcgkService {
         }
         return result;
     }
+    @Autowired
+    private XmcgbqkMapper xmcgbqkMapper;
+    /**
+     * 为项目成果添加标签
+     * @return 添加结果
+     */
+    @Override
+    public Map<String, Object> addTag(Xmcgbqk xmcgbqk) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            if(xmcgbqkMapper.insertXmcgbqk(xmcgbqk) > 0){
+                result.put("code", 200);
+                result.put("msg", "success");
+                result.put("data", xmcgbqk);
+                result.put("result", true);
+            }else{
+                result.put("code", 504);
+                result.put("msg", "database error");
+                result.put("data", xmcgbqk);
+                result.put("result", false);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            result.put("code", 500);
+            result.put("msg", "server error");
+            result.put("result", false);
+        }
+        return result;
+    }
 
 
     // 保持原始配置项名称不变
     @Value("${video.upload.dir}")
     private String uploadDir;
-
     @Value("${app.WenJianJiaName}")
     private String folderName;
-
     private String saveFile(MultipartFile file, String fileType) throws IOException {
         // 构建存储路径：video.upload.dir + WenJianJiaName + 文件类型目录
         Path storagePath = Paths.get(uploadDir,"XMCGK/" );

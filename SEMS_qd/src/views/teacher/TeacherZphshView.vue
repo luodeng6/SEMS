@@ -45,7 +45,8 @@
           v-loading="loading"
           style="width: 100%"
       >
-        <el-table-column prop="ZPHBT" label="标题" width="180"></el-table-column>
+        <el-table-column prop="ID" label="招聘会代码" width="100"></el-table-column>
+        <el-table-column prop="ZPHBT" label="标题" width="300"></el-table-column>
         <el-table-column prop="WZBZ" label="位置" width="100">
           <template slot-scope="{row}">
             {{ row.WZBZ === 1 ? '校内' : '校外' }}
@@ -53,14 +54,24 @@
         </el-table-column>
         <el-table-column prop="DWMC" label="单位名称" width="160"></el-table-column>
         <el-table-column prop="GSMC" label="公司名称" width="160"></el-table-column>
-        <el-table-column prop="JBSJ" label="举办时间" width="160"></el-table-column>
-        <el-table-column prop="SZXX" label="所在学校" width="150"></el-table-column>
+        <el-table-column prop="JBSJ" label="举办时间" width="160">
+          <template slot-scope="{row}">
+            {{ formatDate(row.JBSJ) }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="SZXX" label="所在学校" width="200"></el-table-column>
         <el-table-column prop="YYRS" label="预约人数" width="100" sortable></el-table-column>
         <el-table-column prop="SHDM" label="状态" width="120">
           <template slot-scope="{row}">
             <el-tag :type="statusTagType(row.SHDM)">
               {{ statusMap[row.SHDM] }}
             </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="FBZMC" label="发起者" width="100" ></el-table-column>
+        <el-table-column prop="FBZSFDM" label="发起者身份" width="100" >
+          <template slot-scope="{row}">
+            {{ getRoleName(row.FBZSFDM) }}
           </template>
         </el-table-column>
         <el-table-column label="操作" width="180">
@@ -144,6 +155,28 @@ export default {
 
   },
   methods: {
+    getRoleName(sfdm){
+      if (sfdm === 1){
+        return '管理员';
+      }
+      if (sfdm === 2){
+        return '教师';
+      }
+      if (sfdm === 3){
+        return 'HR';
+      }
+    },
+    formatDate (input) {
+      const date = new Date(input);
+
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1; // 月份从 0 开始
+      const day = date.getDate();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+
+      return `${year}-${month}-${day} ${hour}:${minute}`;
+    },
     statusTagType(status) {
       return {
         0: 'warning',
@@ -236,6 +269,31 @@ export default {
       row.SHDM = result;
       row.SHR = '当前教师';
       row.SHSJ = new Date().toLocaleString();
+      console.log(row);
+      let dataform = new FormData();
+      dataform.append("id", row.ID);
+      dataform.append("shdm", result);
+
+      axios.post("/datazphjlk/updateDataZphjlk", dataform).then(res => {
+        if (res.data.result) {
+          this.$message({
+            message: '操作成功',
+            type: 'info'
+          });
+          this.fetchTableData();
+        } else {
+          this.$message({
+            message: '操作失败：' + res.data.msg,
+            type: 'error'
+          });
+        }
+      }).catch(error => {
+        console.error("操作失败", error);
+        this.$message({
+          message: '操作失败：' + error.message,
+          type: 'error'
+        });
+      });
     },
     handleSizeChange(val) {
       this.pageSize = val;
@@ -273,4 +331,7 @@ export default {
 .el-pagination {
   justify-content: flex-end;
 }
+
+
+
 </style>

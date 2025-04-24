@@ -16,18 +16,47 @@ select * from DWYHK
 select * from XXDMK
 Select QYDM,* from DATA_STUDENT
 exec usp_getXxdmkData 3,'msk'
+exec LuoDeng_getAlltableInfo
+
 select * from tdjlk where stuid = 1226 and gwdm =4
 select * from dhjlk
-exec LuodengTable 'XXDMK'
+exec LuodengTable 'GWBQDYK'
+select * from MSDMK
 select * from DHJLK where (FROMYHM='20213260035' and FROMYHSFDM=4) or  (TOYHM='20213260035' and TOYHSFDM=4)
 
 INSERT INTO dhjlk (fromyhm, toyhm, fromyhsfdm, toyhsfdm, nr) VALUES
 ('msk', '20213260035', 3, 4, '测试消息11'),
 ('msk', '20213260035', 3,4, '测试消息12')
+select * from DATA_STUDENT
+select * from DHJLK where (FROMYHM='msk' and FROMYHSFDM=3) or  (TOYHM='msk' and TOYHSFDM=3)
+delete from DHJLK
+
+exec LuodengTable 'DATA_ZPJZK'
+
+ update DATA_ZPJZK set FBZ='ozf' 
+ select *from DATA_ZPJZK
+ update DATA_ZPJZK set  CJZ='msk' where   FBZ='msk'
+
+select a.*,
+						case 
+							when a.FBZSFDM= 1 then d.MC--管理员
+							when a.FBZSFDM= 2 then b.JSMC
+							when a.FBZSFDM= 3 then c.YHXM
+						end as FBZMC,
+						f.DWMC,
+						f.GSMC
+						from DATA_ZPHJLK a
+							left join JSDMK b on a.FBZ=b.DLZH and a.FBZSFDM=2
+							left join DWYHK c on a.FBZ=c.YHM and a.FBZSFDM=3
+							left join GLYDMK d on a.FBZ=d.DLZH and a.FBZSFDM=1
+							left join DATA_DWDMK f on a.DWDM=f.DWDM where  a.SHRYHM='lls' and a.SHRSFDM=2 and a.QYDM=1
+
 
  exec usp_GetUserData 'ozf',3
 --exec usp_GetDhjl '20213260035',4,3,'msk'
 exec LuodengTable 'DATA_ZPHJLK'
+
+select * from DATA_ZPHJLK
 exec LuoDeng_getAlltableInfo
 select * from DATA_ZPHJLK
 select * from FPWTBQK

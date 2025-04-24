@@ -11,13 +11,13 @@ import java.io.Serializable;
  * 招聘简章库(DataZpjzk)实体类
  *
  * @author makejava
- * @since 2025-04-14 10:55:47
+ * @since 2025-04-21 22:42:35
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DataZpjzk implements Serializable {
-    private static final long serialVersionUID = 682626772828196929L;
+    private static final long serialVersionUID = 868730766506185530L;
     /**
      * 招聘简章代码
      */
@@ -32,8 +32,10 @@ public class DataZpjzk implements Serializable {
     private String wbnr;
 
     private String html;
-
-    private String cjrgh;
+    /**
+     * 发布者
+     */
+    private String fbz;
     /**
      * 创建时间
      */
@@ -46,5 +48,21 @@ public class DataZpjzk implements Serializable {
      * 发布时间(FBBZ为0时为空)
      */
     private Date fbsj;
-}
+    /**
+     * 发布者身份代码
+     */
+    private Integer fbzsfdm;
+    /**
+     * 简章附件文件
+     */
+    private String jzfj;
+    /**
+     * 创建者
+     */
+    private String cjz;
+    /**
+     * 创建者身份代码
+     */
+    private Integer cjzsfdm;
 
+}

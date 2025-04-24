@@ -31,6 +31,8 @@ public interface DataDwdmkMapper {
     @Select("SELECT * FROM DATA_DWDMK WHERE DWDM = (SELECT SSDW FROM DWYHK  WHERE YHM = #{dwUserName})")
     DataDwdmk getDwDataByDwUserName(@Param("dwUserName") String dwUserName);
 
+
+
     @Select("SELECT * FROM DATA_DWDMK WHERE QYDM = #{qydm}")
     List<DataDwdmk> getAllDwDataByQydm(@Param("qydm") int qydm);
 

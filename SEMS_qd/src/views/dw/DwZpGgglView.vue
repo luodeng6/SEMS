@@ -240,30 +240,24 @@ export default {
         this.$message.error('获取公告列表失败,网络错误！');
       });
     },
-  /*initEditor() {
-    this.editor = new E(this.$refs.editorElem)
-
+  initEditor() {
+    this.editor = new E('#editor-container');
+    this.editor.config.height = 600
     // 基础配置
     this.editor.config.zIndex = 100
-    this.editor.config.placeholder = '请输入公司简介...'
+    /*  this.editor.config.placeholder = '请输入公告内容...'*/
 
-    // 配置双向同步
     this.editor.config.onchange = html => {
-      this.isEditorUpdating = true
-      this.$set(this.form, 'gsjjhtml', html)
-      this.$set(this.form, 'gsjj', this.editor.txt.text())
-      this.$nextTick(() => {
-        this.isEditorUpdating = false
-      })
-
-      // 触发表单验证
-      this.$refs.form.validateField('gsjjhtml')
-    }
+      this.form.GGNR = this.editor.txt.text();
+      this.form.GGNRHTML = html;
+    };
+    // 配置行高
+    this.editor.config.lineHeights = ['1', '1.15', '1.6', '2', '2.5', '3']
 
     // 图片上传配置
-    this.editor.config.uploadImgServer = '/dw/uploadGsjjImg'
+    this.editor.config.uploadImgServer = '/dwzpggk/uploaddwzpggkimg'
     this.editor.config.uploadFileName = 'file'
-    this.editor.config.uploadImgMaxSize = 5 * 1024 * 1024 // 5MB
+    this.editor.config.uploadImgMaxSize = 100 * 1024 * 1024 // 100MB
     this.editor.config.uploadImgHooks = {
       customInsert: (insertImg, result) => {
         if (result.result) {
@@ -298,77 +292,7 @@ export default {
         }
       }
     }
-    // 配置行高
-    this.editor.config.lineHeights = ['1', '1.15', '1.6', '2', '2.5', '3']
 
-    // 菜单栏配置
-    this.editor.config.menus = [
-      'head',
-      'bold',
-      'fontSize',
-      'fontName',
-      'italic',
-      'underline',
-      'strikeThrough',
-      'indent',
-      'lineHeight',
-      'foreColor',
-      'backColor',
-      'link',
-      'list',
-      'todo',
-      'justify',
-      'quote',
-      'emoticon',
-      'image',
-      'video',
-      'table',
-      'code',
-      'splitLine',
-      'undo',
-      'redo',
-    ]
-
-    // 支持视频格式
-    this.editor.config.videoAccept = '.mp4,.avi,.mov,.wmv,.flv,.mkv'
-
-    // 创建编辑器
-    this.editor.create()
-
-    // 初始化内容
-    this.$nextTick(() => {
-      if (this.form.gsjjhtml) {
-        this.editor.txt.html(this.form.gsjjhtml)
-      } else {
-        this.editor.txt.html('<p>请输入公司简介...</p>')
-      }
-    })
-  },*/
-  initEditor() {
-    this.editor = new E('#editor-container');
-    this.editor.config.height = 600
-    // 基础配置
-    this.editor.config.zIndex = 100
-    /*  this.editor.config.placeholder = '请输入公告内容...'*/
-
-    this.editor.config.onchange = html => {
-      this.form.GGNR = this.editor.txt.text();
-      this.form.GGNRHTML = html;
-    };
-    // 配置行高
-    this.editor.config.lineHeights = ['1', '1.15', '1.6', '2', '2.5', '3']
-
-    // 图片上传配置
-    this.editor.config.uploadImgServer = '/dwzpggk/uploaddwzpggkimg'
-    this.editor.config.uploadFileName = 'file'
-    this.editor.config.uploadImgMaxSize = 100 * 1024 * 1024 // 100MB
-    this.editor.config.uploadImgHooks = {
-      customInsert: (insertImg, result) => {
-        if (result.result) {
-          insertImg(result.data)
-        }
-      }
-    }
     // 菜单栏配置
     this.editor.config.menus = [
       'head',

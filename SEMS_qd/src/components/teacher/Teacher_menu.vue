@@ -38,6 +38,14 @@
               </a>
             </router-link>
           </li>
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/teacher/msgl">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-chart-line mr-2"></i>
+                面试管理
+              </a>
+            </router-link>
+          </li>
 
           <li class="hover:bg-blue-50 rounded">
             <router-link to="/teacher/TeacherZphView">

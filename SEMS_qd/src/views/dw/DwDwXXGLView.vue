@@ -313,11 +313,10 @@ export default {
           }
         }
       }
-
       // 视频上传配置
       this.editor.config.uploadVideoServer = '/dw/uploadVideo'
       this.editor.config.uploadVideoName = 'videoFile'
-      this.editor.config.uploadVideoMaxSize = 100 * 1024 * 1024 // 100MB
+      this.editor.config.uploadVideoMaxSize = 300 * 1024 * 1024 //  300MB
       this.editor.config.uploadVideoHooks = {
         before: (video) => {
           this.$message.info('视频上传中...')

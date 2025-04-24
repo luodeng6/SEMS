@@ -452,6 +452,31 @@ const routes = [
         , component: () => import('@/views/teacher/TeacherZphshView.vue')
         , meta: {style: '老师', title: '招聘会审核核对'}
     }
+    ,
+    {
+        path: "/teacher/msgl"
+        , name: "TeacherMsglView"
+        , component: () => import('@/views/teacher/TeacherMSGLView.vue')
+        , meta: {style: '老师', title: '面试管理'}
+    } ,
+    {
+        path: "/dw/zpjz"
+        , name: "DwZpjzView"
+        , component: () => import('@/views/dw/DwZpjzView.vue')
+        , meta: {style: '单位', title: '招聘简章管理'}
+    },
+    {
+        path: "/dw/zpjzDetail"
+        , name: "DwZpjzDetailView"
+        , component: () => import('@/views/dw/DwZpjzDetail.vue')
+        , meta: {style: '单位', title: '招聘简章详情'}
+    },
+    {
+        path: "/stu/zpjzDetail"
+        , name: "StudentZpjzDetail"
+        , component: () => import('@/views/student/StudentZpjzDetail.vue')
+        , meta: {style: '学生', title: '单位招聘简章详情'}
+    }
 ]
 
 

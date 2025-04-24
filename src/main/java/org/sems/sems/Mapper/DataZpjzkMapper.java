@@ -5,5 +5,7 @@ import org.sems.sems.entity.DataZpjzk;
 
 @Mapper
 public interface DataZpjzkMapper {
-    int insetDataZpjzk(DataZpjzk data);
+     int updateDataZphjlk(DataZpjzk dataZpjzk);
+     int insertDataZphjlk(DataZpjzk dataZpjzk);
+     int deleteDataZphjlk(Integer id);
 }

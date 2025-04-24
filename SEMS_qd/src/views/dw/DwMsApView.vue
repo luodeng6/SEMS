@@ -2,7 +2,7 @@
   <div class="content">
     <DwMenu/>
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
-      <header class="flex justify-between items-center mb-4">
+      <header style="margin-left: 28px;" class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-semibold">面试管理</h1>
 
       </header>
@@ -17,7 +17,13 @@
                   placeholder="搜索学生/岗位"
                   style="width: 300px; margin-left: 20px"></el-input>
             </div>
-            <el-table :data="filteredInterviews" border height="500">
+            <el-table :data="filteredInterviews" border
+                      v-loading="isLoading"
+                      element-loading-text="加载中..."
+                      element-loading-spinner="el-icon-loading"
+                      element-loading-background="rgba(255, 255, 255, 0.8)"
+                      style="width: 100%"
+                      height="500">
               <el-table-column prop="GWMC" label="岗位" width="180"></el-table-column>
               <el-table-column prop="TDSJ" label="时间" width="180">
                 <template #default="{row}">
@@ -301,6 +307,7 @@ export default {
   components: {DwMenu},
   data() {
     return {
+      isLoading:false,
       // 选择的面试记录
       selectedInterResultInterview: null,
       ResultFormData:{
@@ -466,7 +473,8 @@ export default {
       formData.append("msjg", this.ResultFormData.MSJG);
       formData.append("mspj", this.ResultFormData.MSPJ);
       formData.append("hrzj", this.ResultFormData.HRZJ);
-
+      formData.append("jglrz",this.UserInfo.username);
+      formData.append("jglrzsfdm",3);// 3代表单位
 
       axios.post("/msdmk/updateInterview", formData).then((response) => {
         if (response.data.result) {
@@ -746,6 +754,7 @@ export default {
       return dateStr ? new Date(dateStr).toLocaleString() : '-'
     },
     async getLoginUserInfo() {
+      this.isLoading=true;
       await axios.get('/user/checkSession').then(response => {
         if (!response.data.result) {
           EventBus.$emit('show-auth-popup');
@@ -760,6 +769,7 @@ export default {
           this.getArrangedInterviews();// 获取待安排的面试列表
           this.getInterviews();// 获取面试数据
         }
+        this.isLoading=false;
       }).catch(error => {
         EventBus.$emit('show-auth-popup');
         console.error('获取用户信息失败,网络错误！', error);
@@ -770,12 +780,14 @@ export default {
     },
     // 获取待安排的面试列表
     getArrangedInterviews() {
+      this.isLoading=true;
       axios.get('/msdmk/getWaitApms?yhm=' + this.UserInfo.username).then(response => {
         if (response.data.result) {
           this.interviews = response.data.data;
         } else {
           this.$message.error('获取待安排的面试列表失败:' + response.data.message);
         }
+        this.isLoading=false;
       }).catch(error => {
         console.error('获取待安排的面试列表失败,网络错误！', error);
         this.$message.error('获取待安排的面试列表失败:' + error.message);

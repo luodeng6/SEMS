@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.DataZpjzkMapper">
+    <!-- 通用字段映射 -->
+    <resultMap id="BaseResultMap" type="org.sems.sems.entity.DataZpjzk">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="DWDM" property="dwdm" jdbcType="VARCHAR"/>
+        <result column="WBNR" property="wbnr" jdbcType="CLOB"/>
+        <result column="HTML" property="html" jdbcType="CLOB"/>
+        <result column="FBZ" property="fbz" jdbcType="VARCHAR"/>
+        <result column="CJSJ" property="cjsj" jdbcType="TIMESTAMP"/>
+        <result column="FBBZ" property="fbbz" jdbcType="TINYINT"/>
+        <result column="FBSJ" property="fbsj" jdbcType="TIMESTAMP"/>
+        <result column="FBZSFDM" property="fbzsfdm" jdbcType="VARCHAR"/>
+        <result column="CJZ" property="cjz" jdbcType="VARCHAR"/>
+        <result column="CJZSFDM" property="cjzsfdm" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 动态插入（返回自增ID） -->
+    <insert id="insertDataZphjlk" parameterType="org.sems.sems.entity.DataZpjzk"
+            useGeneratedKeys="true" keyProperty="id" keyColumn="ID">
+        INSERT INTO DATA_ZPJZK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dwdm != null">DWDM,</if>
+            <if test="wbnr != null">WBNR,</if>
+            <if test="html != null">HTML,</if>
+            <if test="fbz != null">FBZ,</if>
+            <if test="fbbz != null">FBBZ,</if>
+            <if test="fbsj != null">FBSJ,</if>
+            <if test="fbzsfdm != null">FBZSFDM,</if>
+            <if test="cjz != null">CJZ,</if>
+            <if test="cjzsfdm != null">CJZSFDM,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="wbnr != null">#{wbnr},</if>
+            <if test="html != null">#{html},</if>
+            <if test="fbz != null">#{fbz},</if>
+            <if test="fbbz != null">#{fbbz},</if>
+            <if test="fbsj != null">#{fbsj},</if>
+            <if test="fbzsfdm != null">#{fbzsfdm},</if>
+            <if test="cjz != null">#{cjz},</if>
+            <if test="cjzsfdm != null">#{cjzsfdm},</if>
+        </trim>
+    </insert>
+
+    <!-- 动态更新 -->
+    <update id="updateDataZphjlk" parameterType="org.sems.sems.entity.DataZpjzk">
+        UPDATE DATA_ZPJZK
+        <set>
+            <if test="dwdm != null">DWDM = #{dwdm},</if>
+            <if test="wbnr != null">WBNR = #{wbnr},</if>
+            <if test="html != null">HTML = #{html},</if>
+            <if test="fbz != null">FBZ = #{fbz},</if>
+            <if test="fbbz != null">
+                FBBZ = #{fbbz},
+                <!-- 当发布状态改为1时自动更新发布时间 -->
+                <if test="fbbz == 1">
+                    FBSJ = GETDATE(),
+                </if>
+                <if test="fbbz == 0">
+                    FBSJ = NULL,
+                </if>
+            </if>
+            <if test="fbzsfdm != null">FBZSFDM = #{fbzsfdm},</if>
+            <if test="cjz != null">CJZ = #{cjz},</if>
+            <if test="cjzsfdm != null">CJZSFDM = #{cjzsfdm},</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+
+    <!-- 删除 -->
+    <delete id="deleteDataZphjlk">
+        DELETE FROM DATA_ZPJZK
+        WHERE ID = #{id}
+    </delete>
+
+    <!-- 根据ID查询（用于返回更新后的对象） -->
+    <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        SELECT * FROM DATA_ZPJZK
+        WHERE ID = #{id}
+    </select>
+
+</mapper>
+

@@ -114,7 +114,14 @@
               </a>
             </router-link>
           </li>
-
+          <li class="hover:bg-blue-50 rounded">
+            <router-link to="/dw/zpjz">
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fa-solid fa-bars mr-2"></i>
+                招聘简章
+              </a>
+            </router-link>
+          </li>
           <li class="hover:bg-blue-50 rounded">
             <router-link to="/dw/AI">
               <a class="flex items-center p-2 text-gray-700">

@@ -40,20 +40,53 @@
         </el-row>
       </div>
 
-      <!-- 数据表格 -->
+      <!-- 数据表格
+       {
+            "ID": 9,
+            "ZPHBT": "“百万英才汇南粤”广东阳江湖南引才专场活动",
+            "DWDM": 60,
+            "WZBZ": 1,
+            "JBSJ": "2025-04-25T07:57:00.000+00:00",
+            "DYGWDM": null,
+            "SZXX": "广东大学",
+            "JBDD": "教学楼2楼11",
+            "FBZ": "ozf",
+            "FBZSFDM": 3,
+            "QYDM": 1,
+            "ZY": "信息管理与信息系统",
+            "YYRS": 0,
+            "CJSJ": "2025-04-17T16:58:16.877+00:00",
+            "SHDM": 0,
+            "SHRYHM": null,
+            "SHRSFDM": null,
+            "SHSJ": null,
+            "FBZMC": null,
+            "DWMC": "信息科",
+            "GSMC": "北海市中医医院"
+        }
+      -->
       <el-table
           :data="pagedData"
           v-loading="loading"
           border
           style="width: 100%"
-      >
-        <el-table-column prop="ZPHBT" label="招聘会标题" width="200"></el-table-column>
+         element-loading-text="加载中..."
+          element-loading-spinner="el-icon-loading"
+          element-loading-background="rgba(255, 255, 255, 0.8)" >
+
+        <el-table-column prop="ID" label="代码" width="100"></el-table-column>
+        <el-table-column prop="ZPHBT" label="招聘会标题" width="300"></el-table-column>
+        <el-table-column prop="DYGWDM" label="岗位" width="300"></el-table-column>
         <el-table-column prop="WZBZ" label="位置类型" width="120">
           <template slot-scope="{row}">
             {{ row.WZBZ === 1 ? '校内' : '校外' }}
           </template>
         </el-table-column>
-        <el-table-column prop="JBSJ" label="举办时间" width="160"></el-table-column>
+        <el-table-column prop="JBSJ" label="举办时间" width="260">
+          <template slot-scope="{row}">
+            {{ formatDate( row.JBSJ )}}
+          </template>
+        </el-table-column>
         <el-table-column prop="SHDM" label="审核状态" width="120">
           <template slot-scope="{row}">
             <el-tag :type="statusTagType(row.SHDM)">
@@ -62,6 +95,8 @@
           </template>
         </el-table-column>
         <el-table-column prop="YYRS" label="预约人数" width="120" sortable></el-table-column>
+        <el-table-column prop="ZY" label="专业" width="300" sortable></el-table-column>
+        <el-table-column prop="SZXX" label="所在学校" width="160"></el-table-column>
         <el-table-column label="操作" width="180">
           <template slot-scope="{row}">
             <el-button
@@ -72,6 +107,7 @@
             <el-button
                 v-if="row.SHDM === 0"
                 type="text"
+                style="color: #f56c6c;"
                 @click="handleDelete(row)"
             >删除</el-button>
           </template>
@@ -297,6 +333,17 @@ export default {
     this.getLoginUserInfo();
   },
   methods: {
+    formatDate (input) {
+      const date = new Date(input);
+
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1; // 月份从 0 开始
+      const day = date.getDate();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+
+      return `${year}-${month}-${day} ${hour}:${minute}`;
+    },
     // 获取当前用户发布的岗位--启用的
     getJobData() {
       axios.get("/dataGwdmk/getGwdmkDataToInterface", {
@@ -364,9 +411,7 @@ export default {
       });
 
     },
-    OpenFbPage(){
-      this.dialogVisible = true;
-      console.log(this.options.posts)
+    loadData(){
       if (this.JSDMK.length === 0){
         // 加载教师数据
         this.getAllTeachers();
@@ -379,7 +424,11 @@ export default {
         // 加载岗位数据
         this.getJobData();
       }
-
+    },
+    OpenFbPage(){
+      this.dialogVisible = true;
+      console.log(this.options.posts)
+     this.loadData();
     },
     async getLoginUserInfo() {
       this.isLoading = true;
@@ -470,7 +519,6 @@ export default {
         2: 'danger'
       }[status];
     },
-
     submitForm() {
       this.$refs.form.validate(valid => {
         if (valid) {
@@ -479,45 +527,28 @@ export default {
             DWDM: 'DW1001', // 当前单位代码
             DYGWDM: this.form.DYGWDM.join('+'),
             ZY: this.form.ZY.join('+'),
-            SHDM: 0, // 初始状态为待审核
-            YYRS: 0, // 初始预约人数
-            CJSJ: new Date().toISOString()
+            YYRS: this.form.YYRS , // 初始预约人数
           };
           console.log(newData);
           console.log("关联的岗位：");
           console.log(this.form.DYGWDM);
-
+          // 新增逻辑
+          let  dataForm=new FormData();
+          dataForm.append('fbz', this.UserInfo.username);
+          dataForm.append("fbzsfdm", 3);
+          dataForm.append("dygwdm",newData.DYGWDM);
+          dataForm.append("zphbt", newData.ZPHBT);// 招聘会标题
+          dataForm.append("wzbz", newData.WZBZ);// 位置类型
+          dataForm.append("jbsj", new Date(this.form.JBSJ) );// 举办时间
+          dataForm.append("szxx", newData.SZXX);// 所在学校
+          dataForm.append("jbdd", newData.JBDD);// 举办地点
+          dataForm.append("zy", newData.ZY);// 相关专业
+          dataForm.append("shryhm", newData.SHR);// 审核教师
+          dataForm.append("shrsfdm", 2);// 审核人身份
+          dataForm.append("yyrs", newData.YYRS);// 预约人数
+          dataForm.append("dwdm",  this.DWDMK.dwdm);// 单位代码
 
           if (this.formType === 'add') {
-            // 新增逻辑
-            /*{
-                "ZPHBT": "11",
-                "WZBZ": 1,
-                "JBSJ": "2025-04-25 12:50",
-                "DYGWDM": "37",
-                "SZXX": "11",
-                "JBDD": "11",
-                "ZY": "护理高职+2018中医学（一体化）1班+2018护理学4班+中药学（订单班）",
-                "SHR": "lls",
-                "YYRS": 0,
-                "DWDM": "DW1001",
-                "SHDM": 0,
-                "CJSJ": "2025-04-17T16:50:50.444Z"
-                        }*/
-            let  dataForm=new FormData();
-         /*   FBZ	发布者
-            FBZSFDM	发布者身份代码*/
-            dataForm.append('fbz', this.UserInfo.username);
-            dataForm.append("fbzsfdm", 3);
-            dataForm.append("zphbt", newData.ZPHBT);// 招聘会标题
-            dataForm.append("wzbz", newData.WZBZ);// 位置类型
-            dataForm.append("jbsj", new Date(newData.JBSJ) );// 举办时间
-            dataForm.append("szxx", newData.SZXX);// 所在学校
-            dataForm.append("jbdd", newData.JBDD);// 举办地点
-            dataForm.append("zy", newData.ZY);// 相关专业
-            dataForm.append("shr", newData.SHR);// 审核教师
-            dataForm.append("yyrs", newData.YYRS);// 预约人数
-            dataForm.append("dwdm",  this.DWDMK.dwdm);// 单位代码
             axios.post("/datazphjlk/addDataZphjlk", dataForm).then((response) => {
               if (response.data.result) {
                 this.$message.success("新增招聘会成功");
@@ -531,7 +562,21 @@ export default {
               this.$message.error("新增招聘会失败：" + error.message);
             });
           } else {
+            dataForm.append("id", this.form.ID);
             // 编辑逻辑
+            console.log("编辑数据：");
+              console.log(this.form);
+              axios.post("/datazphjlk/updateDataZphjlk", dataForm).then((response) => {
+                if (response.data.result) {
+                  this.$message.success("更新招聘会成功");
+                  this.fetchTableData();
+                } else {
+                  this.$message.error("更新招聘会失败：" + response.data.msg);
+                }
+              }).catch((error) => {
+                console.log(error);
+                this.$message.error(" 更新招聘会失败：" + error.message);
+              });
           }
           this.dialogVisible = false;
         }
@@ -549,12 +594,21 @@ export default {
       };
     },
     handleEdit(row) {
+      this.loadData();
+
       this.formType = 'edit';
-      this.form = {
-        ...row,
-        DYGWDM: row.DYGWDM.split('+'),
-        ZY: row.ZY.split('+')
-      };
+      this.form.ZPHBT = row.ZPHBT;
+      this.form.WZBZ = row.WZBZ;
+      this.form.JBSJ = this.formatDate(row.JBSJ);
+
+      this.form.SZXX = row.SZXX;
+      this.form.JBDD = row.JBDD;
+      this.form.YYRS = row.YYRS;
+      this.form.ID = row.ID;
+
+      console.log(row);
+      this.form.SHR =row.SHRYHM;
+
       this.dialogVisible = true;
     },
     handleDelete(row) {

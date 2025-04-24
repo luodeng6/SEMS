@@ -120,8 +120,10 @@
             :data="paginatedPositions"
             highlight-current-row
             stripe
-            border
-            style="width: 100%"
+            v-loading="loading"
+            element-loading-text="加载中..."
+            element-loading-spinner="el-icon-loading"
+            element-loading-background="rgba(255, 255, 255, 0.8)" border style="width: 100%"
             tooltip-effect="dark"
             @current-change="handleCurrentChangeTable"
             :row-class-name="tableRowClassName"
@@ -219,6 +221,7 @@ export default {
   name: 'DwJob',
   data() {
     return {
+      loading: false,
       hotPositions: [
         {name: '高级前端工程师', count: 235},
         {name: '产品经理', count: 189},
@@ -244,7 +247,6 @@ export default {
       gwflList: [],// 岗位分类列表
       DATADWDMK: [],//单位数据
       fbzyhm: "",
-      loading: false,
       // 当前选中岗位数据
       currentJobSelectRow: null,
     };
@@ -344,6 +346,7 @@ export default {
       return '';
     },
     getLoginUser() {
+      this.loading=true;
       axios.get('/user/checkSession').then(response => {
         if (response.data.result) {
           this.fbzyhm = response.data.username;
@@ -359,13 +362,14 @@ export default {
     getAllJob(fbzyhm) {
       this.loading = true;
       axios.get(`/dataGwdmk/getGwdmkDataByFbz?fbzyhm=${fbzyhm}`).then(res => {
-        this.loading = false;
+
         if (res.data.result) {
           this.paginatedData = res.data.data;
           this.total = this.filteredPositions.length; // 设置总数
         } else {
           this.$message.error("获取岗位数据失败！，后台错误");
         }
+        this.loading = false;
       }).catch(err => {
         this.loading = false;
         this.$message.error("获取岗位数据失败！，网络错误");

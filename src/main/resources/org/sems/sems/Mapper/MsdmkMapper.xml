@@ -53,6 +53,8 @@
             <if test="qrdm != null">QRDM = #{qrdm},</if>
             <if test="jglrsj != null">JGLRSJ = #{jglrsj},</if>
             <if test="msdd != null">MSDD = #{msdd},</if>
+            <if test="jglrz != null">JGLRZ = #{jglrz},</if>
+            <if test="jglrzsfdm != null">JGLRZSFDM = #{jglrzsfdm},</if>
         </set>
         WHERE MSDM = #{msdm};
     </update>

@@ -244,7 +244,7 @@ export default {
       const newMsg = {
         fromyhm: this.currentUser.username,
         toyhm: this.activeContact.id,
-        fromyhsfdm: 4,
+        fromyhsfdm: 3,
         toyhsfdm: this.activeContact.roleCode,
         isqf: 0,
         nr: this.newMessage.trim(),

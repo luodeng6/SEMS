@@ -1,5 +1,6 @@
 package org.sems.sems.service;
 
+import org.sems.sems.entity.Xmcgbqk;
 import org.sems.sems.entity.Xmcgk;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,4 +33,11 @@ public interface XmcgkService {
      * @return 上传结果
      */
     Map<String, Object> uploadFJFile(Integer id, MultipartFile cgfj);
+
+    /**
+     *  为项目成果添加标签
+     * @param xmcgbqk 项目代码
+     * @return 添加结果
+     */
+    Map<String, Object> addTag(Xmcgbqk xmcgbqk);
 }

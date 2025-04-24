@@ -6,16 +6,7 @@
 
 
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
-      <!--      <header class="flex justify-between items-center mb-6">
-              <div>
-                <h1 class="text-3xl font-bold text-gray-800">企业招聘管理中心</h1>
-                <p class="text-sm text-gray-500 mt-1">欢迎回来 </p>
-              </div>
-              <div class="flex items-center space-x-4">
 
-                <el-button type="primary" icon="el-icon-plus" >发布新职位</el-button>
-              </div>
-            </header>-->
       <header padding="20px;" style="background-color: steelblue;">
         <div class="  mx-auto px-4">
           <div class="flex justify-between items-center h-16" style="margin-bottom: 27px;">
@@ -139,8 +130,6 @@
           </el-card>
         </el-col>
       </el-row>
-
-
       <div class="app-container">
         <!-- 搜索筛选区域 -->
         <el-card class="search-card" shadow="never">
@@ -163,6 +152,7 @@
             <el-form-item>
               <el-button type="primary" @click="handleSearch">查询</el-button>
               <el-button @click="resetSearch">重置</el-button>
+              <el-button @click="handleExport">对话</el-button>
             </el-form-item>
           </el-form>
         </el-card>
@@ -176,7 +166,10 @@
               border
               highlight-current-row
               stripe
-              style="width: 100%"
+              element-loading-text="加载中..."
+              element-loading-spinner="el-icon-loading"
+              element-loading-background="rgba(255, 255, 255, 0.8)"
+               style="width: 100%"
               @current-change="handleSelectionChange"
               @row-dblclick="lookStudentInfo"
           >
@@ -429,6 +422,7 @@ export default {
             return "未知";
         }
       },
+      selectData: {},
       loading: false,
       pagination: {
         current: 1,
@@ -461,6 +455,42 @@ export default {
     }
   },
   methods: {
+    handleExport(){
+      //获取选中行数据
+      console.log( this.selectData);
+        let postData = new FormData();
+        postData.append("fromyhm",this.UserInfo.username );// 本人
+        postData.append("toyhm", this.selectData.XSXH);// 接收者用户名
+        postData.append("fromyhsfdm", 3); // 单位
+        postData.append("toyhsfdm", 4);//学生
+        postData.append("nr", `${this.selectData.XSXM}同学,你好!我是${this.selectData.GSMC}HR`)
+
+        /*ID	编号
+        FROMYHM	发送者用户名
+        TOYHM	接受者用户名
+        FROMYHSFDM	发送者SFDM
+        TOYHSFDM	接收者身份代码
+        QYDM
+        ISQF	是否群发
+        YDBZ	已读标志
+        SENDTIME	发送时间
+        NR	内容*/
+
+        // 添加联系对话记录:"HR您好，我对岗位：很感兴趣，希望继续对话。"
+        axios.post("/sstx/addNewlxr", postData).then(response => {
+          if (response.data.result) {
+            this.$message.success("添加联系人成功！");
+            console.log(response.data.data);
+            // 跳转到实时聊天界面
+            this.$router.push({path: '/dw/dwxxl', params: {lyyhm: response.data.data.lyyhm,id: response.data.data.id}});
+          } else {
+            this.$message.error("添加联系人失败：" + response.data.msg);
+          }
+        }).catch(error => {
+          console.log(error);
+          this.$message.error("添加联系人失败：" + error.msg);
+        });
+    },
     // 连接WebSocket
     connectWebSocket() {
       const socket = new SockJS(`http://${NOWIP}:83/chat`);
@@ -535,6 +565,7 @@ export default {
     // 处理选中行
     handleSelectionChange(val) {
       console.log(val);
+      this.selectData=val;
     },
     // 查看学生信息
     ShowStudentInfo(row) {

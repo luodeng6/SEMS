@@ -1,5 +1,6 @@
 package org.sems.sems.Controller;
 
+import org.sems.sems.entity.Xmcgbqk;
 import org.sems.sems.entity.Xmcgk;
 import org.sems.sems.service.XmcgkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,10 @@ public class XmcgkController {
     @PostMapping("/uploadFile")
     public Map<String,Object> uploadZsZp(Integer id,MultipartFile cgfj){
         return xmcgkService.uploadFJFile(id, cgfj);
+    }
+
+    @PostMapping("/addTag")
+    public Map<String,Object> addTag(Xmcgbqk xmcgbqk){
+        return xmcgkService.addTag(xmcgbqk);
     }
 }

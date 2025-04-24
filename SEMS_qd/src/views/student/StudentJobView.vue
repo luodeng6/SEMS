@@ -7,7 +7,7 @@
 
         <div class="container-fluid my-4">
           <div class="header mb-4">
-            <el-page-header style="padding: 10px;" content="岗位页面">
+            <el-page-header content="岗位页面" style="padding: 10px;">
             </el-page-header>
 
             <div class="d-flex justify-content-between align-items-center">
@@ -23,8 +23,8 @@
                                 </button>&ndash;&gt;
                                 <el-button @click="searchJobs" plain><i class="fa fa-search"></i> 搜索</el-button>
                 -->
-                <el-input placeholder="请输入内容" v-model="keyword" class="input-with-select">
-                  <el-select v-model="select" slot="prepend" filterable clearable placeholder="请选择">
+                <el-input v-model="keyword" class="input-with-select" placeholder="请输入内容">
+                  <el-select slot="prepend" v-model="select" clearable filterable placeholder="请选择">
                     <el-option label="餐厅名" value="1"></el-option>
                     <el-option label="订单号" value="2"></el-option>
                     <el-option label="用户电话" value="3"></el-option>
@@ -34,10 +34,13 @@
 
               </div>
               <div>
-                <el-button @click="showJobDetail" plain><i class="fa fa-filter"></i>岗位详情</el-button>
-                <el-button @click="refreshData" plain><i class="fa fa-refresh"></i>刷新</el-button>
-                <el-button @click="addLxr" plain><i class="fa fa-plus"></i>对话</el-button>
-                <el-button @click="TdjobButtonClick" plain><i class="fa fa-plus"></i>投递职位</el-button>
+                <el-button plain @click="showJobDetail"><i class="fa fa-filter"></i>岗位详情</el-button>
+                <el-button plain @click="refreshData"><i class="fa fa-refresh"></i>刷新</el-button>
+                <el-button plain @click="addLxr"><i class="fa fa-plus"></i>对话</el-button>
+                <el-button plain @click="TdjobButtonClick"><i class="fa fa-plus"></i>投递职位</el-button>
+                <el-button plain @click="ZpjzButtonClick">
+                  <i class="fa fa-file-alt"></i> 招聘简章
+                </el-button>
               </div>
             </div>
           </div>
@@ -49,26 +52,26 @@
                   <el-tab-pane label="精选职位" name="first">
                     <div class="row g-4">
                       <!-- 搜索筛选区域 -->
-                      <el-card shadow="never" class="search-card">
+                      <el-card class="search-card" shadow="never">
                         <el-form :inline="true">
                           <el-form-item label="岗位名称">
-                            <el-input placeholder="请输入岗位名称" clearable></el-input>
+                            <el-input clearable placeholder="请输入岗位名称"></el-input>
                           </el-form-item>
                           <el-form-item label="发布时间">
                             <el-date-picker
-                                type="daterange"
+                                end-placeholder="结束日期"
                                 range-separator="至"
                                 start-placeholder="开始日期"
-                                end-placeholder="结束日期">
+                                type="daterange">
                             </el-date-picker>
                           </el-form-item>
                           <el-form-item>
-                            <el-checkbox label="今日发布" v-model="isGetTodayPublish" @change="fillerTodayPublish"
-                                         name="type"></el-checkbox>
+                            <el-checkbox v-model="isGetTodayPublish" label="今日发布" name="type"
+                                         @change="fillerTodayPublish"></el-checkbox>
                           </el-form-item>
                           <el-form-item>
-                            <el-checkbox label="我的收藏" v-model="isShowMyCollection" @change="fillerMyCollection"
-                                         name="type"></el-checkbox>
+                            <el-checkbox v-model="isShowMyCollection" label="我的收藏" name="type"
+                                         @change="fillerMyCollection"></el-checkbox>
                           </el-form-item>
                           <el-form-item label="投递筛选">
                             <el-select v-model="tdztFilter" @change="fillerTdztFilter">
@@ -83,9 +86,9 @@
                           </el-form-item>
                         </el-form>
                       </el-card>
-                      <el-table :data="paginatedData" highlight-current-row :line-height="10"
-                                @current-change="handleCurrentChangeTable" stripe
-                                border style="width: 100%">
+                      <el-table :data="paginatedData" :line-height="10" border
+                                highlight-current-row stripe
+                                style="width: 100%" @current-change="handleCurrentChangeTable">
                         <el-table-column type="expand">
                           <template #default="{row}">
                             <div class="expand-content">
@@ -97,68 +100,70 @@
                             </div>
                           </template>
                         </el-table-column>
-                        <el-table-column prop="id" label="岗位ID" width="100"></el-table-column>
-                        <el-table-column prop="id" label="投递状态" fixed="left" width="100">
+                        <el-table-column label="岗位ID" prop="id" width="100"></el-table-column>
+                        <el-table-column fixed="left" label="投递状态" prop="id" width="100">
                           <template slot-scope="scope">
-                            <el-tag type="success" v-if="getTzztByGwdm(scope.row.id)===1">已投递</el-tag>
-                            <el-tag type="warning" v-if="getTzztByGwdm(scope.row.id)===2">存在投递记录</el-tag>
-                            <el-tag type="danger" v-if="getTzztByGwdm(scope.row.id)===3">未投递</el-tag>
+                            <el-tag v-if="getTzztByGwdm(scope.row.id)===1" type="success">已投递</el-tag>
+                            <el-tag v-if="getTzztByGwdm(scope.row.id)===2" type="warning">存在投递记录</el-tag>
+                            <el-tag v-if="getTzztByGwdm(scope.row.id)===3" type="danger">未投递</el-tag>
                           </template>
                         </el-table-column>
 
-                        <el-table-column prop="gwmc" label="岗位名称" width="180"
-                                         :formatter="formatText"></el-table-column>
-                        <el-table-column prop="gwms" label="岗位描述" width="180"
-                                         :formatter="formatText"></el-table-column>
-                        <el-table-column prop="gwyq" label="岗位要求" width="180"
-                                         :formatter="formatText"></el-table-column>
-                        <el-table-column prop="gwfl" label="岗位分类" width="100"
-                                         :formatter="(row) => getCategoryName(row)"></el-table-column>
-                        <el-table-column prop="fbsj" label="岗位发布时间" width="180">
+                        <el-table-column :formatter="formatText" label="岗位名称" prop="gwmc"
+                                         width="180"></el-table-column>
+                        <el-table-column :formatter="formatText" label="岗位描述" prop="gwms"
+                                         width="180"></el-table-column>
+                        <el-table-column :formatter="formatText" label="岗位要求" prop="gwyq"
+                                         width="180"></el-table-column>
+                        <el-table-column :formatter="(row) => getCategoryName(row)" label="岗位分类" prop="gwfl"
+                                         width="100"></el-table-column>
+                        <el-table-column label="岗位发布时间" prop="fbsj" width="180">
                           <template #default="scope">
                             {{ fbsjToDate(scope.row.fbsj) }}
                           </template>
                         </el-table-column>
-                        <el-table-column prop="tdsm" label="投递说明" :formatter="formatText"></el-table-column>
-                        <el-table-column prop="zgxz" sortable label="最高薪资" width="100"
-                                         :formatter="(row)=>row.zgxz+'元/月'"></el-table-column>
-                        <el-table-column prop="zdxz" sortable label="最低薪资" width="100"
-                                         :formatter="(row)=>row.zdxz+'元/月'"></el-table-column>
-                        <el-table-column prop="zdxlyq" label="最低学历要求">
+                        <el-table-column :formatter="formatText" label="投递说明" prop="tdsm"></el-table-column>
+                        <el-table-column :formatter="(row)=>row.zgxz+'元/月'" label="最高薪资" prop="zgxz" sortable
+                                         width="100"></el-table-column>
+                        <el-table-column :formatter="(row)=>row.zdxz+'元/月'" label="最低薪资" prop="zdxz" sortable
+                                         width="100"></el-table-column>
+                        <el-table-column label="最低学历要求" prop="zdxlyq">
                           <template slot-scope="scope">
                             {{ XLTTK.find((xl) => xl.id === scope.row.zdxlyq).xlmc }}
                           </template>
                         </el-table-column>
-                        <el-table-column prop="gzdd" label="工作地点" :formatter="formatText"></el-table-column>
-                        <el-table-column prop="gzsf" label="工作省份">
+                        <el-table-column :formatter="formatText" label="工作地点" prop="gzdd"></el-table-column>
+                        <el-table-column label="工作省份" prop="gzsf">
                           <template slot-scope="scope">
                             {{ SFDMK.find((sf) => sf.sfdm === scope.row.gzsf).sfmc }}
                           </template>
                         </el-table-column>
-                        <el-table-column prop="sxbz" label="实习标志">
+                        <el-table-column label="实习标志" prop="sxbz">
                           <template slot-scope="scope">
                             {{ scope.row.sxbz === 1 ? "实习标志" : "正式岗位" }}
                           </template>
                         </el-table-column>
-                        <el-table-column prop="zyxz" label="专业限制" :formatter="formatText"></el-table-column>
-                        <el-table-column prop="dwmc" label="单位名称" :formatter="formatText"></el-table-column>
-                        <el-table-column prop="tdcs" label="投递次数" :formatter="formatText"></el-table-column>
-                        <el-table-column prop="zprs" label="招聘人数" :formatter="formatText"></el-table-column>
+                        <el-table-column :formatter="formatText" label="专业限制" prop="zyxz"></el-table-column>
+                        <el-table-column :formatter="formatText" label="单位名称" prop="dwmc"></el-table-column>
+                        <el-table-column :formatter="formatText" label="投递次数" prop="tdcs"></el-table-column>
+                        <el-table-column :formatter="formatText" label="招聘人数" prop="zprs"></el-table-column>
                         <!-- <el-table-column prop="qydm" label="启用代码" :formatter="formatText"></el-table-column>-->
-                        <el-table-column label="操作" :width="150" align="right" fixed="right">
+                        <el-table-column :width="150" align="right" fixed="right" label="操作">
                           <template slot-scope="scope">
                             <el-button size="mini" @click="ShowJobDetail(scope.row)">查看岗位详情</el-button>
-                            <el-button size="mini" type="danger"  v-show="getTzztByGwdm(scope.row.id)===3" @click="TouDiJl(scope.row)">投递简历</el-button>
+                            <el-button v-show="getTzztByGwdm(scope.row.id)===3" size="mini" type="danger"
+                                       @click="TouDiJl(scope.row)">投递简历
+                            </el-button>
                           </template>
                         </el-table-column>
                       </el-table>
                       <el-pagination
-                          @current-change="handleCurrentChange"
                           :current-page="currentPage"
                           :page-size="pageSize"
                           :total="totalItems"
+                          class="mt-4"
                           layout="total, prev, pager, next, jumper"
-                          class="mt-4">
+                          @current-change="handleCurrentChange">
                       </el-pagination>
                     </div>
                   </el-tab-pane>
@@ -187,26 +192,26 @@
           <!--投递简历弹窗-->
           <el-dialog :visible.sync="isTdjlVisible" title="简历信息：请双击选择：" width="80%">
             <el-table :data="JlData" style="width: 100%" @row-dblclick="SelectResume">
-              <el-table-column prop="jldm" label="简历代码" width="180"></el-table-column>
-              <el-table-column prop="xsid" label="学生ID" width="180"></el-table-column>
-              <el-table-column prop="fbbz" label="发布标志" width="120">
+              <el-table-column label="简历代码" prop="jldm" width="180"></el-table-column>
+              <el-table-column label="学生ID" prop="xsid" width="180"></el-table-column>
+              <el-table-column label="发布标志" prop="fbbz" width="120">
                 <template slot-scope="scope">
                   <el-tag :type="scope.row.fbbz === 1 ? 'success' : 'danger'">
                     {{ scope.row.fbbz === 1 ? '已发布' : '未发布' }}
                   </el-tag>
                 </template>
               </el-table-column>
-              <el-table-column prop="fbsj" label="发布时间" width="180"></el-table-column>
-              <el-table-column prop="jlwb" label="简历文本" width="280">
+              <el-table-column label="发布时间" prop="fbsj" width="180"></el-table-column>
+              <el-table-column label="简历文本" prop="jlwb" width="280">
                 <template slot-scope="scope">
                   <a href="#"> <span v-html="scope.row.jlwb.slice(0,20)+'...'"></span> </a>
                 </template>
               </el-table-column>
-              <el-table-column prop="html" label="简历HTML内容" width="180"></el-table-column>
-              <el-table-column prop="scxgtime" label="上次修改时间" width="180"></el-table-column>
-              <el-table-column prop="jlfj" label="简历附件" width="180">
+              <el-table-column label="简历HTML内容" prop="html" width="180"></el-table-column>
+              <el-table-column label="上次修改时间" prop="scxgtime" width="180"></el-table-column>
+              <el-table-column label="简历附件" prop="jlfj" width="180">
                 <template slot-scope="scope">
-                  <el-button type="text" size="small">查看附件</el-button>
+                  <el-button size="small" type="text">查看附件</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -221,8 +226,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <h2>备注信息</h2>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"
-                              v-model="TdLiuYanData"></textarea>
+                    <textarea id="exampleFormControlTextarea1" v-model="TdLiuYanData" class="form-control"
+                              rows="6"></textarea>
                     <button class="btn btn-custom mt-3" @click="saveTdLiuYan">保存</button>
                   </div>
                 </div>
@@ -321,8 +326,8 @@ export default {
             return 1; // 还未撤销
           } else if (this.TDDATA[i].QYDM === 0) {
             hasWithdrawal = true;
-           /* console.log("存在投递记录:");
-            console.log(this.TDDATA[i]);*/
+            /* console.log("存在投递记录:");
+             console.log(this.TDDATA[i]);*/
           }
           hasDelivery = true; // 存在投递记录
         }
@@ -361,6 +366,132 @@ export default {
     fillerTodayPublish() {
       console.log("获取今日发布的职位：" + this.isGetTodayPublish);
     },
+    // 查看单位招聘简章
+    ZpjzButtonClick() {
+      // 检查招聘简章数量
+      axios.get("/datazpjzk/getZpjzk", {
+        params: {
+          fbbz: 2,
+          isjustone: 0,
+          zpjzid: -1,
+          isjustoneyh: 0,
+          yhm: '-1',
+          yhsfdm: -1,
+          isjustonedw: 1,
+          dwdm:this.currentJobSelectRow.dwdm,
+        }
+      }).then(response => {
+        if (response.data.result) {
+          if (response.data.data.length > 0) {
+            this.$router.push({path: '/stu/zpjzDetail', query: {dwdm: this.currentJobSelectRow.dwdm}})
+          } else {
+           /* // ⚠️ 轻度警告（单位没有简章）
+            this.$notify({
+              title: '提示 📌',
+              message: '<strong>该单位尚未发布招聘简章</strong><br>请确认单位是否已提交相关内容。',
+              type: 'warning',
+              dangerouslyUseHTMLString: true,
+              duration: 4000,
+              position: 'top-right',
+              iconClass: 'el-icon-info',
+              customClass: 'notify-soft-warning'
+            });*/
+
+            $.confirm({
+              title: '📌 温馨提示',
+              content: '<div style="font-size:14px;color:#555;">该单位尚未发布招聘简章。</div>' +
+                  '<div style="margin-top:6px;color:#888;">请确认单位是否已录入相关信息。</div>',
+              type: 'orange',
+              typeAnimated: true,
+              icon: 'fa fa-info-circle',
+              buttons: {
+                ok: {
+                  text: '知道了',
+                  btnClass: 'btn-orange',
+                }
+              }
+            });
+          }
+        } else {
+          /*// ❗严重错误（请求失败）
+          this.$notify.error({
+            title: '🚨 获取失败',
+            message: '<strong style="color:#d9534f;">招聘简章信息获取失败</strong><br>请检查网络连接或联系管理员。:'+response.data.msg,
+            dangerouslyUseHTMLString: true,
+            duration: 0, // 不自动关闭
+            showClose: true,
+            position: 'top-right',
+            iconClass: 'el-icon-warning-outline',
+            customClass: 'notify-danger-flash'
+          });*/
+
+          $.confirm({
+            title: '🚨 获取失败',
+            content: '<div style="font-size:15px;color:#b30000;"><strong>招聘简章信息获取失败！</strong></div>' +
+                '<div style="margin-top:6px;color:#a94442;">请检查网络连接或联系系统管理员。</div>:'+response.data.msg,
+            type: 'red',
+            icon: 'fa fa-exclamation-triangle',
+            typeAnimated: true,
+            closeIcon: true,
+            escapeKey: true,
+            backgroundDismiss: true,
+            buttons: {
+              retry: {
+                text: '重试',
+                btnClass: 'btn-red',
+                action: function () {
+                  // 你可以在这里调用重试函数
+                  location.reload(); // 示例：刷新页面
+                }
+              },
+              cancel: {
+                text: '取消',
+                btnClass: 'btn-default'
+              }
+            }
+          });
+        }
+
+      }).catch(error => {
+        console.error(error);
+       /* // ❗严重错误（请求失败）
+        this.$notify.error({
+          title: '🚨 获取失败',
+          message: '<strong style="color:#d9534f;">招聘简章信息获取失败</strong><br>请检查网络连接或联系管理员。:'+error.message,
+          dangerouslyUseHTMLString: true,
+          duration: 0, // 不自动关闭
+          showClose: true,
+          position: 'top-right',
+          iconClass: 'el-icon-warning-outline',
+          customClass: 'notify-danger-flash'
+        });*/
+        $.confirm({
+          title: '🚨 获取失败',
+          content: '<div style="font-size:15px;color:#b30000;"><strong>招聘简章信息获取失败！</strong></div>' +
+              '<div style="margin-top:6px;color:#a94442;">请检查网络连接或联系系统管理员。</div>:'+error.message,
+          type: 'red',
+          icon: 'fa fa-exclamation-triangle',
+          typeAnimated: true,
+          closeIcon: true,
+          escapeKey: true,
+          backgroundDismiss: true,
+          buttons: {
+            retry: {
+              text: '重试',
+              btnClass: 'btn-red',
+              action: function () {
+                // 你可以在这里调用重试函数
+                location.reload(); // 示例：刷新页面
+              }
+            },
+            cancel: {
+              text: '取消',
+              btnClass: 'btn-default'
+            }
+          }
+        });
+      });
+    },
     // 单击投递职位按钮
     TdjobButtonClick() {
       // 如果还没简历数据，先获取简历列表
@@ -389,7 +520,7 @@ export default {
       axios.post("/tdjlk/TdJl", postData).then(response => {
         if (response.data.result) {
           this.$message.success("投递成功！");
-      /*    this.getAllJob();// 刷新数据*/
+          /*    this.getAllJob();// 刷新数据*/
           this.isTdLiuYanVisible = false;
         } else {
           this.$message.error("投递失败：" + response.data.msg);
@@ -427,7 +558,7 @@ export default {
     addLxr() {
       console.log(this.currentJobSelectRow);
       let postData = new FormData();
-      postData.append("fromyhm",this.UserInfo.username );// 本人
+      postData.append("fromyhm", this.UserInfo.username);// 本人
       postData.append("toyhm", this.currentJobSelectRow.fbz);// 单位用户名
       postData.append("fromyhsfdm", 4); // 学生
       postData.append("toyhsfdm", 3);//单位
@@ -445,12 +576,15 @@ export default {
       NR	内容*/
 
       // 添加联系对话记录:"HR您好，我对岗位：很感兴趣，希望继续对话。"
-     axios.post("/sstx/addNewlxr", postData).then(response => {
+      axios.post("/sstx/addNewlxr", postData).then(response => {
         if (response.data.result) {
           this.$message.success("添加联系人成功！");
           console.log(response.data.data);
           // 跳转到实时聊天界面
-          this.$router.push({name: 'StudentXxlView', params: {lyyhm: response.data.data.lyyhm,id: response.data.data.id}});
+          this.$router.push({
+            name: 'StudentXxlView',
+            params: {lyyhm: response.data.data.lyyhm, id: response.data.data.id}
+          });
         } else {
           this.$message.error("添加联系人失败：" + response.data.msg);
         }
@@ -859,4 +993,7 @@ export default {
   margin-bottom: 0;
   width: 50%;
 }
+
+
+
 </style>

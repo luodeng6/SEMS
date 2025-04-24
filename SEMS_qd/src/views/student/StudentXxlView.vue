@@ -146,6 +146,28 @@ export default {
         const { data } = await axios.get(`/sstx/getDhjlList?yhm=${this.currentUser.username}&yhsfdm=4`);
         if (!data.result) throw new Error(data.msg);
 
+        if(data.data.length === 0){
+          $.alert({
+            title: '❌ 提示',
+            content: '⚠️ 暂无聊天记录，快去聊天吧！',
+            type: 'red',
+            icon: 'fa fa-bug',
+            backgroundDismiss: true, // 点击空白关闭
+            autoClose: '确认|5000',  // 5 秒后自动关闭
+            buttons: {
+              确认: {
+                text: '我知道了',
+                btnClass: 'btn-red',
+                action:  ()=> {
+                 // 跳转
+                  this.$router.push({ name: 'StudentIndexView' });
+                }
+              }
+            }
+          });
+
+        }
+
         const contactMap = new Map();
         for (const msg of data.data) {
           const isFromMe = msg.fromyhm === this.currentUser.username;
