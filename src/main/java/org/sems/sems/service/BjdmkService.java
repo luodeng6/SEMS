@@ -21,4 +21,10 @@ public interface BjdmkService {
      * @throws Exception
      * */
     Map<String, Object> getNoTeacherBjdmkInfo(int jsid);
+    /**
+     * 获取指定教师的班级信息
+     * @param jsid 教师id
+     * @return 班级信息
+     * */
+    Map<String, Object> getBjdmkByJsid(int jsid);
 }

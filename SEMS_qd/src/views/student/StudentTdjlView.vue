@@ -16,7 +16,7 @@
               <i class="el-icon-document stats-icon"></i>
               <div class="ml-3">
                 <div class="text-sm text-gray-500">总投递数</div>
-                <div class="text-2xl">45</div>
+                <div class="text-2xl">{{ tableData.length }}</div>
               </div>
             </div>
           </el-card>
@@ -27,7 +27,7 @@
               <i class="el-icon-time stats-icon"></i>
               <div class="ml-3">
                 <div class="text-sm text-gray-500">待确认</div>
-                <div class="text-2xl">23</div>
+                <div class="text-2xl">{{ tableData.filter(item => item.HYDM === 0).length }}</div>
               </div>
             </div>
           </el-card>
@@ -38,7 +38,7 @@
               <i class="el-icon-check stats-icon"></i>
               <div class="ml-3">
                 <div class="text-sm text-gray-500">已确认</div>
-                <div class="text-2xl">11</div>
+                <div class="text-2xl">{{ tableData.filter(item => item.HYDM === 1).length }}</div>
               </div>
             </div>
           </el-card>
@@ -409,7 +409,6 @@ export default {
           // 假设接口返回数据结构为 { records: [], total: 100 }
           this.allData = response.data.data;  // 获取所有数据
           this.pagination.total = this.allData.length;  // 更新总记录数
-
           // 计算当前页的数据
           const start = (this.pagination.current - 1) * this.pagination.size;
           const end = start + this.pagination.size;

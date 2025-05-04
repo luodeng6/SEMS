@@ -309,7 +309,6 @@ export default {
     this.getAllJob();    // 获取所有岗位数据
     this.initChart();  // 初始化统计图
     this.updateChart();  // 更新统计图
-
   },
   methods: {
     // 获取投递信息

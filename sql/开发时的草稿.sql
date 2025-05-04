@@ -21,6 +21,27 @@ exec LuoDeng_getAlltableInfo
 select * from tdjlk where stuid = 1226 and gwdm =4
 select * from dhjlk
 exec LuodengTable 'GWBQDYK'
+exec LuodengTable 'TJGWK'
+exec LuodengTable 'TJDXK'
+exec LuodengTable 'DATA_GWDMK'
+exec usp_GetTjGwData 'twq',2
+
+
+exec LuodengTable 'XXDMK'
+begin tran
+insert into tjdxk(dxlx, dxdm, tjdm) values(1, 1224, 1)
+rollback
+
+
+select* FROM XXDMK
+
+
+select * from TJGWK
+select * from  TJDXK
+
+TRUNCATE TABLE TJGWK
+TRUNCATE TABLE TJDXK
+
 select * from MSDMK
 select * from DHJLK where (FROMYHM='20213260035' and FROMYHSFDM=4) or  (TOYHM='20213260035' and TOYHSFDM=4)
 
@@ -31,7 +52,7 @@ select * from DATA_STUDENT
 select * from DHJLK where (FROMYHM='msk' and FROMYHSFDM=3) or  (TOYHM='msk' and TOYHSFDM=3)
 delete from DHJLK
 
-exec LuodengTable 'DATA_ZPJZK'
+exec LuodengTable 'DATA_GWDMK'
 
  update DATA_ZPJZK set FBZ='ozf' 
  select *from DATA_ZPJZK

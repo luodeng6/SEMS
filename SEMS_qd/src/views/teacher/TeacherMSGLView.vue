@@ -4,7 +4,7 @@
       <teacher_menu></teacher_menu>
     </div>
     <main class="ml-64 flex-1 p-6 bg-gray-50 min-h-screen">
-      <header class="flex justify-between items-center mb-4">
+      <header class="flex justify-between items-center mb-4 bg">
         学生面试管理
       </header>
 
@@ -64,6 +64,8 @@
             />
           </el-select>
           <el-button type="default" size="mini" @click="handleSearch">查询</el-button>
+
+          <el-checkbox v-model="isShowStuImg" label="显示学生图片" />
         </div>
         <el-button type="default" size="mini" @click="handleAdd">安排新面试</el-button>
       </header>
@@ -100,9 +102,18 @@
       "HRZJ": "录用",
       "MSJG": "录用"-->
       <el-table :data="pagedData" border stripe style="width: 100%">
+        <el-table-column type="expand" width="100">
+          <template slot-scope="props">
+            <el-form label-position="left" inline class="demo-table-expand">
+              <el-form-item label="面试结果:">
+                <span>{{ props.row.MSJG }}</span>
+              </el-form-item>
+            </el-form>
+          </template>
+        </el-table-column>
         <el-table-column prop="XSXH" label="学号" width="120" />
         <el-table-column prop="XSXM" label="姓名" width="120" />
-<!--        <el-table-column label="图片" width="120" align="center">
+        <el-table-column label="图片" width="120"  v-if="isShowStuImg" align="center">
           <template #default="{ row }">
             <el-image
                 style="width: 80px; height: 100px"
@@ -111,7 +122,7 @@
                 fit="cover">
             </el-image>
           </template>
-        </el-table-column>-->
+        </el-table-column>
         <el-table-column prop="XSXB" label="性别" width="70" />
         <el-table-column prop="BJMC" label="班级" width="170" />
         <el-table-column prop="SSNJ" label="年级" width="70" />
@@ -221,6 +232,7 @@ export default {
   },
   data() {
     return {
+      isShowStuImg: true,
       searchParams: {
         STUDENTNAME: '',
         COMPANY: '',

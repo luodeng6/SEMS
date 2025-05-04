@@ -33,4 +33,7 @@ public interface JsdmkMapper {
     // 修改教师信息
     int UpdateTeacher(Jsdmk jsdmk);
 
+    // 根据教师工号获取教师信息
+    @Select("SELECT * FROM JSDMK WHERE DLZH=#{username}")
+    Jsdmk getJsByUsername(String username);
 }

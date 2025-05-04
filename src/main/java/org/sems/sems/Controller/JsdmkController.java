@@ -95,6 +95,12 @@ public class JsdmkController {
        return jsdmkService.AddTeacher(jsdmk);
     }
 
+    // 获取教师信息通过用户名
+    @GetMapping("/getTeacherByUsername")
+    public Map<String, Object> getTeacherByUsername(String username) {
+        return jsdmkService.getJsdmkByUsername(username);
+    }
+
     // 新增教师，智能
     @PostMapping("/addTeacherAuto")
     public Map<String, Object> addTeacherAuto(Jsdmk jsdmk) {return  jsdmkService.AddJsdmkDataZhineng(jsdmk);}

@@ -12,7 +12,7 @@
  Target Server Version : 15002000
  File Encoding         : 65001
 
- Date: 24/04/2025 17:03:09
+ Date: 04/05/2025 23:28:03
 */
 
 
@@ -46213,28 +46213,28 @@ GO
 SET IDENTITY_INSERT [dbo].[DWZPGGK] ON
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'1', N'msk', N'3', N'1', N'&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;根据《关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知》（湘教通〔2021〕348号）文件精神，我校严格按照评选条件，经班级提名、学院考察、学校推荐、校长办公会审议，拟推选李磊磊等165名同学为湖南省2022届优秀毕业生，刘德果等19名同学为湖南省2022届创新创业优秀毕业生，马文元等7名同学为湖南省2022届退伍优秀毕业生，具体名单公示如下：优秀毕业生（165人）&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;李磊磊倪&nbsp;&nbsp;裳刘&nbsp;&nbsp;娟展立芬陈康利李纳平陈立浩殷淑婷戴&nbsp;&nbsp;敏刘宗义李江伟彭丽琪卢圣花左耀辰高&nbsp;&nbsp;宇赵&nbsp;&nbsp;姣皇&nbsp;&nbsp;毅左世国毕思源吕广仁陈&nbsp;&nbsp;中于文奇蒋伶俐王紫艳徐&nbsp;&nbsp;权凌&nbsp;&nbsp;佳刘峥屿曾&nbsp;&nbsp;娟王惠芹曹倩茹张&nbsp;&nbsp;振钟森杰吴&nbsp;&nbsp;仪李&nbsp;&nbsp;航迟&nbsp;&nbsp;宇蔡&nbsp;&nbsp;伊陈柯伽齐雨佳田龙芝谭碧璨陈&nbsp;&nbsp;欣符&nbsp;&nbsp;楚周&nbsp;&nbsp;琪郑若琪邓诗慧梁春燕敖&nbsp;&nbsp;丹王雨晴杨&nbsp;&nbsp;琴包郑楠陈&nbsp;&nbsp;琴陈&nbsp;&nbsp;娟王爱玉孔彦斐张&nbsp;&nbsp;晗袁雅琦宁&nbsp;&nbsp;瑛谢春梅平&nbsp;&nbsp;伊李嘉明曾&nbsp;&nbsp;艳杨旭东梁&nbsp;&nbsp;森肖宇辉郭惠敏伊&nbsp;&nbsp;娜李琳菊鲍泓玮曹泽龙张&nbsp;&nbsp;诺王&nbsp;&nbsp;杰李慧婷陈倩虹邵嘉悦曾&nbsp;&nbsp;晴武雅楠唐&nbsp;&nbsp;灿盛丹丹王海娟黄明娟吴&nbsp;&nbsp;娟严小青邹&nbsp;&nbsp;静胡&nbsp;&nbsp;格刘&nbsp;&nbsp;可林玉婷李紫阳刘亦菲刘亚辉桂&nbsp;&nbsp;珏蒋&nbsp;&nbsp;玲张思云侯向刚肖含瑜潘雨瑶王文华邓鑫杰章淑薇秦&nbsp;&nbsp;钦周亚沁梁生姣梁&nbsp;&nbsp;海蒋&nbsp;&nbsp;伟刘&nbsp;&nbsp;珑熊&nbsp;&nbsp;奕袁&nbsp;&nbsp;婕李婧玉余光华方紫枫王祎敏刘欣怡彭杰林张昕璐吕舒悦袁&nbsp;&nbsp;琼段邓彬沛曹&nbsp;&nbsp;楠唐华丽蒋丽娇张珊珊谢&nbsp;&nbsp;梦肖俐敏谢&nbsp;&nbsp;瑶杨&nbsp;&nbsp;丹陈于琪唐&nbsp;&nbsp;欢李雅雯刀小燕朱丽萍欧&nbsp;&nbsp;婷梁柔筠李媛敏卢婧芬刘昱辛王&nbsp;&nbsp;科方&nbsp;&nbsp;震秦富豪冯佳宁宋&nbsp;&nbsp;丽曾&nbsp;&nbsp;阳武&nbsp;&nbsp;雪朱炎贞贾&nbsp;&nbsp;蓓刘乐顺吴沛涓谢碧岑赵&nbsp;&nbsp;轲花&nbsp;&nbsp;袁张婧如周雨诗王&nbsp;&nbsp;娟郭&nbsp;&nbsp;沁唐海月谢琦辉周&nbsp;&nbsp;滔万泳宏吴英博李&nbsp;&nbsp;帆周&nbsp;&nbsp;麟周思怡闻&nbsp;&nbsp;湘许&nbsp;&nbsp;婷吴文建张煜珩陈&nbsp;&nbsp;扬创新创业优秀毕业生（19人）刘德果刘继平夏&nbsp;&nbsp;雨凌&nbsp;&nbsp;晨吴雨薇曾淑梅付晶晶段琛滢阳嘉麟许意坚徐子悟卢白荟刘艳杨杜佳琪陈平安王杏平蒋心如谢&nbsp;&nbsp;希周顺华退伍优秀毕业生（7人）马文元包成通谢江华王浩锴尹嘉晟陆润友陈志锦&nbsp; &nbsp;现对推荐名单进行公示，公示时间：2022年1月10日至1月16日&nbsp;&nbsp; &nbsp;如对优秀毕业生及退伍优秀毕业生有异议，请在公示期内与学校就业指导中心联系，联系电话0731-85381116;&nbsp; &nbsp;如对创新创业优秀毕业生有异议，请在公示期内与创新创业学院联系，联系电话0731-88458930。', N'<p><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><span style="font-size: large; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">根据《关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知》（湘教通〔2021〕348号）文件精神，我校严格按照评选条件，经班级提名、学院考察、学校推荐、校长办公会审议，拟推选李磊磊等165名同学为湖南省2022届优秀毕业生，刘德果等19名同学为湖南省2022届创新创业优秀毕业生，马文元等7名同学为湖南省2022届退伍优秀毕业生，具体名单公示如下：</span></p><table><tbody><tr><td colspan="5"><p>优秀毕业生（165人）&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p></td></tr><tr><td><p>李磊磊</p></td><td><p>倪&nbsp;&nbsp;裳</p></td><td><p>刘&nbsp;&nbsp;娟</p></td><td><p>展立芬</p></td><td><p>陈康利</p></td></tr><tr><td><p>李纳平</p></td><td><p>陈立浩</p></td><td><p>殷淑婷</p></td><td><p>戴&nbsp;&nbsp;敏</p></td><td><p>刘宗义</p></td></tr><tr><td><p>李江伟</p></td><td><p>彭丽琪</p></td><td><p>卢圣花</p></td><td><p>左耀辰</p></td><td><p>高&nbsp;&nbsp;宇</p></td></tr><tr><td><p>赵&nbsp;&nbsp;姣</p></td><td><p>皇&nbsp;&nbsp;毅</p></td><td><p>左世国</p></td><td><p>毕思源</p></td><td><p>吕广仁</p></td></tr><tr><td><p>陈&nbsp;&nbsp;中</p></td><td><p>于文奇</p></td><td><p>蒋伶俐</p></td><td><p>王紫艳</p></td><td><p>徐&nbsp;&nbsp;权</p></td></tr><tr><td><p>凌&nbsp;&nbsp;佳</p></td><td><p>刘峥屿</p></td><td><p>曾&nbsp;&nbsp;娟</p></td><td><p>王惠芹</p></td><td><p>曹倩茹</p></td></tr><tr><td><p>张&nbsp;&nbsp;振</p></td><td><p>钟森杰</p></td><td><p>吴&nbsp;&nbsp;仪</p></td><td><p>李&nbsp;&nbsp;航</p></td><td><p>迟&nbsp;&nbsp;宇</p></td></tr><tr><td><p>蔡&nbsp;&nbsp;伊</p></td><td><p>陈柯伽</p></td><td><p>齐雨佳</p></td><td><p>田龙芝</p></td><td><p>谭碧璨</p></td></tr><tr><td><p>陈&nbsp;&nbsp;欣</p></td><td><p>符&nbsp;&nbsp;楚</p></td><td><p>周&nbsp;&nbsp;琪</p></td><td><p>郑若琪</p></td><td><p>邓诗慧</p></td></tr><tr><td><p>梁春燕</p></td><td><p>敖&nbsp;&nbsp;丹</p></td><td><p>王雨晴</p></td><td><p>杨&nbsp;&nbsp;琴</p></td><td><p>包郑楠</p></td></tr><tr><td><p>陈&nbsp;&nbsp;琴</p></td><td><p>陈&nbsp;&nbsp;娟</p></td><td><p>王爱玉</p></td><td><p>孔彦斐</p></td><td><p>张&nbsp;&nbsp;晗</p></td></tr><tr><td><p>袁雅琦</p></td><td><p>宁&nbsp;&nbsp;瑛</p></td><td><p>谢春梅</p></td><td><p>平&nbsp;&nbsp;伊</p></td><td><p>李嘉明</p></td></tr><tr><td><p>曾&nbsp;&nbsp;艳</p></td><td><p>杨旭东</p></td><td><p>梁&nbsp;&nbsp;森</p></td><td><p>肖宇辉</p></td><td><p>郭惠敏</p></td></tr><tr><td><p>伊&nbsp;&nbsp;娜</p></td><td><p>李琳菊</p></td><td><p>鲍泓玮</p></td><td><p>曹泽龙</p></td><td><p>张&nbsp;&nbsp;诺</p></td></tr><tr><td><p>王&nbsp;&nbsp;杰</p></td><td><p>李慧婷</p></td><td><p>陈倩虹</p></td><td><p>邵嘉悦</p></td><td><p>曾&nbsp;&nbsp;晴</p></td></tr><tr><td><p>武雅楠</p></td><td><p>唐&nbsp;&nbsp;灿</p></td><td><p>盛丹丹</p></td><td><p>王海娟</p></td><td><p>黄明娟</p></td></tr><tr><td><p>吴&nbsp;&nbsp;娟</p></td><td><p>严小青</p></td><td><p>邹&nbsp;&nbsp;静</p></td><td><p>胡&nbsp;&nbsp;格</p></td><td><p>刘&nbsp;&nbsp;可</p></td></tr><tr><td><p>林玉婷</p></td><td><p>李紫阳</p></td><td><p>刘亦菲</p></td><td><p>刘亚辉</p></td><td><p>桂&nbsp;&nbsp;珏</p></td></tr><tr><td><p>蒋&nbsp;&nbsp;玲</p></td><td><p>张思云</p></td><td><p>侯向刚</p></td><td><p>肖含瑜</p></td><td><p>潘雨瑶</p></td></tr><tr><td><p>王文华</p></td><td><p>邓鑫杰</p></td><td><p>章淑薇</p></td><td><p>秦&nbsp;&nbsp;钦</p></td><td><p>周亚沁</p></td></tr><tr><td><p>梁生姣</p></td><td><p>梁&nbsp;&nbsp;海</p></td><td><p>蒋&nbsp;&nbsp;伟</p></td><td><p>刘&nbsp;&nbsp;珑</p></td><td><p>熊&nbsp;&nbsp;奕</p></td></tr><tr><td><p>袁&nbsp;&nbsp;婕</p></td><td><p>李婧玉</p></td><td><p>余光华</p></td><td><p>方紫枫</p></td><td><p>王祎敏</p></td></tr><tr><td><p>刘欣怡</p></td><td><p>彭杰林</p></td><td><p>张昕璐</p></td><td><p>吕舒悦</p></td><td><p>袁&nbsp;&nbsp;琼</p></td></tr><tr><td><p>段邓彬沛</p></td><td><p>曹&nbsp;&nbsp;楠</p></td><td><p>唐华丽</p></td><td><p>蒋丽娇</p></td><td><p>张珊珊</p></td></tr><tr><td><p>谢&nbsp;&nbsp;梦</p></td><td><p>肖俐敏</p></td><td><p>谢&nbsp;&nbsp;瑶</p></td><td><p>杨&nbsp;&nbsp;丹</p></td><td><p>陈于琪</p></td></tr><tr><td><p>唐&nbsp;&nbsp;欢</p></td><td><p>李雅雯</p></td><td><p>刀小燕</p></td><td><p>朱丽萍</p></td><td><p>欧&nbsp;&nbsp;婷</p></td></tr><tr><td><p>梁柔筠</p></td><td><p>李媛敏</p></td><td><p>卢婧芬</p></td><td><p>刘昱辛</p></td><td><p>王&nbsp;&nbsp;科</p></td></tr><tr><td><p>方&nbsp;&nbsp;震</p></td><td><p>秦富豪</p></td><td><p>冯佳宁</p></td><td><p>宋&nbsp;&nbsp;丽</p></td><td><p>曾&nbsp;&nbsp;阳</p></td></tr><tr><td><p>武&nbsp;&nbsp;雪</p></td><td><p>朱炎贞</p></td><td><p>贾&nbsp;&nbsp;蓓</p></td><td><p>刘乐顺</p></td><td><p>吴沛涓</p></td></tr><tr><td><p>谢碧岑</p></td><td><p>赵&nbsp;&nbsp;轲</p></td><td><p>花&nbsp;&nbsp;袁</p></td><td><p>张婧如</p></td><td><p>周雨诗</p></td></tr><tr><td><p>王&nbsp;&nbsp;娟</p></td><td><p>郭&nbsp;&nbsp;沁</p></td><td><p>唐海月</p></td><td><p>谢琦辉</p></td><td><p>周&nbsp;&nbsp;滔</p></td></tr><tr><td><p>万泳宏</p></td><td><p>吴英博</p></td><td><p>李&nbsp;&nbsp;帆</p></td><td><p>周&nbsp;&nbsp;麟</p></td><td><p>周思怡</p></td></tr><tr><td><p>闻&nbsp;&nbsp;湘</p></td><td><p>许&nbsp;&nbsp;婷</p></td><td><p>吴文建</p></td><td><p>张煜珩</p></td><td><p>陈&nbsp;&nbsp;扬</p></td></tr><tr><td colspan="5"><p>创新创业优秀毕业生（19人）</p></td></tr><tr><td><p>刘德果</p></td><td><p>刘继平</p></td><td><p>夏&nbsp;&nbsp;雨</p></td><td><p>凌&nbsp;&nbsp;晨</p></td><td><p>吴雨薇</p></td></tr><tr><td><p>曾淑梅</p></td><td><p>付晶晶</p></td><td><p>段琛滢</p></td><td><p>阳嘉麟</p></td><td><p>许意坚</p></td></tr><tr><td><p>徐子悟</p></td><td><p>卢白荟</p></td><td><p>刘艳杨</p></td><td><p>杜佳琪</p></td><td><p>陈平安</p></td></tr><tr><td><p>王杏平</p></td><td><p>蒋心如</p></td><td><p>谢&nbsp;&nbsp;希</p></td><td><p>周顺华</p></td><td><br/></td></tr><tr><td colspan="5"><p>退伍优秀毕业生（7人）</p></td></tr><tr><td><p>马文元</p></td><td><p>包成通</p></td><td><p>谢江华</p></td><td><p>王浩锴</p></td><td><p>尹嘉晟</p></td></tr><tr><td><p>陆润友</p></td><td><p>陈志锦</p></td><td><br/></td><td><br/></td><td><br/></td></tr></tbody></table><p>&nbsp; &nbsp;现对推荐名单进行公示，公示时间：2022年1月10日至1月16日&nbsp;</p><p data-we-empty-p="" style="padding-left:2em;"><img src="/img/upload/DwzpGg/1741622886992_.jpg" contenteditable="false" width="30%"/></p><p>&nbsp; &nbsp;如对优秀毕业生及退伍优秀毕业生有异议，请在公示期内与学校就业指导中心联系，联系电话0731-85381116;</p><p>&nbsp; &nbsp;如对创新创业优秀毕业生有异议，请在公示期内与创新创业学院联系，联系电话0731-88458930。</p>', N'2025-03-11 00:08:41.490', N'关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知', N'36')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'1', N'msk', N'3', N'1', N'&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;根据《关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知》（湘教通〔2021〕348号）文件精神，我校严格按照评选条件，经班级提名、学院考察、学校推荐、校长办公会审议，拟推选李磊磊等165名同学为湖南省2022届优秀毕业生，刘德果等19名同学为湖南省2022届创新创业优秀毕业生，马文元等7名同学为湖南省2022届退伍优秀毕业生，具体名单公示如下：优秀毕业生（165人）&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;李磊磊倪&nbsp;&nbsp;裳刘&nbsp;&nbsp;娟展立芬陈康利李纳平陈立浩殷淑婷戴&nbsp;&nbsp;敏刘宗义李江伟彭丽琪卢圣花左耀辰高&nbsp;&nbsp;宇赵&nbsp;&nbsp;姣皇&nbsp;&nbsp;毅左世国毕思源吕广仁陈&nbsp;&nbsp;中于文奇蒋伶俐王紫艳徐&nbsp;&nbsp;权凌&nbsp;&nbsp;佳刘峥屿曾&nbsp;&nbsp;娟王惠芹曹倩茹张&nbsp;&nbsp;振钟森杰吴&nbsp;&nbsp;仪李&nbsp;&nbsp;航迟&nbsp;&nbsp;宇蔡&nbsp;&nbsp;伊陈柯伽齐雨佳田龙芝谭碧璨陈&nbsp;&nbsp;欣符&nbsp;&nbsp;楚周&nbsp;&nbsp;琪郑若琪邓诗慧梁春燕敖&nbsp;&nbsp;丹王雨晴杨&nbsp;&nbsp;琴包郑楠陈&nbsp;&nbsp;琴陈&nbsp;&nbsp;娟王爱玉孔彦斐张&nbsp;&nbsp;晗袁雅琦宁&nbsp;&nbsp;瑛谢春梅平&nbsp;&nbsp;伊李嘉明曾&nbsp;&nbsp;艳杨旭东梁&nbsp;&nbsp;森肖宇辉郭惠敏伊&nbsp;&nbsp;娜李琳菊鲍泓玮曹泽龙张&nbsp;&nbsp;诺王&nbsp;&nbsp;杰李慧婷陈倩虹邵嘉悦曾&nbsp;&nbsp;晴武雅楠唐&nbsp;&nbsp;灿盛丹丹王海娟黄明娟吴&nbsp;&nbsp;娟严小青邹&nbsp;&nbsp;静胡&nbsp;&nbsp;格刘&nbsp;&nbsp;可林玉婷李紫阳刘亦菲刘亚辉桂&nbsp;&nbsp;珏蒋&nbsp;&nbsp;玲张思云侯向刚肖含瑜潘雨瑶王文华邓鑫杰章淑薇秦&nbsp;&nbsp;钦周亚沁梁生姣梁&nbsp;&nbsp;海蒋&nbsp;&nbsp;伟刘&nbsp;&nbsp;珑熊&nbsp;&nbsp;奕袁&nbsp;&nbsp;婕李婧玉余光华方紫枫王祎敏刘欣怡彭杰林张昕璐吕舒悦袁&nbsp;&nbsp;琼段邓彬沛曹&nbsp;&nbsp;楠唐华丽蒋丽娇张珊珊谢&nbsp;&nbsp;梦肖俐敏谢&nbsp;&nbsp;瑶杨&nbsp;&nbsp;丹陈于琪唐&nbsp;&nbsp;欢李雅雯刀小燕朱丽萍欧&nbsp;&nbsp;婷梁柔筠李媛敏卢婧芬刘昱辛王&nbsp;&nbsp;科方&nbsp;&nbsp;震秦富豪冯佳宁宋&nbsp;&nbsp;丽曾&nbsp;&nbsp;阳武&nbsp;&nbsp;雪朱炎贞贾&nbsp;&nbsp;蓓刘乐顺吴沛涓谢碧岑赵&nbsp;&nbsp;轲花&nbsp;&nbsp;袁张婧如周雨诗王&nbsp;&nbsp;娟郭&nbsp;&nbsp;沁唐海月谢琦辉周&nbsp;&nbsp;滔万泳宏吴英博李&nbsp;&nbsp;帆周&nbsp;&nbsp;麟周思怡闻&nbsp;&nbsp;湘许&nbsp;&nbsp;婷吴文建张煜珩陈&nbsp;&nbsp;扬创新创业优秀毕业生（19人）刘德果刘继平夏&nbsp;&nbsp;雨凌&nbsp;&nbsp;晨吴雨薇曾淑梅付晶晶段琛滢阳嘉麟许意坚徐子悟卢白荟刘艳杨杜佳琪陈平安王杏平蒋心如谢&nbsp;&nbsp;希周顺华退伍优秀毕业生（7人）马文元包成通谢江华王浩锴尹嘉晟陆润友陈志锦&nbsp; &nbsp;现对推荐名单进行公示，公示时间：2022年1月10日至1月16日&nbsp;&nbsp; &nbsp;如对优秀毕业生及退伍优秀毕业生有异议，请在公示期内与学校就业指导中心联系，联系电话0731-85381116;&nbsp; &nbsp;如对创新创业优秀毕业生有异议，请在公示期内与创新创业学院联系，联系电话0731-88458930。', N'<p><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><span style="font-size: large; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">根据《关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知》（湘教通〔2021〕348号）文件精神，我校严格按照评选条件，经班级提名、学院考察、学校推荐、校长办公会审议，拟推选李磊磊等165名同学为湖南省2022届优秀毕业生，刘德果等19名同学为湖南省2022届创新创业优秀毕业生，马文元等7名同学为湖南省2022届退伍优秀毕业生，具体名单公示如下：</span></p><table><tbody><tr><td colspan="5"><p>优秀毕业生（165人）&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p></td></tr><tr><td><p>李磊磊</p></td><td><p>倪&nbsp;&nbsp;裳</p></td><td><p>刘&nbsp;&nbsp;娟</p></td><td><p>展立芬</p></td><td><p>陈康利</p></td></tr><tr><td><p>李纳平</p></td><td><p>陈立浩</p></td><td><p>殷淑婷</p></td><td><p>戴&nbsp;&nbsp;敏</p></td><td><p>刘宗义</p></td></tr><tr><td><p>李江伟</p></td><td><p>彭丽琪</p></td><td><p>卢圣花</p></td><td><p>左耀辰</p></td><td><p>高&nbsp;&nbsp;宇</p></td></tr><tr><td><p>赵&nbsp;&nbsp;姣</p></td><td><p>皇&nbsp;&nbsp;毅</p></td><td><p>左世国</p></td><td><p>毕思源</p></td><td><p>吕广仁</p></td></tr><tr><td><p>陈&nbsp;&nbsp;中</p></td><td><p>于文奇</p></td><td><p>蒋伶俐</p></td><td><p>王紫艳</p></td><td><p>徐&nbsp;&nbsp;权</p></td></tr><tr><td><p>凌&nbsp;&nbsp;佳</p></td><td><p>刘峥屿</p></td><td><p>曾&nbsp;&nbsp;娟</p></td><td><p>王惠芹</p></td><td><p>曹倩茹</p></td></tr><tr><td><p>张&nbsp;&nbsp;振</p></td><td><p>钟森杰</p></td><td><p>吴&nbsp;&nbsp;仪</p></td><td><p>李&nbsp;&nbsp;航</p></td><td><p>迟&nbsp;&nbsp;宇</p></td></tr><tr><td><p>蔡&nbsp;&nbsp;伊</p></td><td><p>陈柯伽</p></td><td><p>齐雨佳</p></td><td><p>田龙芝</p></td><td><p>谭碧璨</p></td></tr><tr><td><p>陈&nbsp;&nbsp;欣</p></td><td><p>符&nbsp;&nbsp;楚</p></td><td><p>周&nbsp;&nbsp;琪</p></td><td><p>郑若琪</p></td><td><p>邓诗慧</p></td></tr><tr><td><p>梁春燕</p></td><td><p>敖&nbsp;&nbsp;丹</p></td><td><p>王雨晴</p></td><td><p>杨&nbsp;&nbsp;琴</p></td><td><p>包郑楠</p></td></tr><tr><td><p>陈&nbsp;&nbsp;琴</p></td><td><p>陈&nbsp;&nbsp;娟</p></td><td><p>王爱玉</p></td><td><p>孔彦斐</p></td><td><p>张&nbsp;&nbsp;晗</p></td></tr><tr><td><p>袁雅琦</p></td><td><p>宁&nbsp;&nbsp;瑛</p></td><td><p>谢春梅</p></td><td><p>平&nbsp;&nbsp;伊</p></td><td><p>李嘉明</p></td></tr><tr><td><p>曾&nbsp;&nbsp;艳</p></td><td><p>杨旭东</p></td><td><p>梁&nbsp;&nbsp;森</p></td><td><p>肖宇辉</p></td><td><p>郭惠敏</p></td></tr><tr><td><p>伊&nbsp;&nbsp;娜</p></td><td><p>李琳菊</p></td><td><p>鲍泓玮</p></td><td><p>曹泽龙</p></td><td><p>张&nbsp;&nbsp;诺</p></td></tr><tr><td><p>王&nbsp;&nbsp;杰</p></td><td><p>李慧婷</p></td><td><p>陈倩虹</p></td><td><p>邵嘉悦</p></td><td><p>曾&nbsp;&nbsp;晴</p></td></tr><tr><td><p>武雅楠</p></td><td><p>唐&nbsp;&nbsp;灿</p></td><td><p>盛丹丹</p></td><td><p>王海娟</p></td><td><p>黄明娟</p></td></tr><tr><td><p>吴&nbsp;&nbsp;娟</p></td><td><p>严小青</p></td><td><p>邹&nbsp;&nbsp;静</p></td><td><p>胡&nbsp;&nbsp;格</p></td><td><p>刘&nbsp;&nbsp;可</p></td></tr><tr><td><p>林玉婷</p></td><td><p>李紫阳</p></td><td><p>刘亦菲</p></td><td><p>刘亚辉</p></td><td><p>桂&nbsp;&nbsp;珏</p></td></tr><tr><td><p>蒋&nbsp;&nbsp;玲</p></td><td><p>张思云</p></td><td><p>侯向刚</p></td><td><p>肖含瑜</p></td><td><p>潘雨瑶</p></td></tr><tr><td><p>王文华</p></td><td><p>邓鑫杰</p></td><td><p>章淑薇</p></td><td><p>秦&nbsp;&nbsp;钦</p></td><td><p>周亚沁</p></td></tr><tr><td><p>梁生姣</p></td><td><p>梁&nbsp;&nbsp;海</p></td><td><p>蒋&nbsp;&nbsp;伟</p></td><td><p>刘&nbsp;&nbsp;珑</p></td><td><p>熊&nbsp;&nbsp;奕</p></td></tr><tr><td><p>袁&nbsp;&nbsp;婕</p></td><td><p>李婧玉</p></td><td><p>余光华</p></td><td><p>方紫枫</p></td><td><p>王祎敏</p></td></tr><tr><td><p>刘欣怡</p></td><td><p>彭杰林</p></td><td><p>张昕璐</p></td><td><p>吕舒悦</p></td><td><p>袁&nbsp;&nbsp;琼</p></td></tr><tr><td><p>段邓彬沛</p></td><td><p>曹&nbsp;&nbsp;楠</p></td><td><p>唐华丽</p></td><td><p>蒋丽娇</p></td><td><p>张珊珊</p></td></tr><tr><td><p>谢&nbsp;&nbsp;梦</p></td><td><p>肖俐敏</p></td><td><p>谢&nbsp;&nbsp;瑶</p></td><td><p>杨&nbsp;&nbsp;丹</p></td><td><p>陈于琪</p></td></tr><tr><td><p>唐&nbsp;&nbsp;欢</p></td><td><p>李雅雯</p></td><td><p>刀小燕</p></td><td><p>朱丽萍</p></td><td><p>欧&nbsp;&nbsp;婷</p></td></tr><tr><td><p>梁柔筠</p></td><td><p>李媛敏</p></td><td><p>卢婧芬</p></td><td><p>刘昱辛</p></td><td><p>王&nbsp;&nbsp;科</p></td></tr><tr><td><p>方&nbsp;&nbsp;震</p></td><td><p>秦富豪</p></td><td><p>冯佳宁</p></td><td><p>宋&nbsp;&nbsp;丽</p></td><td><p>曾&nbsp;&nbsp;阳</p></td></tr><tr><td><p>武&nbsp;&nbsp;雪</p></td><td><p>朱炎贞</p></td><td><p>贾&nbsp;&nbsp;蓓</p></td><td><p>刘乐顺</p></td><td><p>吴沛涓</p></td></tr><tr><td><p>谢碧岑</p></td><td><p>赵&nbsp;&nbsp;轲</p></td><td><p>花&nbsp;&nbsp;袁</p></td><td><p>张婧如</p></td><td><p>周雨诗</p></td></tr><tr><td><p>王&nbsp;&nbsp;娟</p></td><td><p>郭&nbsp;&nbsp;沁</p></td><td><p>唐海月</p></td><td><p>谢琦辉</p></td><td><p>周&nbsp;&nbsp;滔</p></td></tr><tr><td><p>万泳宏</p></td><td><p>吴英博</p></td><td><p>李&nbsp;&nbsp;帆</p></td><td><p>周&nbsp;&nbsp;麟</p></td><td><p>周思怡</p></td></tr><tr><td><p>闻&nbsp;&nbsp;湘</p></td><td><p>许&nbsp;&nbsp;婷</p></td><td><p>吴文建</p></td><td><p>张煜珩</p></td><td><p>陈&nbsp;&nbsp;扬</p></td></tr><tr><td colspan="5"><p>创新创业优秀毕业生（19人）</p></td></tr><tr><td><p>刘德果</p></td><td><p>刘继平</p></td><td><p>夏&nbsp;&nbsp;雨</p></td><td><p>凌&nbsp;&nbsp;晨</p></td><td><p>吴雨薇</p></td></tr><tr><td><p>曾淑梅</p></td><td><p>付晶晶</p></td><td><p>段琛滢</p></td><td><p>阳嘉麟</p></td><td><p>许意坚</p></td></tr><tr><td><p>徐子悟</p></td><td><p>卢白荟</p></td><td><p>刘艳杨</p></td><td><p>杜佳琪</p></td><td><p>陈平安</p></td></tr><tr><td><p>王杏平</p></td><td><p>蒋心如</p></td><td><p>谢&nbsp;&nbsp;希</p></td><td><p>周顺华</p></td><td><br/></td></tr><tr><td colspan="5"><p>退伍优秀毕业生（7人）</p></td></tr><tr><td><p>马文元</p></td><td><p>包成通</p></td><td><p>谢江华</p></td><td><p>王浩锴</p></td><td><p>尹嘉晟</p></td></tr><tr><td><p>陆润友</p></td><td><p>陈志锦</p></td><td><br/></td><td><br/></td><td><br/></td></tr></tbody></table><p>&nbsp; &nbsp;现对推荐名单进行公示，公示时间：2022年1月10日至1月16日&nbsp;</p><p data-we-empty-p="" style="padding-left:2em;"><img src="/img/upload/DwzpGg/1741622886992_.jpg" contenteditable="false" width="30%"/></p><p>&nbsp; &nbsp;如对优秀毕业生及退伍优秀毕业生有异议，请在公示期内与学校就业指导中心联系，联系电话0731-85381116;</p><p>&nbsp; &nbsp;如对创新创业优秀毕业生有异议，请在公示期内与创新创业学院联系，联系电话0731-88458930。</p>', N'2025-03-11 00:08:41.490', N'关于评选湖南省普通高等学校2022届优秀毕业生和创新创业优秀毕业生的通知', N'40')
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'2', N'luo', N'3', N'1', N'一、项目编号：LNQY202501018（招标文件编号：LNQY202501018）二、项目名称：辽宁科技学院乒乓球室改造工程三、中标（成交）信息供应商名称：辽宁奥晨建设工程有限公司供应商地址：辽宁省本溪市明山区水洞路崔家巷7栋1层3门中标（成交）金额：13.3636260（万元）四、主要标的信息序号&nbsp;&nbsp;&nbsp;供应商名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工程名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;施工范围&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;施工工期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目经理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;执业证书&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;辽宁奥晨建设工程有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;辽宁科技学院乒乓球室改造工程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乒乓球室改造工程，具体详见工程量清单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合同签订后15日内完成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;岳利民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二级建造师；辽221181987218&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五、评审专家（单一来源采购人员）名单：孙皎敏、张颖、杨建新六、代理服务收费标准及金额：本项目代理费收费标准：本项目一次性收取6000元整。本项目代理费总金额：0.600000 万元（人民币）七、公告期限自本公告发布之日起1个工作日。八、其它补充事宜&nbsp;&nbsp;九、凡对本次公告内容提出询问，请按以下方式联系。1.采购人信息名 称：辽宁科技学院　　　　　地址：本溪高新技术产业开发区香槐路176号　　　　　　　　联系方式：宋老师 024-43164101　　　', N'<p><u></u><strong style="color: var(--bs-body-color); font-family: var(--bs-body-font-family); text-align: var(--bs-body-text-align);">一、项目编号：LNQY202501018</strong><span style="color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">（招标文件编号：LNQY202501018）</span></p><p><strong>二、项目名称：辽宁科技学院乒乓球室改造工程</strong></p><p><strong>三、中标（成交）信息</strong></p><p>供应商名称：辽宁奥晨建设工程有限公司</p><p>供应商地址：辽宁省本溪市明山区水洞路崔家巷7栋1层3门</p><p>中标（成交）金额：13.3636260（万元）</p><p><strong>四、主要标的信息</strong></p><table><tbody><tr><td>序号</td><td>&nbsp;&nbsp;&nbsp;供应商名称&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;工程名称&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;施工范围&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;施工工期&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;项目经理&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;执业证书&nbsp;&nbsp;</td></tr><tr><td>1</td><td>&nbsp;&nbsp;&nbsp;辽宁奥晨建设工程有限公司&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;辽宁科技学院乒乓球室改造工程&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;乒乓球室改造工程，具体详见工程量清单&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;合同签订后15日内完成&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;岳利民&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;二级建造师；辽221181987218&nbsp;&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><p><strong>五、评审专家（单一来源采购人员）名单：</strong></p><p>孙皎敏、张颖、杨建新</p><p><strong>六、代理服务收费标准及金额：</strong></p><p>本项目代理费收费标准：本项目一次性收取6000元整。</p><p><strong>本项目代理费总金额：0.600000 万元（人民币）</strong></p><p><strong>七、公告期限</strong></p><p>自本公告发布之日起1个工作日。</p><p><strong>八、其它补充事宜</strong></p><p>&nbsp;</p><p>&nbsp;</p><p><strong>九、凡对本次公告内容提出询问，请按以下方式联系。</strong></p><p>1.采购人信息</p><p>名 称：辽宁科技学院　　　　　</p><p>地址：本溪高新技术产业开发区香槐路176号　　　　　　　　</p><p>联系方式：宋老师 024-43164101　　　</p>', N'2025-03-11 13:53:31.640', N'学院乒乓球室改造工程成交公告', N'7')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'2', N'luo', N'3', N'1', N'一、项目编号：LNQY202501018（招标文件编号：LNQY202501018）二、项目名称：辽宁科技学院乒乓球室改造工程三、中标（成交）信息供应商名称：辽宁奥晨建设工程有限公司供应商地址：辽宁省本溪市明山区水洞路崔家巷7栋1层3门中标（成交）金额：13.3636260（万元）四、主要标的信息序号&nbsp;&nbsp;&nbsp;供应商名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工程名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;施工范围&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;施工工期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目经理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;执业证书&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;辽宁奥晨建设工程有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;辽宁科技学院乒乓球室改造工程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乒乓球室改造工程，具体详见工程量清单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合同签订后15日内完成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;岳利民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二级建造师；辽221181987218&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五、评审专家（单一来源采购人员）名单：孙皎敏、张颖、杨建新六、代理服务收费标准及金额：本项目代理费收费标准：本项目一次性收取6000元整。本项目代理费总金额：0.600000 万元（人民币）七、公告期限自本公告发布之日起1个工作日。八、其它补充事宜&nbsp;&nbsp;九、凡对本次公告内容提出询问，请按以下方式联系。1.采购人信息名 称：辽宁科技学院　　　　　地址：本溪高新技术产业开发区香槐路176号　　　　　　　　联系方式：宋老师 024-43164101　　　', N'<p><u></u><strong style="color: var(--bs-body-color); font-family: var(--bs-body-font-family); text-align: var(--bs-body-text-align);">一、项目编号：LNQY202501018</strong><span style="color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">（招标文件编号：LNQY202501018）</span></p><p><strong>二、项目名称：辽宁科技学院乒乓球室改造工程</strong></p><p><strong>三、中标（成交）信息</strong></p><p>供应商名称：辽宁奥晨建设工程有限公司</p><p>供应商地址：辽宁省本溪市明山区水洞路崔家巷7栋1层3门</p><p>中标（成交）金额：13.3636260（万元）</p><p><strong>四、主要标的信息</strong></p><table><tbody><tr><td>序号</td><td>&nbsp;&nbsp;&nbsp;供应商名称&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;工程名称&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;施工范围&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;施工工期&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;项目经理&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;执业证书&nbsp;&nbsp;</td></tr><tr><td>1</td><td>&nbsp;&nbsp;&nbsp;辽宁奥晨建设工程有限公司&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;辽宁科技学院乒乓球室改造工程&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;乒乓球室改造工程，具体详见工程量清单&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;合同签订后15日内完成&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;岳利民&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;二级建造师；辽221181987218&nbsp;&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><p><strong>五、评审专家（单一来源采购人员）名单：</strong></p><p>孙皎敏、张颖、杨建新</p><p><strong>六、代理服务收费标准及金额：</strong></p><p>本项目代理费收费标准：本项目一次性收取6000元整。</p><p><strong>本项目代理费总金额：0.600000 万元（人民币）</strong></p><p><strong>七、公告期限</strong></p><p>自本公告发布之日起1个工作日。</p><p><strong>八、其它补充事宜</strong></p><p>&nbsp;</p><p>&nbsp;</p><p><strong>九、凡对本次公告内容提出询问，请按以下方式联系。</strong></p><p>1.采购人信息</p><p>名 称：辽宁科技学院　　　　　</p><p>地址：本溪高新技术产业开发区香槐路176号　　　　　　　　</p><p>联系方式：宋老师 024-43164101　　　</p>', N'2025-03-11 13:53:31.640', N'学院乒乓球室改造工程成交公告', N'9')
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'3', N'msk', N'3', N'1', N'尊敬的2024届应届毕业生及家长：您好！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个充满希望与挑战的季节里，我们迎来了又一个毕业季。首先，衷心祝贺各位同学顺利完成学业，即将踏上人生新的征程。为了帮助大家更好地实现从校园到职场的平稳过渡，特此发布本就业通知，旨在为大家提供全面的就业指导、信息分享及资源对接，助力每一位毕业生找到理想的工作岗位，开启职业生涯的辉煌篇章。一、就业形势分析当前，随着经济结构的调整和产业升级的加速，就业市场呈现出多元化、专业化的趋势。一方面，新兴行业如人工智能、大数据、新能源等领域对人才的需求旺盛；另一方面，传统行业也在积极转型，对复合型、创新型人才的需求日益增长。面对这样的形势，同学们需密切关注行业动态，结合自身兴趣与专长，合理规划职业路径。二、就业指导与服务职业规划工作坊：学校将于近期举办系列职业规划讲座与工作坊，邀请行业专家、HR及成功校友分享职业规划经验、求职技巧及职场心得，帮助大家明确职业目标，提升竞争力。简历诊断与面试模拟：提供一对一简历修改服务，以及多轮面试模拟训练，通过实战演练，让同学们在真实面试中更加自信从容。就业信息平台：完善校内就业信息网，实时更新企业招聘信息、招聘会日程及求职攻略，确保每位同学都能及时获取最新就业资讯。校企合作项目：深化与企业的合作，推出实习实训、定向培养等项目，为同学们搭建直通名企的桥梁。三、求职注意事项精准定位：根据自身专业背景、兴趣爱好及市场趋势，明确求职方向，避免盲目投递。积极准备：提前了解目标企业的文化、业务范围及岗位要求，准备针对性的自我介绍和作品集，展现个人优势。诚信为本：在简历制作、面试交流等环节，务必保持诚实守信，任何夸大其词或虚假信息都可能影响个人信誉及职业发展。心态调整：求职过程中难免会遇到挫折，保持积极乐观的心态，从每次失败中吸取经验，不断自我提升。四、家长支持与鼓励&nbsp; &nbsp; &nbsp; 我们深知，每一位毕业生的成长离不开家庭的支持与鼓励。在此，也恳请家长们给予孩子更多的理解与鼓励，帮助他们树立正确的就业观念，共同面对挑战，迎接机遇。最后，祝愿所有2023届应届毕业生前程似锦，愿你们在未来的职业道路上勇往直前，实现个人价值与社会贡献的双重丰收！敬请关注后续具体活动安排及通知，让我们携手并进，共创美好未来！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此致&nbsp;&nbsp;&nbsp;&nbsp;敬礼！&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 广西中医药大学&nbsp; 就业指导中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024年12月1日', N'<p>尊敬的2024届应届毕业生及家长：</p><p>您好！</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个充满希望与挑战的季节里，我们迎来了又一个毕业季。首先，衷心祝贺各位同学顺利完成学业，即将踏上人生新的征程。为了帮助大家更好地实现从校园到职场的平稳过渡，特此发布本就业通知，旨在为大家提供全面的就业指导、信息分享及资源对接，助力每一位毕业生找到理想的工作岗位，开启职业生涯的辉煌篇章。</p><p><strong>一、就业形势分析</strong></p><p>当前，随着经济结构的调整和产业升级的加速，就业市场呈现出多元化、专业化的趋势。一方面，新兴行业如人工智能、大数据、新能源等领域对人才的需求旺盛；另一方面，传统行业也在积极转型，对复合型、创新型人才的需求日益增长。面对这样的形势，同学们需密切关注行业动态，结合自身兴趣与专长，合理规划职业路径。</p><p><strong>二、就业指导与服务</strong></p><ol><li><p><strong>职业规划工作坊</strong>：学校将于近期举办系列职业规划讲座与工作坊，邀请行业专家、HR及成功校友分享职业规划经验、求职技巧及职场心得，帮助大家明确职业目标，提升竞争力。</p></li><li><p><strong>简历诊断与面试模拟</strong>：提供一对一简历修改服务，以及多轮面试模拟训练，通过实战演练，让同学们在真实面试中更加自信从容。</p></li><li><p><strong>就业信息平台</strong>：完善校内就业信息网，实时更新企业招聘信息、招聘会日程及求职攻略，确保每位同学都能及时获取最新就业资讯。</p></li><li><p><strong>校企合作项目</strong>：深化与企业的合作，推出实习实训、定向培养等项目，为同学们搭建直通名企的桥梁。</p></li></ol><p><strong>三、求职注意事项</strong></p><ol><li><p><strong>精准定位</strong>：根据自身专业背景、兴趣爱好及市场趋势，明确求职方向，避免盲目投递。</p></li><li><p><strong>积极准备</strong>：提前了解目标企业的文化、业务范围及岗位要求，准备针对性的自我介绍和作品集，展现个人优势。</p></li><li><p><strong>诚信为本</strong>：在简历制作、面试交流等环节，务必保持诚实守信，任何夸大其词或虚假信息都可能影响个人信誉及职业发展。</p></li><li><p><strong>心态调整</strong>：求职过程中难免会遇到挫折，保持积极乐观的心态，从每次失败中吸取经验，不断自我提升。</p></li></ol><p><strong>四、家长支持与鼓励</strong></p><p>&nbsp; &nbsp; &nbsp; 我们深知，每一位毕业生的成长离不开家庭的支持与鼓励。在此，也恳请家长们给予孩子更多的理解与鼓励，帮助他们树立正确的就业观念，共同面对挑战，迎接机遇。</p><p>最后，祝愿所有2023届应届毕业生前程似锦，愿你们在未来的职业道路上勇往直前，实现个人价值与社会贡献的双重丰收！</p><p>敬请关注后续具体活动安排及通知，让我们携手并进，共创美好未来！</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此致<br/>&nbsp;&nbsp;&nbsp;&nbsp;敬礼！</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 广西中医药大学&nbsp; 就业指导中心<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024年12月1日</p>', N'2025-03-11 17:01:04.507', N'应届生就业通知', N'41')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'3', N'msk', N'3', N'1', N'尊敬的2024届应届毕业生及家长：您好！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个充满希望与挑战的季节里，我们迎来了又一个毕业季。首先，衷心祝贺各位同学顺利完成学业，即将踏上人生新的征程。为了帮助大家更好地实现从校园到职场的平稳过渡，特此发布本就业通知，旨在为大家提供全面的就业指导、信息分享及资源对接，助力每一位毕业生找到理想的工作岗位，开启职业生涯的辉煌篇章。一、就业形势分析当前，随着经济结构的调整和产业升级的加速，就业市场呈现出多元化、专业化的趋势。一方面，新兴行业如人工智能、大数据、新能源等领域对人才的需求旺盛；另一方面，传统行业也在积极转型，对复合型、创新型人才的需求日益增长。面对这样的形势，同学们需密切关注行业动态，结合自身兴趣与专长，合理规划职业路径。二、就业指导与服务职业规划工作坊：学校将于近期举办系列职业规划讲座与工作坊，邀请行业专家、HR及成功校友分享职业规划经验、求职技巧及职场心得，帮助大家明确职业目标，提升竞争力。简历诊断与面试模拟：提供一对一简历修改服务，以及多轮面试模拟训练，通过实战演练，让同学们在真实面试中更加自信从容。就业信息平台：完善校内就业信息网，实时更新企业招聘信息、招聘会日程及求职攻略，确保每位同学都能及时获取最新就业资讯。校企合作项目：深化与企业的合作，推出实习实训、定向培养等项目，为同学们搭建直通名企的桥梁。三、求职注意事项精准定位：根据自身专业背景、兴趣爱好及市场趋势，明确求职方向，避免盲目投递。积极准备：提前了解目标企业的文化、业务范围及岗位要求，准备针对性的自我介绍和作品集，展现个人优势。诚信为本：在简历制作、面试交流等环节，务必保持诚实守信，任何夸大其词或虚假信息都可能影响个人信誉及职业发展。心态调整：求职过程中难免会遇到挫折，保持积极乐观的心态，从每次失败中吸取经验，不断自我提升。四、家长支持与鼓励&nbsp; &nbsp; &nbsp; 我们深知，每一位毕业生的成长离不开家庭的支持与鼓励。在此，也恳请家长们给予孩子更多的理解与鼓励，帮助他们树立正确的就业观念，共同面对挑战，迎接机遇。最后，祝愿所有2023届应届毕业生前程似锦，愿你们在未来的职业道路上勇往直前，实现个人价值与社会贡献的双重丰收！敬请关注后续具体活动安排及通知，让我们携手并进，共创美好未来！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此致&nbsp;&nbsp;&nbsp;&nbsp;敬礼！&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 广西中医药大学&nbsp; 就业指导中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024年12月1日', N'<p>尊敬的2024届应届毕业生及家长：</p><p>您好！</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个充满希望与挑战的季节里，我们迎来了又一个毕业季。首先，衷心祝贺各位同学顺利完成学业，即将踏上人生新的征程。为了帮助大家更好地实现从校园到职场的平稳过渡，特此发布本就业通知，旨在为大家提供全面的就业指导、信息分享及资源对接，助力每一位毕业生找到理想的工作岗位，开启职业生涯的辉煌篇章。</p><p><strong>一、就业形势分析</strong></p><p>当前，随着经济结构的调整和产业升级的加速，就业市场呈现出多元化、专业化的趋势。一方面，新兴行业如人工智能、大数据、新能源等领域对人才的需求旺盛；另一方面，传统行业也在积极转型，对复合型、创新型人才的需求日益增长。面对这样的形势，同学们需密切关注行业动态，结合自身兴趣与专长，合理规划职业路径。</p><p><strong>二、就业指导与服务</strong></p><ol><li><p><strong>职业规划工作坊</strong>：学校将于近期举办系列职业规划讲座与工作坊，邀请行业专家、HR及成功校友分享职业规划经验、求职技巧及职场心得，帮助大家明确职业目标，提升竞争力。</p></li><li><p><strong>简历诊断与面试模拟</strong>：提供一对一简历修改服务，以及多轮面试模拟训练，通过实战演练，让同学们在真实面试中更加自信从容。</p></li><li><p><strong>就业信息平台</strong>：完善校内就业信息网，实时更新企业招聘信息、招聘会日程及求职攻略，确保每位同学都能及时获取最新就业资讯。</p></li><li><p><strong>校企合作项目</strong>：深化与企业的合作，推出实习实训、定向培养等项目，为同学们搭建直通名企的桥梁。</p></li></ol><p><strong>三、求职注意事项</strong></p><ol><li><p><strong>精准定位</strong>：根据自身专业背景、兴趣爱好及市场趋势，明确求职方向，避免盲目投递。</p></li><li><p><strong>积极准备</strong>：提前了解目标企业的文化、业务范围及岗位要求，准备针对性的自我介绍和作品集，展现个人优势。</p></li><li><p><strong>诚信为本</strong>：在简历制作、面试交流等环节，务必保持诚实守信，任何夸大其词或虚假信息都可能影响个人信誉及职业发展。</p></li><li><p><strong>心态调整</strong>：求职过程中难免会遇到挫折，保持积极乐观的心态，从每次失败中吸取经验，不断自我提升。</p></li></ol><p><strong>四、家长支持与鼓励</strong></p><p>&nbsp; &nbsp; &nbsp; 我们深知，每一位毕业生的成长离不开家庭的支持与鼓励。在此，也恳请家长们给予孩子更多的理解与鼓励，帮助他们树立正确的就业观念，共同面对挑战，迎接机遇。</p><p>最后，祝愿所有2023届应届毕业生前程似锦，愿你们在未来的职业道路上勇往直前，实现个人价值与社会贡献的双重丰收！</p><p>敬请关注后续具体活动安排及通知，让我们携手并进，共创美好未来！</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此致<br/>&nbsp;&nbsp;&nbsp;&nbsp;敬礼！</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 广西中医药大学&nbsp; 就业指导中心<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2024年12月1日</p>', N'2025-03-11 17:01:04.507', N'应届生就业通知', N'46')
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'4', N'msk', N'3', N'1', N'Billie Eilish：音乐界的独特之声引言&nbsp;&nbsp;&nbsp;&nbsp;在当代音乐界，Billie Eilish以其独特的音乐风格和鲜明的个性脱颖而出，成为备受瞩目的年轻艺术家之一。本文将详细介绍Billie Eilish的音乐生涯、个人背景、音乐风格、社会影响力等方面，以展现这位年轻艺术家的非凡才华和深远影响。个人背景&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish，全名Billie Eilish Pirate Baird O''Connell，于2001年12月18日出生于美国加利福尼亚州洛杉矶。她的父母帕特里克·奥康奈尔和玛吉·贝尔德都是演员，家庭艺术氛围浓厚。她有一个亲密的哥哥菲尼亚斯·奥康奈尔，两人经常合作创作音乐，菲尼亚斯在她的音乐生涯中扮演了重要角色。音乐生涯起步个人照片&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐生涯始于2015年，当时她与哥哥将原创歌曲《Ocean Eyes》上传至网络，该曲迅速获得了广泛关注，并在全美达到了破百万的白金销量。这一成功为她打开了音乐界的大门，2016年，她签约环球音乐旗下的新视镜唱片公司，并将《Ocean Eyes》进行全球发行，进一步扩大了她的影响力。&nbsp;&nbsp;&nbsp;&nbsp;此后，Billie Eilish不断推出新的音乐作品。2017年，她发行了个人首张EP《Don''t Smile at Me》，在Spotify上播放量高达18亿次。2019年，她的首张个人录音室专辑《When We All Fall Asleep, Where Do We Go?》正式发行，该专辑从创作到录制都在洛杉矶的家中完成，风格独特且充满了暗黑、神秘的氛围。专辑内的单曲《Bad Guy》获得了公告牌百强单曲榜冠军，她也因此成为首个登顶该榜单的00后歌手。音乐风格与成就&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐风格独树一帜，融合了流行、摇滚、电子等多种元素，营造出独特的氛围。她的歌词直白而深刻，反映了年轻人的真实情感，如《Bad Guy》的节奏强烈，歌词充满个性；而《Everything I Wanted》则表达了对成名的思考与内心的挣扎。&nbsp;&nbsp;&nbsp;&nbsp;在音乐奖项方面，Billie Eilish取得了令人瞩目的成就。她凭借专辑《When We All Fall Asleep, Where Do We Go?》荣获了第62届格莱美奖的多个奖项，包括年度专辑、最佳流行演唱专辑奖等。此后，她的歌曲《Everything I Wanted》和《No Time to Die》也分别获得了第63届格莱美奖的年度制作奖和最佳影视原创歌曲奖。此外，她还凭借《No Time to Die》荣获了第94届奥斯卡金像奖最佳原创歌曲奖。截至2025年，她已经获得了2项奥斯卡金像奖和9项格莱美奖，成为最年轻包揽格莱美奖四个通类奖项的艺人。社会影响力与公益活动&nbsp;&nbsp;&nbsp;&nbsp;除了音乐上的成就，Billie Eilish还以其鲜明的个性和对社会的关注而著称。她经常穿着超大码和宽松的衣服，这一时尚选择引发了关于身体积极态度和时尚界性别规范的讨论。此外，她还积极利用自己的平台关注心理健康、身体形象等话题，为年轻人发声。&nbsp;&nbsp;&nbsp;&nbsp;在公益活动方面，Billie Eilish也积极参与。例如，在2020年的“Together at Home”特别慈善音乐会上，她与哥哥一同演唱了歌曲《Sunny》，为抗击疫情贡献了自己的力量。结论&nbsp;&nbsp;&nbsp;&nbsp;综上所述，Billie Eilish以其独特的音乐风格、出色的创作才华和鲜明的个性，在全球音乐界和年轻人群体中拥有广泛的影响力。她的音乐作品不仅触动了无数人的心灵，还引发了对社会重要话题的关注和讨论。作为一位年轻而充满活力的艺术家，Billie Eilish的未来无疑充满了无限可能。我们期待她在未来的音乐道路上继续创造更多的辉煌成就，为音乐界注入更多的新鲜血液和活力。', N'<h1><font id="w13c4" size="4">Billie Eilish：音乐界的独特之声</font></h1><h3><font id="y8mlg" size="4"><b style="">引言</b></font></h3><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;在当代音乐界，Billie Eilish以其独特的音乐风格和鲜明的个性脱颖而出，成为备受瞩目的年轻艺术家之一。本文将详细介绍Billie Eilish的音乐生涯、个人背景、音乐风格、社会影响力等方面，以展现这位年轻艺术家的非凡才华和深远影响。</font></p><h4><b style=""><font size="4">个人背景</font></b></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish，全名Billie Eilish Pirate Baird O''Connell，于2001年12月18日出生于美国加利福尼亚州洛杉矶。她的父母帕特里克·奥康奈尔和玛吉·贝尔德都是演员，家庭艺术氛围浓厚。她有一个亲密的哥哥菲尼亚斯·奥康奈尔，两人经常合作创作音乐，菲尼亚斯在她的音乐生涯中扮演了重要角色。</font></p><h4><font size="4">音乐生涯起步</font></h4><div><h3><b id="ll5pi"><font size="4">个人照片</font></b></h3></div><div>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/upload/DwzpGg/1741686339553_.jpg" contenteditable="false" width="30%"/></div><p><font size="5">&nbsp;&nbsp;&nbsp;</font><font size="4">&nbsp;Billie Eilish的音乐生涯始于2015年，当时她与哥哥将原创歌曲《Ocean Eyes》上传至网络，该曲迅速获得了广泛关注，并在全美达到了破百万的白金销量。这一成功为她打开了音乐界的大门，2016年，她签约环球音乐旗下的新视镜唱片公司，并将《Ocean Eyes》进行全球发行，进一步扩大了她的影响力。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;此后，Billie Eilish不断推出新的音乐作品。2017年，她发行了个人首张EP《Don''t Smile at Me》，在Spotify上播放量高达18亿次。2019年，她的首张个人录音室专辑《When We All Fall Asleep, Where Do We Go?》正式发行，该专辑从创作到录制都在洛杉矶的家中完成，风格独特且充满了暗黑、神秘的氛围。专辑内的单曲《Bad Guy》获得了公告牌百强单曲榜冠军，她也因此成为首个登顶该榜单的00后歌手。</font></p><h4><font size="4">音乐风格与成就</font></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐风格独树一帜，融合了流行、摇滚、电子等多种元素，营造出独特的氛围。她的歌词直白而深刻，反映了年轻人的真实情感，如《Bad Guy》的节奏强烈，歌词充满个性；而《Everything I Wanted》则表达了对成名的思考与内心的挣扎。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;在音乐奖项方面，Billie Eilish取得了令人瞩目的成就。她凭借专辑《When We All Fall Asleep, Where Do We Go?》荣获了第62届格莱美奖的多个奖项，包括年度专辑、最佳流行演唱专辑奖等。此后，她的歌曲《Everything I Wanted》和《No Time to Die》也分别获得了第63届格莱美奖的年度制作奖和最佳影视原创歌曲奖。此外，她还凭借《No Time to Die》荣获了第94届奥斯卡金像奖最佳原创歌曲奖。截至2025年，她已经获得了2项奥斯卡金像奖和9项格莱美奖，成为最年轻包揽格莱美奖四个通类奖项的艺人。</font></p><h4><font size="4">社会影响力与公益活动</font></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;除了音乐上的成就，Billie Eilish还以其鲜明的个性和对社会的关注而著称。她经常穿着超大码和宽松的衣服，这一时尚选择引发了关于身体积极态度和时尚界性别规范的讨论。此外，她还积极利用自己的平台关注心理健康、身体形象等话题，为年轻人发声。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;在公益活动方面，Billie Eilish也积极参与。例如，在2020年的“Together at Home”特别慈善音乐会上，她与哥哥一同演唱了歌曲《Sunny》，为抗击疫情贡献了自己的力量。</font></p><h4><font size="4">结论</font></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;综上所述，Billie Eilish以其独特的音乐风格、出色的创作才华和鲜明的个性，在全球音乐界和年轻人群体中拥有广泛的影响力。她的音乐作品不仅触动了无数人的心灵，还引发了对社会重要话题的关注和讨论。作为一位年轻而充满活力的艺术家，Billie Eilish的未来无疑充满了无限可能。我们期待她在未来的音乐道路上继续创造更多的辉煌成就，为音乐界注入更多的新鲜血液和活力。</font></p>', N'2025-03-11 17:47:14.517', N'Billie Eilish：音乐界的独特之声', N'5')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'4', N'msk', N'3', N'1', N'Billie Eilish：音乐界的独特之声引言&nbsp;&nbsp;&nbsp;&nbsp;在当代音乐界，Billie Eilish以其独特的音乐风格和鲜明的个性脱颖而出，成为备受瞩目的年轻艺术家之一。本文将详细介绍Billie Eilish的音乐生涯、个人背景、音乐风格、社会影响力等方面，以展现这位年轻艺术家的非凡才华和深远影响。个人背景&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish，全名Billie Eilish Pirate Baird O''Connell，于2001年12月18日出生于美国加利福尼亚州洛杉矶。她的父母帕特里克·奥康奈尔和玛吉·贝尔德都是演员，家庭艺术氛围浓厚。她有一个亲密的哥哥菲尼亚斯·奥康奈尔，两人经常合作创作音乐，菲尼亚斯在她的音乐生涯中扮演了重要角色。音乐生涯起步个人照片&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐生涯始于2015年，当时她与哥哥将原创歌曲《Ocean Eyes》上传至网络，该曲迅速获得了广泛关注，并在全美达到了破百万的白金销量。这一成功为她打开了音乐界的大门，2016年，她签约环球音乐旗下的新视镜唱片公司，并将《Ocean Eyes》进行全球发行，进一步扩大了她的影响力。&nbsp;&nbsp;&nbsp;&nbsp;此后，Billie Eilish不断推出新的音乐作品。2017年，她发行了个人首张EP《Don''t Smile at Me》，在Spotify上播放量高达18亿次。2019年，她的首张个人录音室专辑《When We All Fall Asleep, Where Do We Go?》正式发行，该专辑从创作到录制都在洛杉矶的家中完成，风格独特且充满了暗黑、神秘的氛围。专辑内的单曲《Bad Guy》获得了公告牌百强单曲榜冠军，她也因此成为首个登顶该榜单的00后歌手。音乐风格与成就&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐风格独树一帜，融合了流行、摇滚、电子等多种元素，营造出独特的氛围。她的歌词直白而深刻，反映了年轻人的真实情感，如《Bad Guy》的节奏强烈，歌词充满个性；而《Everything I Wanted》则表达了对成名的思考与内心的挣扎。&nbsp;&nbsp;&nbsp;&nbsp;在音乐奖项方面，Billie Eilish取得了令人瞩目的成就。她凭借专辑《When We All Fall Asleep, Where Do We Go?》荣获了第62届格莱美奖的多个奖项，包括年度专辑、最佳流行演唱专辑奖等。此后，她的歌曲《Everything I Wanted》和《No Time to Die》也分别获得了第63届格莱美奖的年度制作奖和最佳影视原创歌曲奖。此外，她还凭借《No Time to Die》荣获了第94届奥斯卡金像奖最佳原创歌曲奖。截至2025年，她已经获得了2项奥斯卡金像奖和9项格莱美奖，成为最年轻包揽格莱美奖四个通类奖项的艺人。社会影响力与公益活动&nbsp;&nbsp;&nbsp;&nbsp;除了音乐上的成就，Billie Eilish还以其鲜明的个性和对社会的关注而著称。她经常穿着超大码和宽松的衣服，这一时尚选择引发了关于身体积极态度和时尚界性别规范的讨论。此外，她还积极利用自己的平台关注心理健康、身体形象等话题，为年轻人发声。&nbsp;&nbsp;&nbsp;&nbsp;在公益活动方面，Billie Eilish也积极参与。例如，在2020年的“Together at Home”特别慈善音乐会上，她与哥哥一同演唱了歌曲《Sunny》，为抗击疫情贡献了自己的力量。结论&nbsp;&nbsp;&nbsp;&nbsp;综上所述，Billie Eilish以其独特的音乐风格、出色的创作才华和鲜明的个性，在全球音乐界和年轻人群体中拥有广泛的影响力。她的音乐作品不仅触动了无数人的心灵，还引发了对社会重要话题的关注和讨论。作为一位年轻而充满活力的艺术家，Billie Eilish的未来无疑充满了无限可能。我们期待她在未来的音乐道路上继续创造更多的辉煌成就，为音乐界注入更多的新鲜血液和活力。', N'<h1><font id="w13c4" size="4">Billie Eilish：音乐界的独特之声</font></h1><h3><font id="y8mlg" size="4"><b style="">引言</b></font></h3><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;在当代音乐界，Billie Eilish以其独特的音乐风格和鲜明的个性脱颖而出，成为备受瞩目的年轻艺术家之一。本文将详细介绍Billie Eilish的音乐生涯、个人背景、音乐风格、社会影响力等方面，以展现这位年轻艺术家的非凡才华和深远影响。</font></p><h4><b style=""><font size="4">个人背景</font></b></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish，全名Billie Eilish Pirate Baird O''Connell，于2001年12月18日出生于美国加利福尼亚州洛杉矶。她的父母帕特里克·奥康奈尔和玛吉·贝尔德都是演员，家庭艺术氛围浓厚。她有一个亲密的哥哥菲尼亚斯·奥康奈尔，两人经常合作创作音乐，菲尼亚斯在她的音乐生涯中扮演了重要角色。</font></p><h4><font size="4">音乐生涯起步</font></h4><div><h3><b id="ll5pi"><font size="4">个人照片</font></b></h3></div><div>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/upload/DwzpGg/1741686339553_.jpg" contenteditable="false" width="30%"/></div><p><font size="5">&nbsp;&nbsp;&nbsp;</font><font size="4">&nbsp;Billie Eilish的音乐生涯始于2015年，当时她与哥哥将原创歌曲《Ocean Eyes》上传至网络，该曲迅速获得了广泛关注，并在全美达到了破百万的白金销量。这一成功为她打开了音乐界的大门，2016年，她签约环球音乐旗下的新视镜唱片公司，并将《Ocean Eyes》进行全球发行，进一步扩大了她的影响力。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;此后，Billie Eilish不断推出新的音乐作品。2017年，她发行了个人首张EP《Don''t Smile at Me》，在Spotify上播放量高达18亿次。2019年，她的首张个人录音室专辑《When We All Fall Asleep, Where Do We Go?》正式发行，该专辑从创作到录制都在洛杉矶的家中完成，风格独特且充满了暗黑、神秘的氛围。专辑内的单曲《Bad Guy》获得了公告牌百强单曲榜冠军，她也因此成为首个登顶该榜单的00后歌手。</font></p><h4><font size="4">音乐风格与成就</font></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;Billie Eilish的音乐风格独树一帜，融合了流行、摇滚、电子等多种元素，营造出独特的氛围。她的歌词直白而深刻，反映了年轻人的真实情感，如《Bad Guy》的节奏强烈，歌词充满个性；而《Everything I Wanted》则表达了对成名的思考与内心的挣扎。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;在音乐奖项方面，Billie Eilish取得了令人瞩目的成就。她凭借专辑《When We All Fall Asleep, Where Do We Go?》荣获了第62届格莱美奖的多个奖项，包括年度专辑、最佳流行演唱专辑奖等。此后，她的歌曲《Everything I Wanted》和《No Time to Die》也分别获得了第63届格莱美奖的年度制作奖和最佳影视原创歌曲奖。此外，她还凭借《No Time to Die》荣获了第94届奥斯卡金像奖最佳原创歌曲奖。截至2025年，她已经获得了2项奥斯卡金像奖和9项格莱美奖，成为最年轻包揽格莱美奖四个通类奖项的艺人。</font></p><h4><font size="4">社会影响力与公益活动</font></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;除了音乐上的成就，Billie Eilish还以其鲜明的个性和对社会的关注而著称。她经常穿着超大码和宽松的衣服，这一时尚选择引发了关于身体积极态度和时尚界性别规范的讨论。此外，她还积极利用自己的平台关注心理健康、身体形象等话题，为年轻人发声。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;在公益活动方面，Billie Eilish也积极参与。例如，在2020年的“Together at Home”特别慈善音乐会上，她与哥哥一同演唱了歌曲《Sunny》，为抗击疫情贡献了自己的力量。</font></p><h4><font size="4">结论</font></h4><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;综上所述，Billie Eilish以其独特的音乐风格、出色的创作才华和鲜明的个性，在全球音乐界和年轻人群体中拥有广泛的影响力。她的音乐作品不仅触动了无数人的心灵，还引发了对社会重要话题的关注和讨论。作为一位年轻而充满活力的艺术家，Billie Eilish的未来无疑充满了无限可能。我们期待她在未来的音乐道路上继续创造更多的辉煌成就，为音乐界注入更多的新鲜血液和活力。</font></p>', N'2025-03-11 17:47:14.517', N'Billie Eilish：音乐界的独特之声', N'7')
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'5', N'ozf', N'3', N'1', N'根据我院人才及学科发展需要，现面向社会招聘医疗人才若干名，具体如下：一、岗位需求二、基本条件及要求1.遵守中华人民共和国宪法和法律；2.具有良好的品行；3.无治安、刑事处罚记录；4.具有岗位所需要的专业、技能和资格；5.具有正常履行岗位职责的身体条件。三、报名方式有意应聘者可将个人简历及其相关证件发送至邮箱bh2038119@126.com，邮件主题请注明“岗位名称+专业+姓名”，每人只可申报1个岗位，经医院人事科初审后通知面试。四、资格审查&nbsp;&nbsp;&nbsp; 医院根据招聘条件及要求，对应聘者简历进行资格审查，择优筛选后发出面试通知。资格审查不合格的人员不纳入招聘对象。资格审查贯穿于招聘工作的全过程，凡发现应聘人员与招聘岗位所要求的资格条件不符的，作弊或作假等问题，将取消应聘或聘用资格。五、福利待遇1、按照广西壮族自治区机关事业单位工资标准发放工资福利待遇。2、符合《北海市引育卫生健康领域优秀人才实施办法》相关条件的卫生健康人才，可申请办理人才引进手续，并享受安家补贴等优惠政策，具体待遇面议。六、其他说明应聘者对提供的信息和材料的真实性负责，凡提供虚假信息的一经查实，取消聘用资格。七、联系方式地址：广西北海市海城区新建路1号联系人：邹老师联系电话：0779-2038119', N'<p><font size="4">根据我院人才及学科发展需要，现面向社会招聘医疗人才若干名，具体如下：</font></p><p><font size="4">一、岗位需求</font></p><p><font size="4"><img src="https://www.bhszyyy.com/Upload/banner/1741309846.png"/></font></p><p><font size="4">二、基本条件及要求</font></p><p><font size="4">1.遵守中华人民共和国宪法和法律；</font></p><p><font size="4">2.具有良好的品行；</font></p><p><font size="4">3.无治安、刑事处罚记录；</font></p><p><font size="4">4.具有岗位所需要的专业、技能和资格；</font></p><p><font size="4">5.具有正常履行岗位职责的身体条件。</font></p><p><font size="4">三、报名方式</font></p><p><font size="4">有意应聘者可将个人简历及其相关证件发送至邮箱bh2038119@126.com，邮件主题请注明“岗位名称+专业+姓名”，每人只可申报1个岗位，经医院人事科初审后通知面试。</font></p><p><font size="4">四、资格审查</font></p><p><font size="4">&nbsp;&nbsp;&nbsp; 医院根据招聘条件及要求，对应聘者简历进行资格审查，择优筛选后发出面试通知。资格审查不合格的人员不纳入招聘对象。</font></p><p><font size="4">资格审查贯穿于招聘工作的全过程，凡发现应聘人员与招聘岗位所要求的资格条件不符的，作弊或作假等问题，将取消应聘或聘用资格。</font></p><p><font size="4">五、福利待遇</font></p><p><font size="4">1、按照广西壮族自治区机关事业单位工资标准发放工资福利待遇。</font></p><p><font size="4">2、符合《北海市引育卫生健康领域优秀人才实施办法》相关条件的卫生健康人才，可申请办理人才引进手续，并享受安家补贴等优惠政策，具体待遇面议。</font></p><p><font size="4">六、其他说明</font></p><p><font size="4">应聘者对提供的信息和材料的真实性负责，凡提供虚假信息的一经查实，取消聘用资格。</font></p><p><font size="4">七、联系方式</font></p><p><font size="4">地址：广西北海市海城区新建路1号</font></p><p><font size="4">联系人：邹老师</font></p><p><font size="4">联系电话：0779-2038119</font></p><p><font size="4"><br/></font></p>', N'2025-03-12 19:28:19.133', N'北海市中医医院2025年人才招聘需求', N'5')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'5', N'ozf', N'3', N'1', N'根据我院人才及学科发展需要，现面向社会招聘医疗人才若干名，具体如下：一、岗位需求二、基本条件及要求1.遵守中华人民共和国宪法和法律；2.具有良好的品行；3.无治安、刑事处罚记录；4.具有岗位所需要的专业、技能和资格；5.具有正常履行岗位职责的身体条件。三、报名方式有意应聘者可将个人简历及其相关证件发送至邮箱bh2038119@126.com，邮件主题请注明“岗位名称+专业+姓名”，每人只可申报1个岗位，经医院人事科初审后通知面试。四、资格审查&nbsp;&nbsp;&nbsp; 医院根据招聘条件及要求，对应聘者简历进行资格审查，择优筛选后发出面试通知。资格审查不合格的人员不纳入招聘对象。资格审查贯穿于招聘工作的全过程，凡发现应聘人员与招聘岗位所要求的资格条件不符的，作弊或作假等问题，将取消应聘或聘用资格。五、福利待遇1、按照广西壮族自治区机关事业单位工资标准发放工资福利待遇。2、符合《北海市引育卫生健康领域优秀人才实施办法》相关条件的卫生健康人才，可申请办理人才引进手续，并享受安家补贴等优惠政策，具体待遇面议。六、其他说明应聘者对提供的信息和材料的真实性负责，凡提供虚假信息的一经查实，取消聘用资格。七、联系方式地址：广西北海市海城区新建路1号联系人：邹老师联系电话：0779-2038119', N'<p><font size="4">根据我院人才及学科发展需要，现面向社会招聘医疗人才若干名，具体如下：</font></p><p><font size="4">一、岗位需求</font></p><p><font size="4"><img src="https://www.bhszyyy.com/Upload/banner/1741309846.png"/></font></p><p><font size="4">二、基本条件及要求</font></p><p><font size="4">1.遵守中华人民共和国宪法和法律；</font></p><p><font size="4">2.具有良好的品行；</font></p><p><font size="4">3.无治安、刑事处罚记录；</font></p><p><font size="4">4.具有岗位所需要的专业、技能和资格；</font></p><p><font size="4">5.具有正常履行岗位职责的身体条件。</font></p><p><font size="4">三、报名方式</font></p><p><font size="4">有意应聘者可将个人简历及其相关证件发送至邮箱bh2038119@126.com，邮件主题请注明“岗位名称+专业+姓名”，每人只可申报1个岗位，经医院人事科初审后通知面试。</font></p><p><font size="4">四、资格审查</font></p><p><font size="4">&nbsp;&nbsp;&nbsp; 医院根据招聘条件及要求，对应聘者简历进行资格审查，择优筛选后发出面试通知。资格审查不合格的人员不纳入招聘对象。</font></p><p><font size="4">资格审查贯穿于招聘工作的全过程，凡发现应聘人员与招聘岗位所要求的资格条件不符的，作弊或作假等问题，将取消应聘或聘用资格。</font></p><p><font size="4">五、福利待遇</font></p><p><font size="4">1、按照广西壮族自治区机关事业单位工资标准发放工资福利待遇。</font></p><p><font size="4">2、符合《北海市引育卫生健康领域优秀人才实施办法》相关条件的卫生健康人才，可申请办理人才引进手续，并享受安家补贴等优惠政策，具体待遇面议。</font></p><p><font size="4">六、其他说明</font></p><p><font size="4">应聘者对提供的信息和材料的真实性负责，凡提供虚假信息的一经查实，取消聘用资格。</font></p><p><font size="4">七、联系方式</font></p><p><font size="4">地址：广西北海市海城区新建路1号</font></p><p><font size="4">联系人：邹老师</font></p><p><font size="4">联系电话：0779-2038119</font></p><p><font size="4"><br/></font></p>', N'2025-03-12 19:28:19.133', N'北海市中医医院2025年人才招聘需求', N'9')
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'6', N'deepseek', N'3', N'1', N'2023年成立的人工智能基础技术研究有限公司杭州深度求索人工智能基础技术研究有限公司成立于2023年07月17日，注册地位于浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室，法定代表人为裴湉。 [2]公司名称杭州深度求索人工智能基础技术研究有限公司外文名Hangzhou Deepseek Artificial Intelligence Basic Technology Research Co., Ltd所属行业研究和试验发展 [2]成立时间2023年7月17日 [2]法定代表人裴湉 [2]总部地点浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室经营范围工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流公司类型其他有限责任公司统一社会信用代码    91330105MACPN4X08Y 发展历程2024年6月，杭州深度求索人工智能基础技术研究有限公司应用于文本生成场景的PSAI内容深度合成类算法备案通过，主要功能是应用于文本生成场景，根据用户输入的文本信息，生成符合用户需求的文本内容，备案号为330105747635301240017号。 [1]2025年2月，DeepSeek关联公司杭州深度求索人工智能基础技术研究有限公司发生工商变更，裴湉由执行董事兼总经理改任董事、经理，新增王贤祖为财务负责人，同时经营范围新增互联网信息服务。 [5]公司业务一般项目：工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；软件开发；计算机系统服务；信息系统集成服务；人工智能应用软件开发；信息技术咨询服务；电子产品销售；通讯设备销售；仪器仪表销售；数据处理服务；互联网数据服务；计算机软硬件及辅助设备零售；人工智能硬件销售；专业设计服务（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。 [2]企业事件2025年2月消息，新加坡当局否认了关于中国杭州深度求索人工智能基础技术研究有限公司可能通过新加坡购买先进的英伟达芯片，以规避美国对其向亚洲大国销售芯片的限制的说法。 [3]', N'<p>2023年成立的人工智能基础技术研究有限公司</p><p><a></a></p><p>杭州深度求索人工智能基础技术研究有限公司成立于2023年07月17日，注册地位于浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室，法定代表人为裴湉。<sup> [2]<em></em></sup></p><dl><dt>公司名称</dt><dd>杭州深度求索人工智能基础技术研究有限公司</dd><dt>外文名</dt><dd>Hangzhou Deepseek Artificial Intelligence Basic Technology Research Co., Ltd</dd><dt>所属行业</dt><dd>研究和试验发展<sup> [2]<em></em></sup></dd><dt>成立时间</dt><dd>2023年7月17日<sup> [2]<em></em></sup></dd><dt>法定代表人</dt><dd>裴湉<sup> [2]<em></em></sup></dd></dl><dl><dt>总部地点</dt><dd>浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室</dd><dt>经营范围</dt><dd>工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流</dd><dt>公司类型</dt><dd>其他有限责任公司</dd><dt>统一社会信用代码</dt><dd>    91330105MACPN4X08Y </dd></dl><p><a></a><a></a></p><h2>发展历程</h2><span></span><p>2024年6月，杭州深度求索人工智能基础技术研究有限公司应用于文本生成场景的PSAI内容深度合成类算法备案通过，主要功能是应用于文本生成场景，根据用户输入的文本信息，生成符合用户需求的文本内容，备案号为330105747635301240017号。<sup> [1]<em></em></sup></p><p>2025年2月，DeepSeek关联公司杭州深度求索人工智能基础技术研究有限公司发生工商变更，<a href="https://baike.baidu.com/item/%E8%A3%B4%E6%B9%89/65353406?fromModule=lemma_inlink" target="_blank">裴湉</a>由执行董事兼总经理改任董事、经理，新增<a href="https://baike.baidu.com/item/%E7%8E%8B%E8%B4%A4%E7%A5%96/65406390?fromModule=lemma_inlink" target="_blank">王贤祖</a>为财务负责人，同时经营范围新增互联网信息服务。<sup> [5]<em></em></sup></p><p><a></a><a></a></p><h2>公司业务</h2><span></span><p>一般项目：工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；软件开发；计算机系统服务；信息系统集成服务；<a href="https://baike.baidu.com/item/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/9180?fromModule=lemma_inlink" target="_blank">人工智能</a>应用软件开发；信息技术咨询服务；电子产品销售；通讯设备销售；仪器仪表销售；数据处理服务；互联网数据服务；计算机软硬件及辅助设备零售；人工智能硬件销售；专业设计服务（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。<sup> [2]<em></em></sup></p><p><a></a><a></a></p><h2>企业事件</h2><span></span><p>2025年2月消息，新加坡当局否认了关于中国杭州深度求索人工智能基础技术研究有限公司可能通过新加坡购买先进的英伟达芯片，以规避美国对其向亚洲大国销售芯片的限制的说法。<sup> [3]<em></em></sup></p><p><a></a><a></a></p><li><p><a href="https://baike.baidu.com/item/%E6%9D%AD%E5%B7%9E%E6%B7%B1%E5%BA%A6%E6%B1%82%E7%B4%A2%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/64541110?fromModule=lemma_inlink#sup-5"><br/></a></p></li>', N'2025-03-12 20:48:51.573', N'杭州深度求索人工智能基础技术研究有限公司', N'0')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'6', N'deepseek', N'3', N'1', N'2023年成立的人工智能基础技术研究有限公司杭州深度求索人工智能基础技术研究有限公司成立于2023年07月17日，注册地位于浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室，法定代表人为裴湉。 [2]公司名称杭州深度求索人工智能基础技术研究有限公司外文名Hangzhou Deepseek Artificial Intelligence Basic Technology Research Co., Ltd所属行业研究和试验发展 [2]成立时间2023年7月17日 [2]法定代表人裴湉 [2]总部地点浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室经营范围工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流公司类型其他有限责任公司统一社会信用代码    91330105MACPN4X08Y 发展历程2024年6月，杭州深度求索人工智能基础技术研究有限公司应用于文本生成场景的PSAI内容深度合成类算法备案通过，主要功能是应用于文本生成场景，根据用户输入的文本信息，生成符合用户需求的文本内容，备案号为330105747635301240017号。 [1]2025年2月，DeepSeek关联公司杭州深度求索人工智能基础技术研究有限公司发生工商变更，裴湉由执行董事兼总经理改任董事、经理，新增王贤祖为财务负责人，同时经营范围新增互联网信息服务。 [5]公司业务一般项目：工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；软件开发；计算机系统服务；信息系统集成服务；人工智能应用软件开发；信息技术咨询服务；电子产品销售；通讯设备销售；仪器仪表销售；数据处理服务；互联网数据服务；计算机软硬件及辅助设备零售；人工智能硬件销售；专业设计服务（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。 [2]企业事件2025年2月消息，新加坡当局否认了关于中国杭州深度求索人工智能基础技术研究有限公司可能通过新加坡购买先进的英伟达芯片，以规避美国对其向亚洲大国销售芯片的限制的说法。 [3]', N'<p>2023年成立的人工智能基础技术研究有限公司</p><p><a></a></p><p>杭州深度求索人工智能基础技术研究有限公司成立于2023年07月17日，注册地位于浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室，法定代表人为裴湉。<sup> [2]<em></em></sup></p><dl><dt>公司名称</dt><dd>杭州深度求索人工智能基础技术研究有限公司</dd><dt>外文名</dt><dd>Hangzhou Deepseek Artificial Intelligence Basic Technology Research Co., Ltd</dd><dt>所属行业</dt><dd>研究和试验发展<sup> [2]<em></em></sup></dd><dt>成立时间</dt><dd>2023年7月17日<sup> [2]<em></em></sup></dd><dt>法定代表人</dt><dd>裴湉<sup> [2]<em></em></sup></dd></dl><dl><dt>总部地点</dt><dd>浙江省杭州市拱墅区环城北路169号汇金国际大厦西1幢1201室</dd><dt>经营范围</dt><dd>工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流</dd><dt>公司类型</dt><dd>其他有限责任公司</dd><dt>统一社会信用代码</dt><dd>    91330105MACPN4X08Y </dd></dl><p><a></a><a></a></p><h2>发展历程</h2><span></span><p>2024年6月，杭州深度求索人工智能基础技术研究有限公司应用于文本生成场景的PSAI内容深度合成类算法备案通过，主要功能是应用于文本生成场景，根据用户输入的文本信息，生成符合用户需求的文本内容，备案号为330105747635301240017号。<sup> [1]<em></em></sup></p><p>2025年2月，DeepSeek关联公司杭州深度求索人工智能基础技术研究有限公司发生工商变更，<a href="https://baike.baidu.com/item/%E8%A3%B4%E6%B9%89/65353406?fromModule=lemma_inlink" target="_blank">裴湉</a>由执行董事兼总经理改任董事、经理，新增<a href="https://baike.baidu.com/item/%E7%8E%8B%E8%B4%A4%E7%A5%96/65406390?fromModule=lemma_inlink" target="_blank">王贤祖</a>为财务负责人，同时经营范围新增互联网信息服务。<sup> [5]<em></em></sup></p><p><a></a><a></a></p><h2>公司业务</h2><span></span><p>一般项目：工程和技术研究和试验发展；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；软件开发；计算机系统服务；信息系统集成服务；<a href="https://baike.baidu.com/item/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/9180?fromModule=lemma_inlink" target="_blank">人工智能</a>应用软件开发；信息技术咨询服务；电子产品销售；通讯设备销售；仪器仪表销售；数据处理服务；互联网数据服务；计算机软硬件及辅助设备零售；人工智能硬件销售；专业设计服务（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。<sup> [2]<em></em></sup></p><p><a></a><a></a></p><h2>企业事件</h2><span></span><p>2025年2月消息，新加坡当局否认了关于中国杭州深度求索人工智能基础技术研究有限公司可能通过新加坡购买先进的英伟达芯片，以规避美国对其向亚洲大国销售芯片的限制的说法。<sup> [3]<em></em></sup></p><p><a></a><a></a></p><li><p><a href="https://baike.baidu.com/item/%E6%9D%AD%E5%B7%9E%E6%B7%B1%E5%BA%A6%E6%B1%82%E7%B4%A2%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/64541110?fromModule=lemma_inlink#sup-5"><br/></a></p></li>', N'2025-03-12 20:48:51.573', N'杭州深度求索人工智能基础技术研究有限公司', N'2')
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'7', N'ozf', N'3', N'1', N'&nbsp;&nbsp;&nbsp; 广西中医药大学的办学基础为1934年成立的广西省立南宁区医药研究所，建校于1956年，1958年更名为广西中医专科学校，1964年升格为广西中医学院，1970年南宁医学专科学校并入，2012年3月经国家教育部批准正式更名为广西中医药大学，是国家中医药管理局与广西壮族自治区共建高校、国家中西部基础能力建设高校。&nbsp;&nbsp;&nbsp; 学校以中医药学科为主，医、理、工、管等多学科协调发展，具有鲜明中医药、民族医药特色，产学研医紧密结合、对外交流合作优势突出，有仙葫、明秀2个校区，校园总占地面积1300多亩。有17个二级学院，6个独立科研机构，15所附属医院（其中直属附属医院3所，非直属附属医院12所），1所附设中医学校，1家百年乐制药有限公司，1所独立学院。有重阳城老年公寓等一批在全国行业内有一定影响力的产学研基地和教学实践基地。师资队伍建设成效显著&nbsp;&nbsp;&nbsp; 学校坚持社会主义办学方向，落实立德树人根本任务，深入实施“人才强校”战略，坚持悉心育才、精准引才、精心用才、真心爱才，加强师德师风建设，弘扬教育家精神，不断提升教师教书育人水平，教师队伍整体素质不断提升。现有专任教师816人。拥有一批国家级、省级、厅级、校级高层次人才培养基地（项目），有国家级人才称号119人、省部级人才称号255人。其中，国医大师3人、全国名中医4人、国家百千万人才工程2人、享受国务院政府特殊津贴专家15人、全国优秀教师5人、全国优秀科技工作者1人、全国高校黄大年式教师团队1个、国家青年岐黄学者5人、全国老中医药专家学术经验继承工作指导老师48人。人才培养质量快速提升&nbsp;&nbsp;&nbsp; 学校不断深化教学改革，坚持“重经典、强临床”，推动师承教育与院校教育深度融合，建立早跟师、早临床学习制度，注重培养学生中医思维和临床实践能力。顺利通过教育部本科教育教学审核评估和中药学、护理学硕士专业学位评估、中医学等4个专业认证。学校有本科专业28个，其中国家级一流专业4个、自治区级一流专业10个。国家级一流本科课程6门、自治区级一流课程40门。国家级中药学实验示范中心1个、国家级中医临床教学培训示范中心1个。获国家级教学成果二等奖1项，参与获国家级教学成果一等奖1项。学科建设稳步发展学校坚持突出重点，集中力量建强中医学、中药学、中西医结合三个广西一流学科。注重整体提升，形成医理工管多学科相互支撑、协调发展的学科体系。学校是博士学位授予单位，有博士学位授权一级学科1个、硕士学位授权一级学科6个，博士专业学位类别1个、硕士专业学位类别5个，硕士学位授权二级学科43个，是硕士研究生推免资格高校。有国家中医药管理局高水平中医药重点学科4个、中医药重点学科（含培育）19个，广西一流学科3个，广西优势特色重点学科4个，广西重点学科6个。有国家临床重点专科11个、国家中医药管理局重点专科22个、国家中医药管理局重点研究室3个。临床医学、药理学与毒理学学科进入ESI全球前1%。科学研究成果丰硕&nbsp;&nbsp;&nbsp; 学校以中医药壮瑶医药研究为重点，开展“桂十味”全产业链科研攻关，获批国家中医药服务出口基地、教育部工程研究中心等高水平科研平台，获批国家自然科学基金区域创新发展联合基金重点项目、7850万元广西中药民族药产业科技专项等重大科技项目，立项中医药ISO标准3项，1.1类中药创新药临床批件3个，获得省部级科技奖励21项，其中作为主要完成单位参与获得国家科学技术进步奖二等奖2项，作为第一完成单位获得教育部高校科研优秀成果奖科技进步二等奖1项、广西科技进步奖一等奖3项、二等奖16项。加强科研创新基地与科技创新平台建设，广西中医药科学实验中心是全国中医药民族医药最大的创新共享平台之一。有国家中医临床研究基地1个，国家中医药管理局重点研究室3个、中医药科研三级重点实验室4个，广西壮族自治区重点实验室5个，广西高校重点实验室8个，广西卫生健康委员会重点实验室（含培育）4个。现有国家特色服务出口基地（中医药）1个、教育部工程研究中心1个、自治区工程研究中心2个、自治区工程技术研究中心2个、广西协同创新中心3个、广西技术转移示范机构1个、广西知识产权培训基地1个、广西科技创新服务提供机构1个；获批“中国—东盟中医药大健康产业国际创新中心”“北部湾经济区中医药产业高层次人才培养基地”“中药固体制剂制造技术国家工程研究中心华南分中心”等人才专项3项。社会服务优势明显&nbsp;&nbsp;&nbsp; 学校以科技成果服务于东盟国家、区域经济发展为目标，以搭建科技创新平台为载体，全面推进学校科技成果转化工作。学校主动服务地方经济社会发展，与钦州市、香港培力药业、广西旅发集团等60多家地方政府和企事业单位开展产学研合作。参与制订广西地方标准20项，完成广西14个县区中药资源普查，编制《广西中医药壮瑶医药发展“十四五”规划》等政策文件和产业规划，助推广西中医药干亿元产业发展。3家直属附属医院医疗服务能力不断增强，一附院入选国家中医药传承创新中心、国家中医临床研究基地；附属瑞康医院入选国家中西医协同“旗舰”医院试点单位；附属国际壮医医院入选国家中医药管理局区域中医(壮医)诊疗中心。一附院和附属瑞康医院在国内同类医院绩效考核中均进入全国百强、广西五强。&nbsp;&nbsp;&nbsp; 学校发挥中医药特色优势，积极参与新冠肺炎感染疫情防控，共获得7项广西应急专项资助和2项国家高端外国专家引进计划新冠肺炎防控专项项目。学校充分利用人才、技术优势，积极开展与基层医院技术帮扶工作，成立健康帮扶基地，开展“轮值村医”和中医药文化进校园、进社区、进乡村等活动，为老百姓提供高水平的诊疗服务，极大地缓解了群众“看病难”的问题，赢得了人民群众的普遍赞誉。文化传承创新显特色&nbsp;&nbsp;&nbsp; 学校循本而开弘，始终把文化的传承与创新作为自己的历史使命。近年来，学校重点建设了一批特色鲜明、实力雄厚的人文学科研究基地，是全国科普教育基地、自治区爱国主义教育基地、自治区中医药文化宣传教育基地、自治区中医药健康旅游示范基地。学校对壮、瑶等民族医药进行挖掘研究，创立了壮医药、瑶医药质量标准体系，出版了系列专著与教材，拥有多项国家级自治区级非物质文化遗产，为弘扬优秀民族传统文化、增强民族医药文化的国际影响力做出了新贡献。&nbsp;&nbsp;&nbsp; 学校重视弘扬与继承中国优秀传统文化与中医药文化，营造中华优秀传统文化、中医药文化特色浓郁的校园文化氛围，建成了系列中医药文化景观，将源远流长的华夏传统与博大精深的中医药文化融为一体，展现出浓郁的中医药文化气息，充分展示了中医药文化的博大精深的独特魅力。国际交流合作广泛&nbsp;&nbsp;&nbsp; 学校是国家中医药管理局中国-东盟传统医药交流合作中心人才培养基地。学校先后获批中国—马来西亚中医药中心、中国—越南中医药现代工匠学院、中国—东盟中医药创新技术学院，与东盟7个国家建立国际合作联合实验室，成为中国一东盟技术转移联盟首批成员。韦贵康教授创立世界手法医学联盟，韦氏手法享誉海内外，为推动中医药走向世界作出了突出贡献。&nbsp;&nbsp;&nbsp; 学校先后与澳大利亚、美国、泰国、马来西亚等27个国家和地区的97所高校或机构建立交换访学、进修合作关系，架起了与国际医药界教育、医疗、科研等合作的桥梁，为促进中医药国际化，加强文化交流，服务国家“一带一路”倡议发挥了重要作用。&nbsp;&nbsp;&nbsp; 新时代新征程新发展。学校立足广西、面向全国、辐射东盟、走向世界，不断提升学校的核心竞争力和办学水平，为把学校建设成为以中医中药学科为主体，医理工管协同、产学研结合突出、民族医药特色鲜明的国内知名、区域一流的综合性高水平中医药大学而努力奋斗！（各项数据截止到2024年9月）', N'<p>&nbsp;&nbsp;&nbsp; 广西中医药大学的办学基础为1934年成立的广西省立南宁区医药研究所，建校于1956年，1958年更名为广西中医专科学校，1964年升格为广西中医学院，1970年南宁医学专科学校并入，2012年3月经国家教育部批准正式更名为广西中医药大学，是<span>国家中医药管理局与广西壮族自治区共建高校、国家中西部基础能力建设高校。</span><br/></p><p>&nbsp;&nbsp;&nbsp; 学校以中医药学科为主，医、理、工、管等多学科协调发展，具有鲜明中医药、民族医药特色，产学研医紧密结合、对外交流合作优势突出，有仙葫、明秀2个校区，校园总占地面积1300多亩。有17个二级学院，6个独立科研机构，15所附属医院（其中直属附属医院3所，非直属附属医院12所），1所附设中医学校，1家百年乐制药有限公司，1所独立学院。有重阳城老年公寓等一批在全国行业内有一定影响力的产学研基地和教学实践基地。</p><p><strong>师资队伍建设成效显著</strong></p><p>&nbsp;&nbsp;&nbsp; 学校坚持社会主义办学方向，落实立德树人根本任务，深入实施“人才强校”战略，坚持悉心育才、精准引才、精心用才、真心爱才，加强师德师风建设，弘扬教育家精神，不断提升教师教书育人水平，教师队伍整体素质不断提升。现有专任教师816人。拥有一批国家级、省级、厅级、校级高层次人才培养基地（项目），有国家级人才称号119人、省部级人才称号255人。其中，国医大师3人、全国名中医4人、国家百千万人才工程2人、享受国务院政府特殊津贴专家15人、全国优秀教师5人、全国优秀科技工作者1人、全国高校黄大年式教师团队1个、国家青年岐黄学者5人、全国老中医药专家学术经验继承工作指导老师48人。</p><p><strong>人才培养质量快速提升</strong></p><p>&nbsp;&nbsp;&nbsp; 学校不断深化教学改革，坚持“重经典、强临床”，推动师承教育与院校教育深度融合，建立早跟师、早临床学习制度，注重培养学生中医思维和临床实践能力。顺利通过教育部本科教育教学审核评估和中药学、护理学硕士专业学位评估、中医学等4个专业认证。学校有本科专业28个，其中国家级一流专业4个、自治区级一流专业10个。国家级一流本科课程6门、自治区级一流课程40门。国家级中药学实验示范中心1个、国家级中医临床教学培训示范中心1个。获国家级教学成果二等奖1项，参与获国家级教学成果一等奖1项。</p><p><strong>学科建设稳步发展</strong></p><p>学校坚持突出重点，集中力量建强中医学、中药学、中西医结合三个广西一流学科。注重整体提升，形成医理工管多学科相互支撑、协调发展的学科体系。学校是博士学位授予单位，有博士学位授权一级学科1个、硕士学位授权一级学科6个，博士专业学位类别1个、硕士专业学位类别5个，硕士学位授权二级学科43个，是硕士研究生推免资格高校。有国家中医药管理局高水平中医药重点学科4个、中医药重点学科（含培育）19个，广西一流学科3个，广西优势特色重点学科4个，广西重点学科6个。有国家临床重点专科11个、国家中医药管理局重点专科22个、国家中医药管理局重点研究室3个。临床医学、药理学与毒理学学科进入ESI全球前1%。</p><p><strong>科学研究成果丰硕</strong></p><p>&nbsp;&nbsp;&nbsp; 学校以中医药壮瑶医药研究为重点，开展“桂十味”全产业链科研攻关，获批国家中医药服务出口基地、教育部工程研究中心等高水平科研平台，获批国家自然科学基金区域创新发展联合基金重点项目、7850万元广西中药民族药产业科技专项等重大科技项目，立项中医药ISO标准3项，1.1类中药创新药临床批件3个，获得省部级科技奖励21项，其中作为主要完成单位参与获得国家科学技术进步奖二等奖2项，作为第一完成单位获得教育部高校科研优秀成果奖科技进步二等奖1项、广西科技进步奖一等奖3项、二等奖16项。</p><p>加强科研创新基地与科技创新平台建设，广西中医药科学实验中心是全国中医药民族医药最大的创新共享平台之一。有国家中医临床研究基地1个，国家中医药管理局重点研究室3个、中医药科研三级重点实验室4个，广西壮族自治区重点实验室5个，广西高校重点实验室8个，广西卫生健康委员会重点实验室（含培育）4个。现有国家特色服务出口基地（中医药）1个、教育部工程研究中心1个、自治区工程研究中心2个、自治区工程技术研究中心2个、广西协同创新中心3个、广西技术转移示范机构1个、广西知识产权培训基地1个、广西科技创新服务提供机构1个；获批“中国—东盟中医药大健康产业国际创新中心”“北部湾经济区中医药产业高层次人才培养基地”“中药固体制剂制造技术国家工程研究中心华南分中心”等人才专项3项。</p><p><strong>社会服务优势明显</strong></p><p>&nbsp;&nbsp;&nbsp; 学校以科技成果服务于东盟国家、区域经济发展为目标，以搭建科技创新平台为载体，全面推进学校科技成果转化工作。学校主动服务地方经济社会发展，与钦州市、香港培力药业、广西旅发集团等60多家地方政府和企事业单位开展产学研合作。参与制订广西地方标准20项，完成广西14个县区中药资源普查，编制《广西中医药壮瑶医药发展“十四五”规划》等政策文件和产业规划，助推广西中医药干亿元产业发展。3家直属附属医院医疗服务能力不断增强，一附院入选国家中医药传承创新中心、国家中医临床研究基地；附属瑞康医院入选国家中西医协同“旗舰”医院试点单位；附属国际壮医医院入选国家中医药管理局区域中医(壮医)诊疗中心。一附院和附属瑞康医院在国内同类医院绩效考核中均进入全国百强、广西五强。</p><p>&nbsp;&nbsp;&nbsp; 学校发挥中医药特色优势，积极参与新冠肺炎感染疫情防控，共获得7项广西应急专项资助和2项国家高端外国专家引进计划新冠肺炎防控专项项目。学校充分利用人才、技术优势，积极开展与基层医院技术帮扶工作，成立健康帮扶基地，开展“轮值村医”和中医药文化进校园、进社区、进乡村等活动，为老百姓提供高水平的诊疗服务，极大地缓解了群众“看病难”的问题，赢得了人民群众的普遍赞誉。</p><p><strong>文化传承创新显特色</strong></p><p>&nbsp;&nbsp;&nbsp; 学校循本而开弘，始终把文化的传承与创新作为自己的历史使命。近年来，学校重点建设了一批特色鲜明、实力雄厚的人文学科研究基地，是全国科普教育基地、自治区爱国主义教育基地、自治区中医药文化宣传教育基地、自治区中医药健康旅游示范基地。学校对壮、瑶等民族医药进行挖掘研究，创立了壮医药、瑶医药质量标准体系，出版了系列专著与教材，拥有多项国家级自治区级非物质文化遗产，为弘扬优秀民族传统文化、增强民族医药文化的国际影响力做出了新贡献。</p><p>&nbsp;&nbsp;&nbsp; 学校重视弘扬与继承中国优秀传统文化与中医药文化，营造中华优秀传统文化、中医药文化特色浓郁的校园文化氛围，建成了系列中医药文化景观，将源远流长的华夏传统与博大精深的中医药文化融为一体，展现出浓郁的中医药文化气息，充分展示了中医药文化的博大精深的独特魅力。</p><p><strong>国际交流合作广泛</strong></p><p>&nbsp;&nbsp;&nbsp; 学校是国家中医药管理局中国-东盟传统医药交流合作中心人才培养基地。学校先后获批中国—马来西亚中医药中心、中国—越南中医药现代工匠学院、中国—东盟中医药创新技术学院，与东盟7个国家建立国际合作联合实验室，成为中国一东盟技术转移联盟首批成员。韦贵康教授创立世界手法医学联盟，韦氏手法享誉海内外，为推动中医药走向世界作出了突出贡献。</p><p>&nbsp;&nbsp;&nbsp; 学校先后与澳大利亚、美国、泰国、马来西亚等27个国家和地区的97所高校或机构建立交换访学、进修合作关系，架起了与国际医药界教育、医疗、科研等合作的桥梁，为促进中医药国际化，加强文化交流，服务国家“一带一路”倡议发挥了重要作用。</p><p>&nbsp;&nbsp;&nbsp; 新时代新征程新发展。学校立足广西、面向全国、辐射东盟、走向世界，不断提升学校的核心竞争力和办学水平，为把学校建设成为以中医中药学科为主体，医理工管协同、产学研结合突出、民族医药特色鲜明的国内知名、区域一流的综合性高水平中医药大学而努力奋斗！（各项数据截止到2024年9月）</p>', N'2025-03-13 10:38:07.793', N'广西中医药大学', N'1')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'7', N'ozf', N'3', N'1', N'&nbsp;&nbsp;&nbsp; 广西中医药大学的办学基础为1934年成立的广西省立南宁区医药研究所，建校于1956年，1958年更名为广西中医专科学校，1964年升格为广西中医学院，1970年南宁医学专科学校并入，2012年3月经国家教育部批准正式更名为广西中医药大学，是国家中医药管理局与广西壮族自治区共建高校、国家中西部基础能力建设高校。&nbsp;&nbsp;&nbsp; 学校以中医药学科为主，医、理、工、管等多学科协调发展，具有鲜明中医药、民族医药特色，产学研医紧密结合、对外交流合作优势突出，有仙葫、明秀2个校区，校园总占地面积1300多亩。有17个二级学院，6个独立科研机构，15所附属医院（其中直属附属医院3所，非直属附属医院12所），1所附设中医学校，1家百年乐制药有限公司，1所独立学院。有重阳城老年公寓等一批在全国行业内有一定影响力的产学研基地和教学实践基地。师资队伍建设成效显著&nbsp;&nbsp;&nbsp; 学校坚持社会主义办学方向，落实立德树人根本任务，深入实施“人才强校”战略，坚持悉心育才、精准引才、精心用才、真心爱才，加强师德师风建设，弘扬教育家精神，不断提升教师教书育人水平，教师队伍整体素质不断提升。现有专任教师816人。拥有一批国家级、省级、厅级、校级高层次人才培养基地（项目），有国家级人才称号119人、省部级人才称号255人。其中，国医大师3人、全国名中医4人、国家百千万人才工程2人、享受国务院政府特殊津贴专家15人、全国优秀教师5人、全国优秀科技工作者1人、全国高校黄大年式教师团队1个、国家青年岐黄学者5人、全国老中医药专家学术经验继承工作指导老师48人。人才培养质量快速提升&nbsp;&nbsp;&nbsp; 学校不断深化教学改革，坚持“重经典、强临床”，推动师承教育与院校教育深度融合，建立早跟师、早临床学习制度，注重培养学生中医思维和临床实践能力。顺利通过教育部本科教育教学审核评估和中药学、护理学硕士专业学位评估、中医学等4个专业认证。学校有本科专业28个，其中国家级一流专业4个、自治区级一流专业10个。国家级一流本科课程6门、自治区级一流课程40门。国家级中药学实验示范中心1个、国家级中医临床教学培训示范中心1个。获国家级教学成果二等奖1项，参与获国家级教学成果一等奖1项。学科建设稳步发展学校坚持突出重点，集中力量建强中医学、中药学、中西医结合三个广西一流学科。注重整体提升，形成医理工管多学科相互支撑、协调发展的学科体系。学校是博士学位授予单位，有博士学位授权一级学科1个、硕士学位授权一级学科6个，博士专业学位类别1个、硕士专业学位类别5个，硕士学位授权二级学科43个，是硕士研究生推免资格高校。有国家中医药管理局高水平中医药重点学科4个、中医药重点学科（含培育）19个，广西一流学科3个，广西优势特色重点学科4个，广西重点学科6个。有国家临床重点专科11个、国家中医药管理局重点专科22个、国家中医药管理局重点研究室3个。临床医学、药理学与毒理学学科进入ESI全球前1%。科学研究成果丰硕&nbsp;&nbsp;&nbsp; 学校以中医药壮瑶医药研究为重点，开展“桂十味”全产业链科研攻关，获批国家中医药服务出口基地、教育部工程研究中心等高水平科研平台，获批国家自然科学基金区域创新发展联合基金重点项目、7850万元广西中药民族药产业科技专项等重大科技项目，立项中医药ISO标准3项，1.1类中药创新药临床批件3个，获得省部级科技奖励21项，其中作为主要完成单位参与获得国家科学技术进步奖二等奖2项，作为第一完成单位获得教育部高校科研优秀成果奖科技进步二等奖1项、广西科技进步奖一等奖3项、二等奖16项。加强科研创新基地与科技创新平台建设，广西中医药科学实验中心是全国中医药民族医药最大的创新共享平台之一。有国家中医临床研究基地1个，国家中医药管理局重点研究室3个、中医药科研三级重点实验室4个，广西壮族自治区重点实验室5个，广西高校重点实验室8个，广西卫生健康委员会重点实验室（含培育）4个。现有国家特色服务出口基地（中医药）1个、教育部工程研究中心1个、自治区工程研究中心2个、自治区工程技术研究中心2个、广西协同创新中心3个、广西技术转移示范机构1个、广西知识产权培训基地1个、广西科技创新服务提供机构1个；获批“中国—东盟中医药大健康产业国际创新中心”“北部湾经济区中医药产业高层次人才培养基地”“中药固体制剂制造技术国家工程研究中心华南分中心”等人才专项3项。社会服务优势明显&nbsp;&nbsp;&nbsp; 学校以科技成果服务于东盟国家、区域经济发展为目标，以搭建科技创新平台为载体，全面推进学校科技成果转化工作。学校主动服务地方经济社会发展，与钦州市、香港培力药业、广西旅发集团等60多家地方政府和企事业单位开展产学研合作。参与制订广西地方标准20项，完成广西14个县区中药资源普查，编制《广西中医药壮瑶医药发展“十四五”规划》等政策文件和产业规划，助推广西中医药干亿元产业发展。3家直属附属医院医疗服务能力不断增强，一附院入选国家中医药传承创新中心、国家中医临床研究基地；附属瑞康医院入选国家中西医协同“旗舰”医院试点单位；附属国际壮医医院入选国家中医药管理局区域中医(壮医)诊疗中心。一附院和附属瑞康医院在国内同类医院绩效考核中均进入全国百强、广西五强。&nbsp;&nbsp;&nbsp; 学校发挥中医药特色优势，积极参与新冠肺炎感染疫情防控，共获得7项广西应急专项资助和2项国家高端外国专家引进计划新冠肺炎防控专项项目。学校充分利用人才、技术优势，积极开展与基层医院技术帮扶工作，成立健康帮扶基地，开展“轮值村医”和中医药文化进校园、进社区、进乡村等活动，为老百姓提供高水平的诊疗服务，极大地缓解了群众“看病难”的问题，赢得了人民群众的普遍赞誉。文化传承创新显特色&nbsp;&nbsp;&nbsp; 学校循本而开弘，始终把文化的传承与创新作为自己的历史使命。近年来，学校重点建设了一批特色鲜明、实力雄厚的人文学科研究基地，是全国科普教育基地、自治区爱国主义教育基地、自治区中医药文化宣传教育基地、自治区中医药健康旅游示范基地。学校对壮、瑶等民族医药进行挖掘研究，创立了壮医药、瑶医药质量标准体系，出版了系列专著与教材，拥有多项国家级自治区级非物质文化遗产，为弘扬优秀民族传统文化、增强民族医药文化的国际影响力做出了新贡献。&nbsp;&nbsp;&nbsp; 学校重视弘扬与继承中国优秀传统文化与中医药文化，营造中华优秀传统文化、中医药文化特色浓郁的校园文化氛围，建成了系列中医药文化景观，将源远流长的华夏传统与博大精深的中医药文化融为一体，展现出浓郁的中医药文化气息，充分展示了中医药文化的博大精深的独特魅力。国际交流合作广泛&nbsp;&nbsp;&nbsp; 学校是国家中医药管理局中国-东盟传统医药交流合作中心人才培养基地。学校先后获批中国—马来西亚中医药中心、中国—越南中医药现代工匠学院、中国—东盟中医药创新技术学院，与东盟7个国家建立国际合作联合实验室，成为中国一东盟技术转移联盟首批成员。韦贵康教授创立世界手法医学联盟，韦氏手法享誉海内外，为推动中医药走向世界作出了突出贡献。&nbsp;&nbsp;&nbsp; 学校先后与澳大利亚、美国、泰国、马来西亚等27个国家和地区的97所高校或机构建立交换访学、进修合作关系，架起了与国际医药界教育、医疗、科研等合作的桥梁，为促进中医药国际化，加强文化交流，服务国家“一带一路”倡议发挥了重要作用。&nbsp;&nbsp;&nbsp; 新时代新征程新发展。学校立足广西、面向全国、辐射东盟、走向世界，不断提升学校的核心竞争力和办学水平，为把学校建设成为以中医中药学科为主体，医理工管协同、产学研结合突出、民族医药特色鲜明的国内知名、区域一流的综合性高水平中医药大学而努力奋斗！（各项数据截止到2024年9月）', N'<p>&nbsp;&nbsp;&nbsp; 广西中医药大学的办学基础为1934年成立的广西省立南宁区医药研究所，建校于1956年，1958年更名为广西中医专科学校，1964年升格为广西中医学院，1970年南宁医学专科学校并入，2012年3月经国家教育部批准正式更名为广西中医药大学，是<span>国家中医药管理局与广西壮族自治区共建高校、国家中西部基础能力建设高校。</span><br/></p><p>&nbsp;&nbsp;&nbsp; 学校以中医药学科为主，医、理、工、管等多学科协调发展，具有鲜明中医药、民族医药特色，产学研医紧密结合、对外交流合作优势突出，有仙葫、明秀2个校区，校园总占地面积1300多亩。有17个二级学院，6个独立科研机构，15所附属医院（其中直属附属医院3所，非直属附属医院12所），1所附设中医学校，1家百年乐制药有限公司，1所独立学院。有重阳城老年公寓等一批在全国行业内有一定影响力的产学研基地和教学实践基地。</p><p><strong>师资队伍建设成效显著</strong></p><p>&nbsp;&nbsp;&nbsp; 学校坚持社会主义办学方向，落实立德树人根本任务，深入实施“人才强校”战略，坚持悉心育才、精准引才、精心用才、真心爱才，加强师德师风建设，弘扬教育家精神，不断提升教师教书育人水平，教师队伍整体素质不断提升。现有专任教师816人。拥有一批国家级、省级、厅级、校级高层次人才培养基地（项目），有国家级人才称号119人、省部级人才称号255人。其中，国医大师3人、全国名中医4人、国家百千万人才工程2人、享受国务院政府特殊津贴专家15人、全国优秀教师5人、全国优秀科技工作者1人、全国高校黄大年式教师团队1个、国家青年岐黄学者5人、全国老中医药专家学术经验继承工作指导老师48人。</p><p><strong>人才培养质量快速提升</strong></p><p>&nbsp;&nbsp;&nbsp; 学校不断深化教学改革，坚持“重经典、强临床”，推动师承教育与院校教育深度融合，建立早跟师、早临床学习制度，注重培养学生中医思维和临床实践能力。顺利通过教育部本科教育教学审核评估和中药学、护理学硕士专业学位评估、中医学等4个专业认证。学校有本科专业28个，其中国家级一流专业4个、自治区级一流专业10个。国家级一流本科课程6门、自治区级一流课程40门。国家级中药学实验示范中心1个、国家级中医临床教学培训示范中心1个。获国家级教学成果二等奖1项，参与获国家级教学成果一等奖1项。</p><p><strong>学科建设稳步发展</strong></p><p>学校坚持突出重点，集中力量建强中医学、中药学、中西医结合三个广西一流学科。注重整体提升，形成医理工管多学科相互支撑、协调发展的学科体系。学校是博士学位授予单位，有博士学位授权一级学科1个、硕士学位授权一级学科6个，博士专业学位类别1个、硕士专业学位类别5个，硕士学位授权二级学科43个，是硕士研究生推免资格高校。有国家中医药管理局高水平中医药重点学科4个、中医药重点学科（含培育）19个，广西一流学科3个，广西优势特色重点学科4个，广西重点学科6个。有国家临床重点专科11个、国家中医药管理局重点专科22个、国家中医药管理局重点研究室3个。临床医学、药理学与毒理学学科进入ESI全球前1%。</p><p><strong>科学研究成果丰硕</strong></p><p>&nbsp;&nbsp;&nbsp; 学校以中医药壮瑶医药研究为重点，开展“桂十味”全产业链科研攻关，获批国家中医药服务出口基地、教育部工程研究中心等高水平科研平台，获批国家自然科学基金区域创新发展联合基金重点项目、7850万元广西中药民族药产业科技专项等重大科技项目，立项中医药ISO标准3项，1.1类中药创新药临床批件3个，获得省部级科技奖励21项，其中作为主要完成单位参与获得国家科学技术进步奖二等奖2项，作为第一完成单位获得教育部高校科研优秀成果奖科技进步二等奖1项、广西科技进步奖一等奖3项、二等奖16项。</p><p>加强科研创新基地与科技创新平台建设，广西中医药科学实验中心是全国中医药民族医药最大的创新共享平台之一。有国家中医临床研究基地1个，国家中医药管理局重点研究室3个、中医药科研三级重点实验室4个，广西壮族自治区重点实验室5个，广西高校重点实验室8个，广西卫生健康委员会重点实验室（含培育）4个。现有国家特色服务出口基地（中医药）1个、教育部工程研究中心1个、自治区工程研究中心2个、自治区工程技术研究中心2个、广西协同创新中心3个、广西技术转移示范机构1个、广西知识产权培训基地1个、广西科技创新服务提供机构1个；获批“中国—东盟中医药大健康产业国际创新中心”“北部湾经济区中医药产业高层次人才培养基地”“中药固体制剂制造技术国家工程研究中心华南分中心”等人才专项3项。</p><p><strong>社会服务优势明显</strong></p><p>&nbsp;&nbsp;&nbsp; 学校以科技成果服务于东盟国家、区域经济发展为目标，以搭建科技创新平台为载体，全面推进学校科技成果转化工作。学校主动服务地方经济社会发展，与钦州市、香港培力药业、广西旅发集团等60多家地方政府和企事业单位开展产学研合作。参与制订广西地方标准20项，完成广西14个县区中药资源普查，编制《广西中医药壮瑶医药发展“十四五”规划》等政策文件和产业规划，助推广西中医药干亿元产业发展。3家直属附属医院医疗服务能力不断增强，一附院入选国家中医药传承创新中心、国家中医临床研究基地；附属瑞康医院入选国家中西医协同“旗舰”医院试点单位；附属国际壮医医院入选国家中医药管理局区域中医(壮医)诊疗中心。一附院和附属瑞康医院在国内同类医院绩效考核中均进入全国百强、广西五强。</p><p>&nbsp;&nbsp;&nbsp; 学校发挥中医药特色优势，积极参与新冠肺炎感染疫情防控，共获得7项广西应急专项资助和2项国家高端外国专家引进计划新冠肺炎防控专项项目。学校充分利用人才、技术优势，积极开展与基层医院技术帮扶工作，成立健康帮扶基地，开展“轮值村医”和中医药文化进校园、进社区、进乡村等活动，为老百姓提供高水平的诊疗服务，极大地缓解了群众“看病难”的问题，赢得了人民群众的普遍赞誉。</p><p><strong>文化传承创新显特色</strong></p><p>&nbsp;&nbsp;&nbsp; 学校循本而开弘，始终把文化的传承与创新作为自己的历史使命。近年来，学校重点建设了一批特色鲜明、实力雄厚的人文学科研究基地，是全国科普教育基地、自治区爱国主义教育基地、自治区中医药文化宣传教育基地、自治区中医药健康旅游示范基地。学校对壮、瑶等民族医药进行挖掘研究，创立了壮医药、瑶医药质量标准体系，出版了系列专著与教材，拥有多项国家级自治区级非物质文化遗产，为弘扬优秀民族传统文化、增强民族医药文化的国际影响力做出了新贡献。</p><p>&nbsp;&nbsp;&nbsp; 学校重视弘扬与继承中国优秀传统文化与中医药文化，营造中华优秀传统文化、中医药文化特色浓郁的校园文化氛围，建成了系列中医药文化景观，将源远流长的华夏传统与博大精深的中医药文化融为一体，展现出浓郁的中医药文化气息，充分展示了中医药文化的博大精深的独特魅力。</p><p><strong>国际交流合作广泛</strong></p><p>&nbsp;&nbsp;&nbsp; 学校是国家中医药管理局中国-东盟传统医药交流合作中心人才培养基地。学校先后获批中国—马来西亚中医药中心、中国—越南中医药现代工匠学院、中国—东盟中医药创新技术学院，与东盟7个国家建立国际合作联合实验室，成为中国一东盟技术转移联盟首批成员。韦贵康教授创立世界手法医学联盟，韦氏手法享誉海内外，为推动中医药走向世界作出了突出贡献。</p><p>&nbsp;&nbsp;&nbsp; 学校先后与澳大利亚、美国、泰国、马来西亚等27个国家和地区的97所高校或机构建立交换访学、进修合作关系，架起了与国际医药界教育、医疗、科研等合作的桥梁，为促进中医药国际化，加强文化交流，服务国家“一带一路”倡议发挥了重要作用。</p><p>&nbsp;&nbsp;&nbsp; 新时代新征程新发展。学校立足广西、面向全国、辐射东盟、走向世界，不断提升学校的核心竞争力和办学水平，为把学校建设成为以中医中药学科为主体，医理工管协同、产学研结合突出、民族医药特色鲜明的国内知名、区域一流的综合性高水平中医药大学而努力奋斗！（各项数据截止到2024年9月）</p>', N'2025-03-13 10:38:07.793', N'广西中医药大学', N'3')
 GO
 
-INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'8', N'deepseek', N'3', N'1', N'病区护士站 崔青青 远程支持&nbsp;2025-03-21卫宁健康科技集团股份有限公司&nbsp;联系人：病区研发中心&nbsp;-&nbsp;孔维手机：17718143006E-mail：kongwei@winning.com.cn&nbsp;&nbsp;发件人：石昊 &lt;shihao@winning.com.cn&gt;发送时间：2025-03-20&nbsp;11:35主题：麻栗坡县人民院上线支持申请收件人："温如春"&lt;wrc@winning.com.cn&gt;,"刘君君"&lt;l_jj@winning.com.cn&gt;,"姚江南"&lt;yjn@winning.com.cn&gt;,"李青"&lt;liqing@winning.com.cn&gt;,"韦强"&lt;weiqiang@winning.com.cn&gt;,"张峰-卫宁健康"&lt;zhangfeng@winning.com.cn&gt;,"宋舜尧"&lt;s_sy@winning.com.cn&gt;,"李荣军"&lt;l_rj@winning.com.cn&gt;,"颜刊"&lt;yankan@winning.com.cn&gt;,"李坤-医院产品中心"&lt;likun2@winning.com.cn&gt;,"史翔"&lt;shixiang@winning.com.cn&gt;,"王泽虎"&lt;wzh1@winning.com.cn&gt;,"任泉熹"&lt;rqx@winning.com.cn&gt;,"郁翰钟"&lt;y_hz@winning.com.cn&gt;,"项链"&lt;xianglian@winning.com.cn&gt;,"何继亮"&lt;hjl@winning.com.cn&gt;,"孔维"&lt;kongwei@winning.com.cn&gt;抄送："彭丰丰"&lt;pff@winning.com.cn&gt;,"王韬玮"&lt;wtw@winning.com.cn&gt;,"王燕红"&lt;wangyanhong@winning.com.cn&gt;,"朱绍东"&lt;zsd@winning.com.cn&gt;,"罗邓"&lt;luodeng@winning.com.cn&gt;,"田邵园"&lt;t_sy@winning.com.cn&gt;,"王昇"&lt;wangsheng@winning.com.cn&gt;,"蒋国金"&lt;jgj@winning.com.cn&gt;,"夏字辉"&lt;x_zh@winning.com.cn&gt;,"郑克建"&lt;zkj@winning.com.cn&gt;,"李晓霞"&lt;lxx4@winning.com.cn&gt;,"孟凡春"&lt;mfc@winning.com.cn&gt;,"赵巧"&lt;zhaoqiao@winning.com.cn&gt;,"郑娇"&lt;zhengjiao@winning.com.cn&gt;,"郝明明"&lt;hmm@winning.com.cn&gt;,"朱晓林"&lt;zhuxl@winning.com.cn&gt;,"郑远远"&lt;z_yy@winning.com.cn&gt;,"钱浩东"&lt;qhd@winning.com.cn&gt;&nbsp;各位领导，见信好：麻栗坡县人民医院于2025年03月29日0点系统切换上线；1、WINEX60门诊医生站&nbsp;&nbsp;@颜刊2、60输液室&nbsp;V6.0.2407&nbsp;@张中3、体检管理&nbsp;v5.5 版&nbsp;&nbsp;@宋舜尧4、卫宁住院医生站软件V5.6.2405版&nbsp;&nbsp;@程翔5、卫宁住院电子病历软件V5.6.2405版&nbsp;&nbsp;@胡浩6、卫宁健康病区护士站软件V5.1.2402版&nbsp;@孔维7、卫宁护理信息系统软件V5.1.2402版&nbsp;@李荣军8、门诊分诊5.6.2209版&nbsp;&nbsp;@束永海9、CDSS V2.0.2309版&nbsp;@丁彬彬10、手术管理系统5X&nbsp; &nbsp;@韦强&nbsp;11、THIS4 5.0.2312&nbsp;@刘君君12、药品&nbsp;THIS4 5.0.2312&nbsp;@姚江南13、HRP v5.1.2402.3&nbsp; 智捷版&nbsp;@史翔14、卫宁门诊护士分诊台5.6&nbsp;&nbsp;@束永海15、重症监护V6.0.2411.20250310&nbsp;@王泽虎 @任泉熹16、卫宁主数据管理软件V3.6.2112&nbsp;@郁翰钟 @项链 @何继亮17、患者主索引 V3.5.2201&nbsp;@郁翰钟 @项链 @何继亮18、集成门户管理软件V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮19、集成门户管理软件_硬件清单V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮研发条线：请@刘君君，&nbsp;安排人员现场支持，其它条线安排研发人员远程支持！云贵大区&nbsp;&nbsp;&nbsp;石 昊', N'<p>病区护士站 崔青青 远程支持</p><p>&nbsp;</p><p>2025-03-21</p><hr/><p><stationery></stationery></p><p><stationery></stationery></p><p><stationery></stationery></p><p><b>卫宁健康科技集团股份有限公司</b></p><p><b></b><b></b>&nbsp;</p><p>联系人：病区研发中心&nbsp;-&nbsp;孔维</p><p>手机：17718143006</p><p>E-mail：kongwei<a>@winning.com.cn</a></p><p>&nbsp;</p><p>&nbsp;</p><hr/><p><stationery><stationery><stationery></stationery></stationery></stationery></p><blockquote><p><strong>发件人：</strong>石昊 &lt;<a href="mailto:shihao@winning.com.cn" target="_blank">shihao@winning.com.cn</a>&gt;</p><p><strong>发送时间：</strong>2025-03-20&nbsp;11:35</p><p><strong>主题：</strong>麻栗坡县人民院上线支持申请</p><p><strong>收件人：</strong>"温如春"&lt;<a href="mailto:wrc@winning.com.cn" target="_blank">wrc@winning.com.cn</a>&gt;,"刘君君"&lt;<a href="mailto:l_jj@winning.com.cn" target="_blank">l_jj@winning.com.cn</a>&gt;,"姚江南"&lt;<a href="mailto:yjn@winning.com.cn" target="_blank">yjn@winning.com.cn</a>&gt;,"李青"&lt;<a href="mailto:liqing@winning.com.cn" target="_blank">liqing@winning.com.cn</a>&gt;,"韦强"&lt;<a href="mailto:weiqiang@winning.com.cn" target="_blank">weiqiang@winning.com.cn</a>&gt;,"张峰-卫宁健康"&lt;<a href="mailto:zhangfeng@winning.com.cn" target="_blank">zhangfeng@winning.com.cn</a>&gt;,"宋舜尧"&lt;<a href="mailto:s_sy@winning.com.cn" target="_blank">s_sy@winning.com.cn</a>&gt;,"李荣军"&lt;<a href="mailto:l_rj@winning.com.cn" target="_blank">l_rj@winning.com.cn</a>&gt;,"颜刊"&lt;<a href="mailto:yankan@winning.com.cn" target="_blank">yankan@winning.com.cn</a>&gt;,"李坤-医院产品中心"&lt;<a href="mailto:likun2@winning.com.cn" target="_blank">likun2@winning.com.cn</a>&gt;,"史翔"&lt;<a href="mailto:shixiang@winning.com.cn" target="_blank">shixiang@winning.com.cn</a>&gt;,"王泽虎"&lt;<a href="mailto:wzh1@winning.com.cn" target="_blank">wzh1@winning.com.cn</a>&gt;,"任泉熹"&lt;<a href="mailto:rqx@winning.com.cn" target="_blank">rqx@winning.com.cn</a>&gt;,"郁翰钟"&lt;<a href="mailto:y_hz@winning.com.cn" target="_blank">y_hz@winning.com.cn</a>&gt;,"项链"&lt;<a href="mailto:xianglian@winning.com.cn" target="_blank">xianglian@winning.com.cn</a>&gt;,"何继亮"&lt;<a href="mailto:hjl@winning.com.cn" target="_blank">hjl@winning.com.cn</a>&gt;,"孔维"&lt;<a href="mailto:kongwei@winning.com.cn" target="_blank">kongwei@winning.com.cn</a>&gt;</p><p><strong>抄送：</strong>"彭丰丰"&lt;<a href="mailto:pff@winning.com.cn" target="_blank">pff@winning.com.cn</a>&gt;,"王韬玮"&lt;<a href="mailto:wtw@winning.com.cn" target="_blank">wtw@winning.com.cn</a>&gt;,"王燕红"&lt;<a href="mailto:wangyanhong@winning.com.cn" target="_blank">wangyanhong@winning.com.cn</a>&gt;,"朱绍东"&lt;<a href="mailto:zsd@winning.com.cn" target="_blank">zsd@winning.com.cn</a>&gt;,"罗邓"&lt;<a href="mailto:luodeng@winning.com.cn" target="_blank">luodeng@winning.com.cn</a>&gt;,"田邵园"&lt;<a href="mailto:t_sy@winning.com.cn" target="_blank">t_sy@winning.com.cn</a>&gt;,"王昇"&lt;<a href="mailto:wangsheng@winning.com.cn" target="_blank">wangsheng@winning.com.cn</a>&gt;,"蒋国金"&lt;<a href="mailto:jgj@winning.com.cn" target="_blank">jgj@winning.com.cn</a>&gt;,"夏字辉"&lt;<a href="mailto:x_zh@winning.com.cn" target="_blank">x_zh@winning.com.cn</a>&gt;,"郑克建"&lt;<a href="mailto:zkj@winning.com.cn" target="_blank">zkj@winning.com.cn</a>&gt;,"李晓霞"&lt;<a href="mailto:lxx4@winning.com.cn" target="_blank">lxx4@winning.com.cn</a>&gt;,"孟凡春"&lt;<a href="mailto:mfc@winning.com.cn" target="_blank">mfc@winning.com.cn</a>&gt;,"赵巧"&lt;<a href="mailto:zhaoqiao@winning.com.cn" target="_blank">zhaoqiao@winning.com.cn</a>&gt;,"郑娇"&lt;<a href="mailto:zhengjiao@winning.com.cn" target="_blank">zhengjiao@winning.com.cn</a>&gt;,"郝明明"&lt;<a href="mailto:hmm@winning.com.cn" target="_blank">hmm@winning.com.cn</a>&gt;,"朱晓林"&lt;<a href="mailto:zhuxl@winning.com.cn" target="_blank">zhuxl@winning.com.cn</a>&gt;,"郑远远"&lt;<a href="mailto:z_yy@winning.com.cn" target="_blank">z_yy@winning.com.cn</a>&gt;,"钱浩东"&lt;<a href="mailto:qhd@winning.com.cn" target="_blank">qhd@winning.com.cn</a>&gt;</p><p>&nbsp;</p><p>各位领导，见信好：</p><p>麻栗坡县人民医院于2025年03月29日0点系统切换上线；</p><p><br/></p><p>1、WINEX60门诊医生站&nbsp;&nbsp;@颜刊</p><p>2、60输液室&nbsp;V6.0.2407&nbsp;@张中</p><p>3、体检管理&nbsp;v5.5 版&nbsp;&nbsp;@宋舜尧</p><p>4、卫宁住院医生站软件V5.6.2405版&nbsp;&nbsp;@程翔</p><p>5、卫宁住院电子病历软件V5.6.2405版&nbsp;&nbsp;@胡浩</p><p>6、卫宁健康病区护士站软件V5.1.2402版&nbsp;@孔维</p><p>7、卫宁护理信息系统软件V5.1.2402版&nbsp;@李荣军</p><p>8、门诊分诊5.6.2209版&nbsp;&nbsp;@束永海</p><p>9、CDSS V2.0.2309版&nbsp;@丁彬彬</p><p>10、手术管理系统5X&nbsp; &nbsp;@韦强&nbsp;</p><p>11、THIS4 5.0.2312&nbsp;@刘君君</p><p>12、药品&nbsp;THIS4 5.0.2312&nbsp;@姚江南</p><p>13、HRP v5.1.2402.3&nbsp; 智捷版&nbsp;@史翔</p><p>14、卫宁门诊护士分诊台5.6&nbsp;&nbsp;@束永海</p><p>15、重症监护V6.0.2411.20250310&nbsp;@王泽虎 @任泉熹</p><p>16、卫宁主数据管理软件V3.6.2112&nbsp;@郁翰钟 @项链 @何继亮</p><p>17、患者主索引 V3.5.2201&nbsp;@郁翰钟 @项链 @何继亮</p><p>18、集成门户管理软件V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮</p><p>19、集成门户管理软件_硬件清单V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮</p><p><br/></p><p>研发条线：请@刘君君，&nbsp;安排人员现场支持，其它条线安排研发人员远程支持！</p><p><br/></p><p><strong>云贵大区&nbsp;&nbsp;&nbsp;石 昊</strong></p></blockquote>', N'2025-03-21 21:27:37.290', N'麻栗坡县人民院上线支持申请', N'5')
+INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'8', N'deepseek', N'3', N'1', N'病区护士站 崔青青 远程支持&nbsp;2025-03-21卫宁健康科技集团股份有限公司&nbsp;联系人：病区研发中心&nbsp;-&nbsp;孔维手机：17718143006E-mail：kongwei@winning.com.cn&nbsp;&nbsp;发件人：石昊 &lt;shihao@winning.com.cn&gt;发送时间：2025-03-20&nbsp;11:35主题：麻栗坡县人民院上线支持申请收件人："温如春"&lt;wrc@winning.com.cn&gt;,"刘君君"&lt;l_jj@winning.com.cn&gt;,"姚江南"&lt;yjn@winning.com.cn&gt;,"李青"&lt;liqing@winning.com.cn&gt;,"韦强"&lt;weiqiang@winning.com.cn&gt;,"张峰-卫宁健康"&lt;zhangfeng@winning.com.cn&gt;,"宋舜尧"&lt;s_sy@winning.com.cn&gt;,"李荣军"&lt;l_rj@winning.com.cn&gt;,"颜刊"&lt;yankan@winning.com.cn&gt;,"李坤-医院产品中心"&lt;likun2@winning.com.cn&gt;,"史翔"&lt;shixiang@winning.com.cn&gt;,"王泽虎"&lt;wzh1@winning.com.cn&gt;,"任泉熹"&lt;rqx@winning.com.cn&gt;,"郁翰钟"&lt;y_hz@winning.com.cn&gt;,"项链"&lt;xianglian@winning.com.cn&gt;,"何继亮"&lt;hjl@winning.com.cn&gt;,"孔维"&lt;kongwei@winning.com.cn&gt;抄送："彭丰丰"&lt;pff@winning.com.cn&gt;,"王韬玮"&lt;wtw@winning.com.cn&gt;,"王燕红"&lt;wangyanhong@winning.com.cn&gt;,"朱绍东"&lt;zsd@winning.com.cn&gt;,"罗邓"&lt;luodeng@winning.com.cn&gt;,"田邵园"&lt;t_sy@winning.com.cn&gt;,"王昇"&lt;wangsheng@winning.com.cn&gt;,"蒋国金"&lt;jgj@winning.com.cn&gt;,"夏字辉"&lt;x_zh@winning.com.cn&gt;,"郑克建"&lt;zkj@winning.com.cn&gt;,"李晓霞"&lt;lxx4@winning.com.cn&gt;,"孟凡春"&lt;mfc@winning.com.cn&gt;,"赵巧"&lt;zhaoqiao@winning.com.cn&gt;,"郑娇"&lt;zhengjiao@winning.com.cn&gt;,"郝明明"&lt;hmm@winning.com.cn&gt;,"朱晓林"&lt;zhuxl@winning.com.cn&gt;,"郑远远"&lt;z_yy@winning.com.cn&gt;,"钱浩东"&lt;qhd@winning.com.cn&gt;&nbsp;各位领导，见信好：麻栗坡县人民医院于2025年03月29日0点系统切换上线；1、WINEX60门诊医生站&nbsp;&nbsp;@颜刊2、60输液室&nbsp;V6.0.2407&nbsp;@张中3、体检管理&nbsp;v5.5 版&nbsp;&nbsp;@宋舜尧4、卫宁住院医生站软件V5.6.2405版&nbsp;&nbsp;@程翔5、卫宁住院电子病历软件V5.6.2405版&nbsp;&nbsp;@胡浩6、卫宁健康病区护士站软件V5.1.2402版&nbsp;@孔维7、卫宁护理信息系统软件V5.1.2402版&nbsp;@李荣军8、门诊分诊5.6.2209版&nbsp;&nbsp;@束永海9、CDSS V2.0.2309版&nbsp;@丁彬彬10、手术管理系统5X&nbsp; &nbsp;@韦强&nbsp;11、THIS4 5.0.2312&nbsp;@刘君君12、药品&nbsp;THIS4 5.0.2312&nbsp;@姚江南13、HRP v5.1.2402.3&nbsp; 智捷版&nbsp;@史翔14、卫宁门诊护士分诊台5.6&nbsp;&nbsp;@束永海15、重症监护V6.0.2411.20250310&nbsp;@王泽虎 @任泉熹16、卫宁主数据管理软件V3.6.2112&nbsp;@郁翰钟 @项链 @何继亮17、患者主索引 V3.5.2201&nbsp;@郁翰钟 @项链 @何继亮18、集成门户管理软件V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮19、集成门户管理软件_硬件清单V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮研发条线：请@刘君君，&nbsp;安排人员现场支持，其它条线安排研发人员远程支持！云贵大区&nbsp;&nbsp;&nbsp;石 昊', N'<p>病区护士站 崔青青 远程支持</p><p>&nbsp;</p><p>2025-03-21</p><hr/><p><stationery></stationery></p><p><stationery></stationery></p><p><stationery></stationery></p><p><b>卫宁健康科技集团股份有限公司</b></p><p><b></b><b></b>&nbsp;</p><p>联系人：病区研发中心&nbsp;-&nbsp;孔维</p><p>手机：17718143006</p><p>E-mail：kongwei<a>@winning.com.cn</a></p><p>&nbsp;</p><p>&nbsp;</p><hr/><p><stationery><stationery><stationery></stationery></stationery></stationery></p><blockquote><p><strong>发件人：</strong>石昊 &lt;<a href="mailto:shihao@winning.com.cn" target="_blank">shihao@winning.com.cn</a>&gt;</p><p><strong>发送时间：</strong>2025-03-20&nbsp;11:35</p><p><strong>主题：</strong>麻栗坡县人民院上线支持申请</p><p><strong>收件人：</strong>"温如春"&lt;<a href="mailto:wrc@winning.com.cn" target="_blank">wrc@winning.com.cn</a>&gt;,"刘君君"&lt;<a href="mailto:l_jj@winning.com.cn" target="_blank">l_jj@winning.com.cn</a>&gt;,"姚江南"&lt;<a href="mailto:yjn@winning.com.cn" target="_blank">yjn@winning.com.cn</a>&gt;,"李青"&lt;<a href="mailto:liqing@winning.com.cn" target="_blank">liqing@winning.com.cn</a>&gt;,"韦强"&lt;<a href="mailto:weiqiang@winning.com.cn" target="_blank">weiqiang@winning.com.cn</a>&gt;,"张峰-卫宁健康"&lt;<a href="mailto:zhangfeng@winning.com.cn" target="_blank">zhangfeng@winning.com.cn</a>&gt;,"宋舜尧"&lt;<a href="mailto:s_sy@winning.com.cn" target="_blank">s_sy@winning.com.cn</a>&gt;,"李荣军"&lt;<a href="mailto:l_rj@winning.com.cn" target="_blank">l_rj@winning.com.cn</a>&gt;,"颜刊"&lt;<a href="mailto:yankan@winning.com.cn" target="_blank">yankan@winning.com.cn</a>&gt;,"李坤-医院产品中心"&lt;<a href="mailto:likun2@winning.com.cn" target="_blank">likun2@winning.com.cn</a>&gt;,"史翔"&lt;<a href="mailto:shixiang@winning.com.cn" target="_blank">shixiang@winning.com.cn</a>&gt;,"王泽虎"&lt;<a href="mailto:wzh1@winning.com.cn" target="_blank">wzh1@winning.com.cn</a>&gt;,"任泉熹"&lt;<a href="mailto:rqx@winning.com.cn" target="_blank">rqx@winning.com.cn</a>&gt;,"郁翰钟"&lt;<a href="mailto:y_hz@winning.com.cn" target="_blank">y_hz@winning.com.cn</a>&gt;,"项链"&lt;<a href="mailto:xianglian@winning.com.cn" target="_blank">xianglian@winning.com.cn</a>&gt;,"何继亮"&lt;<a href="mailto:hjl@winning.com.cn" target="_blank">hjl@winning.com.cn</a>&gt;,"孔维"&lt;<a href="mailto:kongwei@winning.com.cn" target="_blank">kongwei@winning.com.cn</a>&gt;</p><p><strong>抄送：</strong>"彭丰丰"&lt;<a href="mailto:pff@winning.com.cn" target="_blank">pff@winning.com.cn</a>&gt;,"王韬玮"&lt;<a href="mailto:wtw@winning.com.cn" target="_blank">wtw@winning.com.cn</a>&gt;,"王燕红"&lt;<a href="mailto:wangyanhong@winning.com.cn" target="_blank">wangyanhong@winning.com.cn</a>&gt;,"朱绍东"&lt;<a href="mailto:zsd@winning.com.cn" target="_blank">zsd@winning.com.cn</a>&gt;,"罗邓"&lt;<a href="mailto:luodeng@winning.com.cn" target="_blank">luodeng@winning.com.cn</a>&gt;,"田邵园"&lt;<a href="mailto:t_sy@winning.com.cn" target="_blank">t_sy@winning.com.cn</a>&gt;,"王昇"&lt;<a href="mailto:wangsheng@winning.com.cn" target="_blank">wangsheng@winning.com.cn</a>&gt;,"蒋国金"&lt;<a href="mailto:jgj@winning.com.cn" target="_blank">jgj@winning.com.cn</a>&gt;,"夏字辉"&lt;<a href="mailto:x_zh@winning.com.cn" target="_blank">x_zh@winning.com.cn</a>&gt;,"郑克建"&lt;<a href="mailto:zkj@winning.com.cn" target="_blank">zkj@winning.com.cn</a>&gt;,"李晓霞"&lt;<a href="mailto:lxx4@winning.com.cn" target="_blank">lxx4@winning.com.cn</a>&gt;,"孟凡春"&lt;<a href="mailto:mfc@winning.com.cn" target="_blank">mfc@winning.com.cn</a>&gt;,"赵巧"&lt;<a href="mailto:zhaoqiao@winning.com.cn" target="_blank">zhaoqiao@winning.com.cn</a>&gt;,"郑娇"&lt;<a href="mailto:zhengjiao@winning.com.cn" target="_blank">zhengjiao@winning.com.cn</a>&gt;,"郝明明"&lt;<a href="mailto:hmm@winning.com.cn" target="_blank">hmm@winning.com.cn</a>&gt;,"朱晓林"&lt;<a href="mailto:zhuxl@winning.com.cn" target="_blank">zhuxl@winning.com.cn</a>&gt;,"郑远远"&lt;<a href="mailto:z_yy@winning.com.cn" target="_blank">z_yy@winning.com.cn</a>&gt;,"钱浩东"&lt;<a href="mailto:qhd@winning.com.cn" target="_blank">qhd@winning.com.cn</a>&gt;</p><p>&nbsp;</p><p>各位领导，见信好：</p><p>麻栗坡县人民医院于2025年03月29日0点系统切换上线；</p><p><br/></p><p>1、WINEX60门诊医生站&nbsp;&nbsp;@颜刊</p><p>2、60输液室&nbsp;V6.0.2407&nbsp;@张中</p><p>3、体检管理&nbsp;v5.5 版&nbsp;&nbsp;@宋舜尧</p><p>4、卫宁住院医生站软件V5.6.2405版&nbsp;&nbsp;@程翔</p><p>5、卫宁住院电子病历软件V5.6.2405版&nbsp;&nbsp;@胡浩</p><p>6、卫宁健康病区护士站软件V5.1.2402版&nbsp;@孔维</p><p>7、卫宁护理信息系统软件V5.1.2402版&nbsp;@李荣军</p><p>8、门诊分诊5.6.2209版&nbsp;&nbsp;@束永海</p><p>9、CDSS V2.0.2309版&nbsp;@丁彬彬</p><p>10、手术管理系统5X&nbsp; &nbsp;@韦强&nbsp;</p><p>11、THIS4 5.0.2312&nbsp;@刘君君</p><p>12、药品&nbsp;THIS4 5.0.2312&nbsp;@姚江南</p><p>13、HRP v5.1.2402.3&nbsp; 智捷版&nbsp;@史翔</p><p>14、卫宁门诊护士分诊台5.6&nbsp;&nbsp;@束永海</p><p>15、重症监护V6.0.2411.20250310&nbsp;@王泽虎 @任泉熹</p><p>16、卫宁主数据管理软件V3.6.2112&nbsp;@郁翰钟 @项链 @何继亮</p><p>17、患者主索引 V3.5.2201&nbsp;@郁翰钟 @项链 @何继亮</p><p>18、集成门户管理软件V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮</p><p>19、集成门户管理软件_硬件清单V6.0.2301&nbsp;@郁翰钟 @项链 @何继亮</p><p><br/></p><p>研发条线：请@刘君君，&nbsp;安排人员现场支持，其它条线安排研发人员远程支持！</p><p><br/></p><p><strong>云贵大区&nbsp;&nbsp;&nbsp;石 昊</strong></p></blockquote>', N'2025-03-21 21:27:37.290', N'麻栗坡县人民院上线支持申请', N'6')
 GO
 
 INSERT INTO [dbo].[DWZPGGK] ([ID], [FBZ], [FBZSFDM], [QYDM], [GGNR], [GGNRHTML], [CJSJ], [GGBT], [LLL]) VALUES (N'9', N'lls', N'2', N'1', N'一带一部 湘聚共赢2025中国产业转移发展对接活动（湖南）在长沙开幕李乐成沈晓明致辞 毛伟明主持　　3月29日，由工业和信息化部、湖南省人民政府共同主办的2025中国产业转移发展对接活动（湖南）在长沙开幕。工业和信息化部党组书记李乐成、省委书记沈晓明致辞，省委副书记、省长毛伟明主持开幕式。3月29日，2025中国产业转移发展对接活动（湖南）在长沙开幕。　　李乐成指出，推动产业在国内有序转移发展、优化生产力空间布局，是推进新型工业化的重要任务。工业和信息化部将坚持以习近平新时代中国特色社会主义思想为指引，全面贯彻党中央、国务院决策部署，推动产业转移在精准有序上下功夫、在深化改革上求突破、在提升产业发展能级上见实效、在生态建设上多作为、在对外开放合作上拓新局，加快构建东中西部产业梯度转移格局。本次活动为各方搭建了沟通交流的重要平台，希望大家加强交流、深化合作，更好实现互利共赢、共同发展。李乐成致辞。　　沈晓明代表省委、省政府向全体来宾表示欢迎和感谢。他说，推动产业有序转移是以习近平同志为核心的党中央着眼优化生产力空间布局、构建区域协调发展新格局作出的重大战略部署。湖南产业基础扎实、科教资源丰富、综合成本较低，具有承接产业转移的区位优势和比较优势，将以本次活动为新起点，进一步加强与各方的对接合作，建好产业承接平台，完善产业承接机制，深化产业开放合作，营造良好承接环境，推动承接产业转移取得更大成效。沈晓明致辞。　　毛伟明在主持中说，当今世界，产业发展格局正在加速重构，区域经济版图正在深刻重塑。部省开展产业转移发展对接活动，是深入贯彻习近平总书记关于“积极探索利益共享机制、有序承接产业梯度转移”重要指示的实际行动。湖南要抢抓这一推动高质量发展的重要契机，促进科技创新与产业创新深度融合，持续用力打造“三个高地”，加速培育发展新质生产力。毛伟明主持。　　开幕式上，副省长曹志强作湖南省产业推介，16个重点产业转移合作项目现场签约，相关专家、企业家代表以及市州、园区负责同志发言。与会领导共同为活动启幕。　　现场举行项目签约仪式。　　中国工程院院士、国家制造强国建设战略咨询委员会主任周济，工业和信息化部副部长单忠德，省领导秦国文、蒋涤非，中国企业联合会党委书记朱宏任，中国工程院院士干勇、马玉山、黄伯云、刘韵洁，中国五矿集团有限公司总经理朱可炳等出席。', N'<p><strong>一带一部 湘聚共赢</strong></p><p><strong>2025中国产业转移发展对接活动（湖南）在长沙开幕</strong></p><p><strong>李乐成沈晓明致辞 毛伟明主持</strong></p><p>　　3月29日，由工业和信息化部、湖南省人民政府共同主办的2025中国产业转移发展对接活动（湖南）在长沙开幕。工业和信息化部党组书记李乐成、省委书记沈晓明致辞，省委副书记、省长毛伟明主持开幕式。</p><p><img src="https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202503/33626062/images/31efd42818ad433ca0cfb0ef9fac10a1.jpg"/></p><p>3月29日，2025中国产业转移发展对接活动（湖南）在长沙开幕。</p><p>　　李乐成指出，推动产业在国内有序转移发展、优化生产力空间布局，是推进新型工业化的重要任务。工业和信息化部将坚持以习近平新时代中国特色社会主义思想为指引，全面贯彻党中央、国务院决策部署，推动产业转移在精准有序上下功夫、在深化改革上求突破、在提升产业发展能级上见实效、在生态建设上多作为、在对外开放合作上拓新局，加快构建东中西部产业梯度转移格局。本次活动为各方搭建了沟通交流的重要平台，希望大家加强交流、深化合作，更好实现互利共赢、共同发展。</p><p><img src="https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202503/33626062/images/ed6a1188f73e4100965beae55c90befc.jpg"/></p><p>李乐成致辞。</p><p>　　沈晓明代表省委、省政府向全体来宾表示欢迎和感谢。他说，推动产业有序转移是以习近平同志为核心的党中央着眼优化生产力空间布局、构建区域协调发展新格局作出的重大战略部署。湖南产业基础扎实、科教资源丰富、综合成本较低，具有承接产业转移的区位优势和比较优势，将以本次活动为新起点，进一步加强与各方的对接合作，建好产业承接平台，完善产业承接机制，深化产业开放合作，营造良好承接环境，推动承接产业转移取得更大成效。</p><p><img src="https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202503/33626062/images/5febed233462414b9dc216e1393635a1.jpg"/></p><p>沈晓明致辞。</p><p>　　毛伟明在主持中说，当今世界，产业发展格局正在加速重构，区域经济版图正在深刻重塑。部省开展产业转移发展对接活动，是深入贯彻习近平总书记关于“积极探索利益共享机制、有序承接产业梯度转移”重要指示的实际行动。湖南要抢抓这一推动高质量发展的重要契机，促进科技创新与产业创新深度融合，持续用力打造“三个高地”，加速培育发展新质生产力。</p><p><img src="https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202503/33626062/images/3e90f1239b4d476fa742553fd03cefd9.jpg"/></p><p>毛伟明主持。</p><p>　　开幕式上，副省长曹志强作湖南省产业推介，16个重点产业转移合作项目现场签约，相关专家、企业家代表以及市州、园区负责同志发言。</p><p><img src="https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202503/33626062/images/421d029550944b79aaff4c7753b49c99.jpg"/></p><p>与会领导共同为活动启幕。</p><p>　　<img src="https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202503/33626062/images/66668706cb9d4491bb9a9872aabe870f.jpg"/></p><p>现场举行项目签约仪式。</p><p>　　中国工程院院士、国家制造强国建设战略咨询委员会主任周济，工业和信息化部副部长单忠德，省领导秦国文、蒋涤非，中国企业联合会党委书记朱宏任，中国工程院院士干勇、马玉山、黄伯云、刘韵洁，中国五矿集团有限公司总经理朱可炳等出席。</p>', N'2025-03-30 14:01:07.833', N'2025中国产业转移发展对接活动（湖南）在长沙开幕 李乐成沈晓明致辞 毛伟明主持', N'1')
@@ -47656,84 +47656,6 @@ GO
 
 
 -- ----------------------------
--- Table structure for GWTJK
--- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[GWTJK]') AND type IN ('U'))
-	DROP TABLE [dbo].[GWTJK]
-GO
-
-CREATE TABLE [dbo].[GWTJK] (
-  [ID] int IDENTITY(1,1) NOT NULL,
-  [JSDM] int NULL,
-  [GWDM] int NOT NULL,
-  [TJYY] nvarchar(700) COLLATE Chinese_PRC_CI_AS NULL,
-  [MEMO] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
-  [CJSJ] datetime DEFAULT (getdate()) NULL,
-  [QYDM] int DEFAULT ((1)) NOT NULL,
-  [BJDM] int NULL
-)
-GO
-
-ALTER TABLE [dbo].[GWTJK] SET (LOCK_ESCALATION = TABLE)
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'教师代码',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK',
-'COLUMN', N'JSDM'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'岗位代码',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK',
-'COLUMN', N'GWDM'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'推荐原因',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK',
-'COLUMN', N'TJYY'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'备注',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK',
-'COLUMN', N'MEMO'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'创建时间',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK',
-'COLUMN', N'CJSJ'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'启用代码',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK',
-'COLUMN', N'QYDM'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'班级代码：推荐给哪个班？',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK',
-'COLUMN', N'BJDM'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'岗位推荐库',
-'SCHEMA', N'dbo',
-'TABLE', N'GWTJK'
-GO
-
-
--- ----------------------------
 -- Table structure for GZJLK
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[GZJLK]') AND type IN ('U'))
@@ -48074,7 +47996,10 @@ GO
 INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1307', N'1000')
 GO
 
-INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1401', N'1004')
+INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1307', N'1004')
+GO
+
+INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1292', N'1004')
 GO
 
 INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1440', N'1006')
@@ -48099,12 +48024,6 @@ INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1478', N'1002')
 GO
 
 INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1427', N'1003')
-GO
-
-INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1398', N'1004')
-GO
-
-INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1402', N'1004')
 GO
 
 INSERT INTO [dbo].[JSBJDYK]  VALUES (N'1292', N'1006')
@@ -49245,6 +49164,76 @@ GO
 
 
 -- ----------------------------
+-- Table structure for SEMS_CONFIG
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[SEMS_CONFIG]') AND type IN ('U'))
+	DROP TABLE [dbo].[SEMS_CONFIG]
+GO
+
+CREATE TABLE [dbo].[SEMS_CONFIG] (
+  [ID] int NULL,
+  [CONFIG] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [VALUE] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL
+)
+GO
+
+ALTER TABLE [dbo].[SEMS_CONFIG] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'参数配置表',
+'SCHEMA', N'dbo',
+'TABLE', N'SEMS_CONFIG'
+GO
+
+
+-- ----------------------------
+-- Records of [SEMS_CONFIG]
+-- ----------------------------
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'1', N'教师端是否启用验证码', N'1')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'2', N'单位端是否使用验证码', N'1')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'3', N'教师端是否是否用验证码', N'1')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'4', N'是否启用岗位审核流程1启用，0不启用', N'0')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'5', N'招聘会发布是否启用审核流程', N'1')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'6', N'学生是否允许取消参加面试', N'1')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'7', N'登录界面视频url，参数8需要设置开启', N'')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'8', N'登录界面是否启用视频播放', N'0')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'9', N'重置密码的默认值', N'123')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'10', N'是否启用岗位推荐流程', N'1')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'11', N'是否允许学生上传成绩？', N'1')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'12', N'快手cookie', N'')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'13', N'首页显示岗位数', N'5')
+GO
+
+INSERT INTO [dbo].[SEMS_CONFIG]  VALUES (N'14', N'首页显示招聘会数', N'5')
+GO
+
+
+-- ----------------------------
 -- Table structure for SEMS_LOG
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[SEMS_LOG]') AND type IN ('U'))
@@ -49683,6 +49672,190 @@ INSERT INTO [dbo].[TDJLK] ([ID], [STUID], [GWDM], [TDSJ], [QYDM], [QRDM], [LYNR]
 GO
 
 SET IDENTITY_INSERT [dbo].[TDJLK] OFF
+GO
+
+
+-- ----------------------------
+-- Table structure for TJDXK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[TJDXK]') AND type IN ('U'))
+	DROP TABLE [dbo].[TJDXK]
+GO
+
+CREATE TABLE [dbo].[TJDXK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [DXLX] int NOT NULL,
+  [DXDM] int NOT NULL,
+  [TJDM] int NOT NULL
+)
+GO
+
+ALTER TABLE [dbo].[TJDXK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'对象类型，1学生，2班级',
+'SCHEMA', N'dbo',
+'TABLE', N'TJDXK',
+'COLUMN', N'DXLX'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'对象代码，学生：学生代码，班级：班级代码',
+'SCHEMA', N'dbo',
+'TABLE', N'TJDXK',
+'COLUMN', N'DXDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐代码，对应TJGWK的ID',
+'SCHEMA', N'dbo',
+'TABLE', N'TJDXK',
+'COLUMN', N'TJDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐对象库',
+'SCHEMA', N'dbo',
+'TABLE', N'TJDXK'
+GO
+
+
+-- ----------------------------
+-- Records of [TJDXK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[TJDXK] ON
+GO
+
+INSERT INTO [dbo].[TJDXK] ([ID], [DXLX], [DXDM], [TJDM]) VALUES (N'1', N'1', N'1224', N'1')
+GO
+
+INSERT INTO [dbo].[TJDXK] ([ID], [DXLX], [DXDM], [TJDM]) VALUES (N'5', N'2', N'1307', N'3')
+GO
+
+INSERT INTO [dbo].[TJDXK] ([ID], [DXLX], [DXDM], [TJDM]) VALUES (N'6', N'2', N'1307', N'2')
+GO
+
+INSERT INTO [dbo].[TJDXK] ([ID], [DXLX], [DXDM], [TJDM]) VALUES (N'7', N'2', N'1292', N'3')
+GO
+
+INSERT INTO [dbo].[TJDXK] ([ID], [DXLX], [DXDM], [TJDM]) VALUES (N'8', N'2', N'1292', N'2')
+GO
+
+SET IDENTITY_INSERT [dbo].[TJDXK] OFF
+GO
+
+
+-- ----------------------------
+-- Table structure for TJGWK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[TJGWK]') AND type IN ('U'))
+	DROP TABLE [dbo].[TJGWK]
+GO
+
+CREATE TABLE [dbo].[TJGWK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [GWDM] int NULL,
+  [TJR] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [TJRSFDM] int NULL,
+  [YJLB] int DEFAULT ((1)) NULL,
+  [TJSJ] datetime DEFAULT (getdate()) NOT NULL,
+  [TJDJ] int NULL,
+  [TJMS] nvarchar(max) COLLATE Chinese_PRC_CI_AS NULL,
+  [QRBZ] int DEFAULT ((0)) NULL,
+  [QYDM] int DEFAULT ((1)) NULL
+)
+GO
+
+ALTER TABLE [dbo].[TJGWK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'岗位代码',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'GWDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐人用户名',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'TJR'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐人身份代码',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'TJRSFDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐类别，1，推荐到学生，2 推荐到班级',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'YJLB'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐时间',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'TJSJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐等级，多少推荐等级',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'TJDJ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐描述',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'TJMS'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'确认标志，1已被学生确认，0未确认，如果是班级就自动确认',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'QRBZ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'启用代码',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK',
+'COLUMN', N'QYDM'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'推荐岗位库',
+'SCHEMA', N'dbo',
+'TABLE', N'TJGWK'
+GO
+
+
+-- ----------------------------
+-- Records of [TJGWK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[TJGWK] ON
+GO
+
+INSERT INTO [dbo].[TJGWK] ([ID], [GWDM], [TJR], [TJRSFDM], [YJLB], [TJSJ], [TJDJ], [TJMS], [QRBZ], [QYDM]) VALUES (N'1', N'37', N'twq', N'2', N'1', N'2025-05-04 23:13:11.110', N'4', N'陈嘉敏！！', N'0', N'1')
+GO
+
+INSERT INTO [dbo].[TJGWK] ([ID], [GWDM], [TJR], [TJRSFDM], [YJLB], [TJSJ], [TJDJ], [TJMS], [QRBZ], [QYDM]) VALUES (N'2', N'36', N'twq', N'2', N'2', N'2025-05-04 23:16:55.247', N'5', N'很适合信管', N'0', N'1')
+GO
+
+INSERT INTO [dbo].[TJGWK] ([ID], [GWDM], [TJR], [TJRSFDM], [YJLB], [TJSJ], [TJDJ], [TJMS], [QRBZ], [QYDM]) VALUES (N'3', N'29', N'twq', N'2', N'2', N'2025-05-04 23:16:55.247', N'5', N'很适合信管', N'0', N'1')
+GO
+
+SET IDENTITY_INSERT [dbo].[TJGWK] OFF
 GO
 
 
@@ -50924,6 +51097,109 @@ GO
 
 
 -- ----------------------------
+-- Table structure for XSXXK
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[XSXXK]') AND type IN ('U'))
+	DROP TABLE [dbo].[XSXXK]
+GO
+
+CREATE TABLE [dbo].[XSXXK] (
+  [ID] int IDENTITY(1,1) NOT NULL,
+  [STUID] int NOT NULL,
+  [YXDZ] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [SFCS] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [LXDH] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [XSZY] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [SZXX] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL,
+  [RXNF] int NULL,
+  [BYNF] int NULL,
+  [XW] nvarchar(50) COLLATE Chinese_PRC_CI_AS NULL
+)
+GO
+
+ALTER TABLE [dbo].[XSXXK] SET (LOCK_ESCALATION = TABLE)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'邮箱地址',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'YXDZ'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'省份城市',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'SFCS'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'联系电话',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'LXDH'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'显示职业',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'XSZY'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'所在学校，显示学校',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'SZXX'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'入学年份',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'RXNF'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'毕业年份',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'BYNF'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学位',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK',
+'COLUMN', N'XW'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'学生个人信息库',
+'SCHEMA', N'dbo',
+'TABLE', N'XSXXK'
+GO
+
+
+-- ----------------------------
+-- Records of [XSXXK]
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[XSXXK] ON
+GO
+
+INSERT INTO [dbo].[XSXXK] ([ID], [STUID], [YXDZ], [SFCS], [LXDH], [XSZY], [SZXX], [RXNF], [BYNF], [XW]) VALUES (N'1', N'34221', N'3066992141@qq.com', N'广西南宁', N'19195872107', N'实施工程师2', N'广西中医药大学', N'2021', N'2025', N'学士学位')
+GO
+
+INSERT INTO [dbo].[XSXXK] ([ID], [STUID], [YXDZ], [SFCS], [LXDH], [XSZY], [SZXX], [RXNF], [BYNF], [XW]) VALUES (N'2', N'1224', N'abcd@qq.com', N'广西南宁', N'19195872108', N'.NET研发工程师', N'广西中医药大学', N'2002', N'2027', N'学士学位')
+GO
+
+SET IDENTITY_INSERT [dbo].[XSXXK] OFF
+GO
+
+
+-- ----------------------------
 -- Table structure for XSZPMBK
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[XSZPMBK]') AND type IN ('U'))
@@ -51203,10 +51479,10 @@ GO
 SET IDENTITY_INSERT [dbo].[XTGGK] ON
 GO
 
-INSERT INTO [dbo].[XTGGK] ([ID], [GGBT], [GGNR], [GGNRHTML], [QYDM], [CJSJ], [FBZ], [FBZSFDM], [LLL], [GGLX]) VALUES (N'1', N'桂林市中医医院一行到学校参观交流', N'&nbsp;&nbsp;&nbsp;&nbsp;3月12日下午，桂林市中医医院党委书记唐刚健一行9人到学校参观交流，学校党委副书记、校长姚春出席座谈会并讲话，发展规划处（学科建设办公室、医院管理与社会服务处）处长莫雪妮主持会议。&nbsp;&nbsp;&nbsp;&nbsp;姚春代表学校对唐刚健一行的到来表示热烈欢迎，并就医院高质量发展提出四点建议：一是深化内涵建设，着力打造特色专科，持续提升诊疗水平和服务质量。二是强化人才培养，健全人才选拔机制，促进人才队伍整体素质提升。三是推进科研创新，通过邀请知名专家指导、组建高水平科研团队等方式开展课题研究，积极承办全国性学术会议，扩大学术影响力。四是拓展社会服务，创新运用人工智能技术大力发展社区智慧康养服务，深化医教协同、产教融合、科教融汇，推动医院发展迈上新台阶。&nbsp;&nbsp;&nbsp;&nbsp;唐刚健对学校多年来给予的支持和帮助表示感谢。他表示，桂林作为国际旅游胜地，是展示中医药文化的重要窗口，而中医药膳养生更是其中独具特色的亮点，希望学校支持医院设立名医工作室，搭建高水平中医药养生服务平台，输送博士、硕士等年轻骨干人才，推进中医药科研项目申报与实施，推动医院高质量发展。&nbsp;&nbsp;&nbsp;&nbsp;发展规划处（学科建设办公室、医院管理与社会服务处）、研究生院、教务处、科技处及第一附属医院等负责人及工作人员参加座谈，与会人员围绕研究生培养、校院同质化管理、创新人才培养模式、科研课题联合申报及医院重点专科建设等方面进行了深入交流。&nbsp;&nbsp;&nbsp;&nbsp;会后，桂林市中医医院一行还参观了学校中医药科学实验中心、教学实验实训中心。现场交流参观中医药科学实验中心', N'<p>&nbsp;&nbsp;&nbsp;<font size="4">&nbsp;3月12日下午，桂林市中医医院党委书记唐刚健一行9人到学校参观交流，学校党委副书记、校长姚春出席座谈会并讲话，发展规划处（学科建设办公室、医院管理与社会服务处）处长莫雪妮主持会议。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;姚春代表学校对唐刚健一行的到来表示热烈欢迎，并就医院高质量发展提出四点建议：一是深化内涵建设，着力打造特色专科，持续提升诊疗水平和服务质量。二是强化人才培养，健全人才选拔机制，促进人才队伍整体素质提升。三是推进科研创新，通过邀请知名专家指导、组建高水平科研团队等方式开展课题研究，积极承办全国性学术会议，扩大学术影响力。四是拓展社会服务，创新运用人工智能技术大力发展社区智慧康养服务，深化医教协同、产教融合、科教融汇，推动医院发展迈上新台阶。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;唐刚健对学校多年来给予的支持和帮助表示感谢。他表示，桂林作为国际旅游胜地，是展示中医药文化的重要窗口，而中医药膳养生更是其中独具特色的亮点，希望学校支持医院设立名医工作室，搭建高水平中医药养生服务平台，输送博士、硕士等年轻骨干人才，推进中医药科研项目申报与实施，推动医院高质量发展。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;发展规划处（学科建设办公室、医院管理与社会服务处）、研究生院、教务处、科技处及第一附属医院等负责人及工作人员参加座谈，与会人员围绕研究生培养、校院同质化管理、创新人才培养模式、科研课题联合申报及医院重点专科建设等方面进行了深入交流。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;会后，桂林市中医医院一行还参观了学校中医药科学实验中心、教学实验实训中心。</font></p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/13/2.jpg" alt="2" width=""/></p><p>现场交流<br/></p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/13/3.jpg" alt="3"/></p><p>参观中医药科学实验中心</p>', N'1', N'2025-03-15 11:38:21.360', N'123', N'1', N'29', N'领导降临')
+INSERT INTO [dbo].[XTGGK] ([ID], [GGBT], [GGNR], [GGNRHTML], [QYDM], [CJSJ], [FBZ], [FBZSFDM], [LLL], [GGLX]) VALUES (N'1', N'桂林市中医医院一行到学校参观交流', N'&nbsp;&nbsp;&nbsp;&nbsp;3月12日下午，桂林市中医医院党委书记唐刚健一行9人到学校参观交流，学校党委副书记、校长姚春出席座谈会并讲话，发展规划处（学科建设办公室、医院管理与社会服务处）处长莫雪妮主持会议。&nbsp;&nbsp;&nbsp;&nbsp;姚春代表学校对唐刚健一行的到来表示热烈欢迎，并就医院高质量发展提出四点建议：一是深化内涵建设，着力打造特色专科，持续提升诊疗水平和服务质量。二是强化人才培养，健全人才选拔机制，促进人才队伍整体素质提升。三是推进科研创新，通过邀请知名专家指导、组建高水平科研团队等方式开展课题研究，积极承办全国性学术会议，扩大学术影响力。四是拓展社会服务，创新运用人工智能技术大力发展社区智慧康养服务，深化医教协同、产教融合、科教融汇，推动医院发展迈上新台阶。&nbsp;&nbsp;&nbsp;&nbsp;唐刚健对学校多年来给予的支持和帮助表示感谢。他表示，桂林作为国际旅游胜地，是展示中医药文化的重要窗口，而中医药膳养生更是其中独具特色的亮点，希望学校支持医院设立名医工作室，搭建高水平中医药养生服务平台，输送博士、硕士等年轻骨干人才，推进中医药科研项目申报与实施，推动医院高质量发展。&nbsp;&nbsp;&nbsp;&nbsp;发展规划处（学科建设办公室、医院管理与社会服务处）、研究生院、教务处、科技处及第一附属医院等负责人及工作人员参加座谈，与会人员围绕研究生培养、校院同质化管理、创新人才培养模式、科研课题联合申报及医院重点专科建设等方面进行了深入交流。&nbsp;&nbsp;&nbsp;&nbsp;会后，桂林市中医医院一行还参观了学校中医药科学实验中心、教学实验实训中心。现场交流参观中医药科学实验中心', N'<p>&nbsp;&nbsp;&nbsp;<font size="4">&nbsp;3月12日下午，桂林市中医医院党委书记唐刚健一行9人到学校参观交流，学校党委副书记、校长姚春出席座谈会并讲话，发展规划处（学科建设办公室、医院管理与社会服务处）处长莫雪妮主持会议。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;姚春代表学校对唐刚健一行的到来表示热烈欢迎，并就医院高质量发展提出四点建议：一是深化内涵建设，着力打造特色专科，持续提升诊疗水平和服务质量。二是强化人才培养，健全人才选拔机制，促进人才队伍整体素质提升。三是推进科研创新，通过邀请知名专家指导、组建高水平科研团队等方式开展课题研究，积极承办全国性学术会议，扩大学术影响力。四是拓展社会服务，创新运用人工智能技术大力发展社区智慧康养服务，深化医教协同、产教融合、科教融汇，推动医院发展迈上新台阶。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;唐刚健对学校多年来给予的支持和帮助表示感谢。他表示，桂林作为国际旅游胜地，是展示中医药文化的重要窗口，而中医药膳养生更是其中独具特色的亮点，希望学校支持医院设立名医工作室，搭建高水平中医药养生服务平台，输送博士、硕士等年轻骨干人才，推进中医药科研项目申报与实施，推动医院高质量发展。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;发展规划处（学科建设办公室、医院管理与社会服务处）、研究生院、教务处、科技处及第一附属医院等负责人及工作人员参加座谈，与会人员围绕研究生培养、校院同质化管理、创新人才培养模式、科研课题联合申报及医院重点专科建设等方面进行了深入交流。</font></p><p><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;会后，桂林市中医医院一行还参观了学校中医药科学实验中心、教学实验实训中心。</font></p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/13/2.jpg" alt="2" width=""/></p><p>现场交流<br/></p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/13/3.jpg" alt="3"/></p><p>参观中医药科学实验中心</p>', N'1', N'2025-03-15 11:38:21.360', N'123', N'1', N'31', N'领导降临')
 GO
 
-INSERT INTO [dbo].[XTGGK] ([ID], [GGBT], [GGNR], [GGNRHTML], [QYDM], [CJSJ], [FBZ], [FBZSFDM], [LLL], [GGLX]) VALUES (N'2', N'人人享有肾脏健康，早筛早诊守护生命之源——第一附属医院仙葫院区肾·风湿·内分泌科举办肾病日义诊活动', N'3月12日，第一附属医院仙葫院区肾·风湿·内分泌科携手仙葫院区心血管内科、神经内科、营养科、药学部多学科专家，在仙葫院区医院大门广场举办主题为“人人享有肾脏健康”的大型义诊活动。上午8点，义诊现场排起长龙，众多市民前来参与免费检测项目，包括血压、血糖、血尿酸及铁蛋白检测。医务人员对存在异常值的市民进行了风险评估、健康宣教，并建议其进一步就诊。由肾·风湿·内分泌科副主任（主持工作）黄雪霞领衔的“多学科护肾天团”为市民提供“一站式”诊疗服务。专家们针对市民关切的问题进行深度解读，并提供专业建议。健康讲座吸引了众多听众，传达了肾病预警信号，并提出有效预防及管理措施。有奖问答环节的趣味互动让保护肾脏健康理念深入人心。黄雪霞指出：“我国慢性肾脏病的患病率高达10.8%，知晓率仅为12%。通过早期筛查、有效控制基础疾病、避免使用肾毒性药物，可以显著延缓病情进展。”活动现场活动现场', N'<p><font size="4">3月12日，第一附属医院仙葫院区肾·风湿·内分泌科携手仙葫院区心血管内科、神经内科、营养科、药学部多学科专家，在仙葫院区医院大门广场举办主题为“人人享有肾脏健康”的大型义诊活动。</font></p><p><font size="4">上午8点，义诊现场排起长龙，众多市民前来参与免费检测项目，包括血压、血糖、血尿酸及铁蛋白检测。医务人员对存在异常值的市民进行了风险评估、健康宣教，并建议其进一步就诊。</font></p><p><font size="4">由肾·风湿·内分泌科副主任（主持工作）黄雪霞领衔的“多学科护肾天团”为市民提供“一站式”诊疗服务。专家们针对市民关切的问题进行深度解读，并提供专业建议。健康讲座吸引了众多听众，传达了肾病预警信号，并提出有效预防及管理措施。有奖问答环节的趣味互动让保护肾脏健康理念深入人心。</font></p><p><font size="4">黄雪霞指出：“我国慢性肾脏病的患病率高达10.8%，知晓率仅为12%。通过早期筛查、有效控制基础疾病、避免使用肾毒性药物，可以显著延缓病情进展。”</font></p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/14/441644_%E5%89%AF%E6%9C%AC.jpg" alt="441644_副本"/></p><p>活动现场</p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/14/601223.png"/></p><p>活动现场</p>', N'1', N'2025-03-15 11:50:55.747', N'123', N'1', N'3', N'形式主义')
+INSERT INTO [dbo].[XTGGK] ([ID], [GGBT], [GGNR], [GGNRHTML], [QYDM], [CJSJ], [FBZ], [FBZSFDM], [LLL], [GGLX]) VALUES (N'2', N'人人享有肾脏健康，早筛早诊守护生命之源——第一附属医院仙葫院区肾·风湿·内分泌科举办肾病日义诊活动', N'3月12日，第一附属医院仙葫院区肾·风湿·内分泌科携手仙葫院区心血管内科、神经内科、营养科、药学部多学科专家，在仙葫院区医院大门广场举办主题为“人人享有肾脏健康”的大型义诊活动。上午8点，义诊现场排起长龙，众多市民前来参与免费检测项目，包括血压、血糖、血尿酸及铁蛋白检测。医务人员对存在异常值的市民进行了风险评估、健康宣教，并建议其进一步就诊。由肾·风湿·内分泌科副主任（主持工作）黄雪霞领衔的“多学科护肾天团”为市民提供“一站式”诊疗服务。专家们针对市民关切的问题进行深度解读，并提供专业建议。健康讲座吸引了众多听众，传达了肾病预警信号，并提出有效预防及管理措施。有奖问答环节的趣味互动让保护肾脏健康理念深入人心。黄雪霞指出：“我国慢性肾脏病的患病率高达10.8%，知晓率仅为12%。通过早期筛查、有效控制基础疾病、避免使用肾毒性药物，可以显著延缓病情进展。”活动现场活动现场', N'<p><font size="4">3月12日，第一附属医院仙葫院区肾·风湿·内分泌科携手仙葫院区心血管内科、神经内科、营养科、药学部多学科专家，在仙葫院区医院大门广场举办主题为“人人享有肾脏健康”的大型义诊活动。</font></p><p><font size="4">上午8点，义诊现场排起长龙，众多市民前来参与免费检测项目，包括血压、血糖、血尿酸及铁蛋白检测。医务人员对存在异常值的市民进行了风险评估、健康宣教，并建议其进一步就诊。</font></p><p><font size="4">由肾·风湿·内分泌科副主任（主持工作）黄雪霞领衔的“多学科护肾天团”为市民提供“一站式”诊疗服务。专家们针对市民关切的问题进行深度解读，并提供专业建议。健康讲座吸引了众多听众，传达了肾病预警信号，并提出有效预防及管理措施。有奖问答环节的趣味互动让保护肾脏健康理念深入人心。</font></p><p><font size="4">黄雪霞指出：“我国慢性肾脏病的患病率高达10.8%，知晓率仅为12%。通过早期筛查、有效控制基础疾病、避免使用肾毒性药物，可以显著延缓病情进展。”</font></p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/14/441644_%E5%89%AF%E6%9C%AC.jpg" alt="441644_副本"/></p><p>活动现场</p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/14/601223.png"/></p><p>活动现场</p>', N'1', N'2025-03-15 11:50:55.747', N'123', N'1', N'4', N'形式主义')
 GO
 
 INSERT INTO [dbo].[XTGGK] ([ID], [GGBT], [GGNR], [GGNRHTML], [QYDM], [CJSJ], [FBZ], [FBZSFDM], [LLL], [GGLX]) VALUES (N'3', N'学校举办2025年春季学期药学类专场双选会暨“宏志助航计划”专场招聘会', N'&nbsp; &nbsp;&nbsp;3月10日，2025年春季学期药学类专场双选会暨“宏志助航计划”专场招聘会在我校仙葫校区举办。学校党委常委、副校长肖健，以及学工处、招就处、药学院和赛恩斯新医药学院等相关部门负责人到现场指导、推荐学生。&nbsp; &nbsp;&nbsp;本次双选会由药学院和赛恩斯新医药学院共同承办，来自广西区内外20多家医药类用人单位参会，为毕业生提供近600个就业岗位，吸引了300多名应届毕业生入场求职。&nbsp; &nbsp;&nbsp;肖健慰问了用人单位代表，感谢他们对学校人才培养和就业工作的支持，并听取他们对学校教育教学、就业服务工作的建议；还与参会毕业生亲切交流，鼓励同学们抓住机遇、主动出击，早日找到心仪工作。&nbsp;肖健副校长与招聘单位交流毕业生参加求职面试一对一简历诊断和面试指导&nbsp;', N'<p><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><font size="4">3月10日，2025年春季学期药学类专场双选会暨“宏志助航计划”专场招聘会在我校仙葫校区举办。学校党委常委、副校长肖健，以及学工处、招就处、药学院和赛恩斯新医药学院等相关部门负责人到现场指导、推荐学生。</font></p><p><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><font size="4">本次双选会由药学院和赛恩斯新医药学院共同承办，来自广西区内外20多家医药类用人单位参会，为毕业生提供近600个就业岗位，吸引了300多名应届毕业生入场求职。</font></p><p><span style="font-size: 14px; color: var(--bs-body-color); font-family: var(--bs-body-font-family); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">&nbsp; &nbsp;&nbsp;</span><font size="4">肖健慰问了用人单位代表，感谢他们对学校人才培养和就业工作的支持，并听取他们对学校教育教学、就业服务工作的建议；还与参会毕业生亲切交流，鼓励同学们抓住机遇、主动出击，早日找到心仪工作。&nbsp;</font></p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/13/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250313114330.jpg" alt="微信图片_20250313114330"/></p><p>肖健副校长与招聘单位交流</p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/12/9f0e8b2f2f462420f55c5e406324be8.jpg" alt="9f0e8b2f2f462420f55c5e406324be8"/></p><p>毕业生参加求职面试</p><p><img src="https://www.gxtcmu.edu.cn/upload/main/contentmanage/article/image/2025/03/12/%E5%9B%BE%E7%89%872(1).jpg" alt="图片2"/></p><p>一对一简历诊断和面试指导</p><p>&nbsp;</p>', N'1', N'2025-03-15 11:54:25.910', N'123', N'1', N'5', N'无用功')
@@ -51450,7 +51726,7 @@ GO
 
 EXEC sp_addextendedproperty
 'MS_Description', N'动作类型: 1 单位用户确认投递  2 单位用户回应投递  3 单位用户安排面试  4 单位用户录入结果 5学生预览岗位 6 学生投递 7 新增系统请求  8单位用户更新面试信息 9 单位用户取消面试 10学生确认面试11 单位申请招聘会
-12、招聘会审核 13 取消了招聘会的审核',
+12、招聘会审核 13 取消了招聘会的审核 、14 为学生推荐岗位',
 'SCHEMA', N'dbo',
 'TABLE', N'XXDMK',
 'COLUMN', N'DZLX'
@@ -51507,43 +51783,43 @@ GO
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'1', N'20213260035', N'学生投递了岗位', N'2025-03-09 22:20:26.900', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“特斯拉销售代表”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'2', N'msk', N'单位确认了投递', N'2025-03-09 22:20:37.413', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "特斯拉销售代表" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'2', N'msk', N'单位确认了投递', N'2025-03-09 22:20:37.413', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "特斯拉销售代表" 职位投递', N'1', N'2025-05-04 23:17:15.947')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'3', N'msk', N'单位回应了投递', N'2025-03-09 22:20:45.050', N'20213260035', N'0', N'2', N'3', N'4', N'安排面试！', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'3', N'msk', N'单位回应了投递', N'2025-03-09 22:20:45.050', N'20213260035', N'0', N'2', N'3', N'4', N'安排面试！', N'1', N'2025-05-04 23:17:15.947')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'4', N'msk', N'单位安排了面试', N'2025-03-09 22:21:03.630', N'20213260035', N'0', N'3', N'3', N'4', N'已经安排面试:特斯拉销售代表,面试时间：2025-03-10 11:00:00,面试地点:麻栗坡', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'4', N'msk', N'单位安排了面试', N'2025-03-09 22:21:03.630', N'20213260035', N'0', N'3', N'3', N'4', N'已经安排面试:特斯拉销售代表,面试时间：2025-03-10 11:00:00,面试地点:麻栗坡', N'1', N'2025-05-04 23:17:15.947')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'5', N'20213260035', N'学生确认了面试', N'2025-03-09 22:21:08.083', N'msk', N'0', N'10', N'4', N'3', N'学生:苏晨聪,确认了面试:“特斯拉销售代表”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'6', N'msk', N'单位开始了面试', N'2025-03-09 22:21:20.733', N'20213260035', N'0', N'1', N'3', N'4', N'面试信息:特斯拉销售代表,面试时间：2025-03-10 11:00:00,面试地点:麻栗坡', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'6', N'msk', N'单位开始了面试', N'2025-03-09 22:21:20.733', N'20213260035', N'0', N'1', N'3', N'4', N'面试信息:特斯拉销售代表,面试时间：2025-03-10 11:00:00,面试地点:麻栗坡', N'1', N'2025-05-04 23:17:15.947')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'7', N'msk', N'单位发布了面试结果', N'2025-03-09 22:21:33.550', N'20213260035', N'0', N'4', N'3', N'4', N'面试结果:录用,录入时间：2025-03-09 22:21:33', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'7', N'msk', N'单位发布了面试结果', N'2025-03-09 22:21:33.550', N'20213260035', N'0', N'4', N'3', N'4', N'面试结果:录用,录入时间：2025-03-09 22:21:33', N'1', N'2025-05-04 23:17:15.947')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'8', N'20213260026', N'学生投递了岗位', N'2025-03-10 11:14:21.940', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'9', N'msk', N'单位确认了投递', N'2025-03-10 11:16:54.453', N'20213260026', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'9', N'msk', N'单位确认了投递', N'2025-03-10 11:16:54.453', N'20213260026', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'1', N'2025-05-02 16:14:31.633')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'10', N'msk', N'单位回应了投递', N'2025-03-10 11:17:05.570', N'20213260026', N'0', N'2', N'3', N'4', N'安排面试了', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'10', N'msk', N'单位回应了投递', N'2025-03-10 11:17:05.570', N'20213260026', N'0', N'2', N'3', N'4', N'安排面试了', N'1', N'2025-05-02 16:14:31.633')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'11', N'msk', N'单位安排了面试', N'2025-03-10 11:17:37.337', N'20213260026', N'0', N'3', N'3', N'4', N'已经安排面试:AI算法工程师,面试时间：2025-03-11 10:00:00,面试地点:教学楼1楼', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'11', N'msk', N'单位安排了面试', N'2025-03-10 11:17:37.337', N'20213260026', N'0', N'3', N'3', N'4', N'已经安排面试:AI算法工程师,面试时间：2025-03-11 10:00:00,面试地点:教学楼1楼', N'1', N'2025-05-02 16:14:31.633')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'12', N'20213260026', N'学生确认了面试', N'2025-03-10 11:17:51.447', N'msk', N'0', N'10', N'4', N'3', N'学生:蒙思敏,确认了面试:“AI算法工程师”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'13', N'msk', N'单位开始了面试', N'2025-03-10 20:22:59.550', N'20213260026', N'0', N'1', N'3', N'4', N'面试开始，面试信息:AI算法工程师,面试时间：2025-03-11 10:00:00,面试地点:教学楼1楼', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'13', N'msk', N'单位开始了面试', N'2025-03-10 20:22:59.550', N'20213260026', N'0', N'1', N'3', N'4', N'面试开始，面试信息:AI算法工程师,面试时间：2025-03-11 10:00:00,面试地点:教学楼1楼', N'1', N'2025-05-02 16:14:31.633')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'14', N'msk', N'单位发布了面试结果', N'2025-03-10 20:23:21.107', N'20213260026', N'0', N'4', N'3', N'4', N'面试结果:不录用,录入时间：2025-03-10 20:23:21', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'14', N'msk', N'单位发布了面试结果', N'2025-03-10 20:23:21.107', N'20213260026', N'0', N'4', N'3', N'4', N'面试结果:不录用,录入时间：2025-03-10 20:23:21', N'1', N'2025-05-02 16:14:31.633')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'15', N'20213260024', N'学生投递了岗位', N'2025-03-10 20:59:07.873', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
@@ -51561,10 +51837,10 @@ GO
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'19', N'20213260023', N'学生投递了岗位', N'2025-03-10 21:03:37.500', N'msk', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'20', N'msk', N'单位确认了投递', N'2025-03-10 21:03:53.653', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'20', N'msk', N'单位确认了投递', N'2025-03-10 21:03:53.653', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'1', N'2025-05-04 23:17:15.947')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'21', N'msk', N'单位回应了投递', N'2025-03-10 21:04:00.137', N'20213260035', N'0', N'2', N'3', N'4', N'鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'21', N'msk', N'单位回应了投递', N'2025-03-10 21:04:00.137', N'20213260035', N'0', N'2', N'3', N'4', N'鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你鸡哔你', N'1', N'2025-05-04 23:17:15.947')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'22', N'msk', N'单位确认了投递', N'2025-03-10 21:05:06.637', N'20213260023', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
@@ -51594,25 +51870,25 @@ GO
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'30', N'20213260035', N'学生投递了岗位', N'2025-03-16 00:08:24.140', N'ozf', N'0', N'6', N'4', N'3', N'学生投递岗位:“信息科工作人员”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'31', N'ozf', N'单位确认了投递', N'2025-03-16 00:10:05.380', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'31', N'ozf', N'单位确认了投递', N'2025-03-16 00:10:05.380', N'20213260035', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'1', N'2025-05-04 23:17:15.947')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'32', N'ozf', N'单位回应了投递', N'2025-03-16 00:10:35.590', N'20213260035', N'0', N'2', N'3', N'4', N'安排了面试！~', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'32', N'ozf', N'单位回应了投递', N'2025-03-16 00:10:35.590', N'20213260035', N'0', N'2', N'3', N'4', N'安排了面试！~', N'1', N'2025-05-04 23:17:15.947')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'33', N'ozf', N'单位安排了面试', N'2025-03-16 00:10:56.557', N'20213260035', N'0', N'3', N'3', N'4', N'已经安排面试:信息科工作人员,面试时间：2025-03-17 00:00:00,面试地点:教学楼1楼', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'33', N'ozf', N'单位安排了面试', N'2025-03-16 00:10:56.557', N'20213260035', N'0', N'3', N'3', N'4', N'已经安排面试:信息科工作人员,面试时间：2025-03-17 00:00:00,面试地点:教学楼1楼', N'1', N'2025-05-04 23:17:15.947')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'34', N'20213260026', N'学生投递了岗位', N'2025-03-17 21:24:38.883', N'ozf', N'0', N'6', N'4', N'3', N'学生投递岗位:“信息科工作人员”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'35', N'ozf', N'单位确认了投递', N'2025-03-17 21:25:15.960', N'20213260026', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'35', N'ozf', N'单位确认了投递', N'2025-03-17 21:25:15.960', N'20213260026', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'1', N'2025-05-02 16:14:31.633')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'36', N'ozf', N'单位回应了投递', N'2025-03-17 21:25:45.030', N'20213260026', N'0', N'2', N'3', N'4', N'同学，我已经为你安排了面试！', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'36', N'ozf', N'单位回应了投递', N'2025-03-17 21:25:45.030', N'20213260026', N'0', N'2', N'3', N'4', N'同学，我已经为你安排了面试！', N'1', N'2025-05-02 16:14:31.633')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'37', N'ozf', N'单位安排了面试', N'2025-03-17 21:26:43.847', N'20213260026', N'0', N'3', N'3', N'4', N'已经安排面试:信息科工作人员,面试时间：2025-03-26 12:00:00,面试地点:广西北海市北海市中医医院7楼人事处', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'37', N'ozf', N'单位安排了面试', N'2025-03-17 21:26:43.847', N'20213260026', N'0', N'3', N'3', N'4', N'已经安排面试:信息科工作人员,面试时间：2025-03-26 12:00:00,面试地点:广西北海市北海市中医医院7楼人事处', N'1', N'2025-05-02 16:14:31.633')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'38', N'20213260026', N'学生确认了面试', N'2025-03-17 21:27:21.947', N'ozf', N'0', N'10', N'4', N'3', N'学生:蒙敏,确认了面试:“信息科工作人员”', N'0', NULL)
@@ -51627,22 +51903,22 @@ GO
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'41', N'20213260021', N'学生投递了岗位', N'2025-04-15 13:40:31.247', N'billie', N'0', N'6', N'4', N'3', N'学生投递岗位:“AI算法工程师”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'42', N'billie', N'单位确认了投递', N'2025-04-15 13:41:12.420', N'20213260021', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'42', N'billie', N'单位确认了投递', N'2025-04-15 13:41:12.420', N'20213260021', N'0', N'1', N'3', N'4', N'单位收到了您的 "AI算法工程师" 职位投递', N'1', N'2025-05-04 23:15:15.540')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'43', N'billie', N'单位回应了投递', N'2025-04-15 13:41:24.650', N'20213260021', N'0', N'2', N'3', N'4', N'安排面试实施！！！！', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'43', N'billie', N'单位回应了投递', N'2025-04-15 13:41:24.650', N'20213260021', N'0', N'2', N'3', N'4', N'安排面试实施！！！！', N'1', N'2025-05-04 23:15:15.540')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'44', N'billie', N'单位安排了面试', N'2025-04-15 13:41:43.400', N'20213260021', N'0', N'3', N'3', N'4', N'已经安排面试:AI算法工程师,面试时间：2025-04-16 00:00:00,面试地点:教学楼11楼', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'44', N'billie', N'单位安排了面试', N'2025-04-15 13:41:43.400', N'20213260021', N'0', N'3', N'3', N'4', N'已经安排面试:AI算法工程师,面试时间：2025-04-16 00:00:00,面试地点:教学楼11楼', N'1', N'2025-05-04 23:15:15.540')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'45', N'20213260021', N'学生确认了面试', N'2025-04-15 14:00:02.270', N'billie', N'0', N'10', N'4', N'3', N'学生:陈洁梅,确认了面试:“AI算法工程师”', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'46', N'ozf', N'单位确认了投递', N'2025-04-15 15:37:13.987', N'20213260021', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'46', N'ozf', N'单位确认了投递', N'2025-04-15 15:37:13.987', N'20213260021', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'1', N'2025-05-04 23:15:15.540')
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'47', N'billie', N'单位取消了面试', N'2025-04-15 22:13:40.790', N'20213260021', N'0', N'9', N'3', N'4', N'取消了面试:AI算法工程师,面试时间：2025-04-16 00:00:00,面试地点:教学楼11楼', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'47', N'billie', N'单位取消了面试', N'2025-04-15 22:13:40.790', N'20213260021', N'0', N'9', N'3', N'4', N'取消了面试:AI算法工程师,面试时间：2025-04-16 00:00:00,面试地点:教学楼11楼', N'1', N'2025-05-04 23:15:15.540')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'48', N'20213260045', N'学生投递了岗位', N'2025-04-15 23:10:56.540', N'ozf', N'0', N'6', N'4', N'3', N'学生投递岗位:“信息科工作人员”', N'0', NULL)
@@ -51651,7 +51927,7 @@ GO
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'49', N'ozf', N'单位确认了投递', N'2025-04-15 23:11:07.473', N'20213260045', N'0', N'1', N'3', N'4', N'单位收到了您的 "信息科工作人员" 职位投递', N'0', NULL)
 GO
 
-INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'50', N'ozf', N'单位回应了投递', N'2025-04-15 23:11:25.470', N'20213260021', N'0', N'2', N'3', N'4', N'657758887', N'0', NULL)
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'50', N'ozf', N'单位回应了投递', N'2025-04-15 23:11:25.470', N'20213260021', N'0', N'2', N'3', N'4', N'657758887', N'1', N'2025-05-04 23:15:15.540')
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'51', N'ozf', N'单位回应了投递', N'2025-04-15 23:11:59.223', N'20213260045', N'0', N'2', N'3', N'4', N'000000000000000', N'0', NULL)
@@ -51679,6 +51955,567 @@ INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], 
 GO
 
 INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'59', N'ozf', N'单位发布了面试结果', N'2025-04-22 14:42:53.747', N'20213260045', N'0', N'4', N'3', N'4', N'面试结果:多轮面试,录入时间：2025-04-22 14:42:53', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'60', N'twq', N'为学生推荐岗位', N'2025-05-04 23:13:11.760', N'20213260021', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:信息科工作人员,推荐理由:陈嘉敏！！,推荐时间：2025-05-04 23:13:11', N'1', N'2025-05-04 23:15:15.540')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'64', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.417', N'20223260013', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'65', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.417', N'20223260050', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'66', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260041', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'67', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260035', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'68', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260055', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'69', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260056', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'70', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260052', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'71', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260027', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'72', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260012', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'73', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260024', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'74', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260006', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'75', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260026', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'76', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260060', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'77', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260029', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'78', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260016', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'79', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260030', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'80', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260025', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'81', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260038', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'82', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260014', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'83', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260037', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'84', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260003', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'85', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260036', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'86', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260008', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'87', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260005', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'88', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260051', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'89', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260004', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'90', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260046', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'91', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260018', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'92', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260001', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'93', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260020', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'94', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260053', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'95', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260044', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'96', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260007', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'1', N'2025-05-04 23:26:19.103')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'97', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260039', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'98', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260054', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'99', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260058', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'100', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260049', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'101', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260034', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'102', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260043', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'103', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260002', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'104', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260028', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'105', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260033', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'106', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260010', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'107', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260040', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'108', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260042', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'109', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260011', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'110', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260009', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'111', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260019', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'112', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260021', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'113', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260057', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'114', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260023', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'115', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260015', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'116', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260059', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'117', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.420', N'20223260032', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'118', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260004', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'119', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260037', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'120', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260001', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'121', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260013', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'122', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260047', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'123', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260003', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'124', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260035', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'1', N'2025-05-04 23:17:15.947')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'125', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260007', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'126', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260008', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'127', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260030', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'128', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260023', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'129', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260016', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'130', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260006', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'131', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260026', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'132', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260018', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'133', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260010', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'134', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260020', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'135', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260002', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'136', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260039', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'137', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260021', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'138', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260014', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'139', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'1', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'140', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260044', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'141', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.447', N'20213260022', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'142', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260045', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'143', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260017', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'144', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260005', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'145', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260015', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'146', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260046', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'147', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260032', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'148', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260038', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'149', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260012', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'150', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260024', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'151', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260019', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'152', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260027', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'153', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260028', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'154', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260041', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'155', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260049', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'156', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.450', N'20213260078', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:实施工程师2测试版本,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'157', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.470', N'20223260013', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'158', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.470', N'20223260050', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'159', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.470', N'20223260041', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'160', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260035', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'161', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260055', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'162', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260056', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'163', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260052', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'164', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260027', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'165', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260012', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'166', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260024', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'167', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260006', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'168', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260026', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'169', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260060', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'170', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260029', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'171', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260016', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'172', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260030', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'173', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260025', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'174', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260038', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'175', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260014', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'176', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260037', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'177', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260003', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'178', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260036', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'179', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260008', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'180', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260005', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'181', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260051', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'182', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260004', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'183', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260046', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'184', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260018', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'185', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260001', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'186', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260020', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'187', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260053', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'188', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260044', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'189', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260007', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'1', N'2025-05-04 23:26:19.103')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'190', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260039', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'191', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260054', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'192', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260058', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'193', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260049', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'194', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260034', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'195', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260043', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'196', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260002', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'197', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260028', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'198', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260033', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'199', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260010', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'200', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260040', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'201', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260042', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'202', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260011', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'203', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260009', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'204', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260019', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'205', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260021', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'206', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260057', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'207', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260023', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'208', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260015', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'209', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260059', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'210', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.473', N'20223260032', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'211', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260004', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'212', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260037', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'213', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260001', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'214', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260013', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'215', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260047', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'216', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260003', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'217', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260035', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'1', N'2025-05-04 23:17:15.947')
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'218', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260007', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'219', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260008', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'220', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260030', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'221', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260023', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'222', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260016', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'223', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.577', N'20213260006', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'224', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260026', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'225', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260018', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'226', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260010', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'227', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260020', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'228', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260002', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'229', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260039', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'230', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260021', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'231', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260014', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'232', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'1', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'233', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260044', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'234', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260022', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'235', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260045', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'236', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260017', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'237', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260005', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'238', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260015', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'239', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260046', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'240', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260032', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'241', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260038', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'242', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260012', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'243', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260024', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'244', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260019', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'245', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260027', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'246', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260028', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'247', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260041', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'248', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260049', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
+GO
+
+INSERT INTO [dbo].[XXDMK] ([ID], [CFZ], [CFZXW], [CFSJ], [JSZ], [QBBZ], [DZLX], [CFZSFDM], [JSZSFDM], [DZNR], [YDBZ], [YDSJ]) VALUES (N'249', N'twq', N'为学生推荐岗位', N'2025-05-04 23:16:55.580', N'20213260078', N'0', N'14', N'2', N'4', N'唐梧倩 为你推荐岗位:AI算法工程师,推荐理由:很适合信管,推荐时间：2025-05-04 23:16:55', N'0', NULL)
 GO
 
 SET IDENTITY_INSERT [dbo].[XXDMK] OFF
@@ -52957,6 +53794,10 @@ BEGIN
 	 TRUNCATE TABLE MSFPK -- 面试复盘库
 		TRUNCATE TABLE FPWTBQK -- 复盘问题标签库
 		TRUNCATE TABLE MSFPWTK --面试复盘问题库
+
+		
+			TRUNCATE TABLE TJGWK  --推荐库信息
+			TRUNCATE TABLE TJDXK  --推荐对象信息
 END
 GO
 
@@ -54504,6 +55345,44 @@ GO
 
 
 -- ----------------------------
+-- Procedure structure for usp_GetXsxxk
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetXsxxk]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_GetXsxxk]
+GO
+
+CREATE PROCEDURE [dbo].[usp_GetXsxxk]
+		@BYYHM int ,
+		@YHM nvarchar(50),
+		@STUID int
+		as
+BEGIN  
+    /*  
+		
+        作用：获取学生信息 XSXXK数据
+        时间：2025年2月14日  
+		实例： exec usp_GetXsxxk 1,'20183014062',-1
+    */  
+	--exec LuodengTable 'XSXXK'
+
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;  
+
+	select a.*,b.SSNJ,b.SSBJ,b.XSXB,b.XSXM,b.YHM,b.FZJS,b.XSXH into #temp FROM XSXXK a
+		left join DATA_STUDENT b on a.STUID=b.ID
+
+		if @BYYHM=1 
+			select * from #temp where  YHM=@YHM 
+		else
+			select * from #temp  where STUID=@STUID
+
+		DROP TABLE #temp;
+
+END
+GO
+
+
+-- ----------------------------
 -- Procedure structure for usp_getWaitAddMS
 -- ----------------------------
 IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_getWaitAddMS]') AND type IN ('P', 'PC', 'RF', 'X'))
@@ -54593,6 +55472,76 @@ BEGIN
 				left join DATA_GWDMK d on a.GWDM=d.ID
 				left join GLYDMK e on a.FQZ=e.DLZH -- 可能是管理员发布的岗位，用于获取发布者姓名
 			where a.XSDM=(select ID from DATA_STUDENT where YHM=@YHM) and a.QRDM=0 and a.QYDM=1
+END
+GO
+
+
+-- ----------------------------
+-- Procedure structure for usp_GetTjGwData
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_GetTjGwData]') AND type IN ('P', 'PC', 'RF', 'X'))
+	DROP PROCEDURE[dbo].[usp_GetTjGwData]
+GO
+
+CREATE PROCEDURE [dbo].[usp_GetTjGwData]
+		@YHM nvarchar(50),
+		@YHSFDM int 
+		as
+BEGIN  
+    /*  
+		
+        作用：获取推荐的岗位信息
+        时间：2025年2月14日  
+		实例： 
+		解释：学生获取（所属范围），教师获取（自己发布的），管理员获取（全部）
+    */  
+	--exec LuodengTable 'XSXXK'
+
+    -- 防止额外结果集干扰SELECT语句  
+    SET NOCOUNT ON;  
+	if @YHSFDM=2 --是教师获取，获取自己发布的
+			select a.*,
+			b.*,
+			e.XLMC,
+			e.XLMS,
+			case 
+				when a.TJRSFDM=2 then  c.JSMC
+				when a.TJRSFDM=1 then d.MC
+			end as 'TJRXM', -- 推荐人姓名
+			(select count(*) from TJDXK where TJDM =a.ID ) as 'SJDXSL', -- 涉及对象数量
+			(select count(*) from TJDXK where TJDM =a.ID and DXLX=1 ) as 'ZDXSSL', -- 针对学生数量
+			(select count(*) from TJDXK where TJDM =a.ID and DXLX=2 ) as 'ZDBJSL' -- 针对班级数量
+			from TJGWK a 
+				left join DATA_GWDMK b on a.GWDM=b.ID and b.QYDM=1
+				left join JSDMK c on a.TJR=c.DLZH and a.TJRSFDM=2
+				left join GLYDMK d on a.TJR=d.DLZH and a.TJRSFDM=1
+				left join XLTTK e on b.ZDXLYQ =e.ID
+			 where a.TJR=@YHM and a.TJRSFDM=@YHSFDM
+		if @YHSFDM=4 --学生获取，只获取涉及自己的
+			select a.*,
+			b.*,
+			e.XLMC,
+			e.XLMS,
+			case 
+				when a.TJRSFDM=2 then  c.JSMC
+				when a.TJRSFDM=1 then d.MC
+			end as 'TJRXM', -- 推荐人姓名
+			(select count(*) from TJDXK where TJDM =a.ID ) as 'SJDXSL', -- 涉及对象数量
+			(select count(*) from TJDXK where TJDM =a.ID and DXLX=1 ) as 'ZDXSSL', -- 针对学生数量
+			(select count(*) from TJDXK where TJDM =a.ID and DXLX=2 ) as 'ZDBJSL' -- 针对班级数量
+			from TJGWK a 
+				left join DATA_GWDMK b on a.GWDM=b.ID and b.QYDM=1
+				left join JSDMK c on a.TJR=c.DLZH and a.TJRSFDM=2
+				left join GLYDMK d on a.TJR=d.DLZH and a.TJRSFDM=1 
+				left join XLTTK e on b.ZDXLYQ =e.ID
+			 where  a.ID in (select TJDM FROM TJDXK where DXLX=1 and DXDM=(select id from DATA_STUDENT where YHM=@YHM) ) or
+			        a.ID in (select TJDM FROM TJDXK where DXLX=2 and DXDM=(select SSBJ from DATA_STUDENT where YHM=@YHM) )
+
+
+	--exec LuodengTable 'TJDXK'
+	--exec LuodengTable 'TJGWK'
+	--exec LuodengTable 'DATA_GWDMK'
+ 
 END
 GO
 
@@ -55820,6 +56769,165 @@ GO
 
 
 -- ----------------------------
+-- Triggers structure for table TJDXK
+-- ----------------------------
+CREATE TRIGGER [dbo].[trg_after_insert_TJDXK]
+ON [dbo].[TJDXK]
+WITH EXECUTE AS CALLER
+FOR INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+	-- 通知给涉及的学生
+
+	--exec LuodengTable 'TJGWK'
+	--exec LuodengTable 'TJDXK'
+
+	--1、先看推荐到学生的--获取学生代码
+   -- select b.DXDM from TJDXK b where INSERTED b.TJDM in (select * from TJGWK a where a.YJLB=1 and a.QYDM=1 )
+--如果希望包含重复值，则用 UNION ALL；如果想去重，用 UNION。 #表自动清除
+   CREATE TABLE #STUIDLIST (
+    STUID INT
+		);
+
+	-- 临时表插入学生ID（已去重）
+-- 插入学生ID到临时表
+INSERT INTO #STUIDLIST (STUID)
+SELECT DXDM FROM INSERTED WHERE DXLX = 1
+UNION
+SELECT ID FROM DATA_STUDENT WHERE SSBJ IN (
+    SELECT DXDM FROM INSERTED WHERE DXLX = 2
+);
+
+-- 触发者信息
+DECLARE @CFZ NVARCHAR(50), @CFZSFDM INT,@TJMS NVARCHAR(500),@TJSJ datetime;
+
+SELECT TOP 1 
+    @CFZ = tj.TJR, 
+    @CFZSFDM = tj.TJRSFDM
+FROM TJGWK tj
+JOIN INSERTED i ON tj.ID = i.TJDM;
+
+-- 定义遍历变量
+DECLARE @STUID INT;
+DECLARE @YHM NVARCHAR(50);--学生用户名
+DECLARE @GWMC NVARCHAR(100);
+DECLARE @DZNR NVARCHAR(500);
+DECLARE @CFZXM NVARCHAR(50);--触发者姓名
+
+-- 游标式处理（WHILE 模拟）
+DECLARE @rowcount INT = 0;
+
+-- 添加一个临时表带自增主键做“游标索引”
+CREATE TABLE #IndexList (
+    RowID INT IDENTITY(1,1),
+    STUID INT
+);
+
+INSERT INTO #IndexList (STUID)
+SELECT STUID FROM #STUIDLIST;
+
+SELECT @rowcount = COUNT(*) FROM #IndexList;
+
+DECLARE @i INT = 1;
+
+-- 获取岗位信息、推荐信息
+    SELECT 
+        @GWMC = f.GWMC,
+		@TJMS=g.TJMS,
+		@TJSJ=g.TJSJ
+    FROM INSERTED i
+     left JOIN TJGWK g ON g.ID = i.TJDM
+	 left join DATA_GWDMK f ON g.GWDM=f.ID
+
+-- 获取推荐者信息
+if @CFZSFDM=2 
+	select @CFZXM=JSMC from JSDMK where DLZH=@CFZ
+if @CFZSFDM=1 
+	select @CFZXM=MC from GLYDMK where DLZH=@CFZ
+
+WHILE @i <= @rowcount
+BEGIN
+    -- 获取当前学生 ID
+    SELECT @STUID = STUID FROM #IndexList WHERE RowID = @i;
+
+    -- 获取学生用户名
+    SELECT @YHM = YHM FROM DATA_STUDENT WHERE ID = @STUID;
+
+    
+
+    -- 组装动作内容
+    SET @DZNR = @CFZXM+' 为你推荐岗位:' + @GWMC + ',推荐理由:' + @TJMS+',推荐时间：' + CONVERT(VARCHAR, @TJSJ, 120) ;
+
+    -- 插入消息
+    INSERT INTO XXDMK (
+        CFZ,
+        CFZXW,
+        JSZ,
+        DZLX,
+        CFZSFDM,
+        JSZSFDM,
+        DZNR
+    )
+    VALUES (
+        @CFZ,  --触发者
+        '为学生推荐岗位',--触发者行为
+        @YHM,--接收者用户名
+        14, --动作类型
+        @CFZSFDM,--触发者SFDM
+        4,--接收者身份代码
+        @DZNR --动作内容
+    );
+
+    SET @i = @i + 1;
+END
+
+-- 清理
+DROP TABLE #IndexList;
+
+
+								 
+END;
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table TJDXK
+-- ----------------------------
+ALTER TABLE [dbo].[TJDXK] ADD CONSTRAINT [PK_TJDXK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Triggers structure for table TJGWK
+-- ----------------------------
+CREATE TRIGGER [dbo].[trg_after_delete_TJGWK]
+ON [dbo].[TJGWK]
+WITH EXECUTE AS CALLER
+FOR DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+	-- 删除推荐岗位信息，就会联动删除对象
+	delete from TJDXK where TJDM =(select ID from deleted)
+	
+END;
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table TJGWK
+-- ----------------------------
+ALTER TABLE [dbo].[TJGWK] ADD CONSTRAINT [PK_TJGWK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
 -- Primary Key structure for table XLTTK
 -- ----------------------------
 ALTER TABLE [dbo].[XLTTK] ADD CONSTRAINT [PK__xlttk__3213E83F0F1C9186] PRIMARY KEY CLUSTERED ([ID])
@@ -55841,6 +56949,15 @@ GO
 -- Primary Key structure for table XSCJDK
 -- ----------------------------
 ALTER TABLE [dbo].[XSCJDK] ADD CONSTRAINT [PK_XSCJDK] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table XSXXK
+-- ----------------------------
+ALTER TABLE [dbo].[XSXXK] ADD CONSTRAINT [PK_XSXXK] PRIMARY KEY CLUSTERED ([ID])
 WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
 ON [PRIMARY]
 GO

@@ -368,7 +368,6 @@ export default {
         console.error('获取职位信息失败,网络错误！', error);
         this.$message.error('获取职位信息失败:' + error.message);
       });
-
     },
 
     // 获取当前用户所属单位信息

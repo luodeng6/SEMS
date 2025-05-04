@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sems.sems.Mapper.XsxxkMapper">
+    <insert id="insertXSXXK" parameterType="org.sems.sems.entity.Xsxxk">
+        INSERT INTO XSXXK
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">ID,</if>
+            <if test="stuid != null">STUID,</if>
+            <if test="yxdz != null">YXDZ,</if>
+            <if test="sfcs != null">SFCS,</if>
+            <if test="lxdh != null">LXDH,</if>
+            <if test="xszy != null">XSZY,</if>
+            <if test="szxx != null">SZXX,</if>
+            <if test="rxnf != null">RXNF,</if>
+            <if test="bynf != null">BYNF,</if>
+            <if test="xw != null">XW,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="stuid != null">#{stuid},</if>
+            <if test="yxdz != null">#{yxdz},</if>
+            <if test="sfcs != null">#{sfcs},</if>
+            <if test="lxdh != null">#{lxdh},</if>
+            <if test="xszy != null">#{xszy},</if>
+            <if test="szxx != null">#{szxx},</if>
+            <if test="rxnf != null">#{rxnf},</if>
+            <if test="bynf != null">#{bynf},</if>
+            <if test="xw != null">#{xw},</if>
+        </trim>
+    </insert>
+
+    <update id="updateXSXXK" parameterType="org.sems.sems.entity.Xsxxk">
+        UPDATE XSXXK
+        <set>
+            <if test="yxdz != null">YXDZ = #{yxdz},</if>
+            <if test="sfcs != null">SFCS = #{sfcs},</if>
+            <if test="lxdh != null">LXDH = #{lxdh},</if>
+            <if test="xszy != null">XSZY = #{xszy},</if>
+            <if test="szxx != null">SZXX = #{szxx},</if>
+            <if test="rxnf != null">RXNF = #{rxnf},</if>
+            <if test="bynf != null">BYNF = #{bynf},</if>
+            <if test="xw != null">XW = #{xw},</if>
+        </set>
+        WHERE STUID = #{stuid}
+    </update>
+
+</mapper>
+

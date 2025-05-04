@@ -1,8 +1,10 @@
 package org.sems.sems.service.impl;
 
-import org.sems.sems.Mapper.XsxxkMapper;
-import org.sems.sems.Mapper.XxdmkMapper;
-import org.sems.sems.service.XxdmkService;
+import org.sems.sems.Mapper.TjdxkMapper;
+import org.sems.sems.Mapper.TjgwkMapper;
+import org.sems.sems.entity.Tjdxk;
+import org.sems.sems.entity.Tjgwk;
+import org.sems.sems.service.TjgwkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -11,34 +13,60 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 @Service
-public class XxdmkServiceImpl implements XxdmkService {
-
+public class TjgwkServiceImpl implements TjgwkService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Autowired
-    private XxdmkMapper xxdmkMapper;
+    private TjgwkMapper tjgwkMapper;
     /**
-     * 获取消息信息
-     *
+     * 获取推荐岗位信息
      * @param yhm    用户名
      * @param yhsfdm 用户身份代码
-     * @return Map<String, Object>
+     * @return 推荐岗位信息
      */
     @Override
-    public Map<String, Object> getXxdmk(String yhm, int yhsfdm) {
+    public Map<String, Object> getTjgwk(String yhm, int yhsfdm) {
         Map<String, Object> resultMap = new HashMap<>();
         try {
-            // 处理获取消息信息
+            // 处理获取投递简历列表逻辑
             List<Map<String, Object>> resultList = new ArrayList<>();
             resultList = jdbcTemplate.queryForList(
-                    "{call usp_getXxdmkData(?,?)}", yhsfdm, yhm);
+                    "{call usp_GetTjGwData(?,?)}",yhm,yhsfdm);
             resultMap.put("data", resultList);
             resultMap.put("code", 200);
             resultMap.put("msg", "success");
             resultMap.put("result", true);
-            return resultMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultMap.put("code", 500);
+            resultMap.put("msg", "server error");
+            resultMap.put("result", false);
+            resultMap.put("data", e.getMessage());
+        }
+        return resultMap;
+    }
+    /**
+     * 插入推荐岗位信息
+     *
+     * @param tjgwk 推荐岗位信息
+     * @return 插入结果
+     */
+    @Override
+    public Map<String, Object> insertTjgwk(Tjgwk tjgwk) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            //  添加工作经历数据
+            if (tjgwkMapper.insertNew(tjgwk) > 0) {
+                resultMap.put("code", 200);
+                resultMap.put("msg", "success");
+                resultMap.put("result", true);
+                resultMap.put("data",tjgwk);
+            } else {
+                resultMap.put("code", 500);
+                resultMap.put("msg", "database error");
+                resultMap.put("result", false);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             resultMap.put("code", 500);
@@ -49,23 +77,24 @@ public class XxdmkServiceImpl implements XxdmkService {
         return resultMap;
     }
 
+    @Autowired
+    private TjdxkMapper tjdxkMapper;
     /**
-     * 设置已读
+     * 插入推荐对象信息
      *
-     * @param yhm    用户名
-     * @param yhsfdm 用户身份代码
-     * @return Map<String, Object>
+     * @param tjdxk 推荐对象信息
+     * @return 插入结果
      */
     @Override
-    public Map<String, Object> setRead(String yhm, int yhsfdm) {
+    public Map<String, Object> insertTjdxk(Tjdxk tjdxk) {
         Map<String, Object> resultMap = new HashMap<>();
         try {
             //  添加工作经历数据
-            if (xxdmkMapper.setAllRead(yhm, yhsfdm) > 0) {
+            if (tjdxkMapper.insertTjdxk(tjdxk) > 0) {
                 resultMap.put("code", 200);
                 resultMap.put("msg", "success");
                 resultMap.put("result", true);
-                resultMap.put("data", "已读成功");
+                resultMap.put("data",tjdxk);
             } else {
                 resultMap.put("code", 500);
                 resultMap.put("msg", "database error");

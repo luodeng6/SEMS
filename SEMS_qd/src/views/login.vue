@@ -14,49 +14,44 @@
               class="text-red-500 text-sm">(建议您使用谷歌浏览器)</span></h3>
           <form @submit.prevent="login">
             <div class="mb-4">
-              <input v-model="username" type="text"
-                     class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                     placeholder="用户名（手机号）" required>
+              <input v-model="username" class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                     placeholder="用户名（手机号）"
+                     required type="text">
             </div>
             <div class="mb-4">
-              <input v-model="password" type="password"
-                     class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                     placeholder="密码">
+              <input v-model="password" class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                     placeholder="密码"
+                     type="password">
             </div>
             <div class="mb-4 flex">
-              <input type="text" v-model="captcha"
-                     class="w-2/3 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                     placeholder="验证码">
+              <input v-model="captcha" class="w-2/3 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                     placeholder="验证码"
+                     type="text">
               <img :src="captchaImage" alt="验证码" class="w-1/3 h-10 ml-2 rounded" @click="refreshCaptcha">
             </div>
             <div class="mb-4 flex items-center">
-              <input type="checkbox" id="rememberMe" class="mr-2">
-              <label for="rememberMe" class="text-sm text-gray-600">记住登录账号</label>
+              <input id="rememberMe" class="mr-2" type="checkbox">
+              <label class="text-sm text-gray-600" for="rememberMe">记住登录账号</label>
             </div>
-            <button type="submit"
-                    class="w-full bg-blue-500 text-white py-2 rounded-full hover:bg-blue-600 transition duration-300 mb-2">
+            <button class="w-full bg-blue-500 text-white py-2 rounded-full hover:bg-blue-600 transition duration-300 mb-2"
+                    type="submit">
               登录
             </button>
-<!--            <router-link to="/register">
-              <button type="button"
-                      class="w-full bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition duration-300 mb-4">
-                注册
-              </button>
-            </router-link>-->
+
             <div class="text-center mb-4">
-              <a href="#" class="text-red-500 hover:underline">忘记登录密码?</a>
+              <a class="text-red-500 hover:underline" href="#">忘记登录密码?</a>
             </div>
             <div class="flex justify-center space-x-4">
               <router-link to="/">
-              <button type="button"
-                      class="flex items-center bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300">
-                <img src=" " class="mr-2"> 返回首页
-              </button>
-              </router-link>
-                <button type="button"
-                        class="flex items-center bg-green-600 text-white py-2 px-4 rounded-full hover:bg-green-700 transition duration-300">
-<!--                  <img src=" " class="mr-2">--> 微信登录
+                <button class="flex items-center bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300"
+                        type="button">
+                  <img class="mr-2" src=" "> 返回首页
                 </button>
+              </router-link>
+              <button class="flex items-center bg-green-600 text-white py-2 px-4 rounded-full hover:bg-green-700 transition duration-300"
+                      type="button">
+                <!--                  <img src=" " class="mr-2">--> 微信登录
+              </button>
 
             </div>
           </form>
@@ -84,7 +79,7 @@ export default {
       username: '',
       password: '',
       captcha: '',
-      captchaImage: '/api/captcha', // 示例验证码的 API 地址
+      captchaImage: null, // 示例验证码的 API 地址
 
       visible: false, // 登录失败弹窗
       errorMessage: '密码错误，请重新输入',
@@ -100,7 +95,7 @@ export default {
       const DataForm = new FormData();
       DataForm.append('username', this.username);
       DataForm.append('password', this.password);
-      // DataForm.append('captcha', this.captcha); // 添加验证码
+       DataForm.append('captcha', this.captcha); // 添加验证码
 
       try {
         const response = await axios.post('/user/login', DataForm);
@@ -119,8 +114,8 @@ export default {
           await this.$router.push({name: 'AdminIndex'});
         } else {
           // 登录失败，显示错误信息
-          this.errorMessage = response.data.message || '登录失败，请检查用户名和密码';
-          // this.refreshCaptcha(); // 登录失败后刷新验证码
+          this.errorMessage = response.data.Msg || '登录失败，请检查用户名和密码';
+           this.refreshCaptcha(); // 登录失败后刷新验证码
           this.visible = true; // 显示登录失败弹窗
         }
       } catch (error) {
@@ -131,7 +126,11 @@ export default {
     },
     // 刷新验证码
     refreshCaptcha() {
-      this.captchaImage = `/api/captcha?${new Date().getTime()}`; // 添加时间戳以防止缓存
+      axios.get("/captcha").then(response => {
+        this.captchaImage = response.data.image;
+      }).catch(error => {
+        console.error(error);
+      });
     }
   }
 }

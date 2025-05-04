@@ -23,11 +23,11 @@
               </div>
               <div class="personal-info">
                 <h1 class="name">{{ studentData.xsxm }}</h1>
-                <h2 class="position">{{ personalInfo.position }}</h2>
+                <h2 class="position">{{ XSXXK.XSZY }}</h2>
                 <div class="contact-info">
-                  <p><i class="el-icon-message"></i> {{ personalInfo.email }}</p>
-                  <p><i class="el-icon-phone"></i> {{ personalInfo.phone }}</p>
-                  <p><i class="el-icon-location-outline"></i> {{ personalInfo.location }}</p>
+                  <p><i class="el-icon-message"></i> {{ XSXXK.YXDZ}}</p>
+                  <p><i class="el-icon-phone"></i> {{ XSXXK.LXDH }}</p>
+                  <p><i class="el-icon-location-outline"></i> {{ XSXXK.SFCS}}</p>
                 </div>
               </div>
             </div>
@@ -45,21 +45,42 @@
               </div>
             </section-box>
 
-            <!-- 专业证书 -->
+            <!-- 专业证书
+                {
+                    "ID": 12,
+                    "ZSMC": "计算机等级考试",
+                    "ZSKM": "计算机科学与技术",
+                    "ZSCJ": 90.0,
+                    "ZSYXQ": "2025-04-30T00:00:00.000+00:00",
+                    "BFJG": "国家计算机机构",
+                    "ZSFJ": "/img/upload/XSZSK/attachments/1745305423626_实施工程师工作周报_罗邓(2).doc",
+                    "ZSZP": "/img/upload/XSZSK/photos/1745305423593_d53f8794a4c27d1ed21bd726fb8cba6eddc450da9285.jpg",
+                    "BFSJ": "2025-03-31T18:00:00.000+00:00",
+                    "QYDM": 1,
+                    "STUID": 1224,
+                    "XSXM": "陈洁梅",
+                    "XSZP": "/img/upload/Userpofile/20213260021_1742207649940_.jpg",
+                    "XSXH": "20213260021",
+                    "XSXB": "女",
+                    "BJMC": "2021级信息管理与信息系统",
+                    "ZYMC": "信息管理与信息系统",
+                    "ZYLB": null
+                }
+            -->
             <section-box style="margin-top: 20px;" title="专业证书">
               <div
                   v-for="(cert, index) in certificates"
                   :key="'cert'+index"
                   class="certificate-item">
                 <div class="cert-header">
-                  <h3>{{ cert.name }}</h3>
-                  <el-tag :type="cert.status === '有效' ? 'success' : 'danger'" size="mini">
-                    {{ cert.status }}
+                  <h3>{{ cert.ZSMC }}</h3>
+                  <el-tag type="success" size="mini">
+                        有效
                   </el-tag>
                 </div>
-                <p class="issuer">{{ cert.issuer }}</p>
+                <p class="issuer">{{ cert.BFJG }}</p>
                 <div class="cert-footer">
-                  <span class="date">{{ cert.date }}</span>
+                  <span class="date">{{ changeDateFormat(cert.BFSJ) }}</span>
                   <div class="cert-actions">
                     <el-button
                         size="mini"
@@ -139,7 +160,7 @@
                   :key="index"
                   class="project-item">
                 <h3 class="project-title">{{ project.XMMC }}</h3>
-                <p class="project-desc">{{ project.XMNR }}</p>
+                <p class="project-desc" style="text-indent: 2em;">{{ project.XMNR ? project.XMNR.slice(0, 100) : '' }}</p>
                 <div class="tech-stack">
                   <span
                       v-for="(tech, i) in project.technologies"
@@ -154,40 +175,57 @@
             <!-- 学业成绩 -->
             <section-box style="margin-top: 20px;" title="学业成绩">
               <div class="transcript-container">
-                <el-table
-                    :data="transcripts"
-                    border
-                    size="mini"
-                    style="width: 100%">
-                  <el-table-column
-                      label="课程名称"
-                      prop="course"
-                      width="180">
-                  </el-table-column>
-                  <el-table-column
-                      label="成绩"
-                      width="120">
-                    <template slot-scope="scope">
-                      <el-tag :type="getGradeType(scope.row.score)">
-                        {{ scope.row.score }}
-                      </el-tag>
-                    </template>
-                  </el-table-column>
-                  <el-table-column
-                      label="学分"
-                      prop="credit"
-                      width="80">
-                  </el-table-column>
-                  <el-table-column
-                      label="详细信息">
-                    <template slot-scope="scope">
-                      <div class="course-detail">
-                        <p>教师：{{ scope.row.teacher }}</p>
-                        <p>学期：{{ scope.row.semester }}</p>
-                      </div>
-                    </template>
-                  </el-table-column>
-                </el-table>
+                <div>
+                  <el-table
+                      :data="paginatedTranscripts"
+                      border
+                      size="mini"
+                      style="width: 100%">
+
+                    <el-table-column
+                        label="课程名称"
+                        prop="KCMC"
+                        width="180">
+                    </el-table-column>
+
+                    <el-table-column
+                        label="成绩"
+                        width="120">
+                      <template slot-scope="scope">
+                        <el-tag :type="getGradeType(scope.row.KCCJ)">
+                          {{ scope.row.KCCJ }}
+                        </el-tag>
+                      </template>
+                    </el-table-column>
+
+                    <el-table-column
+                        label="学分"
+                        prop="XF"
+                        width="80">
+                    </el-table-column>
+
+                    <el-table-column
+                        label="详细信息">
+                      <template slot-scope="scope">
+                        <div class="course-detail">
+                          <p>教师：{{ scope.row.SKJS }}</p>
+                          <p>性质：{{ scope.row.KCXZ }}</p>
+                        </div>
+                      </template>
+                    </el-table-column>
+                  </el-table>
+
+                  <!-- 分页器 -->
+                  <el-pagination
+                      :current-page="currentPage"
+                      :page-size="pageSize"
+                      :total="transcripts.length"
+                      background
+                      layout="prev, pager, next, jumper"
+                      style="margin-top: 20px; text-align: right;"
+                      @current-change="handlePageChange">
+                  </el-pagination>
+                </div>
 
                 <div class="gpa-summary">
                   <el-row :gutter="20" style="margin-top: 15px;">
@@ -230,6 +268,8 @@ export default {
   },
   data() {
     return {
+      currentPage: 1,
+      pageSize: 5,  // 每页条数
       stuid: null,
       studentData: null,
       allgzjlsxk: [],
@@ -289,6 +329,7 @@ export default {
           docUrl: '/certificates/pmp-cert.pdf'
         }
       ],
+      XSXXK:{    },
       // 新增成绩数据
       transcripts: [
         {
@@ -316,11 +357,118 @@ export default {
     }
   },
   created() {
-
     this.getLoginUserInfo();
-
+  },
+  computed: {
+    paginatedTranscripts() {
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      return this.transcripts.slice(start, end);
+    }
   },
   methods: {
+    getXsxxk() {
+      axios.get("/xsxxk/getXxxk", {
+        params: {
+          STUID: -1,
+          BYYHM: 1,
+          YHM: this.UserInfo.username,
+        }
+      }).then(response => {
+        if (response.data.result) {
+          console.log(response.data.data);
+          if (response.data.data.length > 0) {
+              this.XSXXK=response.data.data[0];
+          } else {
+            $.confirm({
+              title: '警告提示',
+              content: '个人信息未完善，请及时完善！',
+              type: 'orange',
+              typeAnimated: true,
+              buttons: {
+                确定: {
+                  btnClass: 'btn-orange',
+                  action: () => {
+                    this.isShowXsxxkDialog = true;
+                    this.$router.push({name: 'StudentIndexView'});
+                  }
+                }
+              }
+            });
+          }
+        } else {
+          this.$message.error("获取学生信息失败:" + response.data.msg);
+        }
+      }).catch(error => {
+        console.error("获取学生信息失败！", error);
+        this.$message.error("获取学生信息失败：" + error.message);
+      })
+    },
+    changeDateFormat(isoString) {
+      const date = new Date(isoString);
+        // 获取年月日
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份从0开始，要+1
+      const day = String(date.getDate()).padStart(2, '0');
+      const formattedDate = `${year}-${month}-${day}`;
+      return formattedDate;
+    },
+    handlePageChange(page) {
+      this.currentPage = page;
+    },
+    getGradeType(grade) {
+      // 这里自己定义成绩对应的tag类型，比如：
+      if (grade >= 90) return 'success';
+      if (grade >= 75) return 'warning';
+      if (grade >= 60) return 'info';
+      return 'danger';
+    },
+    // 获取证书
+    async GetCertificatesData() {
+      try {
+        //Integer QYDM,Integer ISGETALL,Integer STUID
+        const res = await axios.get(`/xszsk/getXszsk?QYDM=2&ISGETALL=0&STUID=${this.UserInfo.id}`);
+        if (res.data.result) {
+          this.certificates = res.data.data;
+        } else {
+          $.confirm({
+            title: '提示',
+            content: '获取数据失败：' + res.data.msg,
+            type: 'red', // warning 样式
+            buttons: {
+              重试: {
+                btnClass: 'btn-orange',
+                action: () => {
+                  this.GetCertificatesData();
+                }
+              },
+              取消: () => {
+                this.$message('取消');
+              }
+            }
+          });
+        }
+      } catch (error) {
+        $.confirm({
+          title: '提示',
+          content: '新增失败：' + error.message,
+          type: 'red', // warning 样式
+          buttons: {
+            重试: {
+              btnClass: 'btn-orange',
+              action: () => {
+                this.GetCertificatesData();
+              }
+            },
+            取消: () => {
+              this.$message('取消');
+            }
+          }
+        });
+      }
+
+    },
+    // 获取项目成果
     getProjectData() {
       axios.get("/xmcgk/getXmcgk", {
         params: {
@@ -335,17 +483,9 @@ export default {
         console.log(error);
       });
     },
-
     // 新增证书查看方法
     viewCertificate(cert) {
       window.open(cert.docUrl, '_blank')
-    },
-
-    // 新增成绩类型判断
-    getGradeType(score) {
-      if (score >= 90) return 'success';
-      if (score >= 80) return 'warning';
-      return 'danger';
     },
     async getLoginUserInfo() {
       await axios.get('/user/checkSession').then(response => {
@@ -359,8 +499,9 @@ export default {
           this.UserInfo.name = response.data.name;
           this.UserInfo.role = response.data.role;
           this.UserInfo.username = response.data.username;
-
           this.getStudentDataByUsername(this.UserInfo.username); // 获取学生信息
+          this.getXsxxk(); // 获取学生信息
+          this.fetchScores(); // 获取成绩列表
         }
       }).catch(error => {
         EventBus.$emit('show-auth-popup');
@@ -369,6 +510,57 @@ export default {
           this.$router.push({name: 'StudentLoginView'});
         }, 1000);
       });
+    },
+    // 获取成绩列表
+    async fetchScores() {
+      /*  this.scoreList = [
+          { ID: 1, STUID: 'S001', KCMC: '数学', KCXZ: '必修', XF: 3, JD: 4.0, CJXZ: '正常', KCCJ: 95, SKJS: '张老师', QYDM: 'A1' },
+          { ID: 2, STUID: 'S002', KCMC: '英语', KCXZ: '选修', XF: 2, JD: 3.5, CJXZ: '正常', KCCJ: 88, SKJS: '李老师', QYDM: 'A1' }
+        ];*/
+      try {
+        this.isLoading = true;
+        const response = await axios.get(`/xscjdk/getXscjdk?QYDM=1&YHSFDM=4&YHM=${this.UserInfo.username}&STUID=-1`);
+        console.log(response.data);
+        this.isLoading = false;
+        if (response.data.result) {
+          this.transcripts = response.data.data;
+        } else {
+          $.confirm({
+            title: '提示',
+            content: '获取数据失败：' + response.data.msg,
+            type: 'red', // warning 样式
+            buttons: {
+              重试: {
+                btnClass: 'btn-orange',
+                action: () => {
+                  this.fetchScores();
+                }
+              },
+              取消: () => {
+                this.$message('取消');
+              }
+            }
+          });
+        }
+      } catch (error) {
+        console.error(error);
+        $.confirm({
+          title: '提示',
+          content: '获取数据失败：' + error,
+          type: 'red', // warning 样式
+          buttons: {
+            重试: {
+              btnClass: 'btn-orange',
+              action: () => {
+                this.fetchScores();
+              }
+            },
+            取消: () => {
+              this.$message('取消');
+            }
+          }
+        });
+      }
     },
     // 获取工作经历数据
     async getGzjlData() {
@@ -443,7 +635,6 @@ export default {
         }
       });
     },
-
     // 获取学生信息
     getStudentDataByUsername(yhm) {
       axios.get(`/student/getStudentByUsernameOrId?usernameOrId=${yhm}&type=username`).then(response => {
@@ -453,6 +644,7 @@ export default {
           this.stuid = this.UserInfo.id;
           this.loadData(response.data.data.id);// 获取学生信息
           this.getProjectData();// 获取项目成果
+          this.GetCertificatesData(); // 获取证书信息
         } else {
           this.$message.error("获取学生信息失败:" + response.data.msg);
         }
@@ -461,7 +653,6 @@ export default {
         this.$message.error("获取学生信息失败:" + error.message);
       });
     },
-
     // 获取学生信息
     async loadData(id) {
       axios.get(`/student/getStudentByUsernameOrId?usernameOrId=${id}&type=id`).then(response => {

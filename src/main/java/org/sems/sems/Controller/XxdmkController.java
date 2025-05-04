@@ -17,4 +17,9 @@ public class XxdmkController {
     public Map<String, Object> getXxdmk(String YHM,int YHSFDM) {
         return xxdmkService.getXxdmk(YHM,YHSFDM);
     }
+    // 设置全部已读
+    @RequestMapping("/setRead")
+    public Map<String, Object> setRead(String YHM,int YHSFDM) {
+        return xxdmkService.setRead(YHM,YHSFDM);
+    }
 }

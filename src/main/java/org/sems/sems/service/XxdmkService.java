@@ -10,4 +10,11 @@ public interface XxdmkService {
      * @return Map<String, Object>
      */
     Map<String, Object> getXxdmk(String yhm, int yhsfdm);
+    /**
+     * 设置已读
+     * @param yhm 用户名
+     * @param yhsfdm 用户身份代码
+     * @return Map<String, Object>
+     */
+    Map<String, Object> setRead(String yhm, int yhsfdm);
 }

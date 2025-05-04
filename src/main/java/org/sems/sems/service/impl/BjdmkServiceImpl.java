@@ -36,6 +36,29 @@ public class BjdmkServiceImpl implements BjdmkService {
         }
         return result;
     }
+
+    /**
+     * 获取指定教师的班级信息
+     *
+     * @param jsid 教师id
+     * @return 班级信息
+     */
+    @Override
+    public Map<String, Object> getBjdmkByJsid(int jsid) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("data", bjdmkMapper.getBjdmkByJsid(jsid));
+            result.put("code", 200);
+            result.put("msg", "success");
+            result.put("result", true);
+        } catch (Exception e) {
+            result.put("code", 500);
+            result.put("msg", "server error");
+            result.put("result", false);
+            e.printStackTrace();
+        }
+        return result;
+    }
 // TODO: Implement BjdmkService
 
 

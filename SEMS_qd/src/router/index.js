@@ -476,7 +476,18 @@ const routes = [
         , name: "StudentZpjzDetail"
         , component: () => import('@/views/student/StudentZpjzDetail.vue')
         , meta: {style: '学生', title: '单位招聘简章详情'}
-    }
+    },
+    {
+        path: '/stu/gonggaoDetail',
+        name: 'StudentGongGaoDetailView',
+        component: () => import('@/views/student/StudentGongGaoDetailView.vue'),
+        meta: {style: '学生', title: '公告详情'}
+    }, {
+        path: '/teacher/Job',
+        name: 'TeacherJobView',
+        component: () => import('@/views/teacher/TeacherJobView.vue'),
+        meta: {style: '老师', title: '岗位'}
+    },
 ]
 
 

@@ -6,7 +6,6 @@
     <main class="ml-64 flex-1 p-6">
 
       <div class="header animated-header">
-        <!--        <h1 class="text-dark font-bold">就业信息系统</h1>-->
         <div class="user-info">
           <div class="user-dropdown">
             <!-- 通知按钮和弹窗 -->
@@ -14,6 +13,7 @@
                 placement="bottom-end"
                 popper-class="notification-popover"
                 trigger="click"
+                v-model="popoverVisible"
                 width="400">
               <div class="notification-container">
                 <div class="message-list">
@@ -33,7 +33,6 @@
                                         "DZLX": 10,
                                         "CFSJ": "2025-02-28T06:44:33.453+00:00"
                                         },-->
-
                     <!-- 用户头像 -->
                     <el-avatar :size="40" :src="message.YHZP" class="mr-3"></el-avatar>
                     <div class="message-content">
@@ -55,7 +54,6 @@
                     :total="messages.length"
                     class="pagination"
                     layout="prev, pager, next"
-                    @current-change="handlePageChange"
                 />
               </div>
               <!-- 触发按钮 -->
@@ -76,15 +74,18 @@
 
 
             <img alt="用户头像" class="avatar animated-avatar" src="@/assets/avatar.png"/>
-            <span class="text-dark"> 用户: {{ UserInfo.name }}</span>
-            <el-dropdown style="margin-left: 10px;" trigger="click">
-              <span class="el-dropdown-link text-dark">点我查看<i
-                  class="el-icon-caret-bottom el-icon--right"></i></span>
+            <span class="text-dark"> {{ UserInfo.name }}</span>
+
+
+            <el-dropdown style="margin-left: 10px;">
+              <span class="el-dropdown-link">
+                其他<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item class="clearfix">评论
-                  <el-badge :value="12" class="mark"/>
-                </el-dropdown-item>
-                <el-dropdown-item class="clearfix">回复
+                <el-dropdown-item @click.native="grxxWh">个人信息维护</el-dropdown-item>
+                <el-dropdown-item>
+                  回复
                   <el-badge :value="3" class="mark"/>
                 </el-dropdown-item>
               </el-dropdown-menu>
@@ -93,37 +94,15 @@
         </div>
       </div>
 
-      <!--      <div class="stats animated-stats">
-              <div class="stat-card">
-                <h2>5 <i class="fas fa-envelope"></i></h2>
-                <p>新消息</p>
-              </div>
-              <div class="stat-card">
-                <h2>3 <i class="fas fa-briefcase"></i></h2>
-                <p>新职位</p>
-              </div>
-              <div class="stat-card">
-                <h2>31 <i class="fas fa-paper-plane"></i></h2>
-                <p>申请总数</p>
-              </div>
-              <div class="stat-card">
-                <h2>13 <i class="fas fa-clock"></i></h2>
-                <p>待审核职位</p>
-              </div>
-            </div>-->
-
       <div class="row" style="margin-top: 20px">
         <div class="col-md-4">
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
             <el-tab-pane label="最新公告" name="first">
 
               <div class="announcement-board luo">
-                <!--                  <div class="announcement-header">
-                                    <h2>公告栏</h2>
-                                  </div>-->
                 <div class="announcement-list">
 
-                  <div v-for="(item, index) in announcements" :key="index"
+                  <div  v-for="(item, index) in sortedAnnouncements.slice(0, 7)" :key="index"
                        class="announcement-item" @click="navigateTo(item)">
                     <div class="announcement-content">
                       <div style="display: flex;    justify-content: space-between;">
@@ -133,7 +112,6 @@
                           <span class="announcement-date">{{ formatDate(item.CJSJ) }}</span>
                         </div>
                       </div>
-
                       <p class="announcement-description"> {{ stripHtml(item.GGNR).slice(0, 30) + '...' }}</p>
                     </div>
                   </div>
@@ -230,6 +208,94 @@
           </div>
         </div>
 
+        <el-dialog
+            :before-close="handleXsxxkDialogClose"
+            :visible.sync="isShowXsxxkDialog"
+            title="编辑学生信息"
+            width="800px"
+        >
+          <el-form ref="formRef" :model="xsxxkForm" :rules="XsxxkRules" label-width="120px">
+            <!--            <el-form-item label="学生ID" prop="stuid">
+                          <el-input v-model="xsxxkForm.stuid"/>
+                        </el-form-item>-->
+
+            <el-form-item label="邮箱地址" prop="yxdz">
+              <el-input v-model="xsxxkForm.yxdz"/>
+            </el-form-item>
+
+            <el-form-item label="省份城市" prop="sfcs">
+              <el-input v-model="xsxxkForm.sfcs"/>
+            </el-form-item>
+
+            <el-form-item label="联系电话" prop="lxdh">
+              <el-input v-model="xsxxkForm.lxdh"/>
+            </el-form-item>
+
+            <el-form-item label="显示职业" prop="xszy">
+              <el-input v-model="xsxxkForm.xszy"/>
+            </el-form-item>
+
+            <el-form-item label="所在学校" prop="szxx">
+              <el-input v-model="xsxxkForm.szxx"/>
+            </el-form-item>
+
+            <el-form-item label="入学年份" prop="rxnf">
+              <el-date-picker
+                  v-model="xsxxkForm.rxnf"
+                  format="yyyy"
+                  placeholder="选择年份"
+                  style="width: 100%;"
+                  type="year"
+                  value-format="yyyy"
+              />
+            </el-form-item>
+            <el-form-item label="毕业年份" prop="bynf">
+              <el-date-picker
+                  v-model="xsxxkForm.bynf"
+                  format="yyyy"
+                  placeholder="选择年份"
+                  style="width: 100%;"
+                  type="year"
+                  value-format="yyyy"
+              />
+            </el-form-item>
+            <el-form-item label="学位" prop="xw">
+              <el-select v-model="xsxxkForm.xw" placeholder="请选择学位" filterable clearable>
+                <el-option label="学士学位（Bachelor’s Degree）" value="学士学位"></el-option>
+                <el-option label="文学学士（B.A.）" value="文学学士"></el-option>
+                <el-option label="理学学士（B.Sc.）" value="理学学士"></el-option>
+                <el-option label="工程学士（B.Eng.）" value="工程学士"></el-option>
+                <el-option label="法学学士（LL.B.）" value="法学学士"></el-option>
+                <el-option label="医学学士（MBBS）" value="医学学士"></el-option>
+                <el-option label="管理学学士（B.Mgmt.）" value="管理学学士"></el-option>
+                <el-option label="教育学学士（B.Ed.）" value="教育学学士"></el-option>
+
+                <el-option label="硕士学位（Master’s Degree）" value="硕士学位"></el-option>
+                <el-option label="文学硕士（M.A.）" value="文学硕士"></el-option>
+                <el-option label="理学硕士（M.Sc.）" value="理学硕士"></el-option>
+                <el-option label="工程硕士（M.Eng.）" value="工程硕士"></el-option>
+                <el-option label="工商管理硕士（MBA）" value="工商管理硕士"></el-option>
+                <el-option label="教育硕士（M.Ed.）" value="教育硕士"></el-option>
+                <el-option label="法律硕士（LL.M.）" value="法律硕士"></el-option>
+                <el-option label="医学硕士（M.Med.）" value="医学硕士"></el-option>
+
+                <el-option label="博士学位（Doctoral Degree）" value="博士学位"></el-option>
+                <el-option label="哲学博士（Ph.D.）" value="哲学博士"></el-option>
+                <el-option label="医学博士（M.D.）" value="医学博士"></el-option>
+                <el-option label="法学博士（LL.D.）" value="法学博士"></el-option>
+                <el-option label="教育学博士（Ed.D.）" value="教育学博士"></el-option>
+                <el-option label="工商管理博士（DBA）" value="工商管理博士"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-form>
+
+          <span slot="footer" class="dialog-footer">
+        <el-button @click="isShowXsxxkDialog = false">取消</el-button>
+        <el-button type="primary" @click="submitXsxxkForm">提交</el-button>
+      </span>
+        </el-dialog>
+
+
       </div>
     </main>
   </div>
@@ -242,6 +308,7 @@ import axios from 'axios';
 import {EventBus} from "@/event-bus";
 import StudentMenu from "@/components/student/Student_menu.vue";
 import {NOWIP} from "@/NOWIP"
+
 export default {
   components: {
     StudentMenu
@@ -249,6 +316,25 @@ export default {
   name: "StudentIndexView",
   data() {
     return {
+      popoverVisible:false,
+      xsxxkForm: {
+        id: null,
+        stuid: '',
+        yxdz: '',
+        sfcs: '',
+        lxdh: '',
+        xszy: '',
+        szxx: '',
+        rxnf: '',
+        bynf: '',
+        xw: ''
+      },
+      XsxxkRules: {
+        stuid: [{required: true, message: '请输入学生ID', trigger: 'blur'}],
+        yxdz: [{type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur'}],
+        lxdh: [{required: true, message: '请输入联系电话', trigger: 'blur'}]
+      },
+      isShowXsxxkDialog: false,
       // 确认代码为0，qydm为1 就是待确认
       statusConfig: {
         pending: {type: 'warning', text: '待确认'},
@@ -305,22 +391,32 @@ export default {
       ],
       jobs: [],
       value: new Date(),
-      systemInfo: [
-        {parameter: '年龄', value: '20'},
-        {parameter: '班级', value: '2021级信息管理与信息系统'},
-        {parameter: '性别', value: '男'},
-        {parameter: '就业状态', value: '求职中'},
-        {parameter: '学历', value: '本科'},
-        {parameter: '专业', value: '计算机科学与技术'},
-      ],
-      announcements: []
+      systemInfo: [],
+      announcements: [],
+      isHaveXsxxk: false,
+      xsxxDataDetail: {},
+
     }
   },
   computed: {
+    sortedAnnouncements() {
+      return this.announcements
+          .slice() // 复制数组避免修改原数据
+          .sort((a, b) => new Date(b.CJSJ) - new Date(a.CJSJ)); // 按发布时间倒序
+    },
     currentPageMessages() {
       const start = (this.currentPage - 1) * this.pageSize;
       const end = start + this.pageSize;
       return this.messages.slice(start, end);
+    }
+  },
+  watch: {
+    popoverVisible(val) {
+      if (!val) {
+        // 弹窗被关闭
+        console.log('Popover 已关闭')
+        this.handlePopoverClosed()
+      }
     }
   },
   mounted() {
@@ -330,23 +426,283 @@ export default {
     this.getJobData();
   },
   methods: {
+    handlePopoverClosed() {
+      // 在这里写你想做的关闭逻辑，比如保存状态、刷新消息等
+      console.log('执行已读');
+
+      axios.get("/xxdmk/setRead",{
+        params: {
+          YHM: this.UserInfo.username,
+          YHSFDM:4
+        }
+      }).then(response => {
+        if (!response.data.result) {
+          $.confirm({
+            title: '⚠️ 系统崩溃警告',
+            content: `<div style="color:#b00020;font-weight:bold;font-size:16px;">
+                更新消息状态失败（灾难性故障）：
+                <br><br>
+                <code>${response.data.data}</code>
+              </div>`,
+            type: 'red',
+            typeAnimated: true,
+            boxWidth: '500px',
+            useBootstrap: false, // 更自由的样式控制
+            backgroundDismiss: false, // 禁止点击背景关闭
+            theme: 'supervan', // 更显眼的主题风格
+            buttons: {
+              '⚠ 重新尝试': {
+                btnClass: 'btn-red',
+                action: () => {
+                  this.handlePopoverClosed(); // 重新执行
+                }
+              }
+            }
+          });
+        } else{
+          // 设置为已读
+          for (let i = 0; i < this.messages.length; i++) {
+              this.messages[i].YDBZ = 1;
+            }
+        }
+      }).catch(error => {
+        console.log(error);
+        $.confirm({
+          title: '⚠️ 网络崩溃警告',
+          content: `<div style="color:#b00020;font-weight:bold;font-size:16px;">
+                更新消息状态失败（一般性故障）：
+                <br><br>
+                <code>${error.message}</code>
+              </div>`,
+          type: 'red',
+          typeAnimated: true,
+          boxWidth: '500px',
+          useBootstrap: false, // 更自由的样式控制
+          backgroundDismiss: false, // 禁止点击背景关闭
+          theme: 'supervan', // 更显眼的主题风格
+          buttons: {
+            '⚠ 重新尝试': {
+              btnClass: 'btn-red',
+              action: () => {
+                this.handlePopoverClosed(); // 重新执行
+              }
+            }
+          }
+        });
+      });
+    },
+    // 获取学生信息
+    getStudentDataByUsername(yhm) {
+      axios.get(`/student/getStudentByUsernameOrId?usernameOrId=${yhm}&type=username`).then(response => {
+        if (response.data.result) {
+          this.UserInfo.id = response.data.data.id;
+          this.systemInfo.push({parameter: "姓名", value: response.data.data.xsxm});
+          this.systemInfo.push({parameter: "学号", value: response.data.data.yhm});
+          this.systemInfo.push({parameter: "性别", value: response.data.data.xsxb});
+          this.systemInfo.push({parameter: "班级", value: response.data.data.bjmc});
+          this.systemInfo.push({parameter: "专业", value: response.data.data.zy});
+          this.systemInfo.push({parameter: "就业状态", value: response.data.data.jyzt });
+         // this.systemInfo.push({parameter: "学位", value: response.data.data.xw});
+         /* {
+            "id": 34221,
+              "xsxm": "刘耔彤",
+              "xsxb": "女",
+              "birth": "1969-12-30T16:00:00.000+00:00",
+              "yhm": "20183014062",
+              "mm": "123",
+              "ssbj": 1283,
+              "zydm": 1108,
+              "sfzh": "230221200001031223",
+              "zzmm": "共青团员",
+              "ssnj": "2018",
+              "xz": "5",
+              "mz": "满族",
+              "xsxh": "20183014062",
+              "bjmc": "2018中医4班",
+              "xldm": 6,
+              "jyzt": 1000,
+              "xszp": "/img/upload/Userpofile/20183014062_1743319787107_.jpeg",
+              "qydm": 1,
+              "fzjs": 0
+          }*/
+        } else {
+          this.$message.error("获取学生信息失败:" + response.data.msg);
+        }
+      }).catch(error => {
+        console.log(error);
+        this.$message.error("获取学生信息失败，网络错误！");
+      });
+    },
+    //检查学生信息是否已经维护
+    getXsxxk() {
+      axios.get("/xsxxk/getXxxk", {
+        params: {
+          STUID: -1,
+          BYYHM: 1,
+          YHM: this.UserInfo.username,
+        }
+      }).then(response => {
+        if (response.data.result) {
+          console.log(response.data.data);
+          if (response.data.data.length > 0) {
+            this.isHaveXsxxk = true;
+               /*  "ID": 1,
+                "STUID": 34221,
+                "YXDZ": "3066992141@qq.com",
+                "SFCS": "广西南宁",
+                "LXDH": "19195872107",
+                "XSZY": "实施工程师",
+                "SZXX": "广西中医药大学",
+                "RXNF": 2021,
+                "BYNF": 2025,
+                "XW": "学士学位",
+                "SSNJ": "2018",
+                "SSBJ": 1283,
+                "XSXB": "女",
+                "XSXM": "刘耔彤",
+                "YHM": "20183014062",
+                "FZJS": 0,
+                "XSXH": "20183014062"*/
+
+            this.xsxxkForm.stuid=response.data.data[0].STUID;
+            this.xsxxkForm.yxdz=response.data.data[0].YXDZ;
+            this.xsxxkForm.sfcs=response.data.data[0].SFCS;
+            this.xsxxkForm.lxdh=response.data.data[0].LXDH;
+            this.xsxxkForm.xszy=response.data.data[0].XSZY;
+            this.xsxxkForm.szxx=response.data.data[0].SZXX;
+            this.xsxxkForm.rxnf= String(response.data.data[0].RXNF);
+            this.xsxxkForm.bynf=String(response.data.data[0].BYNF);
+            this.xsxxkForm.xw=response.data.data[0].XW;
+
+            this.systemInfo.push({parameter: "学位", value: response.data.data[0].XW})
+            this.systemInfo.push({parameter: "入学年份", value: response.data.data[0].RXNF})
+            this.systemInfo.push({parameter: "毕业年份", value: response.data.data[0].BYNF})
+
+          } else {
+            this.isHaveXsxxk = false;
+            this.xsxxkForm = {
+              id: null,
+              stuid: '',
+              yxdz: '',
+              sfcs: '',
+              lxdh: '',
+              xszy: '',
+              szxx: '',
+              rxnf: '',
+              bynf: '',
+              xw: ''
+            };
+            $.confirm({
+              title: '警告提示',
+              content: '个人信息未完善，请及时完善！',
+              type: 'orange',
+              typeAnimated: true,
+              buttons: {
+                确定: {
+                  btnClass: 'btn-orange',
+                  action: () => {
+                    this.isShowXsxxkDialog = true;
+                  }
+                },
+                取消: {
+                  btnClass: 'btn-default',
+                  action: () => {
+                    console.log('用户已取消提示');
+                  }
+                }
+              }
+            });
+          }
+        } else {
+          this.$message.error("获取学生信息失败:" + response.data.msg);
+        }
+      }).catch(error => {
+        console.error("获取学生信息失败！", error);
+        this.$message.error("获取学生信息失败：" + error.message);
+      })
+    },
+    //
+    submitXsxxkForm() {
+      this.$refs.formRef.validate((valid) => {
+            if (valid) {
+              // 发起保存请求（调用后端接口）
+              console.log(Number(this.xsxxkForm.rxnf));
+              console.log(this.xsxxkForm);
+              let dataForm = new FormData();
+              dataForm.append("stuid", this.UserInfo.id);
+              dataForm.append("yxdz", this.xsxxkForm.yxdz);
+              dataForm.append("sfcs", this.xsxxkForm.sfcs);
+              dataForm.append("lxdh", this.xsxxkForm.lxdh);
+              dataForm.append("xszy", this.xsxxkForm.xszy);
+              dataForm.append("szxx", this.xsxxkForm.szxx);
+              dataForm.append("rxnf", Number(this.xsxxkForm.rxnf));
+              dataForm.append("bynf", Number(this.xsxxkForm.bynf));
+              dataForm.append("xw", this.xsxxkForm.xw);
+
+              if (this.isHaveXsxxk) {
+                // 进行编辑
+                axios.post("/xsxxk/updateXsxxk", dataForm).then(response => {
+                  if (response.data.result) {
+                    this.$message.success("保存成功！");
+                    this.isShowXsxxkDialog = false;
+                  } else {
+                    this.$message.error("保存失败：" + response.data.msg);
+                  }
+                }).catch(error => {
+                  console.error("保存失败！", error);
+                  this.$message.error("保存失败：" + error.message);
+                });
+              } else {
+                // 进行新增
+                axios.post("/xsxxk/insertXsxxk", dataForm).then(response => {
+                  if (response.data.result) {
+                    this.$message.success("保存成功！");
+                    this.isHaveXsxxk = true;
+                    this.isShowXsxxkDialog = false;
+                  } else {
+                    this.$message.error("保存失败：" + response.data.msg);
+                  }
+                }).catch(error => {
+                  console.error("保存失败！", error);
+                  this.$message.error("保存失败：" + error.message);
+                });
+              }
+            } else {
+              console.log('验证失败');
+              return false;
+            }
+          }
+      );
+    },
+    // 关闭弹窗
+    handleXsxxkDialogClose(done) {
+      this.$confirm('确认关闭？未保存的更改将丢失。')
+          .then(_ => done())
+          .catch(_ => {
+          });
+    },
     lookJobDetail(gwdm) {
       this.$router.push({path: '/public/jobDetail', query: {id: gwdm}})
     },
+    grxxWh() {
+      console.log("个人信息维护");
+      this.isShowXsxxkDialog = true;
+    },
     getMsStatus(row) {
       if (row.QYDM === 0) {
-       // console.log("已取消");
+        // console.log("已取消");
         return this.statusConfig['canceled']; // 已取消
       } else if (row.QRDM === 1) {
-       // console.log("已确认");
+        // console.log("已确认");
         return this.statusConfig['confirmed']; // 已确认
       } else if (row.QRDM === 0 && row.QYDM === 1) {
-       // console.log("待确认");
+        // console.log("待确认");
         return this.statusConfig['pending'];// 待确认
       } else {
-       // console.log("未知状态");
+        // console.log("未知状态");
       }
-    },
+    }
+    ,
     // 新方法获取面试列表
     getInterviews() {
       axios.get("/msdmk/getInterviewsMainIdea?Type=3&yhm=" + this.UserInfo.username).then(response => {
@@ -360,7 +716,8 @@ export default {
         console.error("获取面试列表失败！", error);
         this.$message.error("获取面试数据失败：" + error.message);
       });
-    },
+    }
+    ,
     getJobData() {
       axios.get("/dataGwdmk/getGwdmkDataToInterface?IsJustOne=0&gwdm=0&QYDM=1&IsByFBZ=0&FBZ=null&SXBZ=2").then(res => {
         if (res.data.result) {
@@ -376,7 +733,8 @@ export default {
         console.error('获取职位信息失败,网络错误！', error);
         this.$message.error('获取职位信息失败:' + error.message);
       });
-    },
+    }
+    ,
     GGBTRETURN(GGBT) {
       if (!GGBT) return ''; // 处理空值情况
 
@@ -388,11 +746,13 @@ export default {
 
       // 如果字符串长度小于 maxLength，直接返回，不加 "..."
       return GGBT.length <= maxLength ? GGBT : GGBT.slice(0, maxLength) + '...';
-    },
+    }
+    ,
     stripHtml(html) {
       let doc = new DOMParser().parseFromString(html, 'text/html');
       return doc.body.textContent || "";
-    },
+    }
+    ,
     // 获取招聘公告
     getRecruitmentNotices() {
       axios.get(`/dwzpggk/getdwzpggk?YFSFDM=4&YHM=null&QYDM=1`).then(res => {
@@ -405,7 +765,8 @@ export default {
         console.error('获取公告列表失败,网络错误！', error);
         this.$message.error('获取公告列表失败,网络错误！');
       });
-    },
+    }
+    ,
     formatDate(dateStr) {
       return dateStr
           ? new Date(dateStr).toLocaleString(undefined, {
@@ -416,7 +777,8 @@ export default {
             minute: '2-digit'
           })
           : '-';
-    },
+    }
+    ,
     getLoginUserInfo() {
       axios.get('/user/checkSession').then(response => {
         if (!response.data.result) {
@@ -438,7 +800,9 @@ export default {
               position: 'top-left'
             });
           }
+          this.getStudentDataByUsername(this.UserInfo.username);
           this.getXxdm();
+          this.getXsxxk();
           console.log(this.UserInfo);
 
         }
@@ -449,7 +813,8 @@ export default {
           this.$router.push({name: 'StudentLoginView'});
         }, 1000);
       });
-    },
+    }
+    ,
     getXxdm() {
       axios.get(`/xxdmk/getXxdmk?YHM=${this.UserInfo.username}&YHSFDM=4`).then(response => {
         if (response.data.result) {
@@ -465,7 +830,8 @@ export default {
         console.error('获取消息信息失败,网络错误！', error);
         this.$message.error('获取消息信息失败:' + error.message);
       });
-    },
+    }
+    ,
     showMessage() {
       // 如果是登录进来就显示提示消息
       if (this.$route.params.from === 'login') {
@@ -494,11 +860,13 @@ export default {
 
 
       }
-    },
+    }
+    ,
     navigateTo(announcementId) {
       console.log(announcementId);
-      this.$router.push({path: '/public/gonggaoDetail', query: {id: announcementId.ID}})
-    },
+      this.$router.push({path: '/stu/gonggaoDetail', query: {id: announcementId.ID}})
+    }
+    ,
     handleClick(tab, event) {
       console.log("你点击了标签")
       console.log(tab, event);

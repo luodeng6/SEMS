@@ -17,4 +17,8 @@ public interface BjdmkMapper {
     // 根据教师ID获取未分配的班级代码库
     @Select("SELECT * FROM BJDMK WHERE ID NOT IN (select BJID from JSBJDYK where JSID = #{jsid})")
     List<Bjdmk> getBjdmkByIdNotBline(int jsid);
+
+    // 获取教师对应的班级代码
+    @Select("SELECT * FROM BJDMK WHERE ID IN (select BJID from JSBJDYK where JSID = #{jsid})")
+    List<Bjdmk> getBjdmkByJsid(int jsid);
 }

@@ -165,4 +165,29 @@ public class JsdmkServiceImpl implements JsdmkService {
         return result;
     }
 
+    /**
+     * 通过用户名获取教师信息
+     *
+     * @param username 用户名
+     * @return Map<String, Object> 结果
+     */
+    @Override
+    public Map<String, Object> getJsdmkByUsername(String username) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("data", jsdmkMapper.getJsByUsername(username)); // 将教师数据（包含班级信息）放入结果中
+            // 设置成功的返回信息
+            result.put("result", true);
+            result.put("msg", "success");
+            result.put("code", 200);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            result.put("result", false);
+            result.put("msg", "error");
+            result.put("code", 500);
+        }
+        return result;
+    }
+
 }

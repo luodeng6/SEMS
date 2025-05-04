@@ -82,16 +82,18 @@
             </router-link>
           </li>
 
-          <li @click="toggleStatsMenuXiaoYuanOpen" class="hover:bg-blue-50 rounded cursor-pointer">
-            <a class="flex items-center p-2 text-gray-700">
-              <i class="fas fa-chart-pie mr-2"></i>
-              岗位
-              <i :class="{'fas fa-chevron-down': !isStatsMenuXiaoYuanOpen, 'fas fa-chevron-up': isStatsMenuXiaoYuanOpen}" class="ml-auto"></i>
-            </a>
+          <li class="hover:bg-blue-50 rounded cursor-pointer" @click="toggleStatsMenuXiaoYuanOpen">
+
+              <a class="flex items-center p-2 text-gray-700">
+                <i class="fas fa-chart-pie mr-2"></i>
+                岗位
+                <i :class="{'fas fa-chevron-down': !isStatsMenuXiaoYuanOpen, 'fas fa-chevron-up': isStatsMenuXiaoYuanOpen}"
+                   class="ml-auto"></i>
+              </a>
           </li>
           <ul v-show="isStatsMenuXiaoYuanOpen" class="pl-4 space-y-2">
             <li class="hover:bg-blue-50 rounded">
-              <router-link to="/stu/job">
+              <router-link to="/teacher/Job">
                 <a class="flex items-center p-2 text-gray-700">
                   学生岗位
                 </a>
@@ -108,11 +110,12 @@
           </ul>
 
 
-          <li @click="toggleStatsMenu" class="hover:bg-blue-50 rounded cursor-pointer">
+          <li class="hover:bg-blue-50 rounded cursor-pointer" @click="toggleStatsMenu">
             <a class="flex items-center p-2 text-gray-700">
               <i class="fas fa-chart-pie mr-2"></i>
               投递流程
-              <i :class="{'fas fa-chevron-down': !isStatsMenuQiTaOpen, 'fas fa-chevron-up': isStatsMenuQiTaOpen}" class="ml-auto"></i>
+              <i :class="{'fas fa-chevron-down': !isStatsMenuQiTaOpen, 'fas fa-chevron-up': isStatsMenuQiTaOpen}"
+                 class="ml-auto"></i>
             </a>
           </li>
           <ul v-show="isStatsMenuQiTaOpen" class="pl-4 space-y-2">
@@ -147,14 +150,14 @@
             </li>
           </ul>
           <li class="hover:bg-blue-50 rounded" style="cursor: pointer">
-            <a @click="RedirectToHome" class="flex items-center p-2 text-gray-700" id="logout-button">
+            <a id="logout-button" class="flex items-center p-2 text-gray-700" @click="RedirectToHome">
               <i class="fas fa-home mr-2"></i>
               返回首页
             </a>
           </li>
 
           <li class="hover:bg-blue-50 rounded" style="cursor: pointer">
-            <a @click="LoginOutOK" class="flex items-center p-2 text-gray-700" id="logout-button">
+            <a id="logout-button" class="flex items-center p-2 text-gray-700" @click="LoginOutOK">
               <i class="fas fa-sign-out-alt mr-2"></i>
               退出登录
             </a>
@@ -228,7 +231,7 @@ export default {
         buttons: {
           确定: {
             btnClass: 'btn-orange',
-            action:  ()=> {
+            action: () => {
               axios.get("/user/logout").then((response) => {
                 if (response.data.result) {
                   this.$router.push({name: 'TeacherLoginView'});
@@ -245,13 +248,11 @@ export default {
               });
             }
           },
-          取消:  ()=> {
+          取消: () => {
 
           }
         }
       });
-
-
 
 
     }

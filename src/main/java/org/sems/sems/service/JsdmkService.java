@@ -31,4 +31,10 @@ public interface JsdmkService {
      * @return Map<String, Object> 结果
      * */
     Map<String, Object> updateJsdmkData(Jsdmk jsdmk);
+    /**
+     *通过用户名获取教师信息
+     * @param username 用户名
+     * @return Map<String, Object> 结果
+     * */
+    Map<String, Object> getJsdmkByUsername(String username);
 }

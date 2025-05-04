@@ -5,7 +5,7 @@
            :style="{ backgroundImage: 'url(' + currentBackground + ')' }">
         <div class="bg-white bg-opacity-80 rounded-lg shadow-lg p-8 max-w-md mr-0 login-form">
           <h1 class="text-2xl font-bold text-center mb-4">教师登录</h1>
-          <p class="text-center mb-6">一天的工作保持好心情哦~</p>
+          <p class="text-center ">一天的工作保持好心情哦~</p>
 
           <el-form ref="loginForm" :model="form" label-width="100px">
 
@@ -25,12 +25,28 @@
                 <span class="absolute left-3 top-2 text-gray-500"><i class="fas fa-lock"></i></span>
               </div>
             </div>
+            <!-- 验证码 -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">验证码</label>
+                <div class="flex items-center">
+
+                  <input type="text" v-model="form.captcha"
+                         class="mt-1 block w-full border border-gray-300 rounded-md p-2 pl-10" placeholder="输入验证码">
+                  <img :src="captchaImg"
+                       @click="refreshCaptcha"
+                       alt="验证码"
+                       class="ml-4 h-12 w-28 border rounded-md cursor-pointer object-cover"
+                       title="看不清？点击刷新"/>
+                </div>
+              </div>
+
+
             <el-alert v-show="Alt.isShowArl"
                       :title="Alt.AltMSG"
                       :type="Alt.AltType"
                       effect="dark">
             </el-alert>
-            <br>
+
             <button @click="handleLogin"
                     class="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200">
               登录
@@ -45,13 +61,13 @@
 
 <script>
 import axios from 'axios'
-import {EventBus} from "@/event-bus";
 import {ServerIP} from "@/SystemConfig";
 
 export default {
   name: 'TeacherLoginView',
   data() {
     return {
+      captchaImg: '' , // 验证码图片 URL
       Alt: {
         isShowArl: false,
         AltMSG: '',
@@ -67,23 +83,37 @@ export default {
       password: '',
       backgrounds: [
         ServerIP + '/img.png',
-        // 'http://localhost:83/img_1.png',
-        ServerIP + '/1.png',
+        'https://www.gxtcmu.edu.cn/upload/history/main/uploadfiles/xwzx/2018/10/201810311630534646_700_370.jpg',
+          'https://www.gxtcmu.edu.cn/upload/history/main/uploadfiles/xygk/2015/11/201511240947535838_700_370.jpg',
+          'https://www.gxtcmu.edu.cn/upload/history/main/uploadfiles/xygk/2015/11/201511181640127976_700_370.jpg',
+          'https://www.gxtcmu.edu.cn/upload/history/main/uploadfiles/xygk/2015/11/201511181646542827_700_370.jpg'
       ],
       currentBackgroundIndex: 0,
     }
   },
   methods: {
+    // 获取验证码图片
+    refreshCaptcha() {
+      axios.get("/captcha").then(response => {
+        this.captchaImg = response.data.image;
+      }).catch(error => {
+        console.error(error);
+      });
+    },
     async handleLogin() {
       // 登录逻辑
+      if (this.form.captcha === "") {
+        this.loginState(false, '请输入验证码');
+        return;
+      }
       if (this.form.username === "") {
         this.loginState(false, '请输入账号');
       } else {
-
         try {
           const DataForm = new FormData();
           DataForm.append('username', this.form.username);
           DataForm.append('password', this.form.password);
+          DataForm.append('captcha', this.form.captcha);
 
           const response = await axios.post('/user/login', DataForm);
           console.log(response.data)
@@ -102,8 +132,7 @@ export default {
           this.visible = true; // 显示登录失败弹窗
         }
       }
-    }
-    ,
+    },
     loginState(isLoginSuccess, msg) {
       this.Alt.AltMSG = msg;
       if (isLoginSuccess) {
@@ -119,10 +148,9 @@ export default {
     }
   },
   mounted() {
-
     // 读取当前服务器地址
     console.log("当前服务器地址：" + ServerIP);
-
+    this.refreshCaptcha();  // 初始化获取验证码
     this.isShow = true;
     setInterval(() => {
       this.currentBackgroundIndex = (this.currentBackgroundIndex + 1) % this.backgrounds.length;
@@ -139,6 +167,13 @@ export default {
 </script>
 
 <style scoped>
+
+.p-8 {
+  padding: 2rem;
+  padding-top: 10px !important;
+}
+
+
 .login {
   background-size: cover;
   background-position: center;
@@ -187,6 +222,3 @@ button:hover {
   pointer-events: none; /* 禁止图标的鼠标事件 */
 }
 </style>
-
-<!-- 在你的 HTML 文件中引入 Font Awesome -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->

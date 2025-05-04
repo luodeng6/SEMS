@@ -26,4 +26,10 @@ public class BjdmkController {
         System.out.println("--获取指定教师未对应的班级:教师id="+jsid);
         return bjdmkService.getNoTeacherBjdmkInfo(jsid);
     }
+
+    @GetMapping("/getAllBjdmkByTeacher")
+    public Map<String, Object> getAllBjdmkByTeacher(int jsid) {
+        System.out.println("--获取指定教师对应的班级:教师id="+jsid);
+        return bjdmkService.getBjdmkByJsid(jsid);
+    }
 }
